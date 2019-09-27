@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/slide_image"
+        android:src="@drawable/shape_plumbing_service"
+        style="@style/ImageSlideStyle" />
+
+    <TextView
+        android:id="@+id/slide_heading"
+        android:layout_below="@+id/slide_image"
+        android:text="Plumbing Services"
+        style="@style/HeadingSlideStyle" />
+
+    <TextView
+        android:id="@+id/slide_desc"
+        android:text="It's easy, convenient and fast! You don't have to leave your house and don't need to ask anyone Just use AloMe"
+        android:layout_below="@+id/slide_heading"
+        style="@style/TextSlideStyle" />
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <item
+        android:icon="@drawable/ic_main_bottom_nav_bar_promotion"
+        android:enabled="true"
+        android:id="@+id/item1"
+        android:title="@string/tab_service_text"
+        android:contentDescription="@string/tab_service_text"/>
+    <item
+        android:icon="@drawable/ic_main_bottom_nav_bar_job_list"
+        android:enabled="true" android:id="@+id/item2"
+        android:title="@string/tab_job_list_text"
+        android:contentDescription="@string/tab_job_list_text"/>
+    <!--<item-->
+        <!--android:icon="@drawable/ic_main_bottom_nav_bar_chat"-->
+        <!--android:enabled="true"-->
+        <!--android:id="@+id/item3"-->
+        <!--android:title="@string/tab_chat_text"-->
+        <!--android:contentDescription="@string/tab_chat_text"/>-->
+    <item
+        android:icon="@drawable/ic_main_bottom_nav_bar_menu"
+        android:enabled="true"
+        android:id="@+id/item4"
+        android:title="@string/tab_menu_text"
+        android:contentDescription="@string/tab_menu_text"/>
+</menu>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".activity.LandingActivity">
+
+    <TextView
+        android:id="@+id/txtAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        android:text="AloMe"
+        android:textSize="40sp"
+        android:fontFamily="@font/thaisansneue_bold"
+        android:layout_marginTop="20dp"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_below="@+id/txtAppName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewPager"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/dotsLayout"/>
+
+    <LinearLayout
+        android:layout_below="@+id/dotsLayout"
+        android:layout_marginLeft="@dimen/padding_48"
+        android:layout_marginRight="@dimen/padding_48"
+        android:layout_marginTop="@dimen/padding_48"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnFacebookSignIn"
+            android:text="@string/landing_page_facebook_login"
+            style="@style/FacebookButtonStyle"/>
+        <Button
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_marginTop="@dimen/padding_12"
+            android:text="@string/landing_page_google_login"
+            style="@style/GoogleButtonStyle"/>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16">
+            <View
+                android:background="@drawable/available_date_time_recycler_view_divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_weight="1"/>
+            <TextView
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@color/gray_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_8"
+                android:layout_marginRight="@dimen/padding_8"
+                android:text="@string/landing_page_or_text"
+                android:fontFamily="@font/thaisansneue_regular"/>
+            <View
+                android:background="@drawable/available_date_time_recycler_view_divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnSignInSignUp"
+            android:layout_marginLeft="@dimen/padding_24"
+            android:layout_marginTop="@dimen/padding_16"
+            android:layout_marginRight="@dimen/padding_24"
+            android:text="@string/landing_page_login_register_btn"
+            style="@style/SignInSignUpButtonStyle"/>
+    </LinearLayout>
+</RelativeLayout>
