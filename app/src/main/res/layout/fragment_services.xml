@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:layout_width="match_parent"
-android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Service"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/layoutSearch"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingTop="@dimen/padding_8"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:textSize="@dimen/text_size_20"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:id="@+id/btnSearch"
+            android:background="@drawable/orange_btn_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_8"
+            android:hint="@string/main_page_main_category_btn"
+            android:fontFamily="@font/thaisansneue_bold"/>
+    </FrameLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layoutSearch">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:clipToPadding="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <!--<include -->
+        <!--android:id="@+id/layoutNoconnection" -->
+        <!--android:visibility="gone" -->
+        <!--android:layout_width="match_parent" -->
+        <!--android:layout_height="match_parent" -->
+        <!--layout="@layout/layout_no_internet_connection_include_icon"/>-->
+</RelativeLayout>

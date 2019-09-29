@@ -66,7 +66,7 @@
         android:layout_marginTop="@dimen/padding_4"
         android:fontFamily="@font/thaisansneue_regular"/>
     <Button
-        android:id="@+id/btnSignInSignUp"
+        android:id="@+id/btnSignUp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/padding_24"
         android:layout_marginBottom="@dimen/padding_4"
