@@ -14,9 +14,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
+import com.thesis.alome.config.PrefUtils;
+import com.thesis.alome.dao.RespSignIn;
+import com.thesis.alome.config.ApiClient;
+import com.thesis.alome.config.ApiServices;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class SignInFragment extends Fragment {
 
@@ -38,11 +48,32 @@ public class SignInFragment extends Fragment {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validateEmail() | !validatePassword()){
+                String email = edtEmail.getText().toString().trim();
+                String password = edtPassword.getText().toString().trim();
+                if(!validateEmail(email) | !validatePassword(password)){
                     return;
                 }else {
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
+
+                    ApiServices apiServices = ApiClient.getAuthClient().create(ApiServices.class);
+                    Call<RespSignIn> call = apiServices.signIn(email,password,"password","CUSTOMER");
+                    call.enqueue(new Callback<RespSignIn>() {
+                        @Override
+                        public void onResponse(Call<RespSignIn> call, Response<RespSignIn> resp) {
+                            if(resp.code() == 400){
+                                Toast.makeText(getActivity(), "Username or Password is invalid", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getActivity(), "Login success", Toast.LENGTH_SHORT).show();
+                                PrefUtils.storeApiKey(getContext(),resp.body().getAccessToken());
+                                Intent intent = new Intent(getActivity(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<RespSignIn> call, Throwable t) {
+                            Toast.makeText(getActivity(), "Please check the internet", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                 }
             }
         });
@@ -73,8 +104,8 @@ public class SignInFragment extends Fragment {
             }
         });
     }
-    private boolean validateEmail() {
-        String email = edtEmail.getText().toString().trim();
+    private boolean validateEmail(String email) {
+
         if (email.isEmpty()) {
             tvEmailError.setText(R.string.signup_page_validate_email_text);
             return false;
@@ -87,8 +118,7 @@ public class SignInFragment extends Fragment {
         return true;
     }
 
-    private boolean validatePassword(){
-        String password = edtPassword.getText().toString().trim();
+    private boolean validatePassword(String password){
         if(password.isEmpty()){
             tvPasswordError.setText(R.string.signup_page_validate_empty_password_text);
             return false;

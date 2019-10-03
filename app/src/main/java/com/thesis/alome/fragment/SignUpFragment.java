@@ -1,14 +1,13 @@
 package com.thesis.alome.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +19,19 @@ import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
+import com.thesis.alome.activity.SignInSignUpActivity;
+import com.thesis.alome.adapter.TabAdapter;
+import com.thesis.alome.config.ApiServices;
+import com.thesis.alome.config.ApiClient;
+import com.thesis.alome.config.PrefUtils;
+import com.thesis.alome.dao.Customer;
+import com.thesis.alome.dao.ReqSignUp;
+import com.thesis.alome.dao.RespDefault;
+import com.thesis.alome.dao.RespSignIn;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class SignUpFragment extends Fragment {
@@ -42,11 +54,37 @@ public class SignUpFragment extends Fragment {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validateFullName() | !validateEmail() | !validatePassword() | !validatePassConfirm()){
+
+                String fullName = edtFullName.getText().toString().trim();
+                final String email = edtEmail.getText().toString().trim();
+                final String password = edtPassword.getText().toString().trim();
+                String passConfirm = edtConfirmPassword.getText().toString().trim();
+
+
+                if(!validateFullName(fullName) | !validateEmail(email)
+                        | !validatePassword(password) | !validatePassConfirm(passConfirm,password)){
                     return;
                 }else{
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
+                    ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
+                    Call<RespDefault> callSignup = apiServices.signUp(new ReqSignUp(email,password));
+                    callSignup.enqueue(new Callback<RespDefault>() {
+                        @Override
+                        public void onResponse(Call<RespDefault> call, Response<RespDefault> response) {
+
+                            if(response.body().getStatus()==200 && response.body().getMessage().equals("Success")){
+                                Toast.makeText(getActivity(), "Register success", Toast.LENGTH_SHORT).show();
+                               // ((MainActivity) getActivity()).switchLoginFragment();
+                            }else {
+                                tvEmailError.setText("Email is already registered");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<RespDefault> call, Throwable t) {
+                            Toast.makeText(getActivity(), "Please check the internet", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                 }
             }
         });
@@ -104,8 +142,8 @@ public class SignUpFragment extends Fragment {
         });
     }
 
-    private boolean validateFullName(){
-        String fullName = edtFullName.getText().toString().trim();
+    private boolean validateFullName(String fullName){
+
         if(fullName.isEmpty()){
             tvFullNameError.setText(R.string.signup_page_validate_fullname_text);
             return false;
@@ -113,8 +151,8 @@ public class SignUpFragment extends Fragment {
         return true;
     }
 
-    private boolean validateEmail() {
-        String email = edtEmail.getText().toString().trim();
+    private boolean validateEmail(String email) {
+
         if (email.isEmpty()) {
             tvEmailError.setText(R.string.signup_page_validate_email_text);
             return false;
@@ -127,8 +165,8 @@ public class SignUpFragment extends Fragment {
         return true;
     }
 
-    private boolean validatePassword(){
-        String password = edtPassword.getText().toString().trim();
+    private boolean validatePassword(String password){
+
         if(password.isEmpty()){
             tvPasswordError.setText(R.string.signup_page_validate_empty_password_text);
             return false;
@@ -140,9 +178,8 @@ public class SignUpFragment extends Fragment {
         return true;
     }
 
-    private boolean validatePassConfirm(){
-        String passConfirm = edtConfirmPassword.getText().toString().trim();
-        String pass = edtPassword.getText().toString().trim();
+    private boolean validatePassConfirm(String passConfirm, String pass){
+
         if(passConfirm.isEmpty()){
             tvConfirmPasswordError.setText(R.string.signup_page_validate_empty_confirm_password_text);
             return false;
