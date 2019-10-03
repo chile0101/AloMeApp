@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 
 import com.thesis.alome.R;
@@ -34,5 +35,9 @@ public class SignInSignUpActivity extends AppCompatActivity {
     private void mapping(){
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
+    }
+
+    public void switchSignInFragment(){
+       viewPager.setCurrentItem(0);
     }
 }

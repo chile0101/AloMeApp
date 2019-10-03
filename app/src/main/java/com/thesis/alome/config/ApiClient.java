@@ -40,17 +40,20 @@ public class ApiClient {
     }
 
     public static Retrofit getAuthClient(){
-        if(okHttpClient == null) {
+        //OkHttpClient okHttpClient = null;
+       // if(okHttpClient == null) {
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor("CUSTOMER", "alome@1510305"));
             okHttpClient = httpClient.build();
-        }
-        if(retrofit == null){
+       // }
+       // Retrofit retrofit = null;
+       // if(retrofit == null){
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient)
                     .build();
-        }
+       // }
+
         return retrofit;
     }
 

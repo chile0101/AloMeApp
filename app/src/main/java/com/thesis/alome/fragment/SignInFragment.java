@@ -50,15 +50,14 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                 String email = edtEmail.getText().toString().trim();
                 String password = edtPassword.getText().toString().trim();
-               // if(!validateEmail(email) | !validatePassword(password)){
-                //    return;
-               // }else {
-
-                    ApiServices apiServices = ApiClient.getAuthClient().create(ApiServices.class);
-                    Call<RespSignIn> call = apiServices.signIn(email,password,"password","CUSTOMER");
-                    call.enqueue(new Callback<RespSignIn>() {
+                if(!validateEmail(email) | !validatePassword(password)){
+                    return;
+                }else {
+                    ApiServices apiServicesLogin = ApiClient.getAuthClient().create(ApiServices.class);
+                    Call<RespSignIn> callLogin = apiServicesLogin.signIn(email,password,"password","CUSTOMER");
+                    callLogin.enqueue(new Callback<RespSignIn>() {
                         @Override
-                        public void onResponse(Call<RespSignIn> call, Response<RespSignIn> resp) {
+                        public void onResponse(Call<RespSignIn> callLogin, Response<RespSignIn> resp) {
                             if(resp.code() == 400){
                                 Toast.makeText(getActivity(), "Username or Password is invalid", Toast.LENGTH_SHORT).show();
                             }else{
@@ -73,8 +72,7 @@ public class SignInFragment extends Fragment {
                             Toast.makeText(getActivity(), "Please check the internet", Toast.LENGTH_SHORT).show();
                         }
                     });
-
-               // }
+                }
             }
         });
 

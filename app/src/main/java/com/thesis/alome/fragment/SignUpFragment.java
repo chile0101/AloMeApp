@@ -18,17 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
-import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.activity.SignInSignUpActivity;
-import com.thesis.alome.adapter.TabAdapter;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.ApiClient;
-import com.thesis.alome.config.PrefUtils;
-import com.thesis.alome.dao.Customer;
 import com.thesis.alome.dao.ReqSignUp;
 import com.thesis.alome.dao.RespDefault;
-import com.thesis.alome.dao.RespSignIn;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,10 +55,10 @@ public class SignUpFragment extends Fragment {
                 String passConfirm = edtConfirmPassword.getText().toString().trim();
 
 
-              //  if(!validateFullName(fullName) | !validateEmail(email)
-             //           | !validatePassword(password) | !validatePassConfirm(passConfirm,password)){
-             //       return;
-             //   }else{
+                if(!validateFullName(fullName) | !validateEmail(email)
+                        | !validatePassword(password) | !validatePassConfirm(passConfirm,password)){
+                    return;
+                }else{
                     ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
                     Call<RespDefault> callSignup = apiServices.signUp(new ReqSignUp(email,password));
                     callSignup.enqueue(new Callback<RespDefault>() {
@@ -73,7 +67,7 @@ public class SignUpFragment extends Fragment {
 
                             if(response.body().getStatus()==200 && response.body().getMessage().equals("Success")){
                                 Toast.makeText(getActivity(), "Register success", Toast.LENGTH_SHORT).show();
-                               // ((MainActivity) getActivity()).switchLoginFragment();
+                                ((SignInSignUpActivity) getActivity()).switchSignInFragment();
                             }else {
                                 tvEmailError.setText("Email is already registered");
                             }
@@ -86,7 +80,7 @@ public class SignUpFragment extends Fragment {
                     });
 
                 }
-           // }
+            }
         });
 
         edtFullName.addTextChangedListener(new TextWatcher() {
