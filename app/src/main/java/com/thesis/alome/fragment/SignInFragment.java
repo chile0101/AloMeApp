@@ -50,9 +50,9 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                 String email = edtEmail.getText().toString().trim();
                 String password = edtPassword.getText().toString().trim();
-                if(!validateEmail(email) | !validatePassword(password)){
-                    return;
-                }else {
+               // if(!validateEmail(email) | !validatePassword(password)){
+                //    return;
+               // }else {
 
                     ApiServices apiServices = ApiClient.getAuthClient().create(ApiServices.class);
                     Call<RespSignIn> call = apiServices.signIn(email,password,"password","CUSTOMER");
@@ -74,7 +74,7 @@ public class SignInFragment extends Fragment {
                         }
                     });
 
-                }
+               // }
             }
         });
 

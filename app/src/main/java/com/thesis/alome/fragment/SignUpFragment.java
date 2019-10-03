@@ -61,10 +61,10 @@ public class SignUpFragment extends Fragment {
                 String passConfirm = edtConfirmPassword.getText().toString().trim();
 
 
-                if(!validateFullName(fullName) | !validateEmail(email)
-                        | !validatePassword(password) | !validatePassConfirm(passConfirm,password)){
-                    return;
-                }else{
+              //  if(!validateFullName(fullName) | !validateEmail(email)
+             //           | !validatePassword(password) | !validatePassConfirm(passConfirm,password)){
+             //       return;
+             //   }else{
                     ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
                     Call<RespDefault> callSignup = apiServices.signUp(new ReqSignUp(email,password));
                     callSignup.enqueue(new Callback<RespDefault>() {
@@ -86,7 +86,7 @@ public class SignUpFragment extends Fragment {
                     });
 
                 }
-            }
+           // }
         });
 
         edtFullName.addTextChangedListener(new TextWatcher() {

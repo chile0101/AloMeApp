@@ -2,6 +2,10 @@ package com.thesis.alome.config;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+
+import com.thesis.alome.activity.SignInSignUpActivity;
+import com.thesis.alome.fragment.SignUpFragment;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -18,7 +22,6 @@ import static com.thesis.alome.utils.Constants.BASE_URL;
 
 public class ApiClient {
     private static Retrofit retrofit = null;
-    private static ApiClient apiClient;
     private static int REQUEST_TIMEOUT = 60;
     private static OkHttpClient okHttpClient;
 
@@ -30,7 +33,6 @@ public class ApiClient {
             retrofit = new Retrofit.Builder()
                         .baseUrl(BASE_URL)
                         .client(okHttpClient)
-                      // .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
         }
@@ -53,7 +55,7 @@ public class ApiClient {
     }
 
     private static void initOkHttp(final Context context) {
-        OkHttpClient.Builder httpClient = new OkHttpClient().newBuilder()
+         OkHttpClient.Builder httpClient = new OkHttpClient().newBuilder()
                 .connectTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS);
@@ -61,7 +63,6 @@ public class ApiClient {
         // Check log
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         httpClient.addInterceptor(interceptor);
 
         httpClient.addInterceptor(new Interceptor() {
@@ -71,13 +72,11 @@ public class ApiClient {
                 Request.Builder requestBuilder = original.newBuilder()
                         .addHeader("Accept", "application/json")
                         .addHeader("Content-Type", "application/json");
-
-                 //Adding Authorization token (API Key)
-                 //Requests will be denied without API key
-                if (!TextUtils.isEmpty(PrefUtils.getApiKey(context))) {
-                    requestBuilder.addHeader("Authorization", "bearer "+ PrefUtils.getApiKey(context));
+                if(!(context instanceof SignInSignUpActivity)){
+                    if (!TextUtils.isEmpty(PrefUtils.getApiKey(context))) {
+                        requestBuilder.addHeader("Authorization", "bearer "+ PrefUtils.getApiKey(context));
+                    }
                 }
-
                 Request request = requestBuilder.build();
                 return chain.proceed(request);
             }
