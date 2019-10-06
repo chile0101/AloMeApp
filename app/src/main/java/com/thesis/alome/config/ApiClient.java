@@ -19,6 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.thesis.alome.utils.Constants.BASE_URL;
+import static com.thesis.alome.utils.Constants.BASE_URL_TEST;
 
 public class ApiClient {
     private static Retrofit retrofit = null;
@@ -40,20 +41,22 @@ public class ApiClient {
     }
 
     public static Retrofit getAuthClient(){
-        //OkHttpClient okHttpClient = null;
-       // if(okHttpClient == null) {
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor("CUSTOMER", "alome@1510305"));
             okHttpClient = httpClient.build();
-       // }
-       // Retrofit retrofit = null;
-       // if(retrofit == null){
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient)
                     .build();
-       // }
+        return retrofit;
+    }
 
+    public static Retrofit getClientTest() {
+        Retrofit retrofit = null;
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL_TEST)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
         return retrofit;
     }
 

@@ -3,11 +3,11 @@ package com.thesis.alome.dao;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RespDefault {
+public class RespBase<T> {
 
     @SerializedName("status")
     @Expose
-    private int status;
+    private boolean status;
     @SerializedName("message")
     @Expose
     private String message;
@@ -15,11 +15,11 @@ public class RespDefault {
     @Expose
     private Object data;
 
-    public int getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

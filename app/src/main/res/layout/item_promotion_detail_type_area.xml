@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:orientation="vertical"
+android:id="@+id/layoutArea"
+android:background="@android:color/white"
+android:paddingTop="@dimen/padding_16"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+<Button
+    android:textColor="@android:color/white"
+    android:textColorHint="@android:color/white"
+    android:id="@+id/btnSelectArea"
+    android:background="@drawable/orange_btn_selector"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/padding_16"
+    android:layout_marginRight="@dimen/padding_16"
+    android:layout_marginBottom="@dimen/padding_4"
+    android:hint="@string/promotion_detail_page_search_hint"/>
+</LinearLayout>
+
+
+<!--<RelativeLayout-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content">-->
+<!--<com.glide.slider.library.SliderLayout-->
+    <!--android:id="@+id/slider"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"/>-->
+<!--<com.glide.slider.library.Indicators.PagerIndicator-->
+    <!--android:gravity="center"-->
+    <!--android:id="@+id/custom_indicator"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"/>-->
+<!--</RelativeLayout>-->

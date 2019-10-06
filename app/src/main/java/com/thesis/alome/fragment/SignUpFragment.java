@@ -1,13 +1,11 @@
 package com.thesis.alome.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +20,7 @@ import com.thesis.alome.activity.SignInSignUpActivity;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.dao.ReqSignUp;
-import com.thesis.alome.dao.RespDefault;
+import com.thesis.alome.dao.RespBase;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,12 +58,12 @@ public class SignUpFragment extends Fragment {
                     return;
                 }else{
                     ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
-                    Call<RespDefault> callSignup = apiServices.signUp(new ReqSignUp(email,password));
-                    callSignup.enqueue(new Callback<RespDefault>() {
+                    Call<RespBase> callSignup = apiServices.signUp(new ReqSignUp(email,password));
+                    callSignup.enqueue(new Callback<RespBase>() {
                         @Override
-                        public void onResponse(Call<RespDefault> call, Response<RespDefault> response) {
+                        public void onResponse(Call<RespBase> call, Response<RespBase> response) {
 
-                            if(response.body().getStatus()==200 && response.body().getMessage().equals("Success")){
+                            if(response.body().getStatus() == true && response.body().getMessage().equals("Success")){
                                 Toast.makeText(getActivity(), "Register success", Toast.LENGTH_SHORT).show();
                                 ((SignInSignUpActivity) getActivity()).switchSignInFragment();
                             }else {
@@ -74,7 +72,7 @@ public class SignUpFragment extends Fragment {
                         }
 
                         @Override
-                        public void onFailure(Call<RespDefault> call, Throwable t) {
+                        public void onFailure(Call<RespBase> call, Throwable t) {
                             Toast.makeText(getActivity(), "Please check the internet", Toast.LENGTH_SHORT).show();
                         }
                     });

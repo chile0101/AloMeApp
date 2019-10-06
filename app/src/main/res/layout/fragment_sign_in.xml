@@ -8,6 +8,7 @@
     android:layout_height="200dp">
     <EditText
         android:id="@+id/edtEmail"
+        android:text="levanchi74@gmail.com"
         android:hint="@string/signup_page_email_text"
         android:inputType="textEmailAddress"
         android:fontFamily="@font/thaisansneue_regular"
@@ -23,6 +24,7 @@
         android:fontFamily="@font/thaisansneue_regular"/>
     <EditText
         android:id="@+id/edtPassword"
+        android:text="chinh19041997"
         android:hint="@string/sign_in_password"
         android:inputType="textPassword"
         android:fontFamily="@font/thaisansneue_regular"

@@ -124,6 +124,12 @@
         <item name="android:fontFamily">@font/thaisansneue_regular</item>
     </style>
 
+    <style name="BottomNavigationView">
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <style name="BottomNavigationView.Active">
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
 
 
 
