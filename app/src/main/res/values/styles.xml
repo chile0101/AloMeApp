@@ -111,7 +111,7 @@
     <!--=====================================================-->
 
     <style name="EditTextUnderLineStyle">
-        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/dark_gray_color</item>
         <item name="android:textColorHint">@color/gray_color</item>
         <item name="android:background">@drawable/edittext_bg</item>

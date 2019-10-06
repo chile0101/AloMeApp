@@ -1,75 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="360dp">
+    android:layout_height="wrap_content"
+>
+
     <EditText
         android:id="@+id/edtFullName"
+        style="@style/EditTextUnderLineStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisansneue_regular"
         android:hint="@string/profile_page_name_text"
         android:inputType="text"
-        android:fontFamily="@font/thaisansneue_regular"
-        style="@style/EditTextUnderLineStyle"/>
+        app:layout_constraintBottom_toTopOf="@+id/tvFullNameError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <TextView
-        android:textSize="@dimen/text_size_12"
-        android:textColor="@color/badge_color"
-        android:gravity="right"
         android:id="@+id/tvFullNameError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
-        android:fontFamily="@font/thaisansneue_regular"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisansneue_regular"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFullName" />
+
     <EditText
         android:id="@+id/edtEmail"
+        style="@style/EditTextUnderLineStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisansneue_regular"
         android:hint="@string/signup_page_email_text"
         android:inputType="textEmailAddress"
-        android:fontFamily="@font/thaisansneue_regular"
-        style="@style/EditTextUnderLineStyle"/>
+        app:layout_constraintBottom_toTopOf="@+id/tvEmailError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFullNameError" />
+
     <TextView
-        android:textSize="@dimen/text_size_12"
-        android:textColor="@color/badge_color"
-        android:gravity="right"
         android:id="@+id/tvEmailError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
-        android:fontFamily="@font/thaisansneue_regular"/>
+        android:fontFamily="@font/thaisansneue_regular"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toTopOf="@+id/edtPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
     <EditText
         android:id="@+id/edtPassword"
+        style="@style/EditTextUnderLineStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisansneue_regular"
         android:hint="@string/sign_in_password"
         android:inputType="textPassword"
-        android:fontFamily="@font/thaisansneue_regular"
-        style="@style/EditTextUnderLineStyle"/>
+        app:layout_constraintBottom_toTopOf="@+id/tvPasswordError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailError" />
+
     <TextView
-        android:textSize="@dimen/text_size_12"
-        android:textColor="@color/badge_color"
-        android:gravity="right"
         android:id="@+id/tvPasswordError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
-        android:fontFamily="@font/thaisansneue_regular"/>
-    <EditText android:id="@+id/edtConfirmPassword"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisansneue_regular"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toTopOf="@+id/edtConfirmPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
+    <EditText
+        android:id="@+id/edtConfirmPassword"
+        style="@style/EditTextUnderLineStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisansneue_regular"
         android:hint="@string/signup_page_confirm_password_text"
         android:inputType="textPassword"
-        android:fontFamily="@font/thaisansneue_regular"
-        style="@style/EditTextUnderLineStyle"/>
+        app:layout_constraintBottom_toTopOf="@+id/tvConfirmPasswordError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordError" />
+
     <TextView
-        android:textSize="@dimen/text_size_12"
-        android:textColor="@color/badge_color"
-        android:gravity="right"
         android:id="@+id/tvConfirmPasswordError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
-        android:fontFamily="@font/thaisansneue_regular"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/thaisansneue_regular"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword" />
+
     <Button
         android:id="@+id/btnSignUp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/padding_24"
-        android:layout_marginBottom="@dimen/padding_4"
+        style="@style/OrangeButtonWrapContentStyle"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/signin_signup_page_register_text"
-        style="@style/OrangeButtonWrapContentStyle"/>
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvConfirmPasswordError" />
+</android.support.constraint.ConstraintLayout>
