@@ -47,5 +47,10 @@ dependencies {
     //implementation "com.jakewharton:butterknife:8.8.1"
     //annotationProcessor "com.jakewharton:butterknife-compiler:8.8.1"
 
+    //slider
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+
+    implementation 'com.github.florent37:expansionpanel:1.1.1'
 
 }

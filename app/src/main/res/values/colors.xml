@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
@@ -91,10 +92,12 @@
     <color name="facebook_btn_start_gradient_color">#3b5998</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
+
     <color name="glide_slider_background_color">#000000</color>
     <color name="glide_slider_description_background_color">#77000000</color>
     <color name="glide_slider_description_color">#ffffff</color>
     <color name="glide_slider_indicator_color">#ffffff</color>
+
     <color name="google_btn_end_gradient_color">#4272f4</color>
     <color name="google_btn_press_end_gradient_color">#3d6ae2</color>
     <color name="google_btn_press_start_gradient_color">#3d7be2</color>

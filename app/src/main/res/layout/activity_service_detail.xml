@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include layout="@layout/toolbar"/>
+
+    <com.daimajia.slider.library.SliderLayout
+        android:layout_below="@id/toolbar"
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingTop="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_below="@+id/slider"
+        android:text="Clean air conditioner with Stain Remover"
+        android:textSize="@dimen/text_size_26"
+        android:textColor="@color/black_color"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/thaisansneue_bold"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_above="@+id/wrapperbtn"
+       android:id="@+id/scollview"
+        android:layout_below="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:expansion_openOnlyOne="false"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_services_detail_type_title"/>
+
+            <View
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="#CCC" />
+
+            <include layout="@layout/item_services_detail_type_title"/>
+
+            <View
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="#CCC" />
+
+            <include layout="@layout/item_services_detail_type_title"/>
+
+        </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+
+        android:id="@+id/wrapperbtn"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:id="@+id/btnSelectArea"
+            android:background="@drawable/orange_btn_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16"
+            android:layout_marginLeft="@dimen/padding_16"
+            android:layout_marginRight="@dimen/padding_16"
+            android:layout_marginBottom="@dimen/padding_16"
+            android:hint="@string/promotion_detail_page_search_hint"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

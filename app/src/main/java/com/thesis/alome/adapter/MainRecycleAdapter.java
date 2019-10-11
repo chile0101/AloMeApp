@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.LoadMoreServices;
+import com.thesis.alome.activity.ServiceDetailActivity;
 import com.thesis.alome.dao.Service;
 import com.thesis.alome.dao.TypeService;
 
@@ -45,7 +46,6 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
     public void onBindViewHolder(@NonNull final MainRecycleAdapter.ViewHolder viewHolder, final int i) {
 
         final TypeService typeService = (TypeService) typeServiceList.get(i);
-        //typeService = typeServiceList.get(i);
         if(typeService != null){
             viewHolder.tvName.setText(typeService.getTypeName());
             if(typeService.getServices().size() != 0){
@@ -58,8 +58,10 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
                 viewHolder.cv1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"The position is:"+i + typeService.getServices().get(0).getId(),Toast.LENGTH_SHORT).show();
-                    }
+                        Intent intent =  new Intent(context.getApplicationContext(), ServiceDetailActivity.class);
+                        intent.putExtra("serviceId",typeService.getServices().get(0).getId());
+                        context.startActivity(intent);
+                             }
                 });
             }
 
@@ -73,7 +75,9 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
                 viewHolder.cv2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"The position is:"+i + typeService.getServices().get(1).getId(),Toast.LENGTH_SHORT).show();
+                        Intent intent =  new Intent(context.getApplicationContext(), ServiceDetailActivity.class);
+                        intent.putExtra("serviceId",typeService.getServices().get(1).getId());
+                        context.startActivity(intent);
                     }
                 });
             }
@@ -82,6 +86,7 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
                 public void onClick(View v) {
                     Intent intent = new Intent(context.getApplicationContext(), LoadMoreServices.class);
                     intent.putExtra("typeId",typeService.getId());
+                    intent.putExtra("titleService",typeService.getTypeName());
                     context.startActivity(intent);
                 }
             });

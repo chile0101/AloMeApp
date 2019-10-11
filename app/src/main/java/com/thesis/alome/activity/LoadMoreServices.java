@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoadMoreServices extends AppCompatActivity {
+public class LoadMoreServices extends BaseActivity {
 
     RecyclerView recyclerView;
     List<Service> serviceList;
@@ -31,14 +31,16 @@ public class LoadMoreServices extends AppCompatActivity {
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_more_services);
+        initToolbar(R.id.toolbar,getIntent().getStringExtra("titleService"));
 
         recyclerView = (RecyclerView) findViewById(R.id.rcvLoadMore);
+
         ApiServices apiServices = ApiClient.getClient(getApplicationContext()).create(ApiServices.class);
-        Call<RespBase> call = apiServices.getServicesByTypeId(getIntent().getIntExtra("typeId",1));
-        call.enqueue(new Callback<RespBase>() {
+        Call<RespBase<TypeService>> call = apiServices.getServicesByTypeId(getIntent().getIntExtra("typeId",1));
+        call.enqueue(new Callback<RespBase<TypeService>>() {
             @Override
-            public void onResponse(Call<RespBase> call, Response<RespBase> response) {
-                serviceList = (List<Service>) response.body().getData();
+            public void onResponse(Call<RespBase<TypeService>> call, Response<RespBase<TypeService>> response) {
+                serviceList = (List<Service>) response.body().getData().getServices();
                 adapter = new LoadMoreRcvAdapter(serviceList);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -46,7 +48,7 @@ public class LoadMoreServices extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<RespBase> call, Throwable t) {
+            public void onFailure(Call<RespBase<TypeService>> call, Throwable t) {
                 Toast.makeText(LoadMoreServices.this, "Please check internet", Toast.LENGTH_SHORT).show();
             }
         });

@@ -43,10 +43,10 @@ public class ServicesFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         
         ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
-        Call<RespBase> call = apiServices.getMainData();
-        call.enqueue(new Callback<RespBase>() {
+        Call<RespBase<List<TypeService>>> call = apiServices.getMainData();
+        call.enqueue(new Callback<RespBase<List<TypeService>>>() {
             @Override
-            public void onResponse(Call<RespBase> call, Response<RespBase> response) {
+            public void onResponse(Call<RespBase<List<TypeService>>> call, Response<RespBase<List<TypeService>>> response) {
                 typeServiceList = (List<TypeService>) response.body().getData();
                 mainRecycleAdapter = new MainRecycleAdapter(typeServiceList);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -55,13 +55,10 @@ public class ServicesFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<RespBase> call, Throwable t) {
+            public void onFailure(Call<RespBase<List<TypeService>>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Please check internet", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
 
 
 

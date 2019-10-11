@@ -38,13 +38,13 @@ public class LoadMoreRcvAdapter extends RecyclerView.Adapter<LoadMoreRcvAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-//        final Service service = serviceList.get(i);
-//        Picasso.get().load(service.getImageUrl()).into(viewHolder.imgService);
-//        viewHolder.tvName.setText(service.getServiceName());
-//        viewHolder.tvSalePrice.setText("$" + service.getSalePrice());
-//        viewHolder.tvFullPrice.setText( service.getFullPrice());
-//        viewHolder.tvFullPrice.setPaintFlags(viewHolder.tvFullPrice.getPaintFlags()
-//                | Paint.STRIKE_THRU_TEXT_FLAG);
+        final Service service = serviceList.get(i);
+        Picasso.get().load(service.getImageUrl()).into(viewHolder.imgService);
+        viewHolder.tvName.setText(service.getServiceName());
+        viewHolder.tvSalePrice.setText("$" + service.getSalePrice());
+        viewHolder.tvFullPrice.setText("$" + service.getFullPrice());
+        viewHolder.tvFullPrice.setPaintFlags(viewHolder.tvFullPrice.getPaintFlags()
+                | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 
     @Override

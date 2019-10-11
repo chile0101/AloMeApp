@@ -13,7 +13,7 @@ public class RespBase<T> {
     private String message;
     @SerializedName("data")
     @Expose
-    private Object data;
+    private T data;
 
     public boolean getStatus() {
         return status;
@@ -31,11 +31,11 @@ public class RespBase<T> {
         this.message = message;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 

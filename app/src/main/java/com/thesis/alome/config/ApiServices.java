@@ -3,6 +3,10 @@ package com.thesis.alome.config;
 import com.thesis.alome.dao.ReqSignUp;
 import com.thesis.alome.dao.RespBase;
 import com.thesis.alome.dao.RespSignIn;
+import com.thesis.alome.dao.Service;
+import com.thesis.alome.dao.TypeService;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -32,9 +36,11 @@ public interface ApiServices {
     Call<RespBase> getProfile();
 
     @GET("service/types")
-    Call<RespBase> getMainData();
+    Call<RespBase<List<TypeService>>> getMainData();
 
-    @GET("service/types/{typeId}")
-    Call<RespBase> getServicesByTypeId(@Path("typeId") int typeId);
+    @GET("service/types/{id}")
+    Call<RespBase<TypeService>> getServicesByTypeId(@Path("id") int typeId);
+
+    //@GET("/api/docs/services/detail/{id}")
 
 }
