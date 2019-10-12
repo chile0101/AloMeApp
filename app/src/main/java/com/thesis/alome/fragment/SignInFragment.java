@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.config.PrefUtils;
+import com.thesis.alome.dao.Customer;
 import com.thesis.alome.dao.RespSignIn;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
@@ -53,8 +54,8 @@ public class SignInFragment extends Fragment {
                 if(!validateEmail(email) | !validatePassword(password)){
                     return;
                 }else {
-                    ApiServices apiServicesLogin = ApiClient.getAuthClient().create(ApiServices.class);
-                    Call<RespSignIn> callLogin = apiServicesLogin.signIn(email,password,"password","CUSTOMER");
+                    ApiServices apiServices1 = ApiClient.getAuthClient().create(ApiServices.class);
+                    Call<RespSignIn> callLogin = apiServices1.signIn(email,password,"password","CUSTOMER");
                     callLogin.enqueue(new Callback<RespSignIn>() {
                         @Override
                         public void onResponse(Call<RespSignIn> callLogin, Response<RespSignIn> resp) {
@@ -63,8 +64,10 @@ public class SignInFragment extends Fragment {
                             }else{
                                 Toast.makeText(getActivity(), "Login success", Toast.LENGTH_SHORT).show();
                                 PrefUtils.storeApiKey(getContext(),resp.body().getAccessToken());
+
                                 Intent intent = new Intent(getActivity(), MainActivity.class);
                                 startActivity(intent);
+
                             }
                         }
                         @Override

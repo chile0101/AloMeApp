@@ -2,34 +2,41 @@ package com.thesis.alome.dao;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Service {
 
     @SerializedName("id")
     @Expose
     private long id;
+
+    @SerializedName("imgUrls")
+    @Expose
+    private ImgUrl imgUrls;
+
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
+
     @SerializedName("serviceName")
     @Expose
     private String serviceName;
+
     @SerializedName("fullPrice")
     @Expose
     private double fullPrice;
+
     @SerializedName("salePrice")
     @Expose
     private double salePrice;
 
-    public Service() {
-    }
+    @SerializedName("description")
+    @Expose
+    private String description;
 
-    public Service(long id, String imageUrl, String serviceName, double fullPrice, double salePrice) {
-        this.id = id;
-        this.imageUrl = imageUrl;
-        this.serviceName = serviceName;
-        this.fullPrice = fullPrice;
-        this.salePrice = salePrice;
-    }
+    @SerializedName("term")
+    @Expose
+    private String term;
 
     public long getId() {
         return id;
@@ -37,6 +44,14 @@ public class Service {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public ImgUrl getImgUrls() {
+        return imgUrls;
+    }
+
+    public void setImgUrls(ImgUrl imgUrls) {
+        this.imgUrls = imgUrls;
     }
 
     public String getImageUrl() {
@@ -71,4 +86,19 @@ public class Service {
         this.salePrice = salePrice;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTerm() {
+        return term;
+    }
+
+    public void setTerm(String term) {
+        this.term = term;
+    }
 }

@@ -7,22 +7,51 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.thesis.alome.R;
+import com.thesis.alome.config.ApiClient;
+import com.thesis.alome.config.ApiServices;
+import com.thesis.alome.config.PrefUtils;
+import com.thesis.alome.dao.Customer;
+import com.thesis.alome.dao.RespBase;
 import com.thesis.alome.fragment.MoreFragment;
 import com.thesis.alome.fragment.ServiceListFragment;
 import com.thesis.alome.fragment.ServicesFragment;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
+
+    TextView tvWelcome;
+    BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNav = (BottomNavigationView) findViewById(R.id.bottomNavView);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        tvWelcome = (TextView) findViewById(R.id.tvWelcome);
+        bottomNav = (BottomNavigationView) findViewById(R.id.bottomNavView);
 
+        ApiServices apiServices2 = ApiClient.getClient(this).create(ApiServices.class);
+        Call<RespBase<Customer>> callProfile = apiServices2.getProfile(PrefUtils.getApiKey(this));
+        callProfile.enqueue(new Callback<RespBase<Customer>>() {
+            @Override
+            public void onResponse(Call<RespBase<Customer>> call, Response<RespBase<Customer>> response) {
+
+                String shortName = response.body().getData().getFullName();
+                PrefUtils.storeProfile(getApplicationContext(), shortName,response.body().getData().getId());
+                tvWelcome.setText(tvWelcome.getText()+ shortName);
+            }
+            @Override
+            public void onFailure(Call<RespBase<Customer>> call, Throwable t) {
+            }
+        });
+
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.contentContainer,
                 new ServicesFragment()).commit();
     }

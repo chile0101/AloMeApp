@@ -31,7 +31,7 @@
                         android:layout_toLeftOf="@+id/layoutNotification"
                         android:layout_centerVertical="true">
                         <TextView
-                            android:text="Welcome, Chi"
+                            android:text="Welcome, "
                             android:textSize="@dimen/text_size_26"
                             android:textColor="@color/colorPrimary"
                             android:ellipsize="end"

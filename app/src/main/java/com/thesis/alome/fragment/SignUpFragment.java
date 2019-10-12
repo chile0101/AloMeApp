@@ -25,7 +25,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class SignUpFragment extends Fragment {
 
     Button btnSignUp;
@@ -52,7 +51,6 @@ public class SignUpFragment extends Fragment {
                 final String password = edtPassword.getText().toString().trim();
                 String passConfirm = edtConfirmPassword.getText().toString().trim();
 
-
                 if(!validateFullName(fullName) | !validateEmail(email)
                         | !validatePassword(password) | !validatePassConfirm(passConfirm,password)){
                     return;
@@ -63,14 +61,13 @@ public class SignUpFragment extends Fragment {
                         @Override
                         public void onResponse(Call<RespBase> call, Response<RespBase> response) {
 
-                            if(response.body().getStatus() == true && response.body().getMessage().equals("Success")){
+                            if(response.body().getStatus() == true && response.body().getMessage() == null){
                                 Toast.makeText(getActivity(), "Register success", Toast.LENGTH_SHORT).show();
                                 ((SignInSignUpActivity) getActivity()).switchSignInFragment();
                             }else {
                                 tvEmailError.setText("Email is already registered");
                             }
                         }
-
                         @Override
                         public void onFailure(Call<RespBase> call, Throwable t) {
                             Toast.makeText(getActivity(), "Please check the internet", Toast.LENGTH_SHORT).show();

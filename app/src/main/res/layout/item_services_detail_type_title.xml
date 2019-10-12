@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
-    android:paddingLeft="@dimen/padding_16"
-    android:paddingTop="@dimen/padding_8"
     android:paddingRight="@dimen/padding_16"
-    android:paddingBottom="@dimen/padding_8"
+    android:paddingLeft="@dimen/padding_16"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical"
@@ -13,8 +10,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.github.florent37.expansionpanel.ExpansionHeader
-        android:layout_marginTop="@dimen/padding_8"
-        android:layout_marginBottom="@dimen/padding_8"
+
+        android:paddingTop="@dimen/padding_8"
+
+        android:paddingBottom="@dimen/padding_8"
+        android:background="#EEE"
+
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/sampleHeader"
@@ -28,12 +29,13 @@
             android:layout_width="match_parent">
 
             <TextView
+                android:id="@+id/tvSubTitle"
+                android:paddingLeft="@dimen/padding_8"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:textSize="@dimen/text_size_20"
                 android:textColor="@color/black_color"
                 android:layout_centerVertical="true"
-                android:text="Trip name"
                 android:fontFamily="@font/thaisansneue_bold"/>
 
             <ImageView
@@ -62,11 +64,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:background="#EEE"
-                android:gravity="center"
-                android:layout_height="400dp"
-                android:layout_width="match_parent"
-                android:text="content" />
+                android:textColor="@color/black_color"
+                android:id="@+id/tvContent"
+                android:paddingLeft="@dimen/padding_8"
+                android:paddingTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
 
         </LinearLayout>
 

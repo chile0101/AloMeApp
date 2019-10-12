@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.thesis.alome">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thesis.alome">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
-        android:theme="@style/AppTheme"
-        android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher"
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config">
+        android:theme="@style/AppTheme">
         <activity
-            android:theme="@style/FullScreen"
+            android:name=".activity.ProfileActivity"
+            android:label="@string/title_activity_profile"></activity>
+        <activity
             android:name=".activity.LandingActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SignInSignUpActivity"></activity>
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.LoadMoreServices"/>
-        <activity android:name=".activity.ServiceDetailActivity"/>
+        <activity android:name=".activity.SignInSignUpActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.LoadMoreServices" />
+        <activity android:name=".activity.ServiceDetailActivity" />
     </application>
 
 </manifest>

@@ -9,13 +9,13 @@ public class PrefUtils {
     }
 
     private static SharedPreferences getSharedPreferences(Context context) {
-        return context.getSharedPreferences("APP_PREF", Context.MODE_PRIVATE);
+        return context.getSharedPreferences("ALOME", Context.MODE_PRIVATE);
     }
 
-    public static void storeProfile(Context context, String short_name,String id){
+    public static void storeProfile(Context context, String short_name,int id){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.putString("SHORT_NAME", short_name);
-        editor.putString("ID",id);
+        editor.putInt("ID", id);
         editor.commit();
     }
 
@@ -27,5 +27,9 @@ public class PrefUtils {
 
     public static String getApiKey(Context context) {
         return getSharedPreferences(context).getString("ACCESS_TOKEN", null);
+    }
+
+    public static String getShortName(Context context){
+        return getSharedPreferences(context).getString("SHORT_NAME","");
     }
 }

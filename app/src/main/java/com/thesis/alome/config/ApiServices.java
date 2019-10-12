@@ -1,5 +1,6 @@
 package com.thesis.alome.config;
 
+import com.thesis.alome.dao.Customer;
 import com.thesis.alome.dao.ReqSignUp;
 import com.thesis.alome.dao.RespBase;
 import com.thesis.alome.dao.RespSignIn;
@@ -15,6 +16,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 
 public interface ApiServices {
@@ -33,14 +35,15 @@ public interface ApiServices {
     );
 
     @GET("customers/profile")
-    Call<RespBase> getProfile();
+    Call<RespBase<Customer>> getProfile(@Query("access_token") String accessToken);
 
     @GET("service/types")
     Call<RespBase<List<TypeService>>> getMainData();
 
     @GET("service/types/{id}")
-    Call<RespBase<TypeService>> getServicesByTypeId(@Path("id") int typeId);
+    Call<RespBase<TypeService>> getServicesByTypeId(@Path("id") long typeId);
 
-    //@GET("/api/docs/services/detail/{id}")
+    @GET("api/docs/services/detail/{id}")
+    Call<RespBase<Service>> getServiceById(@Path("id") long serviceId);
 
 }
