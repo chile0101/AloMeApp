@@ -12,13 +12,13 @@
           android:id="@+id/layoutForm"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:layout_marginLeft="@dimen/padding_48"
-          android:layout_marginRight="@dimen/padding_48">
+          android:layout_marginLeft="@dimen/_36sdp"
+          android:layout_marginRight="@dimen/_36sdp">
          <ImageView
              android:layout_gravity="center_horizontal"
-             android:layout_width="@dimen/sign_in_sign_up_logo_width"
-             android:layout_height="@dimen/sign_in_sign_up_logo_height"
-             android:layout_marginTop="@dimen/padding_56"
+             android:layout_width="@dimen/_112sdp"
+             android:layout_height="@dimen/_112sdp"
+             android:layout_marginTop="@dimen/_42sdp"
              android:src="@drawable/ic_launcher_full"/>
 
          <android.support.design.widget.TabLayout
@@ -28,49 +28,16 @@
              android:minHeight="?actionBarSize"
              app:tabGravity="fill"
              app:tabMode="fixed"
-             android:layout_marginTop="@dimen/padding_24"
+             android:layout_marginTop="@dimen/_18sdp"
              style="@style/SignInSignUpTabLayout" />
 
               <android.support.v4.view.ViewPager
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_marginTop="20dp"
-                  android:padding="@dimen/padding_16"
-
+                  android:layout_marginTop="@dimen/_15sdp"
+                  android:paddingTop="@dimen/_12sdp"
+                  android:paddingBottom="@dimen/_12sdp"
                   android:id="@+id/viewPager"/>
-
-         <!--<android.support.design.widget.TabLayout-->
-             <!--android:id="@+id/tabLayout"-->
-             <!--android:layout_width="match_parent"-->
-             <!--android:layout_height="wrap_content"-->
-             <!--android:layout_marginTop="@dimen/padding_24"-->
-             <!--app:tabGravity="0"-->
-             <!--app:tabMaxWidth="0dp"-->
-             <!--app:tabMode="1"-->
-             <!--style="@style/SignInSignUpTabLayout"/>-->
-         <!--<ImageView android:id="@+id/ivTabIndicator"-->
-             <!--android:layout_width="@dimen/sign_in_sign_up_tab_indicator_size"-->
-             <!--android:layout_height="@dimen/sign_in_sign_up_tab_indicator_size"-->
-             <!--android:layout_marginTop="-16dp"-->
-             <!--android:src="@drawable/sign_in_sign_up_tab_indicator"-->
-             <!--android:rotation="360"/>-->
-         <!--<LinearLayout-->
-             <!--android:gravity="center_horizontal"-->
-             <!--android:orientation="vertical"-->
-             <!--android:background="@drawable/sign_in_sign_up_form"-->
-             <!--android:padding="@dimen/padding_16"-->
-             <!--android:layout_width="match_parent"-->
-             <!--android:layout_height="wrap_content">-->
-            <!--<FrameLayout-->
-                <!--android:id="@+id/signInSignUpContainer"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"/>-->
-            <!--<Button-->
-                <!--android:id="@+id/btnSignInSignUp"-->
-                <!--android:layout_marginTop="@dimen/padding_24"-->
-                <!--android:layout_marginBottom="@dimen/padding_4"-->
-                <!--style="@style/OrangeButtonWrapContentStyle"/>-->
-         <!--</LinearLayout>-->
       </LinearLayout>
 
 </RelativeLayout>

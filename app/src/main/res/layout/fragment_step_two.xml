@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDesc"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+        <TextView
+            android:text="Addition detail"
+            android:id="@+id/tvDate"
+            style="@style/TextViewTitleFormStyle"/>
+
+        <EditText
+            android:layout_marginTop="@dimen/_8sdp"
+            style="@style/EditTextInPutTypeDescriptionFormStyle"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:id="@+id/edtDesc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textImeMultiLine"
+            android:imeOptions="actionDone"/>
+        <TextView
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/badge_color"
+            android:gravity="right"
+            android:id="@+id/tvErrorDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:layout_below="@+id/linearLayoutDesc"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Addition Images"
+            android:id="@+id/tvTitle"
+            style="@style/TextViewTitleFormStyle"/>
+
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/recyclerView"-->
+            <!--android:scrollbars="none"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/padding_4"-->
+            <!--android:fadeScrollbars="false"/>-->
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:gravity="center"
+                android:background="@drawable/border_invite_code"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/imv_photo1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_cam"
+                    android:scaleType="centerCrop"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:background="@drawable/border_invite_code"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/imv_photo2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_cam"
+                    android:scaleType="centerCrop"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:background="@drawable/border_invite_code"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/imv_photo3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_cam"
+                    android:scaleType="centerCrop"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/badge_color"
+            android:gravity="right"
+            android:id="@+id/tvErrorImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@drawable/bg_popup" android:padding="5dp" android:layout_width="match_parent" android:layout_height="match_parent">-->
+    <!--<LinearLayout android:gravity="right" android:background="@drawable/border_invite_code" android:layout_width="match_parent" android:layout_height="150dp" android:layout_marginTop="20dp">-->
+        <!--<EditText android:textColor="@color/black_color" android:ellipsize="end" android:gravity="top" android:id="@+id/edt_note" android:background="@color/dark_transparent" android:padding="5dp" android:layout_width="match_parent" android:layout_height="match_parent" android:hint="txt note" android:lines="5" android:inputType="textImeMultiLine" android:imeOptions="actionDone"/>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout -->
+        <!--android:gravity="center" -->
+        <!--android:orientation="horizontal" -->
+        <!--android:visibility="gone" -->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="150dp" -->
+        <!--android:layout_marginTop="10dp">-->
+        <!--<LinearLayout-->
+            <!--android:gravity="center" -->
+            <!--android:background="@drawable/border_invite_code" -->
+            <!--android:layout_width="match_parent" -->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginRight="5dp" -->
+            <!--android:layout_weight="1">-->
+            <!--<ImageView -->
+                <!--android:layout_gravity="center" -->
+                <!--android:id="@+id/imv_product" android:background="@drawable/ic_facebook_logo" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop"/>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">-->
+            <!--<LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">-->
+                <!--<ImageView android:layout_gravity="center" android:id="@+id/imv_btn_take_photo" android:background="@drawable/selector_btn_camera" android:layout_width="50dp" android:layout_height="50dp"/>-->
+                <!--<TextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="txt take photo"/>-->
+            <!--</LinearLayout>-->
+            <!--<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">-->
+                <!--<ImageView android:layout_gravity="center" android:id="@+id/imv_btn_sound" android:background="@drawable/ic_facebook_logo" android:layout_width="50dp" android:layout_height="50dp"/>-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+    <!--<TextView android:textSize="16sp" android:gravity="center" android:id="@+id/textView2" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="txt take photo"/>-->
+    <!--<LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="match_parent" android:layout_height="100dp" android:layout_marginTop="10dp">-->
+        <!--<LinearLayout android:gravity="center" android:background="@drawable/border_invite_code" android:padding="5dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="1dp" android:layout_weight="1">-->
+            <!--<ImageView android:layout_gravity="center" android:id="@+id/imv_photo1" android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/ic_facebook_logo" android:scaleType="centerCrop"/>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout android:gravity="center" android:background="@drawable/border_invite_code" android:padding="5dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="1dp" android:layout_weight="1">-->
+            <!--<ImageView android:layout_gravity="center" android:id="@+id/imv_photo2" android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/ic_facebook_logo" android:scaleType="centerCrop"/>-->
+        <!--</LinearLayout>-->
+        <!--<LinearLayout android:gravity="center" android:background="@drawable/border_invite_code" android:padding="5dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="1dp" android:layout_weight="1">-->
+            <!--<ImageView android:layout_gravity="center" android:id="@+id/imv_photo3" android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/ic_facebook_logo" android:scaleType="centerCrop"/>-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+<!--</LinearLayout>-->

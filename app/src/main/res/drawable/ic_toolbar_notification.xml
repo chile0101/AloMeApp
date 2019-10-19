@@ -6,7 +6,7 @@
     android:viewportHeight="96">
 
     <path
-        android:fillColor="@color/colorPrimary"
+        android:fillColor="#0078FF"
         android:fillAlpha="1.00"
         android:strokeAlpha="1.00"
         android:strokeWidth="1"
@@ -25,7 +25,7 @@ C75.53,47.6,70.72,46.56,68.47,42.44 C64.62,35.57,61.66,28.21,57.39,21.56
 C54.8,17.58,51.11,14.11,46.53,12.61 C40.73,10.3,33.52,12.91,28.81,7.88
 C26.74,10.56,26.35,14.31,23.53,16.44 Z" />
     <path
-        android:fillColor="@color/colorPrimary"
+        android:fillColor="#0078FF"
         android:fillAlpha="1.00"
         android:strokeAlpha="1.00"
         android:strokeWidth="1"

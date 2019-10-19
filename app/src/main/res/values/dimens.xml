@@ -275,4 +275,7 @@
     <dimen name="user_pools_form_margin">20dp</dimen>
     <dimen name="user_pools_intra_group_separation">10dp</dimen>
     <dimen name="user_pools_sign_in_button_margin_top_bottom">10dp</dimen>
+
+    <dimen name="wrapperSlider">300dp</dimen>
+    <dimen name="imgSlider">160dp</dimen>
 </resources>

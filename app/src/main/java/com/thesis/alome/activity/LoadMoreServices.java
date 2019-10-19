@@ -36,7 +36,7 @@ public class LoadMoreServices extends BaseActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rcvLoadMore);
 
         ApiServices apiServices = ApiClient.getClient(getApplicationContext()).create(ApiServices.class);
-        Call<RespBase<TypeService>> call = apiServices.getServicesByTypeId(getIntent().getIntExtra("typeId",1));
+        Call<RespBase<TypeService>> call = apiServices.getServicesByTypeId(getIntent().getLongExtra("typeId",1));
         call.enqueue(new Callback<RespBase<TypeService>>() {
             @Override
             public void onResponse(Call<RespBase<TypeService>> call, Response<RespBase<TypeService>> response) {

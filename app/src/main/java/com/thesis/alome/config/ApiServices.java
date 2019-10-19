@@ -43,7 +43,7 @@ public interface ApiServices {
     @GET("service/types/{id}")
     Call<RespBase<TypeService>> getServicesByTypeId(@Path("id") long typeId);
 
-    @GET("api/docs/services/detail/{id}")
+    @GET("services/detail/{id}")
     Call<RespBase<Service>> getServiceById(@Path("id") long serviceId);
 
 }

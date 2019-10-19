@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:orientation="vertical"
+    android:background="@drawable/pop_up_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/layoutTitle"
+        android:paddingLeft="@dimen/padding_8"
+        android:paddingRight="@dimen/padding_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="@dimen/text_size_20"
+            android:textColor="@color/black_color"
+            android:id="@+id/tvTitle"
+            android:padding="@dimen/padding_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/available_date_page_title"
+            android:layout_weight="1"
+            android:fontFamily="@font/thaisansneue_bold"/>
+        <ImageView
+
+            android:id="@+id/ivClose"
+            android:padding="@dimen/padding_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pop_up_cancel"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/viewDivider"
+        android:background="@drawable/available_date_time_recycler_view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginLeft="@dimen/padding_8"
+        android:layout_marginRight="@dimen/padding_8"
+        android:layout_below="@+id/layoutTitle"/>
+    <TextView
+        android:text="Please book 5 days in advance"
+        android:textSize="@dimen/text_size_20"
+        android:textColor="@android:color/white"
+        android:gravity="center_horizontal"
+        android:id="@+id/tvDescription"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingTop="@dimen/padding_8"
+        android:paddingRight="@dimen/padding_16"
+        android:paddingBottom="@dimen/padding_8"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutTitle"
+        android:fontFamily="@font/thaisansneue_regular"/>
+    <!--android:visibility="gone"-->
+
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/white"
+        android:id="@+id/rvDateList"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDescription"/>
+    <!--<include android:id="@+id/loadingContainer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/tvDescription" layout="@layout/layout_loading"/>-->
+</RelativeLayout>

@@ -56,7 +56,7 @@ public class SignUpFragment extends Fragment {
                     return;
                 }else{
                     ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
-                    Call<RespBase> callSignup = apiServices.signUp(new ReqSignUp(email,password));
+                    Call<RespBase> callSignup = apiServices.signUp(new ReqSignUp(email,password,fullName));
                     callSignup.enqueue(new Callback<RespBase>() {
                         @Override
                         public void onResponse(Call<RespBase> call, Response<RespBase> response) {

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:background="@color/white"
+    android:id="@+id/layoutDate"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_8"
+        android:paddingBottom="@dimen/padding_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_16"
+        android:paddingEnd="@dimen/padding_16">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_16"
+            android:layout_weight="1">
+            <LinearLayout
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Saturday"
+                    android:textSize="@dimen/text_size_20"
+                    android:textColor="@color/black_color"
+                    android:id="@+id/tvDateOfWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/thaisansneue_regular"/>
+            </LinearLayout>
+            <TextView
+                android:text="21 Oct 201"
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@color/gray_color"
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/thaisansneue_regular"/>
+        </LinearLayout>
+        <TextView
+            android:background="@drawable/shape_oval"
+            android:text="Choose"
+            android:textSize="@dimen/text_size_12"
+            android:id="@+id/tvDateStatus"
+            android:paddingLeft="@dimen/padding_8"
+            android:paddingTop="@dimen/padding_4"
+            android:paddingRight="@dimen/padding_8"
+            android:paddingBottom="@dimen/padding_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_12"
+            android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+    <View
+        android:background="@drawable/available_date_time_recycler_view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginLeft="@dimen/padding_16"
+        android:layout_marginRight="@dimen/padding_16"/>
+
+</android.support.v7.widget.CardView>

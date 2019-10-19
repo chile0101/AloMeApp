@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="title_booking_service">Add infomation</string>
     <string name="app_name">AloMe</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -504,4 +505,10 @@
     <string name="waiting_page_quotation_tab">Quotes</string>
     <string name="waiting_page_title">Job details</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_sdp">SdpActivity</string>
+    <string name="title_activity_step">StepActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_appointment">AppointmentActivity</string>
 </resources>

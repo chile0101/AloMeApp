@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@+id/layoutContent" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@+id/tvTitle" style="@style/TextViewTitleFormStyle"/>
+        <TextView android:id="@+id/tvDescription" android:layout_marginTop="@dimen/padding_8" style="@style/TextViewDescriptionFormStyle"/>
+        <TextView android:textSize="@dimen/text_size_12" android:textColor="@color/badge_color" android:gravity="right" android:id="@+id/tvError" android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+</FrameLayout>

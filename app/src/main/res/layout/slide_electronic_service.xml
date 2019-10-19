@@ -5,9 +5,12 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:layout_width="@dimen/imgSlider"
+        android:layout_height="@dimen/imgSlider"
         android:id="@+id/slide_image"
         android:src="@drawable/shape_electronic_service"
-        style="@style/ImageSlideStyle" />
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/slide_heading"

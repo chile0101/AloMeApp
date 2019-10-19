@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDate"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Available Date"
+            android:id="@+id/tvDate"
+            style="@style/TextViewTitleFormStyle"/>
+        <EditText
+            android:id="@+id/edtDate"
+            android:layout_marginTop="@dimen/padding_4"
+            android:freezesText="true"
+            android:focusable="false"
+            style="@style/EditTextInPutTypeNumberFormStyle"/>
+        <TextView
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/badge_color"
+            android:gravity="right"
+            android:id="@+id/tvErrorDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutPhone"
+        android:layout_below="@+id/linearLayoutDate"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Contact number"
+            android:id="@+id/tvPhone"
+            style="@style/TextViewTitleFormStyle"/>
+        <EditText
+            android:id="@+id/edtPhone"
+            android:layout_marginTop="@dimen/padding_4"
+            android:freezesText="true"
+            style="@style/EditTextInPutTypeNumberFormStyle"/>
+        <TextView
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/badge_color"
+            android:gravity="right"
+            android:id="@+id/tvErrorPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAddress"
+        android:layout_below="@+id/linearLayoutPhone"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Address"
+            android:id="@+id/tvAddress"
+            style="@style/TextViewTitleFormStyle"/>
+        <EditText
+            android:id="@+id/edtAddress"
+            android:layout_marginTop="@dimen/padding_4"
+            android:freezesText="true"
+            style="@style/EditTextInPutTypeNumberFormStyle"/>
+        <TextView
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/badge_color"
+            android:gravity="right"
+            android:id="@+id/tvErrorAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+
+</RelativeLayout>

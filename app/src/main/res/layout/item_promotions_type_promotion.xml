@@ -6,9 +6,9 @@
     android:id="@+id/layoutPromotion"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/padding_2"
+    android:layout_margin="@dimen/_2sdp"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardCornerRadius="@dimen/padding_4">
+    app:cardCornerRadius="@dimen/_3sdp">
     <LinearLayout
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -18,15 +18,14 @@
             android:id="@+id/ivMainCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"/>
         <LinearLayout
             android:orientation="vertical"
-            android:padding="@dimen/padding_8"
+            android:padding="@dimen/_6sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:textSize="@dimen/text_size_20"
+                android:textSize="@dimen/_16sdp"
                 android:text="itempromotion"
                 android:textColor="@color/dark_gray_color"
                 android:ellipsize="end"
@@ -43,15 +42,15 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:text="price"
-                    android:textSize="@dimen/text_size_14"
+                    android:textSize="@dimen/_10ssp"
                     android:textColor="@color/dark_gray_color"
                     android:id="@+id/tvFullPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/thaisansneue_regular"
-                    android:layout_marginEnd="@dimen/padding_4"/>
+                    android:layout_marginEnd="@dimen/_3sdp"/>
                 <TextView
-                    android:textSize="@dimen/text_size_20"
+                    android:textSize="@dimen/_16ssp"
                     android:text="price"
                     android:textColor="@color/orange_color"
                     android:id="@+id/tvSalePrice"

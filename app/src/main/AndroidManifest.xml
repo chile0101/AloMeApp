@@ -13,8 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AppointmentActivity"
+            android:label="@string/title_activity_appointment"></activity>
+        <activity
+            android:name=".activity.AvailableDateListActivity"
+            android:theme="@style/DialogNoTitle" />
+        <activity android:name=".activity.StepActivity"></activity>
+        <activity
             android:name=".activity.ProfileActivity"
-            android:label="@string/title_activity_profile"></activity>
+            android:label="@string/title_activity_profile" />
         <activity
             android:name=".activity.LandingActivity"
             android:screenOrientation="portrait"

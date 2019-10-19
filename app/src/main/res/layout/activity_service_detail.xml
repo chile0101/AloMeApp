@@ -12,14 +12,14 @@
         android:layout_below="@id/toolbar"
         android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="@dimen/_150sdp" />
 
     <TextView
-        android:paddingLeft="@dimen/padding_16"
-        android:paddingTop="@dimen/padding_16"
-        android:paddingRight="@dimen/padding_16"
+        android:paddingLeft="@dimen/_12sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingRight="@dimen/_12sdp"
         android:layout_below="@+id/slider"
-        android:textSize="@dimen/text_size_26"
+        android:textSize="@dimen/_20ssp"
         android:textColor="@color/black_color"
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -33,19 +33,19 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_16"
-        android:layout_marginTop="@dimen/padding_4"
-        android:layout_marginBottom="@dimen/padding_8">
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_6sdp">
         <TextView
-            android:textSize="@dimen/text_size_16"
+            android:textSize="@dimen/_12ssp"
             android:textColor="@color/dark_gray_color"
             android:id="@+id/tvFullPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/thaisansneue_regular"
-            android:layout_marginEnd="@dimen/padding_4"/>
+            android:layout_marginEnd="@dimen/_3sdp"/>
         <TextView
-            android:textSize="@dimen/text_size_26"
+            android:textSize="@dimen/_20ssp"
             android:textColor="@color/colorPrimary"
             android:id="@+id/tvSalePrice"
             android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
     </LinearLayout>
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_marginTop="@dimen/padding_8"
+        android:layout_marginTop="@dimen/_6sdp"
         android:layout_above="@+id/wrapperbtn"
         android:id="@+id/scollview"
         android:layout_below="@+id/wrapperPrice"
@@ -69,10 +69,9 @@
             <include
                 android:id="@+id/cardDetail"
                 layout="@layout/item_services_detail_type_title"/>
-
             <View
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_width="match_parent"
                 android:layout_height="0.4dp"
                 android:background="#CCC" />
@@ -95,14 +94,14 @@
         <Button
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
-            android:id="@+id/btnSelectArea"
+            android:id="@+id/btnSelectService"
             android:background="@drawable/shape_btn_facebook_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16"
-            android:layout_marginLeft="@dimen/padding_16"
-            android:layout_marginRight="@dimen/padding_16"
-            android:layout_marginBottom="@dimen/padding_16"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
             android:hint="@string/promotion_detail_page_search_hint"/>
 
     </LinearLayout>

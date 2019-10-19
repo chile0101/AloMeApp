@@ -5,7 +5,7 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="360dp">
+    android:layout_height="@dimen/_270sdp">
     <EditText
         android:id="@+id/edtFullName"
         android:hint="@string/profile_page_name_text"
@@ -13,13 +13,13 @@
         android:fontFamily="@font/thaisansneue_regular"
         style="@style/EditTextUnderLineStyle"/>
     <TextView
-        android:textSize="@dimen/text_size_12"
+        android:textSize="@dimen/_10ssp"
         android:textColor="@color/badge_color"
         android:gravity="right"
         android:id="@+id/tvFullNameError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
+        android:layout_marginTop="@dimen/_3sdp"
         android:fontFamily="@font/thaisansneue_regular"/>
     <EditText
         android:id="@+id/edtEmail"
@@ -28,13 +28,13 @@
         android:fontFamily="@font/thaisansneue_regular"
         style="@style/EditTextUnderLineStyle"/>
     <TextView
-        android:textSize="@dimen/text_size_12"
+        android:textSize="@dimen/_10ssp"
         android:textColor="@color/badge_color"
         android:gravity="right"
         android:id="@+id/tvEmailError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
+        android:layout_marginTop="@dimen/_3sdp"
         android:fontFamily="@font/thaisansneue_regular"/>
     <EditText
         android:id="@+id/edtPassword"
@@ -43,13 +43,13 @@
         android:fontFamily="@font/thaisansneue_regular"
         style="@style/EditTextUnderLineStyle"/>
     <TextView
-        android:textSize="@dimen/text_size_12"
+        android:textSize="@dimen/_10ssp"
         android:textColor="@color/badge_color"
         android:gravity="right"
         android:id="@+id/tvPasswordError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
+        android:layout_marginTop="@dimen/_3sdp"
         android:fontFamily="@font/thaisansneue_regular"/>
     <EditText android:id="@+id/edtConfirmPassword"
         android:hint="@string/signup_page_confirm_password_text"
@@ -57,19 +57,18 @@
         android:fontFamily="@font/thaisansneue_regular"
         style="@style/EditTextUnderLineStyle"/>
     <TextView
-        android:textSize="@dimen/text_size_12"
+        android:textSize="@dimen/_10ssp"
         android:textColor="@color/badge_color"
         android:gravity="right"
         android:id="@+id/tvConfirmPasswordError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4"
+        android:layout_marginTop="@dimen/_3sdp"
         android:fontFamily="@font/thaisansneue_regular"/>
     <Button
         android:id="@+id/btnSignUp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/padding_24"
-        android:layout_marginBottom="@dimen/padding_4"
+        android:layout_marginTop="@dimen/_18sdp"
         android:text="@string/signin_signup_page_register_text"
-        style="@style/OrangeButtonWrapContentStyle"/>
+        style="@style/OrangeButtonWrapContentStyle"/>[
 </LinearLayout>

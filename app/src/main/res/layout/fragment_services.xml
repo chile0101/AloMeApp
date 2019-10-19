@@ -8,20 +8,20 @@
     <FrameLayout
         android:id="@+id/layoutSearch"
         android:background="@android:color/white"
-        android:paddingLeft="@dimen/padding_16"
-        android:paddingTop="@dimen/padding_8"
-        android:paddingRight="@dimen/padding_16"
+        android:paddingLeft="@dimen/_12sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingRight="@dimen/_12sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:textSize="@dimen/text_size_20"
+            android:textSize="@dimen/_16ssp"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:id="@+id/btnSearch"
             android:background="@drawable/orange_btn_selector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/padding_8"
+            android:layout_marginBottom="@dimen/_6sdp"
             android:hint="@string/main_page_main_category_btn"
             android:fontFamily="@font/thaisansneue_bold"/>
     </FrameLayout>

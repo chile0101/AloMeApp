@@ -1,9 +1,11 @@
 package com.thesis.alome.activity;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,7 @@ public class ServiceDetailActivity extends BaseActivity
     private HashMap<String,String> url_maps;
     private View cardDetail,cardTerm;
     private TextView tvTitleDetail,tvTitleTerm,tvContentTerm,tvContentDetail;
+    private Button btnSelectService;
 
 
     @Override
@@ -53,6 +56,7 @@ public class ServiceDetailActivity extends BaseActivity
         tvTitleDetail = (TextView) cardDetail.findViewById(R.id.tvSubTitle);
         tvContentTerm = (TextView) cardTerm.findViewById(R.id.tvContent);
         tvTitleTerm = (TextView) cardTerm.findViewById(R.id.tvSubTitle);
+        btnSelectService = (Button) findViewById(R.id.btnSelectService);
         tvTitleTerm.setText("Term of service");
         tvTitleDetail.setText("Service details");
 
@@ -94,6 +98,15 @@ public class ServiceDetailActivity extends BaseActivity
         expansionLayout.addListener(new ExpansionLayout.Listener() {
             @Override
             public void onExpansionChanged(ExpansionLayout expansionLayout, boolean expanded) {
+            }
+        });
+
+
+        btnSelectService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ServiceDetailActivity.this,StepActivity.class);
+                startActivity(intent);
             }
         });
     }

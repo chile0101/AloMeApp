@@ -12,18 +12,18 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_16"
-        android:layout_marginTop="@dimen/padding_4"
-        android:layout_marginRight="@dimen/padding_16">
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_12sdp">
         <View
             android:id="@+id/viewDividerLeft"
             android:background="@color/colorPrimary"
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginRight="@dimen/padding_8"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginRight="@dimen/_6sdp"
             android:layout_weight="1"/>
         <TextView
-            android:textSize="@dimen/text_size_26"
+            android:textSize="@dimen/_18ssp"
             android:textColor="@color/black_color"
             android:id="@+id/tvPromotionsTitle"
             android:layout_width="wrap_content"
@@ -34,26 +34,26 @@
             android:background="@color/colorPrimary"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/padding_8"
+            android:layout_marginLeft="@dimen/_6sdp"
             android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
         android:weightSum="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_8"
-        android:layout_marginLeft="@dimen/padding_16"
-        android:layout_marginRight="@dimen/padding_8">
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_6sdp">
         <android.support.v7.widget.CardView
             android:id="@+id/cv1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_2"
             android:layout_marginTop="@dimen/padding_2"
-            android:layout_marginRight="@dimen/padding_8"
+            android:layout_marginRight="@dimen/_6sdp"
             android:layout_marginBottom="@dimen/padding_2"
             android:layout_weight="1"
-            app:cardCornerRadius="@dimen/padding_8">
+            app:cardCornerRadius="@dimen/_6sdp">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -62,10 +62,10 @@
                     android:id="@+id/imgService1"
                     android:background="@color/light_transparent"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
+                    android:layout_height="@dimen/_75sdp"/>
                 <TextView
                     android:id="@+id/tvNameService1"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16ssp"
                     android:textColor="@color/dark_gray_color"
                     android:ellipsize="end"
                     android:lines="1"
@@ -73,26 +73,26 @@
                     android:fontFamily="@font/thaisansneue_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/padding_8"
-                    android:layout_marginTop="@dimen/padding_8"/>
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_6sdp"/>
                 <LinearLayout
                     android:gravity="bottom"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/padding_8"
-                    android:layout_marginTop="@dimen/padding_4"
-                    android:layout_marginBottom="@dimen/padding_8">
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_6sdp">
                     <TextView
-                        android:textSize="@dimen/text_size_14"
+                        android:textSize="@dimen/_10ssp"
                         android:textColor="@color/dark_gray_color"
                         android:id="@+id/tvFullPrice1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/thaisansneue_regular"
-                        android:layout_marginEnd="@dimen/padding_4"/>
+                        android:layout_marginEnd="@dimen/_3sdp"/>
                     <TextView
-                        android:textSize="@dimen/text_size_20"
+                        android:textSize="@dimen/_16ssp"
                         android:textColor="@color/colorPrimary"
                         android:id="@+id/tvSalePrice1"
                         android:layout_width="wrap_content"
@@ -108,10 +108,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_2"
             android:layout_marginTop="@dimen/padding_2"
-            android:layout_marginRight="@dimen/padding_8"
+            android:layout_marginRight="@dimen/_6sdp"
             android:layout_marginBottom="@dimen/padding_2"
             android:layout_weight="1"
-            app:cardCornerRadius="@dimen/padding_8">
+            app:cardCornerRadius="@dimen/_6sdp">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -120,10 +120,10 @@
                     android:id="@+id/imgService2"
                     android:background="@color/light_transparent"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
+                    android:layout_height="@dimen/_75sdp"/>
                 <TextView
                     android:id="@+id/tvNameService2"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/_16ssp"
                     android:textColor="@color/dark_gray_color"
                     android:ellipsize="end"
                     android:lines="1"
@@ -131,16 +131,16 @@
                     android:fontFamily="@font/thaisansneue_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/padding_8"
-                    android:layout_marginTop="@dimen/padding_8"/>
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_6sdp"/>
                 <LinearLayout
                     android:gravity="bottom"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/padding_8"
-                    android:layout_marginTop="@dimen/padding_4"
-                    android:layout_marginBottom="@dimen/padding_8">
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_6sdp">
                     <TextView
                         android:textSize="@dimen/text_size_14"
                         android:textColor="@color/dark_gray_color"
@@ -148,9 +148,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/thaisansneue_regular"
-                        android:layout_marginEnd="@dimen/padding_4"/>
+                        android:layout_marginEnd="@dimen/_3sdp"/>
                     <TextView
-                        android:textSize="@dimen/text_size_20"
+                        android:textSize="@dimen/_16ssp"
                         android:textColor="@color/colorPrimary"
                         android:id="@+id/tvSalePrice2"
                         android:layout_width="wrap_content"
@@ -165,16 +165,16 @@
         android:gravity="center_vertical"
         android:layout_gravity="right"
         android:id="@+id/layoutLoadMore"
-        android:padding="@dimen/padding_4"
+        android:padding="@dimen/_3sdp"
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="@dimen/padding_12"
-        android:layout_marginBottom="@dimen/padding_12">
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp">
         <TextView
             android:id="@+id/tvLoadMore"
-            android:textSize="@dimen/text_size_20"
+            android:textSize="@dimen/_16ssp"
             android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

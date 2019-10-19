@@ -13,14 +13,14 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimary"
         android:text="AloMe"
-        android:textSize="40sp"
+        android:textSize="@dimen/_30ssp"
         android:fontFamily="@font/thaisansneue_bold"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="@dimen/_10sdp"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
+        android:layout_height="@dimen/_260sdp"
         android:layout_below="@+id/txtAppName" />
 
     <LinearLayout
@@ -34,9 +34,9 @@
 
     <LinearLayout
         android:layout_below="@+id/dotsLayout"
-        android:layout_marginLeft="@dimen/padding_48"
-        android:layout_marginRight="@dimen/padding_48"
-        android:layout_marginTop="@dimen/padding_48"
+        android:layout_marginLeft="@dimen/_48sdp"
+        android:layout_marginRight="@dimen/_48sdp"
+        android:layout_marginTop="@dimen/_32sdp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             style="@style/FacebookButtonStyle"/>
         <Button
             android:id="@+id/btnGoogleSignIn"
-            android:layout_marginTop="@dimen/padding_12"
+            android:layout_marginTop="@dimen/_12sdp"
             android:text="@string/landing_page_google_login"
             style="@style/GoogleButtonStyle"/>
         <LinearLayout
@@ -56,32 +56,32 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16">
+            android:layout_marginTop="@dimen/_8sdp">
             <View
                 android:background="@drawable/available_date_time_recycler_view_divider"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
+                android:layout_height="@dimen/_1sdp"
                 android:layout_weight="1"/>
             <TextView
                 android:textSize="@dimen/text_size_20"
                 android:textColor="@color/gray_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_8"
-                android:layout_marginRight="@dimen/padding_8"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
                 android:text="@string/landing_page_or_text"
                 android:fontFamily="@font/thaisansneue_regular"/>
             <View
                 android:background="@drawable/available_date_time_recycler_view_divider"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
+                android:layout_height="@dimen/_1sdp"
                 android:layout_weight="1"/>
         </LinearLayout>
         <Button
             android:id="@+id/btnSignInSignUp"
-            android:layout_marginLeft="@dimen/padding_24"
-            android:layout_marginTop="@dimen/padding_16"
-            android:layout_marginRight="@dimen/padding_24"
+            android:layout_marginLeft="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_24sdp"
             android:text="@string/landing_page_login_register_btn"
             style="@style/SignInSignUpButtonStyle"/>
     </LinearLayout>

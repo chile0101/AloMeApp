@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="wrap_content">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/slide_image"
-        android:src="@drawable/shape_clean_service"
-        style="@style/ImageSlideStyle" />
+    android:layout_width="@dimen/_120sdp"
+    android:layout_height="@dimen/_120sdp"
+    android:id="@+id/slide_image"
+    android:src="@drawable/shape_clean_service"
+    android:layout_marginTop="@dimen/_16sdp"
+    android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/slide_heading"
