@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="@dimen/imgSlider"
-        android:layout_height="@dimen/imgSlider"
         android:id="@+id/slide_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         android:src="@drawable/shape_plumbing_service"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_centerHorizontal="true"/>
+        app:layout_constraintBottom_toTopOf="@+id/slide_heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/slide_heading"
-        android:layout_below="@+id/slide_image"
+        style="@style/HeadingSlideStyle"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:text="Plumbing Services"
-        style="@style/HeadingSlideStyle" />
+        app:layout_constraintBottom_toTopOf="@+id/slide_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slide_image" />
 
     <TextView
         android:id="@+id/slide_desc"
+        style="@style/TextSlideStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:padding="@dimen/padding_8"
         android:text="It's easy, convenient and fast! You don't have to leave your house and don't need to ask anyone Just use AloMe"
-        android:layout_below="@+id/slide_heading"
-        style="@style/TextSlideStyle" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

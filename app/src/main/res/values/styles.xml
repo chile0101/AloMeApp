@@ -104,7 +104,6 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:layout_marginTop">@dimen/_24sdp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/_22ssp</item>
         <item name="android:fontFamily">@font/thaisansneue_bold</item>
@@ -112,9 +111,6 @@
     <style name="TextSlideStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">@dimen/_20sdp</item>
-        <item name="android:layout_marginRight">@dimen/_20sdp</item>
-        <item name="android:layout_marginTop">@dimen/_12sdp</item>
         <item name="android:textSize">@dimen/text_size_18</item>
         <item name="android:fontFamily">@font/thaisansneue_regular</item>
         <item name="android:textAlignment">center</item>
