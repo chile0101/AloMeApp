@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/ic_landing_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-      <LinearLayout
-          android:orientation="vertical"
-          android:id="@+id/layoutForm"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:layout_marginLeft="@dimen/_36sdp"
-          android:layout_marginRight="@dimen/_36sdp">
-         <ImageView
-             android:layout_gravity="center_horizontal"
-             android:layout_width="@dimen/_112sdp"
-             android:layout_height="@dimen/_112sdp"
-             android:layout_marginTop="@dimen/_42sdp"
-             android:src="@drawable/ic_launcher_full"/>
 
-         <android.support.design.widget.TabLayout
-             android:id="@+id/tabLayout"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:minHeight="?actionBarSize"
-             app:tabGravity="fill"
-             app:tabMode="fixed"
-             android:layout_marginTop="@dimen/_18sdp"
-             style="@style/SignInSignUpTabLayout" />
+    <ImageView
+        android:layout_width="@dimen/_112sdp"
+        android:layout_height="@dimen/_112sdp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_launcher_full"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-              <android.support.v4.view.ViewPager
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="@dimen/_15sdp"
-                  android:paddingTop="@dimen/_12sdp"
-                  android:paddingBottom="@dimen/_12sdp"
-                  android:id="@+id/viewPager"/>
-      </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        style="@style/SignInSignUpTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:minHeight="?actionBarSize"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
 
-</RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
