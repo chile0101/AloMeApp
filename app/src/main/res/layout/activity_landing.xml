@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".activity.LandingActivity">
 
     <TextView
@@ -11,78 +11,129 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimary"
-        android:text="AloMe"
-        android:textSize="@dimen/_30ssp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/thaisansneue_bold"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        android:text="AloMe"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_30ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_260sdp"
-        android:layout_below="@+id/txtAppName" />
+        android:layout_height="0dp"
+        android:layout_below="@+id/txtAppName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppName" />
 
     <LinearLayout
+        android:id="@+id/dotsLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="8dp"
         android:layout_below="@+id/viewPager"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
         android:gravity="center"
-        android:id="@+id/dotsLayout"/>
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager" />
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@+id/dotsLayout"
-        android:layout_marginLeft="@dimen/_48sdp"
-        android:layout_marginRight="@dimen/_48sdp"
-        android:layout_marginTop="@dimen/_32sdp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dotsLayout">
 
         <Button
             android:id="@+id/btnFacebookSignIn"
+            style="@style/FacebookButtonStyle"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="48dp"
             android:text="@string/landing_page_facebook_login"
-            style="@style/FacebookButtonStyle"/>
+            app:layout_constraintBottom_toTopOf="@+id/btnGoogleSignIn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btnGoogleSignIn"
-            android:layout_marginTop="@dimen/_12sdp"
+            style="@style/GoogleButtonStyle"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
             android:text="@string/landing_page_google_login"
-            style="@style/GoogleButtonStyle"/>
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFacebookSignIn" />
+
         <LinearLayout
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/btnSignInSignUp"
+            app:layout_constraintTop_toBottomOf="@+id/btnGoogleSignIn"
+            tools:layout_editor_absoluteX="0dp">
+
             <View
-                android:background="@drawable/available_date_time_recycler_view_divider"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:background="@drawable/available_date_time_recycler_view_divider" />
+
             <TextView
-                android:textSize="@dimen/text_size_20"
-                android:textColor="@color/gray_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_8sdp"
+                android:fontFamily="@font/thaisansneue_regular"
                 android:text="@string/landing_page_or_text"
-                android:fontFamily="@font/thaisansneue_regular"/>
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/text_size_20" />
+
             <View
-                android:background="@drawable/available_date_time_recycler_view_divider"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:background="@drawable/available_date_time_recycler_view_divider" />
         </LinearLayout>
+
         <Button
             android:id="@+id/btnSignInSignUp"
-            android:layout_marginLeft="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginRight="@dimen/_24sdp"
+            style="@style/SignInSignUpButtonStyle"
+            android:layout_height="46dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/landing_page_login_register_btn"
-            style="@style/SignInSignUpButtonStyle"/>
-    </LinearLayout>
-</RelativeLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
