@@ -36,8 +36,40 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutPhone"
         android:layout_below="@+id/linearLayoutDate"
+        android:id="@+id/linearLayoutTime"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Available Time"
+            android:id="@+id/tvTime"
+            style="@style/TextViewTitleFormStyle"/>
+        <EditText
+            android:id="@+id/edtTime"
+            android:layout_marginTop="@dimen/padding_4"
+            android:freezesText="true"
+            android:focusable="false"
+            style="@style/EditTextInPutTypeNumberFormStyle"/>
+        <TextView
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/badge_color"
+            android:gravity="right"
+            android:id="@+id/tvErrorTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/thaisansneue_regular"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutPhone"
+        android:layout_below="@+id/linearLayoutTime"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:aapt="http://schemas.android.com/aapt"

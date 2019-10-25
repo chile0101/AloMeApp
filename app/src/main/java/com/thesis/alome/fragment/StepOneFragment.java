@@ -1,6 +1,7 @@
 package com.thesis.alome.fragment;
 
-import android.content.Intent;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,30 +10,57 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.thesis.alome.R;
-import com.thesis.alome.activity.AvailableDateListActivity;
+import com.thesis.alome.viewmodel.StepViewModel;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class StepOneFragment extends Fragment {
 
-    EditText edtDate;
+    @BindView(R.id.edtDate) EditText edtDate;
+    @BindView(R.id.edtAddress) EditText edtAddress;
+    @BindView(R.id.edtTime) EditText edtTime;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_step_one,container,false);
+        View view = inflater.inflate(R.layout.fragment_step_one,container,false);
+        ButterKnife.bind(this,view);
+        return view;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        edtDate = (EditText) view.findViewById(R.id.edtDate);
-        edtDate.setOnClickListener(new View.OnClickListener() {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
+
+        StepViewModel model = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
+        model.getDateAvail().observe(getActivity(), new Observer<String>() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AvailableDateListActivity.class);
-                startActivity(intent);
+            public void onChanged(@Nullable String s) {
+                edtDate.setText(s);
             }
         });
+
+       edtDate.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+//               View viewDialog = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_date,null);
+//               BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
+//               dialog.setContentView(viewDialog);
+//               dialog.show();
+               BottomSheetDateFragment botSheetDateFragment = new BottomSheetDateFragment();
+               botSheetDateFragment.show(getFragmentManager(), botSheetDateFragment.getTag());
+           }
+       });
+
+       edtTime.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               BottomSheetTimeFragment bottomSheetTimeFragment = new BottomSheetTimeFragment();
+               bottomSheetTimeFragment.show(getFragmentManager(), bottomSheetTimeFragment.getTag());
+           }
+       });
+
     }
 }

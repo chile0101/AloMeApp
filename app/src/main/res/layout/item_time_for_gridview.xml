@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center"
+    android:background="@drawable/shape_time_item_border"
+    android:id="@+id/lin_item_time"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:padding="10dp"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/black_color"
+        android:layout_gravity="center"
+        android:id="@+id/txt_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1:30"/>
+</LinearLayout>
+

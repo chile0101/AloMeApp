@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 
 import com.thesis.alome.R;
 
+import butterknife.BindView;
+
 public class BaseActivity extends AppCompatActivity {
 
     Toolbar toolbar;

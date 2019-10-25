@@ -2,9 +2,11 @@ package com.thesis.alome.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -37,6 +39,8 @@ public class StepActivity extends BaseActivity {
 
 
         tabAdapter = new TabAdapter(getSupportFragmentManager());
+       
+
         tabAdapter.addFragment(new StepOneFragment(), "Step 1");
         tabAdapter.addFragment(new StepTwoFragment(), "Step 2");
         viewPager.setAdapter(tabAdapter);
@@ -58,7 +62,7 @@ public class StepActivity extends BaseActivity {
         viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
         //Change text button
         if(viewPager.getCurrentItem()+1 == 2) {
-           btnNext.setText("Goi Tho");
+           btnNext.setText("Confirm");
         }
 
     }
@@ -67,15 +71,4 @@ public class StepActivity extends BaseActivity {
         viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Toast.makeText(this, "on Start"+ viewPager.getCurrentItem(), Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Toast.makeText(this, "on Resume"+ viewPager.getCurrentItem(), Toast.LENGTH_SHORT).show();
-    }
 }

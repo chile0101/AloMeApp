@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
-    android:background="@color/white"
-    android:id="@+id/layoutDate"
+    android:id="@+id/cvLayoutDate"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingTop="@dimen/padding_8"
