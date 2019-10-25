@@ -15,16 +15,16 @@
         android:layout_height="@dimen/_150sdp" />
 
     <TextView
-        android:paddingLeft="@dimen/_12sdp"
-        android:paddingTop="@dimen/_12sdp"
-        android:paddingRight="@dimen/_12sdp"
-        android:layout_below="@+id/slider"
-        android:textSize="@dimen/_20ssp"
-        android:textColor="@color/black_color"
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/thaisansneue_bold"/>
+        android:layout_below="@+id/slider"
+        android:fontFamily="@font/roboto_medium"
+        android:paddingLeft="@dimen/_12sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingRight="@dimen/_12sdp"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/_16ssp" />
 
     <LinearLayout
         android:id="@+id/wrapperPrice"
@@ -37,20 +37,20 @@
         android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginBottom="@dimen/_6sdp">
         <TextView
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_10ssp"
             android:textColor="@color/dark_gray_color"
             android:id="@+id/tvFullPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisansneue_regular"
-            android:layout_marginEnd="@dimen/_3sdp"/>
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:fontFamily="@font/roboto"/>
         <TextView
-            android:textSize="@dimen/_20ssp"
+            android:textSize="@dimen/_16ssp"
             android:textColor="@color/colorPrimary"
             android:id="@+id/tvSalePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisansneue_bold"/>
+            android:fontFamily="@font/roboto"/>
     </LinearLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -63,7 +63,7 @@
         <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:expansion_openOnlyOne="false"
+            app:expansion_openOnlyOne="true"
             android:orientation="vertical">
 
             <include
@@ -102,7 +102,8 @@
             android:layout_marginLeft="@dimen/_12sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:layout_marginBottom="@dimen/_12sdp"
-            android:hint="@string/promotion_detail_page_search_hint"/>
+            android:hint="@string/select_service"
+            android:fontFamily="@font/roboto"/>
 
     </LinearLayout>
 

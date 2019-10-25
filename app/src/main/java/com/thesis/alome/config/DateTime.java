@@ -1,5 +1,6 @@
 package com.thesis.alome.config;
 
+import android.app.Activity;
 import android.util.Log;
 
 import com.thesis.alome.dao.DatePojo;
@@ -10,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
 
 public class DateTime {
 
@@ -20,7 +20,7 @@ public class DateTime {
 
     public static List<String> getNextHours(){
         List<String> hourList = new ArrayList<String>();
-        hourList.add("Flexible");
+        hourList.add("Linh hoạt");
 
         int h = calendar.get(Calendar.HOUR_OF_DAY) ;
         int m = calendar.get(Calendar.MINUTE);
@@ -45,7 +45,7 @@ public class DateTime {
 
     public static List<DatePojo> getNextDays(){
         List<DatePojo> dateList = new ArrayList<DatePojo>();
-        dateList.add(new DatePojo("Flexible","Flexible"));
+        dateList.add(new DatePojo("Linh hoạt",""));
 
 
         int i ;

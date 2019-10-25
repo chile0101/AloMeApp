@@ -7,13 +7,13 @@
         android:icon="@drawable/ic_main_bottom_nav_bar_promotion"
         android:enabled="true"
         android:id="@+id/item1"
-        android:title="@string/tab_service_text"
-        android:contentDescription="@string/tab_service_text"/>
+        android:title="@string/service"
+        android:contentDescription="@string/service"/>
     <item
         android:icon="@drawable/ic_main_bottom_nav_bar_job_list"
         android:enabled="true" android:id="@+id/item2"
-        android:title="@string/tab_job_list_text"
-        android:contentDescription="@string/tab_job_list_text"/>
+        android:title="@string/service_list"
+        android:contentDescription="@string/service_list"/>
     <!--<item-->
         <!--android:icon="@drawable/ic_main_bottom_nav_bar_chat"-->
         <!--android:enabled="true"-->
@@ -24,6 +24,6 @@
         android:icon="@drawable/ic_main_bottom_nav_bar_menu"
         android:enabled="true"
         android:id="@+id/item4"
-        android:title="@string/tab_menu_text"
-        android:contentDescription="@string/tab_menu_text"/>
+        android:title="@string/more"
+        android:contentDescription="@string/more"/>
 </menu>

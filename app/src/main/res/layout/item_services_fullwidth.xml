@@ -32,13 +32,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_105sdp"/>
                 <TextView
+                    android:fontFamily="@font/roboto_medium"
                     android:id="@+id/tvNameService"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textColor="@color/dark_gray_color"
                     android:ellipsize="end"
                     android:lines="1"
                     android:singleLine="true"
-                    android:fontFamily="@font/thaisansneue_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_6sdp"
@@ -52,20 +52,20 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_marginBottom="@dimen/_6sdp">
                     <TextView
-                        android:textSize="@dimen/_10ssp"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="@dimen/_8ssp"
                         android:textColor="@color/dark_gray_color"
                         android:id="@+id/tvFullPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/thaisansneue_regular"
                         android:layout_marginEnd="@dimen/_3sdp"/>
                     <TextView
-                        android:textSize="@dimen/_16ssp"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="@dimen/_12ssp"
                         android:textColor="@color/colorPrimary"
                         android:id="@+id/tvSalePrice"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/thaisansneue_bold"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>

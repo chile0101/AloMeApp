@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Service List"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/roboto" />
 
 </android.support.constraint.ConstraintLayout>

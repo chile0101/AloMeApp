@@ -45,7 +45,7 @@ public class ServiceDetailActivity extends BaseActivity
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_detail);
-        initToolbar(R.id.toolbar,getString(R.string.promotion_detail_page_title));
+        initToolbar(R.id.toolbar,getString(R.string.service_detail));
         sliderLayout = (SliderLayout) findViewById(R.id.slider);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvFullPrice = (TextView) findViewById(R.id.tvFullPrice);
@@ -57,8 +57,8 @@ public class ServiceDetailActivity extends BaseActivity
         tvContentTerm = (TextView) cardTerm.findViewById(R.id.tvContent);
         tvTitleTerm = (TextView) cardTerm.findViewById(R.id.tvSubTitle);
         btnSelectService = (Button) findViewById(R.id.btnSelectService);
-        tvTitleTerm.setText("Term of service");
-        tvTitleDetail.setText("Service details");
+        tvTitleTerm.setText(getString(R.string.term_of_service));
+        tvTitleDetail.setText(getString(R.string.service_details));
 
 
         ApiServices apiServices = ApiClient.getClient(getApplicationContext()).create(ApiServices.class);
@@ -90,7 +90,7 @@ public class ServiceDetailActivity extends BaseActivity
 
             @Override
             public void onFailure(Call<RespBase<Service>> call, Throwable t) {
-                Toast.makeText(ServiceDetailActivity.this, "Please check the internet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ServiceDetailActivity.this, getString(R.string.please_check_the_internet), Toast.LENGTH_SHORT).show();
             }
         });
 

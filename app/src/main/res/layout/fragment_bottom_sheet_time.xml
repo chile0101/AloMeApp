@@ -15,14 +15,8 @@
         android:paddingRight="@dimen/padding_8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/ivBack"
-            android:padding="@dimen/padding_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"/>
         <TextView
-            android:textSize="@dimen/text_size_20"
+            android:textSize="@dimen/_14ssp"
             android:textColor="@color/black_color"
             android:id="@+id/tvTitle"
             android:padding="@dimen/padding_8"
@@ -30,7 +24,14 @@
             android:layout_height="wrap_content"
             android:text="@string/available_time_page_title"
             android:layout_weight="1"
-            android:fontFamily="@font/thaisansneue_bold"/>
+            android:fontFamily="@font/roboto_medium"/>
+        <ImageView
+
+            android:id="@+id/ivClose"
+            android:padding="@dimen/padding_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pop_up_cancel"/>
     </LinearLayout>
     <View
         android:id="@+id/viewDivider"
@@ -47,13 +48,13 @@
             <GridView
                 android:gravity="center"
                 android:id="@+id/gridview"
-                android:padding="5dp"
+                android:padding="@dimen/_4sdp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:horizontalSpacing="5dp"
-                android:verticalSpacing="5dp"
+                android:horizontalSpacing="@dimen/_4sdp"
+                android:verticalSpacing="@dimen/_4sdp"
                 android:stretchMode="columnWidth"
-                android:columnWidth="90dp"
+                android:columnWidth="@dimen/_60sdp"
                 android:numColumns="auto_fit"/>
         </LinearLayout>
 

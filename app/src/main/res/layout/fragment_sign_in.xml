@@ -6,41 +6,42 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_150sdp">
+
     <EditText
-        android:text="testchile@gmail.com"
         android:id="@+id/edtEmail"
-        android:hint="@string/signup_page_email_text"
+        style="@style/EditTextUnderLineStyle"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:fontFamily="@font/thaisansneue_regular"
-        style="@style/EditTextUnderLineStyle"/>
+        android:text="testchile@gmail.com" />
     <TextView
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         android:textColor="@color/badge_color"
         android:gravity="right"
         android:id="@+id/tvEmailError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/thaisansneue_regular"/>
+        android:fontFamily="@font/roboto"/>
     <EditText
         android:text="123456"
         android:id="@+id/edtPassword"
-        android:hint="@string/sign_in_password"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:fontFamily="@font/thaisansneue_regular"
-        style="@style/EditTextUnderLineStyle"/>
+        style="@style/EditTextUnderLineStyle"
+        android:fontFamily="@font/roboto"/>
     <TextView
 
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         android:textColor="@color/badge_color"
         android:gravity="right"
         android:id="@+id/tvPasswordError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/thaisansneue_regular"/>
+        android:fontFamily="@font/roboto"/>
     <TextView
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         android:textStyle="normal"
         android:textColor="@color/gray_color"
         android:gravity="center_vertical"
@@ -49,12 +50,13 @@
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_24sdp"
-        android:hint="@string/signin_page_forget_password_text"
-        android:fontFamily="@font/thaisansneue_regular"/>
+        android:hint="@string/forgot_password"
+        android:fontFamily="@font/roboto"/>
     <Button
         android:id="@+id/btnSignIn"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_18sdp"
-        android:text="@string/com_facebook_loginview_log_in_button"
-        style="@style/OrangeButtonWrapContentStyle"/>
+        android:text="@string/log_in"
+        style="@style/OrangeButtonWrapContentStyle"
+        android:fontFamily="@font/roboto"/>
 </LinearLayout>

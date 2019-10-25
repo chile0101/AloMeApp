@@ -25,27 +25,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="Saturday"
-                    android:textSize="@dimen/text_size_20"
+                    android:textSize="@dimen/_14ssp"
                     android:textColor="@color/black_color"
                     android:id="@+id/tvDateOfWeek"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/thaisansneue_regular"/>
+                    android:fontFamily="@font/roboto"/>
             </LinearLayout>
             <TextView
-                android:text="21 Oct 201"
-                android:textSize="@dimen/text_size_20"
+                android:textSize="@dimen/_10ssp"
                 android:textColor="@color/gray_color"
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/thaisansneue_regular"/>
+                android:fontFamily="@font/roboto"/>
         </LinearLayout>
         <TextView
+            android:textColor="@color/white"
             android:background="@drawable/shape_oval"
-            android:text="Choose"
-            android:textSize="@dimen/text_size_12"
+            android:text="@string/choose"
+            android:textSize="@dimen/_8ssp"
             android:id="@+id/tvDateStatus"
             android:paddingLeft="@dimen/padding_8"
             android:paddingTop="@dimen/padding_4"
@@ -54,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_12"
-            android:fontFamily="@font/thaisansneue_regular"/>
+            android:fontFamily="@font/roboto"/>
     </LinearLayout>
     <View
         android:background="@drawable/available_date_time_recycler_view_divider"

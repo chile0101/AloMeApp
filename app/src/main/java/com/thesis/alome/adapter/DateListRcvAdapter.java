@@ -56,7 +56,6 @@ public class DateListRcvAdapter extends RecyclerView.Adapter<DateListRcvAdapter.
         final DatePojo datePojo = dateList.get(i);
         viewHolder.tvDateOfWeek.setText(datePojo.getDayofweek());
         viewHolder.tvDate.setText(datePojo.getDateFormat());
-        viewHolder.tvDateStatus.setText("Choose");
 
         viewHolder.cvDate.setOnClickListener(new View.OnClickListener() {
             @Override

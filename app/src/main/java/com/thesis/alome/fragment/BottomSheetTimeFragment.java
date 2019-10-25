@@ -1,5 +1,6 @@
 package com.thesis.alome.fragment;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.config.DateTime;
+import com.thesis.alome.viewmodel.StepViewModel;
 
 public class BottomSheetTimeFragment extends BottomSheetDialogFragment {
 
@@ -44,16 +46,23 @@ public class BottomSheetTimeFragment extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        final StepViewModel model = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
+
         gridView = (GridView) view.findViewById(R.id.gridview);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),R.layout.item_time_for_gridview,R.id.txt_item_time, DateTime.getNextHours());
         gridView.setAdapter(arrayAdapter);
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object o = gridView.getItemAtPosition(position);
                 String hour = (String) o;
-                Toast.makeText(getActivity(), "Selected" + hour, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getActivity(), "Selected" + hour, Toast.LENGTH_SHORT).show();
+
+                view.setBackgroundResource(R.drawable.item_time_selected);
+                model.setTimeAvail(hour);
+                getDialog().dismiss();
             }
         });
     }

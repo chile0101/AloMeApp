@@ -17,8 +17,7 @@
             <!--android:theme="@style/DialogNoTitle" />-->
         <activity android:name=".activity.StepActivity"></activity>
         <activity
-            android:name=".activity.ProfileActivity"
-            android:label="@string/title_activity_profile" />
+            android:name=".activity.ProfileActivity" />
         <activity
             android:name=".activity.LandingActivity"
             android:screenOrientation="portrait"
@@ -33,6 +32,10 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.LoadMoreServices" />
         <activity android:name=".activity.ServiceDetailActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

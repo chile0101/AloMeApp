@@ -13,14 +13,16 @@
         android:layout_centerHorizontal="true"/>
 
     <TextView
+        android:fontFamily="@font/roboto"
         android:id="@+id/slide_heading"
         android:layout_below="@+id/slide_image"
-        android:text="Plumbing Services"
+        android:text="@string/slide_3_title"
         style="@style/HeadingSlideStyle" />
 
     <TextView
+        android:fontFamily="@font/roboto"
         android:id="@+id/slide_desc"
-        android:text="It's easy, convenient and fast! You don't have to leave your house and don't need to ask anyone Just use AloMe"
+        android:text="@string/slide_1_desciption"
         android:layout_below="@+id/slide_heading"
         style="@style/TextSlideStyle" />
 

@@ -16,31 +16,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Available Date"
+            android:text="@string/available_date"
             android:id="@+id/tvDate"
-            style="@style/TextViewTitleFormStyle"/>
+            style="@style/TextViewTitleFormStyle"
+            android:fontFamily="@font/roboto"/>
         <EditText
             android:id="@+id/edtDate"
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             android:focusable="false"
+            android:fontFamily="@font/roboto"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
             android:textSize="@dimen/text_size_12"
             android:textColor="@color/badge_color"
             android:gravity="right"
+            android:fontFamily="@font/roboto"
             android:id="@+id/tvErrorDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisansneue_regular"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_below="@+id/linearLayoutDate"
         android:id="@+id/linearLayoutTime"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:aapt="http://schemas.android.com/aapt"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:paddingLeft="@dimen/padding_16"
@@ -48,23 +48,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Available Time"
+            android:fontFamily="@font/roboto"
+            android:text="@string/available_time"
             android:id="@+id/tvTime"
             style="@style/TextViewTitleFormStyle"/>
         <EditText
+            android:fontFamily="@font/roboto"
             android:id="@+id/edtTime"
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             android:focusable="false"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
+            android:fontFamily="@font/roboto"
             android:textSize="@dimen/text_size_12"
             android:textColor="@color/badge_color"
             android:gravity="right"
             android:id="@+id/tvErrorTime"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisansneue_regular"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -80,22 +82,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Contact number"
+            android:fontFamily="@font/roboto"
+            android:text="@string/contact_number"
             android:id="@+id/tvPhone"
             style="@style/TextViewTitleFormStyle"/>
         <EditText
+            android:fontFamily="@font/roboto"
             android:id="@+id/edtPhone"
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
+            android:fontFamily="@font/roboto"
             android:textSize="@dimen/text_size_12"
             android:textColor="@color/badge_color"
             android:gravity="right"
             android:id="@+id/tvErrorPhone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisansneue_regular"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -111,22 +115,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Address"
+            android:fontFamily="@font/roboto"
+            android:text="@string/address"
             android:id="@+id/tvAddress"
             style="@style/TextViewTitleFormStyle"/>
         <EditText
+            android:focusable="false"
+            android:fontFamily="@font/roboto"
             android:id="@+id/edtAddress"
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
+            android:fontFamily="@font/roboto"
             android:textSize="@dimen/text_size_12"
             android:textColor="@color/badge_color"
             android:gravity="right"
             android:id="@+id/tvErrorAddress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisansneue_regular"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </RelativeLayout>

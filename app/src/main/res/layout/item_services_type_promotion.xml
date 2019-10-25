@@ -23,12 +23,12 @@
             android:layout_marginRight="@dimen/_6sdp"
             android:layout_weight="1"/>
         <TextView
-            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="@dimen/_16ssp"
             android:textColor="@color/black_color"
             android:id="@+id/tvPromotionsTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/thaisansneue_bold"/>
+            android:layout_height="wrap_content"/>
         <View
             android:id="@+id/viewDividerRight"
             android:background="@color/colorPrimary"
@@ -64,13 +64,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_75sdp"/>
                 <TextView
+                    android:fontFamily="@font/roboto_medium"
                     android:id="@+id/tvNameService1"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textColor="@color/dark_gray_color"
                     android:ellipsize="end"
                     android:lines="1"
                     android:singleLine="true"
-                    android:fontFamily="@font/thaisansneue_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_6sdp"
@@ -84,20 +84,20 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_marginBottom="@dimen/_6sdp">
                     <TextView
-                        android:textSize="@dimen/_10ssp"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="@dimen/_8ssp"
                         android:textColor="@color/dark_gray_color"
                         android:id="@+id/tvFullPrice1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/thaisansneue_regular"
                         android:layout_marginEnd="@dimen/_3sdp"/>
                     <TextView
-                        android:textSize="@dimen/_16ssp"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="@dimen/_12ssp"
                         android:textColor="@color/colorPrimary"
                         android:id="@+id/tvSalePrice1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/thaisansneue_bold"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -122,13 +122,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_75sdp"/>
                 <TextView
+                    android:fontFamily="@font/roboto_medium"
                     android:id="@+id/tvNameService2"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textColor="@color/dark_gray_color"
                     android:ellipsize="end"
                     android:lines="1"
                     android:singleLine="true"
-                    android:fontFamily="@font/thaisansneue_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_6sdp"
@@ -142,20 +142,20 @@
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_marginBottom="@dimen/_6sdp">
                     <TextView
-                        android:textSize="@dimen/text_size_14"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="@dimen/_8ssp"
                         android:textColor="@color/dark_gray_color"
                         android:id="@+id/tvFullPrice2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/thaisansneue_regular"
                         android:layout_marginEnd="@dimen/_3sdp"/>
                     <TextView
-                        android:textSize="@dimen/_16ssp"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="@dimen/_12ssp"
                         android:textColor="@color/colorPrimary"
                         android:id="@+id/tvSalePrice2"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/thaisansneue_bold"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -173,12 +173,12 @@
         android:layout_marginRight="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp">
         <TextView
+            android:fontFamily="@font/roboto"
             android:id="@+id/tvLoadMore"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_12ssp"
             android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/service_page_load_more_text"
-            android:fontFamily="@font/thaisansneue_bold"/>
+            android:text="@string/more"/>
     </LinearLayout>
 </LinearLayout>

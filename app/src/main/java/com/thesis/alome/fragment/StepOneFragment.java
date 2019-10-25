@@ -41,14 +41,16 @@ public class StepOneFragment extends Fragment {
                 edtDate.setText(s);
             }
         });
+        model.getTimeAvail().observe(getActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                edtTime.setText(s);
+            }
+        });
 
        edtDate.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-//               View viewDialog = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_date,null);
-//               BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
-//               dialog.setContentView(viewDialog);
-//               dialog.show();
                BottomSheetDateFragment botSheetDateFragment = new BottomSheetDateFragment();
                botSheetDateFragment.show(getFragmentManager(), botSheetDateFragment.getTag());
            }
@@ -59,6 +61,14 @@ public class StepOneFragment extends Fragment {
            public void onClick(View v) {
                BottomSheetTimeFragment bottomSheetTimeFragment = new BottomSheetTimeFragment();
                bottomSheetTimeFragment.show(getFragmentManager(), bottomSheetTimeFragment.getTag());
+           }
+       });
+
+       edtAddress.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               BottomSheetAddressList bottomSheetAddressList = new BottomSheetAddressList();
+               bottomSheetAddressList.show(getFragmentManager(), bottomSheetAddressList.getTag());
            }
        });
 

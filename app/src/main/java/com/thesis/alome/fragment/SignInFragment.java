@@ -60,9 +60,9 @@ public class SignInFragment extends Fragment {
                         @Override
                         public void onResponse(Call<RespSignIn> callLogin, Response<RespSignIn> resp) {
                             if(resp.code() == 400){
-                                Toast.makeText(getActivity(), "Username or Password is invalid", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), getString(R.string.email_or_password_is_invalid), Toast.LENGTH_SHORT).show();
                             }else{
-                                Toast.makeText(getActivity(), "Login success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show();
                                 PrefUtils.storeApiKey(getContext(),resp.body().getAccessToken());
 
                                 Intent intent = new Intent(getActivity(), MainActivity.class);
@@ -72,7 +72,7 @@ public class SignInFragment extends Fragment {
                         }
                         @Override
                         public void onFailure(Call<RespSignIn> call, Throwable t) {
-                            Toast.makeText(getActivity(), "Please check the internet", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), getString(R.string.please_check_the_internet), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -108,12 +108,12 @@ public class SignInFragment extends Fragment {
     private boolean validateEmail(String email) {
 
         if (email.isEmpty()) {
-            tvEmailError.setText(R.string.signup_page_validate_email_text);
+            tvEmailError.setText(R.string.validate_email_text);
             return false;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
-            tvEmailError.setText(R.string.signup_page_validate_pattern_email_text);
+            tvEmailError.setText(R.string.validate_pattern_email_text);
             return false ;
         }
         return true;
@@ -121,7 +121,7 @@ public class SignInFragment extends Fragment {
 
     private boolean validatePassword(String password){
         if(password.isEmpty()){
-            tvPasswordError.setText(R.string.signup_page_validate_empty_password_text);
+            tvPasswordError.setText(R.string.validate_empty_password_text);
             return false;
         }
         return true;

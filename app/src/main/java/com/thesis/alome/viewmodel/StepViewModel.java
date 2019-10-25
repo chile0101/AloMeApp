@@ -7,6 +7,7 @@ import android.arch.lifecycle.ViewModel;
 public class StepViewModel extends ViewModel {
 
     private final MutableLiveData<String> dateAvail = new MutableLiveData<String>();
+    private final MutableLiveData<String> timeAvail = new MutableLiveData<String>();
 
     public void setDateAvail(String dateStr){
         dateAvail.setValue(dateStr);
@@ -15,4 +16,14 @@ public class StepViewModel extends ViewModel {
     public LiveData<String> getDateAvail(){
         return this.dateAvail;
     }
+
+    public void setTimeAvail(String timeStr){
+        timeAvail.setValue(timeStr);
+    }
+
+    public LiveData<String> getTimeAvail(){
+        return this.timeAvail;
+    }
+
+
 }

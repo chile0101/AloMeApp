@@ -41,8 +41,8 @@ public class StepActivity extends BaseActivity {
         tabAdapter = new TabAdapter(getSupportFragmentManager());
        
 
-        tabAdapter.addFragment(new StepOneFragment(), "Step 1");
-        tabAdapter.addFragment(new StepTwoFragment(), "Step 2");
+        tabAdapter.addFragment(new StepOneFragment(), getString(R.string.step_1));
+        tabAdapter.addFragment(new StepTwoFragment(), getString(R.string.step_2));
         viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

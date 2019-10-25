@@ -34,7 +34,7 @@ public class SignUpFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragnment_sign_up,container,false);
+        return inflater.inflate(R.layout.fragment_sign_up,container,false);
     }
 
     @Override
@@ -62,15 +62,15 @@ public class SignUpFragment extends Fragment {
                         public void onResponse(Call<RespBase> call, Response<RespBase> response) {
 
                             if(response.body().getStatus() == true && response.body().getMessage() == null){
-                                Toast.makeText(getActivity(), "Register success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), getString(R.string.register_success), Toast.LENGTH_SHORT).show();
                                 ((SignInSignUpActivity) getActivity()).switchSignInFragment();
                             }else {
-                                tvEmailError.setText("Email is already registered");
+                                tvEmailError.setText(getString(R.string.email_is_already_registered));
                             }
                         }
                         @Override
                         public void onFailure(Call<RespBase> call, Throwable t) {
-                            Toast.makeText(getActivity(), "Please check the internet", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), getString(R.string.please_check_the_internet), Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -134,7 +134,7 @@ public class SignUpFragment extends Fragment {
     private boolean validateFullName(String fullName){
 
         if(fullName.isEmpty()){
-            tvFullNameError.setText(R.string.signup_page_validate_fullname_text);
+            tvFullNameError.setText(R.string.validate_fullname_text);
             return false;
         }
         return true;
@@ -143,12 +143,12 @@ public class SignUpFragment extends Fragment {
     private boolean validateEmail(String email) {
 
         if (email.isEmpty()) {
-            tvEmailError.setText(R.string.signup_page_validate_email_text);
+            tvEmailError.setText(R.string.validate_email_text);
             return false;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
-            tvEmailError.setText(R.string.signup_page_validate_pattern_email_text);
+            tvEmailError.setText(R.string.validate_pattern_email_text);
             return false ;
         }
         return true;
@@ -157,11 +157,11 @@ public class SignUpFragment extends Fragment {
     private boolean validatePassword(String password){
 
         if(password.isEmpty()){
-            tvPasswordError.setText(R.string.signup_page_validate_empty_password_text);
+            tvPasswordError.setText(R.string.validate_empty_password_text);
             return false;
         }
         if(password.length() < 6 ){
-            tvPasswordError.setText(R.string.signup_page_validate_password_text);
+            tvPasswordError.setText(R.string.validate_password_text);
             return false;
         }
         return true;
@@ -170,11 +170,11 @@ public class SignUpFragment extends Fragment {
     private boolean validatePassConfirm(String passConfirm, String pass){
 
         if(passConfirm.isEmpty()){
-            tvConfirmPasswordError.setText(R.string.signup_page_validate_empty_confirm_password_text);
+            tvConfirmPasswordError.setText(R.string.validate_empty_confirm_password_text);
             return false;
         }
         if(!passConfirm.equals(pass)){
-            tvConfirmPasswordError.setText(R.string.signup_page_validate_confirm_password_text);
+            tvConfirmPasswordError.setText(R.string.validate_confirm_password_text);
             return false;
         }
         return true;

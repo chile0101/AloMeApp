@@ -5,8 +5,7 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:background="@drawable/pop_up_bg"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent">
     <LinearLayout
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -22,9 +21,9 @@
             android:padding="@dimen/padding_8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/address_list_page_title"
+            android:text="@string/select_address"
             android:layout_weight="1"
-            android:fontFamily="@font/thaisansneue_bold"/>
+            android:fontFamily="@font/roboto"/>
         <ImageView
             android:id="@+id/ivClose"
             android:padding="@dimen/padding_8"
@@ -53,9 +52,9 @@
             android:padding="@dimen/padding_16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/address_list_page_add_address_title"
+            android:text="@string/address"
             android:layout_weight="1"
-            android:fontFamily="@font/thaisansneue_regular"/>
+            android:fontFamily="@font/roboto"/>
         <TextView
             android:textSize="@dimen/text_size_20"
             android:textColor="@color/orange_color"
@@ -63,8 +62,8 @@
             android:padding="@dimen/padding_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address_list_page_add_address_btn"
-            android:fontFamily="@font/thaisansneue_regular"/>
+            android:text="@string/_add_address"
+            android:fontFamily="@font/roboto"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -80,7 +79,7 @@
         android:layout_alignParentBottom="true">
         <Button android:id="@+id/btnSelect"
             android:layout_margin="@dimen/padding_16"
-            android:text="@string/address_list_page_select_btn"
+            android:text="@string/select"
             style="@style/OrangeButtonMatchParentStyle"/>
     </FrameLayout>
 

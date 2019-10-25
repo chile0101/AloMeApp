@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/roboto"
                 android:textSize="@dimen/_16sdp"
                 android:text="itempromotion"
                 android:textColor="@color/dark_gray_color"
@@ -33,30 +34,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="1"
-                android:singleLine="true"
-                android:fontFamily="@font/thaisansneue_bold"/>
+                android:singleLine="true"/>
             <LinearLayout
                 android:gravity="bottom"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:fontFamily="@font/roboto"
                     android:text="price"
                     android:textSize="@dimen/_10ssp"
                     android:textColor="@color/dark_gray_color"
                     android:id="@+id/tvFullPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/thaisansneue_regular"
                     android:layout_marginEnd="@dimen/_3sdp"/>
                 <TextView
+                    android:fontFamily="@font/roboto"
                     android:textSize="@dimen/_16ssp"
                     android:text="price"
                     android:textColor="@color/orange_color"
                     android:id="@+id/tvSalePrice"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/thaisansneue_bold"/>
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

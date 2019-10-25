@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
-    <gradient android:startColor="@color/facebook_btn_press_start_gradient_color" android:endColor="@color/facebook_btn_press_end_gradient_color" android:angle="270"/>
+    <gradient
+        android:startColor="@color/facebook_btn_press_start_gradient_color"
+        android:endColor="@color/facebook_btn_press_end_gradient_color"
+        android:angle="270"/>
     <corners android:radius="@dimen/padding_32"/>
 </shape>

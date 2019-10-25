@@ -13,17 +13,16 @@
         android:paddingRight="@dimen/_12sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
-            android:textSize="@dimen/_16ssp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:id="@+id/btnSearch"
-            android:background="@drawable/orange_btn_selector"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_6sdp"
-            android:hint="@string/main_page_main_category_btn"
-            android:fontFamily="@font/thaisansneue_bold"/>
+        <!--<Button-->
+            <!--android:textSize="@dimen/_16ssp"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textColorHint="@android:color/white"-->
+            <!--android:id="@+id/btnSearch"-->
+            <!--android:background="@drawable/orange_btn_selector"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/_6sdp"-->
+            <!--android:hint="@string/main_page_main_category_btn"/>-->
     </FrameLayout>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"

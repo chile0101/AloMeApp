@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:textSize="@dimen/text_size_20"
+            android:textSize="@dimen/_14ssp"
             android:textColor="@color/black_color"
             android:id="@+id/tvTitle"
             android:padding="@dimen/padding_8"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/available_date_page_title"
             android:layout_weight="1"
-            android:fontFamily="@font/thaisansneue_bold"/>
+            android:fontFamily="@font/roboto_medium"/>
         <ImageView
 
             android:id="@+id/ivClose"
@@ -42,8 +42,8 @@
         android:layout_marginRight="@dimen/padding_8"
         android:layout_below="@+id/layoutTitle"/>
     <TextView
-        android:text="Please book 5 days in advance"
-        android:textSize="@dimen/text_size_20"
+        android:text="@string/please_book_7_days_in_advance"
+        android:textSize="@dimen/_14ssp"
         android:textColor="@android:color/white"
         android:gravity="center_horizontal"
         android:id="@+id/tvDescription"
@@ -52,11 +52,10 @@
         android:paddingTop="@dimen/padding_8"
         android:paddingRight="@dimen/padding_16"
         android:paddingBottom="@dimen/padding_8"
-
+        android:fontFamily="@font/roboto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layoutTitle"
-        android:fontFamily="@font/thaisansneue_regular"/>
+        android:layout_below="@+id/layoutTitle"/>
     <!--android:visibility="gone"-->
 
     <android.support.v7.widget.RecyclerView

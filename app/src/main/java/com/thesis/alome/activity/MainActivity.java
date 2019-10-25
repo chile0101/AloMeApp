@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String shortName = response.body().getData().getFullName();
                 PrefUtils.storeProfile(getApplicationContext(), shortName,response.body().getData().getId());
-                tvWelcome.setText(tvWelcome.getText()+ shortName);
+                tvWelcome.setText(tvWelcome.getText()+ " " + shortName);
             }
             @Override
             public void onFailure(Call<RespBase<Customer>> call, Throwable t) {

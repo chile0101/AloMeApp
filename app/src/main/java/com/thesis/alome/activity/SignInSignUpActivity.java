@@ -1,7 +1,9 @@
 package com.thesis.alome.activity;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,8 +28,8 @@ public class SignInSignUpActivity extends AppCompatActivity {
         mapping();
 
         tabAdapter = new TabAdapter(getSupportFragmentManager());
-        tabAdapter.addFragment(new SignInFragment(), "LOG IN");
-        tabAdapter.addFragment(new SignUpFragment(), "REGISTER");
+        tabAdapter.addFragment(new SignInFragment(), getString(R.string.log_in));
+        tabAdapter.addFragment(new SignUpFragment(), getString(R.string.register));
         viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
