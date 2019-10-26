@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_150sdp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/edtEmail"
@@ -13,50 +12,81 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:text="testchile@gmail.com" />
+        android:text="testchile@gmail.com"
+        app:layout_constraintBottom_toTopOf="@+id/tvEmailError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:textSize="@dimen/_8ssp"
-        android:textColor="@color/badge_color"
-        android:gravity="right"
         android:id="@+id/tvEmailError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/roboto"/>
+        android:fontFamily="@font/roboto"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/_8ssp"
+        app:layout_constraintBottom_toTopOf="@+id/edtPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
     <EditText
-        android:text="123456"
         android:id="@+id/edtPassword"
+        style="@style/EditTextUnderLineStyle"
+        android:fontFamily="@font/roboto"
         android:hint="@string/password"
         android:inputType="textPassword"
-        style="@style/EditTextUnderLineStyle"
-        android:fontFamily="@font/roboto"/>
+        android:text="123456"
+        app:layout_constraintBottom_toTopOf="@+id/tvPasswordError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailError" />
+
     <TextView
 
-        android:textSize="@dimen/_8ssp"
-        android:textColor="@color/badge_color"
-        android:gravity="right"
         android:id="@+id/tvPasswordError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="@font/roboto"/>
+        android:fontFamily="@font/roboto"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/_8ssp"
+        app:layout_constraintBottom_toTopOf="@+id/btnForgotPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
     <TextView
+        android:id="@+id/btnForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/roboto"
+        android:gravity="center_vertical"
+        android:hint="@string/forgot_password"
+        android:textColor="@color/gray_color"
         android:textSize="@dimen/_8ssp"
         android:textStyle="normal"
-        android:textColor="@color/gray_color"
-        android:gravity="center_vertical"
-        android:layout_gravity="right"
-        android:id="@+id/btnForgotPassword"
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_24sdp"
-        android:hint="@string/forgot_password"
-        android:fontFamily="@font/roboto"/>
+        app:layout_constraintBottom_toTopOf="@+id/btnSignIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordError" />
+
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_18sdp"
-        android:text="@string/log_in"
         style="@style/OrangeButtonWrapContentStyle"
-        android:fontFamily="@font/roboto"/>
-</LinearLayout>
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="108dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/log_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnForgotPassword" />
+</android.support.constraint.ConstraintLayout>
