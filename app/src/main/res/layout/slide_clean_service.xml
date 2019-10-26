@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
         android:id="@+id/slide_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
         android:src="@drawable/shape_clean_service"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_centerHorizontal="true"/>
+        app:layout_constraintBottom_toTopOf="@+id/slide_heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:fontFamily="@font/roboto"
         android:id="@+id/slide_heading"
+        style="@style/HeadingSlideStyle"
         android:layout_below="@+id/slide_image"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
         android:text="@string/slide_1_title"
-        style="@style/HeadingSlideStyle" />
+        app:layout_constraintBottom_toTopOf="@+id/slide_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slide_image" />
 
     <TextView
-        android:fontFamily="@font/roboto"
         android:id="@+id/slide_desc"
-        android:text="@string/slide_1_desciption"
+        style="@style/TextSlideStyle"
         android:layout_below="@+id/slide_heading"
-        style="@style/TextSlideStyle" />
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto"
+        android:padding="@dimen/padding_8"
+        android:text="@string/slide_1_desciption"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
