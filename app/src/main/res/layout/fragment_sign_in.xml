@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/ic_landing_bg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
