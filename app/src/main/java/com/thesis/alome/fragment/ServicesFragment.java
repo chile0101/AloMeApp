@@ -3,10 +3,12 @@ package com.thesis.alome.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,23 +16,28 @@ import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.adapter.MainRecycleAdapter;
+import com.thesis.alome.adapter.SnapAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.model.RespBase;
-import com.thesis.alome.model.TypeService;
+import com.thesis.alome.model.ServiceType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.provider.MediaStore.Images.ImageColumns.ORIENTATION;
+
 public class ServicesFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    MainRecycleAdapter mainRecycleAdapter;
-    List<TypeService> typeServiceList;
-
+    private RecyclerView mRecyclerView;
+    private boolean mHorizontal;
+    private SnapAdapter snapAdapter;
+    List<ServiceType> serviceTypes;
+    private FloatingActionButton fabRequest;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,28 +46,60 @@ public class ServicesFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        mRecyclerView = view.findViewById(R.id.recyclerView);
+        fabRequest = view.findViewById(R.id.fabRequest);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setHasFixedSize(true);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        
-        ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
-        Call<RespBase<List<TypeService>>> call = apiServices.getMainData();
-        call.enqueue(new Callback<RespBase<List<TypeService>>>() {
-            @Override
-            public void onResponse(Call<RespBase<List<TypeService>>> call, Response<RespBase<List<TypeService>>> response) {
-                typeServiceList = (List<TypeService>) response.body().getData();
-                mainRecycleAdapter = new MainRecycleAdapter(typeServiceList);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(mainRecycleAdapter);
+        if (savedInstanceState == null) {
+            mHorizontal = true;
+        } else {
+            mHorizontal = savedInstanceState.getBoolean(ORIENTATION);
+        }
+        if(serviceTypes == null) {
+            setupAdapter();
+            callApi();
+
+        } else {
+            //there is already data? screen must be rotating or tab switching
+            for (ServiceType serviceType:serviceTypes){
+                snapAdapter.addSnap(serviceType);
+                mRecyclerView.setAdapter(snapAdapter);
             }
+        }
 
+        callApi();
+        fabRequest.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFailure(Call<RespBase<List<TypeService>>> call, Throwable t) {
-                Toast.makeText(getActivity(), "Please check internet", Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Chức năng này đang làm.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    private void setupAdapter() {
+        serviceTypes =new ArrayList<>();
+        snapAdapter = new SnapAdapter(getActivity());
+        mRecyclerView.setAdapter(snapAdapter);
+    }
 
+    private void callApi(){
+        ApiClient.getClient(getActivity()).create(ApiServices.class).getMainData().enqueue(new Callback<RespBase<List<ServiceType>>>() {
+            @Override
+            public void onResponse(Call<RespBase<List<ServiceType>>> call, Response<RespBase<List<ServiceType>>> response) {
+                if(response.body()!=null && response.body().getStatus()){
+                    serviceTypes = response.body().getData();
+                    for (ServiceType serviceType:serviceTypes){
+                        snapAdapter.addSnap(serviceType);
+                        mRecyclerView.setAdapter(snapAdapter);
+                    }
+                }
+            }
 
+            @Override
+            public void onFailure(Call<RespBase<List<ServiceType>>> call, Throwable t) {
+
+            }
+        });
     }
 }

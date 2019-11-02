@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <FrameLayout
-        android:id="@+id/layoutSearch"
-        android:background="@android:color/white"
-        android:paddingLeft="@dimen/_12sdp"
-        android:paddingTop="@dimen/_6sdp"
-        android:paddingRight="@dimen/_12sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!--<Button-->
-            <!--android:textSize="@dimen/_16ssp"-->
-            <!--android:textColor="@android:color/white"-->
-            <!--android:textColorHint="@android:color/white"-->
-            <!--android:id="@+id/btnSearch"-->
-            <!--android:background="@drawable/orange_btn_selector"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="@dimen/_6sdp"-->
-            <!--android:hint="@string/main_page_main_category_btn"/>-->
-    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/browser_actions_bg_grey"
+        android:clickable="true"
+        android:padding="0dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_request"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:useCompatPadding="true"
+        tools:ignore="VectorDrawableCompat" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/layoutSearch">
+        android:layout_below="@+id/layoutSearch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:clipToPadding="false"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:clipToPadding="false" />
     </android.support.v4.widget.SwipeRefreshLayout>
     <!--<include -->
         <!--android:id="@+id/layoutNoconnection" -->
@@ -41,4 +48,4 @@
         <!--android:layout_width="match_parent" -->
         <!--android:layout_height="match_parent" -->
         <!--layout="@layout/layout_no_internet_connection_include_icon"/>-->
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

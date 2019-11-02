@@ -4,7 +4,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TypeService{
+public class ServiceType {
 
     @SerializedName("id")
     @Expose
@@ -16,10 +16,10 @@ public class TypeService{
     @Expose
     private List<Service> services = null;
 
-    public TypeService() {
+    public ServiceType() {
     }
 
-    public TypeService(long id, String typeName, List<Service> services) {
+    public ServiceType(long id, String typeName, List<Service> services) {
         super();
         this.id = id;
         this.typeName = typeName;

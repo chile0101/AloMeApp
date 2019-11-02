@@ -5,7 +5,7 @@ import com.thesis.alome.model.ReqSignUp;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.model.RespSignIn;
 import com.thesis.alome.model.Service;
-import com.thesis.alome.model.TypeService;
+import com.thesis.alome.model.ServiceType;
 
 import java.util.List;
 
@@ -38,10 +38,10 @@ public interface ApiServices {
     Call<RespBase<Customer>> getProfile(@Query("access_token") String accessToken);
 
     @GET("service/types")
-    Call<RespBase<List<TypeService>>> getMainData();
+    Call<RespBase<List<ServiceType>>> getMainData();
 
     @GET("service/types/{id}")
-    Call<RespBase<TypeService>> getServicesByTypeId(@Path("id") long typeId);
+    Call<RespBase<ServiceType>> getServicesByTypeId(@Path("id") long typeId);
 
     @GET("services/detail/{id}")
     Call<RespBase<Service>> getServiceById(@Path("id") long serviceId);

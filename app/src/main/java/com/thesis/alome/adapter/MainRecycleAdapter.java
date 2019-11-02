@@ -17,18 +17,18 @@ import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.LoadMoreServices;
 import com.thesis.alome.activity.ServiceDetailActivity;
-import com.thesis.alome.model.TypeService;
+import com.thesis.alome.model.ServiceType;
 
 import java.util.List;
 
 public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.ViewHolder> {
 
-    List<TypeService> typeServiceList;
+    List<ServiceType> serviceTypeList;
     Context context;
 
 
-    public MainRecycleAdapter(List<TypeService> typeServiceList){
-        this.typeServiceList = typeServiceList;
+    public MainRecycleAdapter(List<ServiceType> serviceTypeList){
+        this.serviceTypeList = serviceTypeList;
     }
 
     @NonNull
@@ -43,38 +43,38 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
     @Override
     public void onBindViewHolder(@NonNull final MainRecycleAdapter.ViewHolder viewHolder, final int i) {
 
-        final TypeService typeService = (TypeService) typeServiceList.get(i);
-        if(typeService != null){
-            viewHolder.tvName.setText(typeService.getTypeName());
-            if(typeService.getServices().size() != 0){
-                Picasso.get().load(typeService.getServices().get(0).getImageUrl()).into(viewHolder.img1);
-                viewHolder.tvName1.setText(typeService.getServices().get(0).getServiceName());
-                viewHolder.tvSalePrice1.setText("$" + typeService.getServices().get(0).getSalePrice());
-                viewHolder.tvFullPrice1.setText("$" + typeService.getServices().get(0).getFullPrice());
+        final ServiceType serviceType = (ServiceType) serviceTypeList.get(i);
+        if(serviceType != null){
+            viewHolder.tvName.setText(serviceType.getTypeName());
+            if(serviceType.getServices().size() != 0){
+                Picasso.get().load(serviceType.getServices().get(0).getImageUrl()).into(viewHolder.img1);
+                viewHolder.tvName1.setText(serviceType.getServices().get(0).getServiceName());
+                viewHolder.tvSalePrice1.setText("$" + serviceType.getServices().get(0).getSalePrice());
+                viewHolder.tvFullPrice1.setText("$" + serviceType.getServices().get(0).getFullPrice());
                 viewHolder.tvFullPrice1.setPaintFlags(viewHolder.tvFullPrice1.getPaintFlags()
                         | Paint.STRIKE_THRU_TEXT_FLAG);
                 viewHolder.cv1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent =  new Intent(context.getApplicationContext(), ServiceDetailActivity.class);
-                        intent.putExtra("serviceId",typeService.getServices().get(0).getId());
+                        intent.putExtra("serviceId", serviceType.getServices().get(0).getId());
                         context.startActivity(intent);
                              }
                 });
             }
 
-            if(typeService.getServices().size() != 1){
-                Picasso.get().load(typeService.getServices().get(1).getImageUrl()).into(viewHolder.img2) ;
-                viewHolder.tvName2.setText(typeService.getServices().get(1).getServiceName());
-                viewHolder.tvSalePrice2.setText("$" + typeService.getServices().get(1).getSalePrice());
-                viewHolder.tvFullPrice2.setText("$" + typeService.getServices().get(1).getFullPrice());
+            if(serviceType.getServices().size() != 1){
+                Picasso.get().load(serviceType.getServices().get(1).getImageUrl()).into(viewHolder.img2) ;
+                viewHolder.tvName2.setText(serviceType.getServices().get(1).getServiceName());
+                viewHolder.tvSalePrice2.setText("$" + serviceType.getServices().get(1).getSalePrice());
+                viewHolder.tvFullPrice2.setText("$" + serviceType.getServices().get(1).getFullPrice());
                 viewHolder.tvFullPrice2.setPaintFlags(viewHolder.tvFullPrice2.getPaintFlags()
                         | Paint.STRIKE_THRU_TEXT_FLAG);
                 viewHolder.cv2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent =  new Intent(context.getApplicationContext(), ServiceDetailActivity.class);
-                        intent.putExtra("serviceId",typeService.getServices().get(1).getId());
+                        intent.putExtra("serviceId", serviceType.getServices().get(1).getId());
                         context.startActivity(intent);
                     }
                 });
@@ -83,8 +83,8 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context.getApplicationContext(), LoadMoreServices.class);
-                    intent.putExtra("typeId",typeService.getId());
-                    intent.putExtra("titleService",typeService.getTypeName());
+                    intent.putExtra("typeId", serviceType.getId());
+                    intent.putExtra("titleService", serviceType.getTypeName());
                     context.startActivity(intent);
                 }
             });
@@ -95,7 +95,7 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
 
     @Override
     public int getItemCount() {
-        return typeServiceList != null ? typeServiceList.size():0;
+        return serviceTypeList != null ? serviceTypeList.size():0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

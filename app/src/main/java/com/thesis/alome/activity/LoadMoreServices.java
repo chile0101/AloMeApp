@@ -12,7 +12,7 @@ import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.model.Service;
-import com.thesis.alome.model.TypeService;
+import com.thesis.alome.model.ServiceType;
 
 import java.util.List;
 
@@ -35,10 +35,10 @@ public class LoadMoreServices extends BaseActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rcvLoadMore);
 
         ApiServices apiServices = ApiClient.getClient(getApplicationContext()).create(ApiServices.class);
-        Call<RespBase<TypeService>> call = apiServices.getServicesByTypeId(getIntent().getLongExtra("typeId",1));
-        call.enqueue(new Callback<RespBase<TypeService>>() {
+        Call<RespBase<ServiceType>> call = apiServices.getServicesByTypeId(getIntent().getLongExtra("typeId",1));
+        call.enqueue(new Callback<RespBase<ServiceType>>() {
             @Override
-            public void onResponse(Call<RespBase<TypeService>> call, Response<RespBase<TypeService>> response) {
+            public void onResponse(Call<RespBase<ServiceType>> call, Response<RespBase<ServiceType>> response) {
                 serviceList = (List<Service>) response.body().getData().getServices();
                 adapter = new LoadMoreRcvAdapter(serviceList);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -47,7 +47,7 @@ public class LoadMoreServices extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<RespBase<TypeService>> call, Throwable t) {
+            public void onFailure(Call<RespBase<ServiceType>> call, Throwable t) {
                 Toast.makeText(LoadMoreServices.this, "Please check internet", Toast.LENGTH_SHORT).show();
             }
         });

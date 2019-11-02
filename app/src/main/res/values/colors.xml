@@ -171,4 +171,5 @@
     <color name="tedbottompicker_selected">#f0f0f0</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6ffffff</color>
+    <color name="darkMainColor">#0081cb</color>
 </resources>
