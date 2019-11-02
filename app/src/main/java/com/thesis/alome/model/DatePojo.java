@@ -1,4 +1,4 @@
-package com.thesis.alome.dao;
+package com.thesis.alome.model;
 
 public class DatePojo {
     private String dayofweek;

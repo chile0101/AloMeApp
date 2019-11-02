@@ -93,7 +93,6 @@
     <string name="delete">Delete</string>
 
 
-
     <string name="password_change_failed">Password change failed.</string>
     <string name="password_change_no_verification_failed">Cannot reset password without registered/verified email or phone number</string>
     <string name="password_change_success">Password change succeeded.</string>
@@ -149,4 +148,7 @@
     <string name="flexible">Flexible</string>
     <string name="please_book_7_days_in_advance">Please book 7 day in advance</string>
     <string name="choose">Choose</string>
+    <string name="alley_road">Alley/Road</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="you_not_allow_location">If you do not allow to use device\'s location, it will not work correctly. Do you allow to use the divices\'s location</string>
 </resources>

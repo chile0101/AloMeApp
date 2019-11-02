@@ -57,5 +57,9 @@
     <string name="available_time_page_title">Chọn thời gian đặt</string>
     <string name="please_book_7_days_in_advance">Vui lòng đặt trước 7 ngày</string>
     <string name="choose">Chọn</string>
+    <string name="alley_road">Hẻm/Đường</string>
+    <string name="house_no">Số nhà</string>
+    <string name="district_area">Quận/Huyện</string>
+    <string name="province">Tỉnh/Thành</string>
 
 </resources>

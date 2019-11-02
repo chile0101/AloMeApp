@@ -1,7 +1,6 @@
 package com.thesis.alome.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,9 +10,9 @@ import com.thesis.alome.R;
 import com.thesis.alome.adapter.LoadMoreRcvAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
-import com.thesis.alome.dao.RespBase;
-import com.thesis.alome.dao.Service;
-import com.thesis.alome.dao.TypeService;
+import com.thesis.alome.model.RespBase;
+import com.thesis.alome.model.Service;
+import com.thesis.alome.model.TypeService;
 
 import java.util.List;
 

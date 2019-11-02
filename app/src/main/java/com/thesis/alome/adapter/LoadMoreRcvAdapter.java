@@ -14,9 +14,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
-import com.thesis.alome.activity.LoadMoreServices;
 import com.thesis.alome.activity.ServiceDetailActivity;
-import com.thesis.alome.dao.Service;
+import com.thesis.alome.model.Service;
 
 import java.util.List;
 

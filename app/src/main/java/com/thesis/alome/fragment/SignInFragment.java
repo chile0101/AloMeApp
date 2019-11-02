@@ -19,8 +19,7 @@ import android.widget.Toast;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.config.PrefUtils;
-import com.thesis.alome.dao.Customer;
-import com.thesis.alome.dao.RespSignIn;
+import com.thesis.alome.model.RespSignIn;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
 

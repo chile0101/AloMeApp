@@ -12,14 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.LoadMoreServices;
 import com.thesis.alome.activity.ServiceDetailActivity;
-import com.thesis.alome.dao.Service;
-import com.thesis.alome.dao.TypeService;
+import com.thesis.alome.model.TypeService;
 
 import java.util.List;
 

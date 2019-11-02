@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.thesis.alome.dao.Address;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -43,21 +42,21 @@ public class PrefUtils {
         return getSharedPreferences(context).getString("SHORT_NAME","");
     }
 
-    public static void setAddressList(Context context, String key, List<Address> addressList){
-        Gson gson = new Gson();
-        String addressListJson = gson.toJson(addressList);
-
-        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
-        editor.putString("AddressList", addressListJson);
-        editor.commit();
-    }
-
-    public static List<Address> getAddressList(Context context){
-        Gson gson = new Gson();
-        String addressListStr = getSharedPreferences(context).getString("AddressList","");
-        List<Address> addressList = new ArrayList<Address>();
-        Type type = new TypeToken<List<Address>>() {}.getType();
-        addressList = gson.fromJson(addressListStr,type);
-        return addressList;
-    }
+//    public static void setAddressList(Context context, String key, List<Address> addressList){
+//        Gson gson = new Gson();
+//        String addressListJson = gson.toJson(addressList);
+//
+//        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+//        editor.putString("AddressList", addressListJson);
+//        editor.commit();
+//    }
+//
+//    public static List<Address> getAddressList(Context context){
+//        Gson gson = new Gson();
+//        String addressListStr = getSharedPreferences(context).getString("AddressList","");
+//        List<Address> addressList = new ArrayList<Address>();
+//        Type type = new TypeToken<List<Address>>() {}.getType();
+//        addressList = gson.fromJson(addressListStr,type);
+//        return addressList;
+//    }
 }

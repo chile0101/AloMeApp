@@ -16,8 +16,8 @@ import com.thesis.alome.R;
 import com.thesis.alome.adapter.MainRecycleAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
-import com.thesis.alome.dao.RespBase;
-import com.thesis.alome.dao.TypeService;
+import com.thesis.alome.model.RespBase;
+import com.thesis.alome.model.TypeService;
 
 import java.util.List;
 

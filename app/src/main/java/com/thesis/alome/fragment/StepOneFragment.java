@@ -47,6 +47,12 @@ public class StepOneFragment extends Fragment {
                 edtTime.setText(s);
             }
         });
+        model.getAddress().observe(getActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                edtAddress.setText(s);
+            }
+        });
 
        edtDate.setOnClickListener(new View.OnClickListener() {
            @Override

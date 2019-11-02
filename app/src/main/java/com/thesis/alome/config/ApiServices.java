@@ -1,11 +1,11 @@
 package com.thesis.alome.config;
 
-import com.thesis.alome.dao.Customer;
-import com.thesis.alome.dao.ReqSignUp;
-import com.thesis.alome.dao.RespBase;
-import com.thesis.alome.dao.RespSignIn;
-import com.thesis.alome.dao.Service;
-import com.thesis.alome.dao.TypeService;
+import com.thesis.alome.model.Customer;
+import com.thesis.alome.model.ReqSignUp;
+import com.thesis.alome.model.RespBase;
+import com.thesis.alome.model.RespSignIn;
+import com.thesis.alome.model.Service;
+import com.thesis.alome.model.TypeService;
 
 import java.util.List;
 

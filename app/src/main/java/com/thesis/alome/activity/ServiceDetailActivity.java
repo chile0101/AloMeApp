@@ -9,19 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.github.florent37.expansionpanel.ExpansionLayout;
 import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
-import com.thesis.alome.dao.RespBase;
-import com.thesis.alome.dao.Service;
+import com.thesis.alome.model.RespBase;
+import com.thesis.alome.model.Service;
 
 import java.util.HashMap;
 

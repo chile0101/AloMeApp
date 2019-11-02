@@ -1,30 +1,20 @@
 package com.thesis.alome.adapter;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.thesis.alome.R;
-import com.thesis.alome.dao.DatePojo;
-import com.thesis.alome.dao.Service;
-import com.thesis.alome.fragment.BottomSheetTimeFragment;
+import com.thesis.alome.model.DatePojo;
 import com.thesis.alome.viewmodel.StepViewModel;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

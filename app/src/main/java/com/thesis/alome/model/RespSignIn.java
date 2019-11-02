@@ -1,4 +1,4 @@
-package com.thesis.alome.dao;
+package com.thesis.alome.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

@@ -1,11 +1,7 @@
 package com.thesis.alome.config;
 
-import android.app.Activity;
-import android.util.Log;
+import com.thesis.alome.model.DatePojo;
 
-import com.thesis.alome.dao.DatePojo;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;

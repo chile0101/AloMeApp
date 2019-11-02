@@ -1,20 +1,96 @@
 package com.thesis.alome.fragment;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thesis.alome.R;
+import com.thesis.alome.activity.MapsActivity;
+import com.thesis.alome.adapter.AddressListRcvAdapter;
+import com.thesis.alome.model.Address;
+import com.thesis.alome.viewmodel.AddressViewModel;
+import com.thesis.alome.viewmodel.StepViewModel;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+import static android.app.Activity.RESULT_OK;
 
 public class BottomSheetAddressList extends BottomSheetDialogFragment {
+
+    @BindView(R.id.tvAddAddress)
+    TextView tvAddAddress;
+    @BindView(R.id.tvAddAddressTitle)
+    TextView tvAddAddressTitle;
+    @BindView(R.id.addressListRcv)
+    RecyclerView addressListRcv;
+    private AddressViewModel addressViewModel;
+    private StepViewModel stepViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_bottom_sheet_address_list,container,false);
+        View view = inflater.inflate(R.layout.fragment_bottom_sheet_address_list,container,false);
+        ButterKnife.bind(this,view);
+        return view;
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final AddressListRcvAdapter adapter = new AddressListRcvAdapter(getActivity());
+        addressListRcv.setAdapter(adapter);
+        addressListRcv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        addressViewModel = ViewModelProviders.of(this).get(AddressViewModel.class);
+        stepViewModel = ViewModelProviders.of(this).get(StepViewModel.class);
+        addressViewModel.getAllAddress().observe(this, new Observer<List<Address>>() {
+            @Override
+            public void onChanged(@Nullable List<Address> addresses) {
+                adapter.setAddressList(addresses);
+            }
+        });
+
+        tvAddAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });
+
+        tvAddAddressTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetAddAddress bottomSheetAddAddress = new BottomSheetAddAddress();
+                bottomSheetAddAddress.show(getFragmentManager(),bottomSheetAddAddress.getTag());
+            }
+        });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                stepViewModel.setAddress(data.getStringExtra("addressIntent"));
+//                BottomSheetAddAddress bottomSheetAddAddress = new BottomSheetAddAddress();
+//                bottomSheetAddAddress.show(getFragmentManager(),bottomSheetAddAddress.getTag());
+            }
+        }
+    }
+
 }

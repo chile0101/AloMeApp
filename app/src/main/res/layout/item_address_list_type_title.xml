@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/padding_16"
+    android:layout_marginRight="@dimen/padding_16">
+    <TextView
+        android:text="House"
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/disable_action_type_btn_color"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"/>
+    <View
+        android:background="@drawable/available_date_time_recycler_view_divider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginLeft="@dimen/padding_8"
+        android:layout_weight="1"/>
+</LinearLayout>
