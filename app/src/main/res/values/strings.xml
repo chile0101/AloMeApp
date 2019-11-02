@@ -112,11 +112,13 @@
     <string name="password">Password</string>
     <string name="validate_confirm_password_text">* Passwords do not match.</string>
     <string name="validate_email_text">* Please enter your email.</string>
+    <string name="validate_phone_text">* Please enter your phone.</string>
     <string name="validate_empty_confirm_password_text">* Please confirm your password.</string>
     <string name="validate_empty_password_text">Please enter your password.</string>
     <string name="validate_fullname_text">* Please enter your first name - last name.</string>
     <string name="validate_password_text">* Password must be at least 6 characters.</string>
     <string name="validate_pattern_email_text">* Your email is invalid.</string>
+    <string name="validate_pattern_phone_text">* Your phone number is invalid.</string>
 
     <string name="slide_1_title">Clean Services</string>
     <string name="slide_2_title">Electronic Services</string>
@@ -151,4 +153,5 @@
     <string name="alley_road">Alley/Road</string>
     <string name="title_activity_maps">Map</string>
     <string name="you_not_allow_location">If you do not allow to use device\'s location, it will not work correctly. Do you allow to use the divices\'s location</string>
+    <string name="phone">Phone number</string>
 </resources>
