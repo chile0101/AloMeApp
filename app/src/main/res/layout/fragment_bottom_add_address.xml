@@ -1,272 +1,467 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:background="@drawable/pop_up_bg"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fontFamily="@font/roboto">
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <LinearLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:id="@+id/layoutTitle"
         android:paddingLeft="@dimen/padding_16"
         android:paddingTop="@dimen/padding_8"
         android:paddingRight="@dimen/padding_16"
         android:paddingBottom="@dimen/padding_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:textSize="@dimen/text_size_20"
-            android:textColor="@color/black_color"
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_address"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"/>
+            android:fontFamily="@font/roboto"
+            android:text="@string/add_address"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/text_size_20" />
+
         <ImageView
             android:id="@+id/ivClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_pop_up_cancel"/>
+            android:src="@drawable/ic_pop_up_cancel" />
     </LinearLayout>
+
     <View
         android:id="@+id/viewDivider"
-        android:background="@color/orange_color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider_height"
-        android:layout_marginLeft="@dimen/padding_8"
-        android:layout_marginRight="@dimen/padding_8"
-        android:layout_below="@+id/layoutTitle"/>
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scrollViewAddress"
+        android:layout_below="@+id/layoutTitle"
+        android:background="@color/orange_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTitle" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/layoutBtnSelect"
-        android:layout_below="@+id/viewDivider">
-        <LinearLayout android:orientation="vertical"
-            android:padding="@dimen/padding_16"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingTop="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTitle">
+        <!--<Button android:textColor="@color/orange_color"-->
+        <!--android:id="@+id/btnEditMap"-->
+        <!--android:text="@string/edit_map"-->
+        <!--style="@style/TransparentButtonMatchParentStyle"-->
+        <!--android:fontFamily="@font/roboto"/>-->
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layoutHouseNo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button android:textColor="@color/orange_color"
-                android:id="@+id/btnEditMap"
-                android:text="@string/edit_map"
-                style="@style/TransparentButtonMatchParentStyle"
-                android:fontFamily="@font/roboto"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_16"
+            android:paddingRight="@dimen/padding_16">
 
-            <LinearLayout
-                android:layout_marginTop="16dp"
-                android:layout_below="@+id/linearLayoutDate"
-                android:id="@+id/layoutTypeOfArea"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_16"
-                android:paddingRight="@dimen/padding_16"
+            <TextView
+                android:id="@+id/tvHouseNo"
+                style="@style/TextViewTitleFormStyle"
+                android:fontFamily="@font/roboto"
+                android:text="@string/house_no" />
+
+            <EditText
+                android:id="@+id/edtHouseNo"
+                style="@style/EditTextInPutTypeNumberFormStyle"
+                android:fontFamily="@font/roboto"
+                android:freezesText="true" />
+
+            <TextView
+                android:id="@+id/tvErrorHouseNo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/type_of_area"
-                    android:id="@+id/tvTypeOfArea"
-                    style="@style/TextViewTitleFormStyle"/>
-                <EditText
-                    android:fontFamily="@font/roboto"
-                    android:id="@+id/edtTypeOfArea"
-                    android:layout_marginTop="@dimen/padding_4"
-                    android:freezesText="true"
-                    style="@style/EditTextInPutTypeNumberFormStyle"/>
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:textSize="@dimen/text_size_12"
-                    android:textColor="@color/badge_color"
-                    android:gravity="right"
-                    android:id="@+id/tvErrorTypeOfArea"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="16dp"
-                android:id="@+id/layoutHouseNo"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_16"
-                android:paddingRight="@dimen/padding_16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/house_no"
-                    android:id="@+id/tvHouseNo"
-                    style="@style/TextViewTitleFormStyle"/>
-                <EditText
-                    android:fontFamily="@font/roboto"
-                    android:id="@+id/edtHouseNo"
-                    android:layout_marginTop="@dimen/padding_4"
-                    android:freezesText="true"
-                    style="@style/EditTextInPutTypeNumberFormStyle"/>
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:textSize="@dimen/text_size_12"
-                    android:textColor="@color/badge_color"
-                    android:gravity="right"
-                    android:id="@+id/tvErrorHouseNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="16dp"
-                android:id="@+id/layoutAlleyRoad"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_16"
-                android:paddingRight="@dimen/padding_16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/alley_road"
-                    android:id="@+id/tvAlleyRoad"
-                    style="@style/TextViewTitleFormStyle"/>
-                <EditText
-                    android:fontFamily="@font/roboto"
-                    android:id="@+id/edtAlleyRoad"
-                    android:layout_marginTop="@dimen/padding_4"
-                    android:freezesText="true"
-                    style="@style/EditTextInPutTypeNumberFormStyle"/>
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:textSize="@dimen/text_size_12"
-                    android:textColor="@color/badge_color"
-                    android:gravity="right"
-                    android:id="@+id/tvErrorAlleyRoad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="16dp"
-                android:id="@+id/layoutDistricArea"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_16"
-                android:paddingRight="@dimen/padding_16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/district_area"
-                    android:id="@+id/tvDistricArea"
-                    style="@style/TextViewTitleFormStyle"/>
-                <EditText
-                    android:fontFamily="@font/roboto"
-                    android:id="@+id/edtDistricArea"
-                    android:layout_marginTop="@dimen/padding_4"
-                    android:freezesText="true"
-                    style="@style/EditTextInPutTypeNumberFormStyle"/>
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:textSize="@dimen/text_size_12"
-                    android:textColor="@color/badge_color"
-                    android:gravity="right"
-                    android:id="@+id/tvErrorDistricArea"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="16dp"
-                android:id="@+id/layoutProvince"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_16"
-                android:paddingRight="@dimen/padding_16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/province"
-                    android:id="@+id/tvProvince"
-                    style="@style/TextViewTitleFormStyle"/>
-                <EditText
-                    android:fontFamily="@font/roboto"
-                    android:id="@+id/edtProvince"
-                    android:layout_marginTop="@dimen/padding_4"
-                    android:freezesText="true"
-                    style="@style/EditTextInPutTypeNumberFormStyle"/>
-                <TextView
-                    android:fontFamily="@font/roboto"
-                    android:textSize="@dimen/text_size_12"
-                    android:textColor="@color/badge_color"
-                    android:gravity="right"
-                    android:id="@+id/tvErrorProvince"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-            <!--<include-->
-                <!--android:id="@+id/includeTypeOfProperty"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/padding_16"-->
-                <!--layout="@layout/item_click_action_textview"/>-->
-            <!--<include-->
-                <!--android:id="@+id/includeHouseNumber"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/padding_4"-->
-                <!--layout="@layout/item_edittext_input_type_text"/>-->
-            <!--<include-->
-                <!--android:id="@+id/includeVillage"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/padding_4"-->
-                <!--layout="@layout/item_edittext_input_type_text"/>-->
-            <!--<include android:id="@+id/includeAlley"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/padding_4"-->
-                <!--layout="@layout/item_edittext_input_type_text"/>-->
-            <!--<include android:id="@+id/includeDistrict"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/padding_4"-->
-                <!--layout="@layout/item_edittext_input_type_text"/>-->
-            <!--<include android:id="@+id/includeProvince"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/padding_4"-->
-                <!--layout="@layout/item_edittext_input_type_text"/>-->
-            <!--<include-->
-                <!--android:id="@+id/includeLandmark"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="@dimen/padding_4"-->
-                <!--layout="@layout/item_edittext_input_type_text"/>-->
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="right"
+                android:textColor="@color/badge_color"
+                android:textSize="@dimen/text_size_12" />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-    <FrameLayout
-        android:id="@+id/layoutBtnSelect"
-        android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_margin="@dimen/padding_16"
-            android:text="@string/save"
-            style="@style/OrangeButtonMatchParentStyle"
-            android:fontFamily="@font/roboto"/>
-    </FrameLayout>
-    <!--<include android:id="@+id/loadingContainer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/viewDivider" layout="@layout/layout_loading"/>-->
-</RelativeLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layoutAlleyRoad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_16"
+            android:paddingRight="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tvAlleyRoad"
+                style="@style/TextViewTitleFormStyle"
+                android:fontFamily="@font/roboto"
+                android:text="@string/alley_road" />
+
+            <EditText
+                android:id="@+id/edtAlleyRoad"
+                style="@style/EditTextInPutTypeNumberFormStyle"
+
+                android:fontFamily="@font/roboto"
+                android:freezesText="true" />
+
+            <TextView
+                android:id="@+id/tvErrorAlleyRoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="right"
+                android:textColor="@color/badge_color"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layoutWard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutDate"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_16"
+            android:paddingRight="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tvWard"
+                style="@style/TextViewTitleFormStyle"
+                android:fontFamily="@font/roboto"
+                android:text="@string/ward" />
+
+            <EditText
+                android:id="@+id/edtWard"
+                style="@style/EditTextInPutTypeNumberFormStyle"
+                android:fontFamily="@font/roboto"
+                android:freezesText="true" />
+
+            <TextView
+                android:id="@+id/tvErrorWard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="right"
+                android:textColor="@color/badge_color"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layoutDistricArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_16"
+            android:paddingRight="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tvDistricArea"
+                style="@style/TextViewTitleFormStyle"
+                android:fontFamily="@font/roboto"
+                android:text="@string/district_area" />
+
+            <EditText
+                android:id="@+id/edtDistricArea"
+                style="@style/EditTextInPutTypeNumberFormStyle"
+
+                android:fontFamily="@font/roboto"
+                android:freezesText="true" />
+
+            <TextView
+                android:id="@+id/tvErrorDistricArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="right"
+                android:textColor="@color/badge_color"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/layoutProvince"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_16"
+            android:paddingRight="@dimen/padding_16">
+
+            <TextView
+                android:id="@+id/tvProvince"
+                style="@style/TextViewTitleFormStyle"
+                android:fontFamily="@font/roboto"
+                android:text="@string/province" />
+
+            <EditText
+                android:id="@+id/edtProvince"
+                style="@style/EditTextInPutTypeNumberFormStyle"
+
+                android:fontFamily="@font/roboto"
+                android:freezesText="true" />
+
+            <TextView
+                android:id="@+id/tvErrorProvince"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="right"
+                android:textColor="@color/badge_color"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        style="@style/OrangeButtonMatchParentStyle"
+        android:layout_margin="@dimen/padding_16"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/roboto"
+        android:padding="@dimen/_8ssp"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+</android.support.constraint.ConstraintLayout>
+<!--<RelativeLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:aapt="http://schemas.android.com/aapt"-->
+    <!--android:background="@drawable/pop_up_bg"-->
+    <!--android:focusable="true"-->
+    <!--android:focusableInTouchMode="true"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fontFamily="@font/roboto">-->
+    <!--<LinearLayout-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:id="@+id/layoutTitle"-->
+        <!--android:paddingLeft="@dimen/padding_16"-->
+        <!--android:paddingTop="@dimen/padding_8"-->
+        <!--android:paddingRight="@dimen/padding_16"-->
+        <!--android:paddingBottom="@dimen/padding_8"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<TextView-->
+            <!--android:textSize="@dimen/text_size_20"-->
+            <!--android:textColor="@color/black_color"-->
+            <!--android:id="@+id/tvTitle"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/add_address"-->
+            <!--android:layout_weight="1"-->
+            <!--android:fontFamily="@font/roboto"/>-->
+        <!--<ImageView-->
+            <!--android:id="@+id/ivClose"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/ic_pop_up_cancel"/>-->
+    <!--</LinearLayout>-->
+    <!--<View-->
+        <!--android:id="@+id/viewDivider"-->
+        <!--android:background="@color/orange_color"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/divider_height"-->
+        <!--android:layout_marginLeft="@dimen/padding_8"-->
+        <!--android:layout_marginRight="@dimen/padding_8"-->
+        <!--android:layout_below="@+id/layoutTitle"/>-->
+    <!--<LinearLayout android:orientation="vertical"-->
+        <!--android:padding="@dimen/padding_16"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--&lt;!&ndash;<Button android:textColor="@color/orange_color"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/btnEditMap"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="@string/edit_map"&ndash;&gt;-->
+            <!--&lt;!&ndash;style="@style/TransparentButtonMatchParentStyle"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:fontFamily="@font/roboto"/>&ndash;&gt;-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="36dp"-->
+            <!--android:id="@+id/layoutHouseNo"-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="@dimen/padding_16"-->
+            <!--android:paddingRight="@dimen/padding_16"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:text="@string/house_no"-->
+                <!--android:id="@+id/tvHouseNo"-->
+                <!--style="@style/TextViewTitleFormStyle"/>-->
+            <!--<EditText-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:id="@+id/edtHouseNo"-->
+                <!--android:freezesText="true"-->
+                <!--style="@style/EditTextInPutTypeNumberFormStyle"/>-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:textSize="@dimen/text_size_12"-->
+                <!--android:textColor="@color/badge_color"-->
+                <!--android:gravity="right"-->
+                <!--android:id="@+id/tvErrorHouseNo"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:id="@+id/layoutAlleyRoad"-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="@dimen/padding_16"-->
+            <!--android:paddingRight="@dimen/padding_16"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:text="@string/alley_road"-->
+                <!--android:id="@+id/tvAlleyRoad"-->
+                <!--style="@style/TextViewTitleFormStyle"/>-->
+            <!--<EditText-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:id="@+id/edtAlleyRoad"-->
+
+                <!--android:freezesText="true"-->
+                <!--style="@style/EditTextInPutTypeNumberFormStyle"/>-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:textSize="@dimen/text_size_12"-->
+                <!--android:textColor="@color/badge_color"-->
+                <!--android:gravity="right"-->
+                <!--android:id="@+id/tvErrorAlleyRoad"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:layout_below="@+id/linearLayoutDate"-->
+            <!--android:id="@+id/layoutWard"-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="@dimen/padding_16"-->
+            <!--android:paddingRight="@dimen/padding_16"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:text="@string/ward"-->
+                <!--android:id="@+id/tvWard"-->
+                <!--style="@style/TextViewTitleFormStyle"/>-->
+            <!--<EditText-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:id="@+id/edtWard"-->
+                <!--android:freezesText="true"-->
+                <!--style="@style/EditTextInPutTypeNumberFormStyle"/>-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:textSize="@dimen/text_size_12"-->
+                <!--android:textColor="@color/badge_color"-->
+                <!--android:gravity="right"-->
+                <!--android:id="@+id/tvErrorTypeOfArea"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:id="@+id/layoutDistricArea"-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="@dimen/padding_16"-->
+            <!--android:paddingRight="@dimen/padding_16"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:text="@string/district_area"-->
+                <!--android:id="@+id/tvDistricArea"-->
+                <!--style="@style/TextViewTitleFormStyle"/>-->
+            <!--<EditText-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:id="@+id/edtDistricArea"-->
+
+                <!--android:freezesText="true"-->
+                <!--style="@style/EditTextInPutTypeNumberFormStyle"/>-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:textSize="@dimen/text_size_12"-->
+                <!--android:textColor="@color/badge_color"-->
+                <!--android:gravity="right"-->
+                <!--android:id="@+id/tvErrorDistricArea"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:id="@+id/layoutProvince"-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingLeft="@dimen/padding_16"-->
+            <!--android:paddingRight="@dimen/padding_16"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:text="@string/province"-->
+                <!--android:id="@+id/tvProvince"-->
+                <!--style="@style/TextViewTitleFormStyle"/>-->
+            <!--<EditText-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:id="@+id/edtProvince"-->
+
+                <!--android:freezesText="true"-->
+                <!--style="@style/EditTextInPutTypeNumberFormStyle"/>-->
+            <!--<TextView-->
+                <!--android:fontFamily="@font/roboto"-->
+                <!--android:textSize="@dimen/text_size_12"-->
+                <!--android:textColor="@color/badge_color"-->
+                <!--android:gravity="right"-->
+                <!--android:id="@+id/tvErrorProvince"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
+        <!--</LinearLayout>-->
+        <!--<Button-->
+            <!--android:id="@+id/btnSave"-->
+            <!--android:layout_margin="@dimen/padding_16"-->
+            <!--android:text="@string/save"-->
+            <!--style="@style/OrangeButtonMatchParentStyle"-->
+            <!--android:fontFamily="@font/roboto"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;<include android:id="@+id/loadingContainer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/viewDivider" layout="@layout/layout_loading"/>&ndash;&gt;-->
+<!--</RelativeLayout>-->

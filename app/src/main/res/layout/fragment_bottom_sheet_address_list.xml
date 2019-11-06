@@ -1,87 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:background="@drawable/pop_up_bg"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <LinearLayout
+        android:id="@+id/layoutTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:id="@+id/layoutTitle"
         android:paddingLeft="@dimen/padding_8"
         android:paddingRight="@dimen/padding_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:textSize="@dimen/text_size_20"
-            android:textColor="@color/black_color"
             android:id="@+id/tvTitle"
-            android:padding="@dimen/padding_8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/select_address"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"/>
+            android:fontFamily="@font/roboto"
+            android:padding="@dimen/padding_8"
+            android:text="@string/select_address"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/text_size_20" />
+
         <ImageView
             android:id="@+id/ivClose"
-            android:padding="@dimen/padding_8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_pop_up_cancel"/>
+            android:padding="@dimen/padding_8"
+            android:src="@drawable/ic_pop_up_cancel" />
     </LinearLayout>
+
     <View
         android:id="@+id/viewDivider"
-        android:background="@color/orange_color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider_height"
-        android:layout_marginLeft="@dimen/padding_8"
-        android:layout_marginRight="@dimen/padding_8"
-        android:layout_below="@+id/layoutTitle"/>
+        android:layout_below="@+id/layoutTitle"
+        android:background="@color/orange_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTitle" />
+
     <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/layoutAddAddress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/viewDivider">
-        <TextView
-            android:textSize="@dimen/text_size_20"
-            android:textColor="@color/black_color"
-            android:id="@+id/tvAddAddressTitle"
-            android:padding="@dimen/padding_16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+ Thêm địa chỉ"
-            android:layout_weight="1"
-            android:fontFamily="@font/roboto"/>
-        <TextView
-            android:textSize="@dimen/text_size_20"
-            android:textColor="@color/orange_color"
-            android:id="@+id/tvAddAddress"
-            android:padding="@dimen/padding_16"
+        android:layout_height="0dp"
+        android:layout_below="@+id/viewDivider"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTitle">
+
+        <Button
+            android:id="@+id/btnAddAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vị trí của tôi"
-            android:fontFamily="@font/roboto"/>
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:background="@drawable/transparent_btn_selector"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/add_address"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/_10ssp" />
+
+        <Button
+            android:id="@+id/btnMyLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:background="@drawable/transparent_btn_selector"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+
+            android:text="@string/my_location"
+            android:textColor="@color/orange_color"
+            android:textSize="@dimen/_10ssp" />
     </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/addressListRcv"
-        android:clipToPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/layoutBtnSelect"
-        android:layout_below="@+id/layoutAddAddress"/>
-    <FrameLayout android:id="@+id/layoutBtnSelect"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <Button android:id="@+id/btnSelect"
-            android:layout_margin="@dimen/padding_16"
-            android:text="@string/select"
-            style="@style/OrangeButtonMatchParentStyle"/>
-    </FrameLayout>
+        android:layout_below="@+id/layoutAddAddress"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutAddAddress" />
 
-    <!--<include android:id="@+id/loadingContainer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/viewDivider" layout="@layout/layout_loading"/>-->
-</RelativeLayout>
+    <Button
+        android:padding="@dimen/_8ssp"
+        android:id="@+id/btnSelect"
+        style="@style/OrangeButtonMatchParentStyle"
+        android:layout_below="@+id/addressListRcv"
+        android:layout_margin="@dimen/padding_16"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/select"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewDivider"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toEndOf="@+id/viewDivider"
+        app:layout_constraintTop_toBottomOf="@+id/addressListRcv" />
+
+</android.support.constraint.ConstraintLayout>

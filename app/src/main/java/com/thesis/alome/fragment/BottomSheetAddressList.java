@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +33,10 @@ import static android.app.Activity.RESULT_OK;
 
 public class BottomSheetAddressList extends BottomSheetDialogFragment {
 
-    @BindView(R.id.tvAddAddress)
-    TextView tvAddAddress;
-    @BindView(R.id.tvAddAddressTitle)
-    TextView tvAddAddressTitle;
-    @BindView(R.id.addressListRcv)
-    RecyclerView addressListRcv;
+    @BindView(R.id.btnAddAddress) Button btnAddAddress;
+    @BindView(R.id.btnMyLocation) Button btnMyLocation;
+    @BindView(R.id.addressListRcv) RecyclerView addressListRcv;
+    @BindView(R.id.btnSelect) Button btnSelect;
     private AddressViewModel addressViewModel;
     private StepViewModel stepViewModel;
 
@@ -52,12 +51,11 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        final AddressListRcvAdapter adapter = new AddressListRcvAdapter(getActivity());
+        addressViewModel = ViewModelProviders.of(this).get(AddressViewModel.class);
+        stepViewModel = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
+        final AddressListRcvAdapter adapter = new AddressListRcvAdapter(getActivity(),addressViewModel);
         addressListRcv.setAdapter(adapter);
         addressListRcv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        addressViewModel = ViewModelProviders.of(this).get(AddressViewModel.class);
-        stepViewModel = ViewModelProviders.of(this).get(StepViewModel.class);
         addressViewModel.getAllAddress().observe(this, new Observer<List<Address>>() {
             @Override
             public void onChanged(@Nullable List<Address> addresses) {
@@ -65,7 +63,7 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
             }
         });
 
-        tvAddAddress.setOnClickListener(new View.OnClickListener() {
+        btnMyLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MapsActivity.class);
@@ -73,24 +71,34 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
             }
         });
 
-        tvAddAddressTitle.setOnClickListener(new View.OnClickListener() {
+        btnAddAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BottomSheetAddAddress bottomSheetAddAddress = new BottomSheetAddAddress();
                 bottomSheetAddAddress.show(getFragmentManager(),bottomSheetAddAddress.getTag());
             }
         });
+
+        btnSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(adapter.addressSelected != null){
+                    stepViewModel.setAddress(adapter.addressSelected.getAddressStr());
+                    dismiss();
+                }else {
+                    Toast.makeText(getActivity(), "Vui lòng chọn địa chỉ của bạn", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            if(resultCode == RESULT_OK) {
-                stepViewModel.setAddress(data.getStringExtra("addressIntent"));
-//                BottomSheetAddAddress bottomSheetAddAddress = new BottomSheetAddAddress();
-//                bottomSheetAddAddress.show(getFragmentManager(),bottomSheetAddAddress.getTag());
-            }
-        }
-    }
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 1) {
+//            if(resultCode == RESULT_OK) {
+//                stepViewModel.setAddress(data.getStringExtra("addressIntent"));
+//            }
+//        }
+//    }
 
 }

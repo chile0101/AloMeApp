@@ -1,74 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:orientation="horizontal"
-    android:id="@+id/layoutAddress"
-    android:paddingLeft="@dimen/padding_16"
-    android:paddingTop="@dimen/padding_8"
-    android:paddingRight="@dimen/padding_16"
-    android:paddingBottom="@dimen/padding_8"
-    android:clickable="true"
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutAddress"
+    android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground">
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <RadioButton
-            android:id="@+id/rbPropertyType"
-            android:clickable="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/padding_4"/>
-        <RelativeLayout
-            android:paddingBottom="8dp"
-            android:layout_marginLeft="@dimen/padding_16"
-            android:layout_marginRight="@dimen/padding_16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
 
-                android:text="House"
-                android:textSize="@dimen/text_size_16"
-
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"/>
-
-            <TextView
-                android:layout_below="@+id/tvTitle"
-                android:text="112 abc qwe"
-                android:textSize="@dimen/text_size_16"
-                android:textColor="@color/dark_gray_color"
-                android:id="@+id/tvFullAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="@dimen/padding_4"
-                android:fontFamily="@font/roboto"/>
-
-        </RelativeLayout>
-
-
-    </LinearLayout>
-    <ImageView
-        android:id="@+id/ivEditAddress"
-        android:padding="@dimen/padding_4"
-        android:visibility="gone"
+    <RadioButton
+        android:id="@+id/rbPropertyType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_4"
-        android:src="@drawable/ic_address_list_edit_btn"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:clickable="false"
+        android:drawablePadding="@dimen/padding_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toEndOf="@+id/rbPropertyType"
+        app:layout_constraintTop_toTopOf="@+id/rbPropertyType" />
+
+    <TextView
+        android:id="@+id/tvFullAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/dark_gray_color"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintStart_toEndOf="@+id/rbPropertyType"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/ivEditAddress"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:padding="@dimen/padding_4"-->
+        <!--android:src="@drawable/ic_address_list_edit_btn"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/ivDeleteAddress"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
     <ImageView
         android:id="@+id/ivDeleteAddress"
-        android:padding="@dimen/padding_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_4"
-        android:src="@drawable/ic_address_list_delete_btn"/>
-</LinearLayout>
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:padding="@dimen/padding_4"
+        android:src="@drawable/ic_address_list_delete_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

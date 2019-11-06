@@ -42,4 +42,22 @@ public class AddressRepository {
             return null;
         }
     }
+
+
+    public void delete(Address address){
+        new deleteAddressAsyncTask(mAddressDao).execute(address);
+    }
+    private static class deleteAddressAsyncTask extends AsyncTask<Address, Void, Void> {
+        private AddressDao mAsyncTaskDao;
+
+        deleteAddressAsyncTask(AddressDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Address... params) {
+            mAsyncTaskDao.deleteAddress(params[0]);
+            return null;
+        }
+    }
 }

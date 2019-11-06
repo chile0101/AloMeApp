@@ -91,6 +91,7 @@
             android:id="@+id/edtPhone"
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
+            android:inputType="number"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
             android:fontFamily="@font/roboto"

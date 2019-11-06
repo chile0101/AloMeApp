@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class StepOneFragment extends Fragment {
         ButterKnife.bind(this,view);
         return view;
     }
+
 
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
@@ -78,5 +80,24 @@ public class StepOneFragment extends Fragment {
            }
        });
 
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("date",edtDate.getText().toString());
+        outState.putString("time",edtTime.getText().toString());
+        outState.putString("address",edtAddress.getText().toString());
+    }
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if(savedInstanceState != null){
+            Log.d("instance","ok??");
+            edtDate.setText(savedInstanceState.getString("date"));
+        }
     }
 }

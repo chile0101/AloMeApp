@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -29,10 +30,10 @@ public class StepActivity extends BaseActivity {
     Button btnNext;
     StepViewModel stepViewModel;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_step);
         initToolbar(R.id.toolbar,getString(R.string.title_booking_service));
         stepViewModel = ViewModelProviders.of(this).get(StepViewModel.class);
@@ -75,5 +76,19 @@ public class StepActivity extends BaseActivity {
 
     public void previous_fragment(View view) {
         viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("date","123");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState != null){
+            Log.d("getdata",""+ savedInstanceState.getString("date"));
+        }
     }
 }

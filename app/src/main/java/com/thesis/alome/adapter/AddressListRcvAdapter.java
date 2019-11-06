@@ -3,6 +3,7 @@ package com.thesis.alome.adapter;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +28,14 @@ public class AddressListRcvAdapter extends RecyclerView.Adapter<AddressListRcvAd
 
     private List<Address> addressList;
     private final LayoutInflater mInflater;
+    private AddressViewModel addressViewModel;
+    private RadioButton lastCheckedRB = null;
+    public Address addressSelected = null;
 
 
-    public AddressListRcvAdapter(Context context) {
+    public AddressListRcvAdapter(Context context, AddressViewModel addressViewModel) {
         mInflater = LayoutInflater.from(context);
+        this.addressViewModel = addressViewModel;
 
     }
 
@@ -42,15 +47,40 @@ public class AddressListRcvAdapter extends RecyclerView.Adapter<AddressListRcvAd
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        Address current = addressList.get(i);
+    public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
+        final Address current = addressList.get(i);
         viewHolder.tvTitle.setText(current.getTypeOfArea());
         viewHolder.tvFullAddress.setText(current.getAddressStr());
+        viewHolder.ivDeleteAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(current, i);
+            }
+        });
+
+        viewHolder.layoutAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RadioButton checkedRB =  viewHolder.rbPropertyType;
+                if(lastCheckedRB != null){
+                    lastCheckedRB.setChecked(false);
+                }
+                lastCheckedRB = checkedRB;
+                lastCheckedRB.setChecked(true);
+                addressSelected = current;
+            }
+        });
     }
 
     public void setAddressList(List<Address> addressList){
         this.addressList = addressList;
         notifyDataSetChanged();
+    }
+
+    public void removeItem(Address address,int i){
+        this.addressList.remove(address);
+        addressViewModel.delete(address);
+        notifyItemRemoved(i);
     }
 
     @Override
@@ -60,16 +90,11 @@ public class AddressListRcvAdapter extends RecyclerView.Adapter<AddressListRcvAd
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.rbPropertyType)
-        RadioButton rbPropertyType;
-        @BindView(R.id.layoutAddress)
-        LinearLayout layoutAddress;
-        @BindView(R.id.tvTitle)
-        TextView tvTitle;
-        @BindView(R.id.tvFullAddress)
-        TextView tvFullAddress;
-        @BindView(R.id.ivDeleteAddress)
-        ImageView ivDeleteAddress;
+        @BindView(R.id.rbPropertyType) RadioButton rbPropertyType;
+        @BindView(R.id.layoutAddress) ConstraintLayout layoutAddress;
+        @BindView(R.id.tvTitle) TextView tvTitle;
+        @BindView(R.id.tvFullAddress) TextView tvFullAddress;
+        @BindView(R.id.ivDeleteAddress) ImageView ivDeleteAddress;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

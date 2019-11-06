@@ -30,4 +30,8 @@ public class AddressViewModel extends AndroidViewModel {
         mRepository.insert(address);
     }
 
+    public void delete(Address address){
+        mRepository.delete(address);
+    }
+
 }

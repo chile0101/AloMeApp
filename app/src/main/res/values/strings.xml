@@ -24,8 +24,6 @@
     <string name="house">House</string>
     <string name="landmark">Landmark</string>
 
-
-    <string name="type_of_area">Type of area</string>
     <string name="province">Province</string>
     <string name="save">Save</string>
     <string name="add_address">Add Address</string>
@@ -151,4 +149,13 @@
     <string name="alley_road">Alley/Road</string>
     <string name="title_activity_maps">Map</string>
     <string name="you_not_allow_location">If you do not allow to use device\'s location, it will not work correctly. Do you allow to use the divices\'s location</string>
+    <string name="ward">ward</string>
+    <string name="my_location">My Location</string>
+    <string name="validate_house_no_text">Please enter house no</string>
+    <string name="validate_alley_road_text">Please enter alley/road</string>
+    <string name="validate_ward_text">Please enter ward</string>
+    <string name="validate_district_area_text">Please enter district</string>
+    <string name="validate_province_text">Please enter province</string>
+
+
 </resources>

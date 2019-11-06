@@ -61,5 +61,14 @@
     <string name="house_no">Số nhà</string>
     <string name="district_area">Quận/Huyện</string>
     <string name="province">Tỉnh/Thành</string>
-
+    <string name="add_address">+ Thêm địa chỉ</string>
+    <string name="ward">Phường/Xã</string>
+    <string name="my_location">Địa chỉ của tôi</string>
+    <string name="select_address">Chọn địa chỉ</string>
+    <string name="select">Chọn</string>
+    <string name="validate_house_no_text">Vui lòng nhập số nhà</string>
+    <string name="validate_alley_road_text">Vui lòng nhập hẻm/đường</string>
+    <string name="validate_ward_text">Vui lòng nhập phường/xã</string>
+    <string name="validate_district_area_text">Vui lòng nhập quận/huyện</string>
+    <string name="validate_province_text">Vui lòng nhập tỉnh/thành</string>
 </resources>
