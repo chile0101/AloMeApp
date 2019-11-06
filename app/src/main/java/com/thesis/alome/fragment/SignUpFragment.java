@@ -28,8 +28,8 @@ import retrofit2.Response;
 public class SignUpFragment extends Fragment {
 
     Button btnSignUp;
-    EditText edtFullName,edtEmail,edtPassword,edtConfirmPassword;
-    TextView tvFullNameError,tvEmailError,tvPasswordError,tvConfirmPasswordError;
+    EditText edtFullName,edtEmail,edtPassword,edtConfirmPassword, edtPhone;
+    TextView tvFullNameError,tvEmailError,tvPasswordError,tvConfirmPasswordError, tvPhoneError;
 
     @Nullable
     @Override
@@ -50,13 +50,14 @@ public class SignUpFragment extends Fragment {
                 final String email = edtEmail.getText().toString().trim();
                 final String password = edtPassword.getText().toString().trim();
                 String passConfirm = edtConfirmPassword.getText().toString().trim();
+                String phone = edtPhone.getText().toString().trim();
 
                 if(!validateFullName(fullName) | !validateEmail(email)
-                        | !validatePassword(password) | !validatePassConfirm(passConfirm,password)){
+                        | !validatePassword(password) | !validatePassConfirm(passConfirm,password) | !validatePhone(phone)){
                     return;
                 }else{
                     ApiServices apiServices = ApiClient.getClient(getContext()).create(ApiServices.class);
-                    Call<RespBase> callSignup = apiServices.signUp(new ReqSignUp(email,password,fullName));
+                    Call<RespBase> callSignup = apiServices.signUp(new ReqSignUp(email,password,fullName, phone));
                     callSignup.enqueue(new Callback<RespBase>() {
                         @Override
                         public void onResponse(Call<RespBase> call, Response<RespBase> response) {
@@ -116,6 +117,19 @@ public class SignUpFragment extends Fragment {
                 tvPasswordError.setText("");
             }
         });
+        edtPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                tvPhoneError.setText("");
+            }
+        });
+
 
         edtConfirmPassword.addTextChangedListener(new TextWatcher() {
             @Override
@@ -180,15 +194,31 @@ public class SignUpFragment extends Fragment {
         return true;
     }
 
+    public boolean validatePhone(String number)
+    {
+        if (number.isEmpty()) {
+            tvPhoneError.setText(R.string.validate_phone_text);
+            return false;
+        }
+        if (!android.util.Patterns.PHONE.matcher(number).matches())
+        {
+            tvPhoneError.setText(R.string.validate_pattern_phone_text);
+            return false ;
+        }
+        return true;
+    }
+
     private void mapping(View view){
         btnSignUp = (Button) view.findViewById(R.id.btnSignUp);
         edtFullName = (EditText) view.findViewById(R.id.edtFullName);
         edtEmail = (EditText) view.findViewById(R.id.edtEmail);
         edtPassword = (EditText) view.findViewById(R.id.edtPassword);
         edtConfirmPassword = (EditText) view.findViewById(R.id.edtConfirmPassword);
+        edtPhone = (EditText) view.findViewById(R.id.edtPhone);
         tvFullNameError= (TextView) view.findViewById(R.id.tvFullNameError);
         tvEmailError = (TextView) view.findViewById(R.id.tvEmailError);
         tvPasswordError = (TextView) view.findViewById(R.id.tvPasswordError);
         tvConfirmPasswordError = (TextView) view.findViewById(R.id.tvConfirmPasswordError);
+        tvPhoneError = (TextView) view.findViewById(R.id.tvPhoneError);
     }
 }

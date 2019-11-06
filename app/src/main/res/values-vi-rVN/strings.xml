@@ -20,11 +20,13 @@
     <string name="slide_2_title">Sửa chữa, lắp đặt các thiết bị điện</string>
     <string name="slide_3_title">Khắc phục các sự cố về nước</string>
     <string name="validate_pattern_email_text">* Email không hợp lệ</string>
+    <string name="validate_pattern_phone_text">* Số điện thoại không hợp lệ</string>
     <string name="validate_password_text">* Mật khẩu ít nhất 6 ký tự</string>
     <string name="validate_fullname_text">"Vui lòng nhập tên - họ "</string>
     <string name="validate_empty_password_text">Vui lòng nhập mật khẩu</string>
     <string name="validate_empty_confirm_password_text">* Vui lòng xác nhận mật khẩu</string>
     <string name="validate_email_text">* Vui lòng nhập địa chỉ email</string>
+    <string name="validate_phone_text">* Vui lòng nhập số điện thoại</string>
     <string name="validate_confirm_password_text">* Mật khẩu không khớp</string>
     <string name="password">Mật khẩu</string>
     <string name="first_name_last_name">"Tên - Họ "</string>
@@ -71,4 +73,6 @@
     <string name="validate_ward_text">Vui lòng nhập phường/xã</string>
     <string name="validate_district_area_text">Vui lòng nhập quận/huyện</string>
     <string name="validate_province_text">Vui lòng nhập tỉnh/thành</string>
+    <string name="phone">Số điện thoại</string>
+
 </resources>
