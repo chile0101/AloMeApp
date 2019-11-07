@@ -92,13 +92,14 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
         });
     }
 
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 1) {
-//            if(resultCode == RESULT_OK) {
-//                stepViewModel.setAddress(data.getStringExtra("addressIntent"));
-//            }
-//        }
-//    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                stepViewModel.setAddress(data.getStringExtra("addressIntent"));
+                dismiss();
+            }
+        }
+    }
 
 }

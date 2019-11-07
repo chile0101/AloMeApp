@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/tvPhoneError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:gravity="right"
-        android:textColor="@color/badge_color"
-        android:textSize="@dimen/_8ssp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPhone" />
 
-    <EditText
-        android:id="@+id/edtPhone"
-        style="@style/EditTextUnderLineStyle"
-        android:layout_width="0dp"
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/phone"
-        android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/tvPhoneError"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvConfirmPasswordError" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
 
     <EditText
         android:id="@+id/edtFullName"
@@ -41,9 +47,9 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/first_name_last_name"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/tvFullNameError"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,9 +61,8 @@
         android:gravity="right"
         android:textColor="@color/badge_color"
         android:textSize="@dimen/_8ssp"
-        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtFullName" />
 
@@ -67,25 +72,50 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/tvEmailError"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFullNameError" />
+        app:layout_constraintTop_toBottomOf="@id/guideline2" />
 
     <TextView
         android:id="@+id/tvEmailError"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:fontFamily="@font/roboto"
         android:gravity="right"
         android:textColor="@color/badge_color"
         android:textSize="@dimen/_8ssp"
-        app:layout_constraintBottom_toTopOf="@+id/edtPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+
+
+    <EditText
+        android:id="@+id/edtPhone"
+        style="@style/EditTextUnderLineStyle"
+        android:layout_width="0dp"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/tvPhoneError"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/_8ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPhone" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -93,25 +123,23 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/tvPasswordError"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmailError" />
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <TextView
         android:id="@+id/tvPasswordError"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:fontFamily="@font/roboto"
         android:gravity="right"
         android:textColor="@color/badge_color"
         android:textSize="@dimen/_8ssp"
-        app:layout_constraintBottom_toTopOf="@+id/edtConfirmPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
 
     <EditText
         android:id="@+id/edtConfirmPassword"
@@ -119,37 +147,170 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/confirn_password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/tvConfirmPasswordError"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPasswordError" />
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/tvConfirmPasswordError"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:fontFamily="@font/roboto"
         android:gravity="right"
         android:textColor="@color/badge_color"
         android:textSize="@dimen/_8ssp"
-        app:layout_constraintBottom_toTopOf="@+id/edtPhone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword" />
+
 
     <Button
         android:id="@+id/btnSignUp"
         style="@style/OrangeButtonWrapContentStyle"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/roboto"
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPhoneError" />[
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />[
+
 </android.support.constraint.ConstraintLayout>
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:aapt="http://schemas.android.com/aapt"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/edtFullName"-->
+        <!--style="@style/EditTextUnderLineStyle"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:hint="@string/first_name_last_name"-->
+        <!--android:inputType="text"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvFullNameError"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:gravity="right"-->
+        <!--android:textColor="@color/badge_color"-->
+        <!--android:textSize="@dimen/_8ssp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.5"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/edtFullName" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/edtEmail"-->
+        <!--style="@style/EditTextUnderLineStyle"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:hint="@string/email"-->
+        <!--android:inputType="textEmailAddress"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.5"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tvFullNameError" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvEmailError"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:gravity="right"-->
+        <!--android:textColor="@color/badge_color"-->
+        <!--android:textSize="@dimen/_8ssp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.5"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/edtEmail" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/edtPhone"-->
+        <!--style="@style/EditTextUnderLineStyle"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:hint="@string/phone"-->
+        <!--android:inputType="phone"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tvEmailError" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvPhoneError"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:gravity="right"-->
+        <!--android:textColor="@color/badge_color"-->
+        <!--android:textSize="@dimen/_8ssp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/edtPhone" />-->
+
+
+    <!--<EditText-->
+        <!--android:id="@+id/edtPassword"-->
+        <!--style="@style/EditTextUnderLineStyle"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:hint="@string/password"-->
+        <!--android:inputType="textPassword"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tvPhoneError" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvPasswordError"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:gravity="right"-->
+        <!--android:textColor="@color/badge_color"-->
+        <!--android:textSize="@dimen/_8ssp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/edtPassword" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/edtConfirmPassword"-->
+        <!--style="@style/EditTextUnderLineStyle"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:hint="@string/confirn_password"-->
+        <!--android:inputType="textPassword"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tvPasswordError" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tvConfirmPasswordError"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:gravity="right"-->
+        <!--android:textColor="@color/badge_color"-->
+        <!--android:textSize="@dimen/_8ssp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/edtConfirmPassword" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnSignUp"-->
+        <!--style="@style/OrangeButtonWrapContentStyle"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:fontFamily="@font/roboto"-->
+        <!--android:text="@string/register"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.498"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tvConfirmPasswordError" />[-->
+<!--</android.support.constraint.ConstraintLayout>-->

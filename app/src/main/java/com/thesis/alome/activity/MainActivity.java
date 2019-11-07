@@ -41,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<RespBase<Customer>> call, Response<RespBase<Customer>> response) {
 
+                long id = response.body().getData().getId();
                 String shortName = response.body().getData().getFullName();
-                PrefUtils.storeProfile(getApplicationContext(), shortName,response.body().getData().getId());
+                String phone = response.body().getData().getPhone();
+                PrefUtils.storeProfile(getApplicationContext(), id,shortName,phone);
                 tvWelcome.setText(tvWelcome.getText()+ " " + shortName);
             }
             @Override

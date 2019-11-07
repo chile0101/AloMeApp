@@ -1,111 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:aapt="http://schemas.android.com/aapt"
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <include layout="@layout/toolbar"/>
-
-    <com.daimajia.slider.library.SliderLayout
-        android:layout_below="@id/toolbar"
-        android:id="@+id/slider"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/toolbar" />
+
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/toolbar" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/slider"
+        android:layout_marginBottom="7dp"
         android:fontFamily="@font/roboto_medium"
         android:paddingLeft="@dimen/_12sdp"
         android:paddingTop="@dimen/_12sdp"
         android:paddingRight="@dimen/_12sdp"
         android:textColor="@color/black_color"
-        android:textSize="@dimen/_16ssp" />
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintBottom_toTopOf="@+id/wrapperPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/wrapperPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:gravity="bottom"
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_6sdp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
         <TextView
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/dark_gray_color"
             android:id="@+id/tvFullPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_3sdp"
-            android:fontFamily="@font/roboto"/>
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/dark_gray_color"
+            android:textSize="@dimen/_10ssp" />
+
         <TextView
-            android:textSize="@dimen/_16ssp"
-            android:textColor="@color/colorPrimary"
             android:id="@+id/tvSalePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"/>
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_16ssp" />
     </LinearLayout>
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
     <android.support.v4.widget.NestedScrollView
-        android:layout_marginTop="@dimen/_6sdp"
-        android:layout_above="@+id/wrapperbtn"
         android:id="@+id/scollview"
-        android:layout_below="@+id/wrapperPrice"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_above="@+id/wrapperbtn"
+        android:layout_below="@+id/wrapperPrice"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wrapperPrice">
+
         <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:expansion_openOnlyOne="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:expansion_openOnlyOne="true">
 
             <include
                 android:id="@+id/cardDetail"
-                layout="@layout/item_services_detail_type_title"/>
+                layout="@layout/item_services_detail_type_title" />
+
             <View
-                android:layout_marginRight="@dimen/_12sdp"
-                android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_width="match_parent"
                 android:layout_height="0.4dp"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_12sdp"
                 android:background="#CCC" />
 
             <include
                 android:id="@+id/cardTerm"
-                layout="@layout/item_services_detail_type_title"/>
+                layout="@layout/item_services_detail_type_title" />
 
         </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
-    <LinearLayout
-
-        android:id="@+id/wrapperbtn"
-        android:layout_alignParentBottom="true"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scollview">
 
         <Button
+            android:id="@+id/btnSelectService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_btn_in_service_detail_1"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/select_service"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
-            android:id="@+id/btnSelectService"
-            android:background="@drawable/shape_btn_facebook_message"
-            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginLeft="@dimen/_12sdp"
-            android:layout_marginRight="@dimen/_12sdp"
-            android:layout_marginBottom="@dimen/_12sdp"
-            android:hint="@string/select_service"
-            android:fontFamily="@font/roboto"/>
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="294dp"
+            app:layout_constraintGuide_percent="0.5" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/btnAloNow"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/shape_btn_in_service_detail_2"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/alo_now"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline14"
+            app:layout_constraintTop_toTopOf="parent" />
 
+    </android.support.constraint.ConstraintLayout>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

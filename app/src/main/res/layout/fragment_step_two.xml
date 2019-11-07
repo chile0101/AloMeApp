@@ -1,130 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:layout_height="wrap_content"
+<android.support.constraint.ConstraintLayout
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <LinearLayout
-        android:id="@+id/linearLayoutDesc"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/padding_16"
-        android:paddingRight="@dimen/padding_16"
-        android:layout_width="match_parent"
-        android:layout_height="160dp">
-        <TextView
-            android:fontFamily="@font/roboto"
-            android:text="@string/addition_detail"
-            android:id="@+id/tvDate"
-            style="@style/TextViewTitleFormStyle"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
 
-        <EditText
-            android:fontFamily="@font/roboto"
-            android:layout_marginTop="@dimen/_8sdp"
-            style="@style/EditTextInPutTypeDescriptionFormStyle"
-            android:ellipsize="end"
-            android:gravity="top"
-            android:id="@+id/edtDesc"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textImeMultiLine"
-            android:imeOptions="actionDone"/>
-        <TextView
-            android:fontFamily="@font/roboto"
-            android:textSize="@dimen/text_size_12"
-            android:textColor="@color/badge_color"
-            android:gravity="right"
-            android:id="@+id/tvErrorDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:layout_below="@+id/linearLayoutDesc"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+
+    <TextView
+        android:id="@+id/tvDesc"
+        style="@style/TextViewTitleFormStyle"
+        android:fontFamily="@font/roboto"
+        android:text="@string/addition_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtDesc"
+        style="@style/EditTextInPutTypeDescriptionFormStyle"
         android:layout_marginTop="16dp"
-        android:paddingLeft="@dimen/padding_16"
-        android:paddingRight="@dimen/padding_16"
+        android:layout_marginBottom="16dp"
+
+        android:fontFamily="@font/roboto"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/TextViewTitleFormStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/addition_images"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline9" />
+
+    <HorizontalScrollView
+        android:id="@+id/hori_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:fontFamily="@font/roboto"
-            android:text="@string/addition_images"
-            android:id="@+id/tvTitle"
-            style="@style/TextViewTitleFormStyle"/>
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="false"
+        android:foregroundGravity="left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:visibility="visible"
+            android:id="@+id/selected_photos_container"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp">
-            <LinearLayout
-                android:gravity="center"
-                android:background="@drawable/border_invite_code"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:id="@+id/imv_photo1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_cam"
-                    android:scaleType="centerCrop"/>
-            </LinearLayout>
-            <LinearLayout
-                android:gravity="center"
-                android:background="@drawable/border_invite_code"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:id="@+id/imv_photo2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_cam"
-                    android:scaleType="centerCrop"/>
-            </LinearLayout>
-            <LinearLayout
-                android:gravity="center"
-                android:background="@drawable/border_invite_code"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="1dp"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:id="@+id/imv_photo3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_cam"
-                    android:scaleType="centerCrop"/>
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:animateLayoutChanges="true"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <!-- images will be added dynamicall to this layout -->
         </LinearLayout>
 
-        <TextView
-            android:fontFamily="@font/roboto"
-            android:textSize="@dimen/text_size_12"
-            android:textColor="@color/badge_color"
-            android:gravity="right"
-            android:id="@+id/tvErrorImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+    </HorizontalScrollView>
 
+    <ImageView
+        android:id="@+id/btnUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/ic_upload_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hori_scroll_view" />
+</android.support.constraint.ConstraintLayout>
 
-</RelativeLayout>
 

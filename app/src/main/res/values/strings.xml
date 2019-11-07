@@ -74,7 +74,8 @@
 
     <string name="review">Review</string>
     <string name="close">Close</string>
-    <string name="cofirm">Confirm</string>
+    <string name="confirm">Confirm</string>
+    <string name="find_provider">Find provider</string>
     <string name="log_in_with_facebook">Log in with Facebook</string>
     <string name="log_in_with_google">Log in with Google</string>
     <string name="login_register">Log in / Register</string>
@@ -158,7 +159,10 @@
     <string name="validate_ward_text">Please enter ward</string>
     <string name="validate_district_area_text">Please enter district</string>
     <string name="validate_province_text">Please enter province</string>
-
-
     <string name="phone">Phone number</string>
+    <string name="validate_date_avail">Please enter date available</string>
+    <string name="validate_time_avail">Please enter time available</string>
+    <string name="validate_address">Please enter address</string>
+    <string name="alo_now">AloNow</string>
+    <string name="title_activity_provider_list">ProviderListActivity</string>
 </resources>

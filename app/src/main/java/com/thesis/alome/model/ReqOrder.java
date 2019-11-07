@@ -1,16 +1,34 @@
 package com.thesis.alome.model;
 
+import android.net.Uri;
+
+import java.util.List;
+
 public class ReqOrder {
+    private int serviceId;
     private String date;
     private String time;
     private String phone;
     private String address;
+    private String description;
+    private List<Uri> images;
 
-    public ReqOrder(String date, String time, String phone, String address) {
+    public ReqOrder(int serviceId, String date, String time, String phone, String address, String decription, List<Uri> images) {
+        this.serviceId = serviceId;
         this.date = date;
         this.time = time;
         this.phone = phone;
         this.address = address;
+        this.description = decription;
+        this.images = images;
+    }
+
+    public int getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
     }
 
     public String getDate() {
@@ -43,5 +61,21 @@ public class ReqOrder {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getDecription() {
+        return description;
+    }
+
+    public void setDecription(String decription) {
+        this.description = decription;
+    }
+
+    public List<Uri> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Uri> images) {
+        this.images = images;
     }
 }

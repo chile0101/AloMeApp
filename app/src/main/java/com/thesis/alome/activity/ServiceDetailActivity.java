@@ -37,6 +37,7 @@ public class ServiceDetailActivity extends BaseActivity
     private View cardDetail,cardTerm;
     private TextView tvTitleDetail,tvTitleTerm,tvContentTerm,tvContentDetail;
     private Button btnSelectService;
+    private Button btnAloNow;
 
 
     @Override
@@ -55,6 +56,7 @@ public class ServiceDetailActivity extends BaseActivity
         tvContentTerm = (TextView) cardTerm.findViewById(R.id.tvContent);
         tvTitleTerm = (TextView) cardTerm.findViewById(R.id.tvSubTitle);
         btnSelectService = (Button) findViewById(R.id.btnSelectService);
+        btnAloNow = (Button) findViewById(R.id.btnAloNow);
         tvTitleTerm.setText(getString(R.string.term_of_service));
         tvTitleDetail.setText(getString(R.string.service_details));
 
@@ -104,6 +106,14 @@ public class ServiceDetailActivity extends BaseActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ServiceDetailActivity.this,StepActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAloNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ServiceDetailActivity.this,ProviderListActivity.class);
                 startActivity(intent);
             }
         });

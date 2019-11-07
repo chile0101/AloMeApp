@@ -74,7 +74,7 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
     private void getLocationPermission() {
 
         if (EasyPermissions.hasPermissions(this, perms)) {
-            Toast.makeText(this, "Has permission", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Has permission", Toast.LENGTH_SHORT).show();
             getDeviceLocation();
         } else {
             ActivityCompat.requestPermissions(this, perms, RC_LOCATION);
@@ -167,12 +167,13 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
                             @Override
                             public void onClick(View v) {
 
-                                Intent intent = new Intent(MapsActivity.this, StepActivity.class);
-                                intent.putExtra("address",address);
-                                startActivity(intent);
-//                                intent.putExtra("addressIntent",address);
-//                                setResult(RESULT_OK,intent);
-//                                finish();
+//                                Intent intent = new Intent(MapsActivity.this, StepActivity.class);
+//                                intent.putExtra("address",address);
+//                                startActivity(intent);
+                                Intent intent = new Intent();
+                                intent.putExtra("addressIntent",address);
+                                setResult(RESULT_OK,intent);
+                                finish();
                             }
                         });
 

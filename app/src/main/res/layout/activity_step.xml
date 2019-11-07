@@ -39,7 +39,7 @@
 
         <Button
             android:id="@+id/btnNext"
-            android:text="Confirm"
+            android:text="@string/confirm"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:background="@drawable/shape_btn_facebook_message"

@@ -21,10 +21,11 @@ public class PrefUtils {
         return context.getSharedPreferences(PREFS_TAG, Context.MODE_PRIVATE);
     }
 
-    public static void storeProfile(Context context, String short_name,int id){
+    public static void storeProfile(Context context, long id, String shortName,String phone){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
-        editor.putString("SHORT_NAME", short_name);
-        editor.putInt("ID", id);
+        editor.putLong("ID", id);
+        editor.putString("SHORT_NAME", shortName);
+        editor.putString("PHONE", phone);
         editor.commit();
     }
 
@@ -38,25 +39,17 @@ public class PrefUtils {
         return getSharedPreferences(context).getString("ACCESS_TOKEN", null);
     }
 
+    public static long getId(Context context){
+        return getSharedPreferences(context).getLong("ID",-1);
+    }
+
     public static String getShortName(Context context){
         return getSharedPreferences(context).getString("SHORT_NAME","");
     }
 
-//    public static void setAddressList(Context context, String key, List<Address> addressList){
-//        Gson gson = new Gson();
-//        String addressListJson = gson.toJson(addressList);
-//
-//        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
-//        editor.putString("AddressList", addressListJson);
-//        editor.commit();
-//    }
-//
-//    public static List<Address> getAddressList(Context context){
-//        Gson gson = new Gson();
-//        String addressListStr = getSharedPreferences(context).getString("AddressList","");
-//        List<Address> addressList = new ArrayList<Address>();
-//        Type type = new TypeToken<List<Address>>() {}.getType();
-//        addressList = gson.fromJson(addressListStr,type);
-//        return addressList;
-//    }
+    public static String getPhoneNumber(Context context){
+        return getSharedPreferences(context).getString("PHONE","");
+    }
+
+
 }
