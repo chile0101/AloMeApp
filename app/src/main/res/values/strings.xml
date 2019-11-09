@@ -164,5 +164,7 @@
     <string name="validate_time_avail">Please enter time available</string>
     <string name="validate_address">Please enter address</string>
     <string name="alo_now">AloNow</string>
-    <string name="title_activity_provider_list">ProviderListActivity</string>
+    <string name="title_activity_provider_list">Providers near you</string>
+    <string name="title_activity_provider_details">ProviderDetailsActivity</string>
+
 </resources>

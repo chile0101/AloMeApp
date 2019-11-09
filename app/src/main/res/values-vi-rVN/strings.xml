@@ -80,4 +80,5 @@
     <string name = "validate_time_avail">Vui lòng chọn giờ hẹn</string>
     <string name="validate_address">Vui lòng chọn địa chỉ</string>
     <string name="alo_now">Liên hệ nhanh</string>
+    <string name="title_activity_provider_list">Nhà cung cấp gần bạn</string>
 </resources>
