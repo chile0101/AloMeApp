@@ -1,47 +1,67 @@
 package com.thesis.alome.model;
 
 public class Provider {
-    private String nameProvider;
-    private String imageUrl;
-    private int numOfStars;
-    private int numOfRatings;
+    private Integer providerId;
+    private String name;
+    private String serviceName;
+    private Float numOfStars;
+    private Integer numOfRatings;
+    private String avatar;
 
-    public String getNameProvider() {
-        return nameProvider;
+    public Provider(Integer providerId, String name, String serviceName, Float numOfStars, Integer numOfRatings, String avatar) {
+        this.providerId = providerId;
+        this.name = name;
+        this.serviceName = serviceName;
+        this.numOfStars = numOfStars;
+        this.numOfRatings = numOfRatings;
+        this.avatar = avatar;
     }
 
-    public void setNameProvider(String nameProvider) {
-        this.nameProvider = nameProvider;
+    public Integer getProviderId() {
+        return providerId;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public void setProviderId(Integer providerId) {
+        this.providerId = providerId;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public String getName() {
+        return name;
     }
 
-    public int getNumOfStars() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public Float getNumOfStars() {
         return numOfStars;
     }
 
-    public void setNumOfStars(int numOfStars) {
+    public void setNumOfStars(Float numOfStars) {
         this.numOfStars = numOfStars;
     }
 
-    public int getNumOfRatings() {
+    public Integer getNumOfRatings() {
         return numOfRatings;
     }
 
-    public void setNumOfRatings(int numOfRatings) {
+    public void setNumOfRatings(Integer numOfRatings) {
         this.numOfRatings = numOfRatings;
     }
 
-    public Provider(String nameProvider, String imageUrl, int numOfStars, int numOfRatings) {
-        this.nameProvider = nameProvider;
-        this.imageUrl = imageUrl;
-        this.numOfStars = numOfStars;
-        this.numOfRatings = numOfRatings;
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

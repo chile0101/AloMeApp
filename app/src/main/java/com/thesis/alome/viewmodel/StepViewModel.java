@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.net.Uri;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.thesis.alome.model.Address;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class StepViewModel extends ViewModel {
     private final MutableLiveData<String> timeAvail = new MutableLiveData<String>();
     private final MutableLiveData<String> phone = new MutableLiveData<>();
     private final MutableLiveData<String> address = new MutableLiveData<String>();
+    private final MutableLiveData<String> addressLatLng = new MutableLiveData<String>();
     private final MutableLiveData<List<Uri>> imgList = new MutableLiveData<List<Uri>>();
     private final MutableLiveData<String> description = new MutableLiveData<String>();
 
@@ -23,6 +25,7 @@ public class StepViewModel extends ViewModel {
     private final MutableLiveData<String> timeErr = new MutableLiveData<>();
     private final MutableLiveData<String> phoneErr = new MutableLiveData<>();
     private final MutableLiveData<String> addressErr = new MutableLiveData<>();
+
 
     public void setDateAvail(String dateStr){
         dateAvail.setValue(dateStr);
@@ -54,6 +57,14 @@ public class StepViewModel extends ViewModel {
 
     public LiveData<String> getAddress(){
         return this.address;
+    }
+
+    public LiveData<String> getAddressLatLng(){
+        return addressLatLng;
+    }
+
+    public void setAddressLatLng(String latLng){
+        addressLatLng.setValue(latLng);
     }
 
     public void setImageList(List<Uri> imagesList){
@@ -103,6 +114,5 @@ public class StepViewModel extends ViewModel {
     public void setAddressErr(String err){
         addressErr.setValue(err);
     }
-
 
 }

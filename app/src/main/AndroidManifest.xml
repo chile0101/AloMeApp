@@ -17,8 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.ProviderDetailsActivity"
+            android:label="@string/title_activity_provider_details"></activity>
+        <activity
             android:name=".activity.ProviderListActivity"
-          ></activity>
+            android:label="@string/title_activity_provider_list" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

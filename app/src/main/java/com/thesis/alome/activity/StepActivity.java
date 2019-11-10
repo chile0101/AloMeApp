@@ -44,7 +44,6 @@ public class StepActivity extends BaseActivity {
     @BindView(R.id.view_pager_step) ViewPager viewPager;
     @BindView(R.id.tabStepLayout) TabLayout tabLayout;
     @BindView(R.id.btnNext) Button btnNext;
-    TextView tvErrorDate;
     TabAdapter tabAdapter;
     StepViewModel stepViewModel;
 
@@ -94,21 +93,23 @@ public class StepActivity extends BaseActivity {
 
         ApiServices apiServices = ApiClient.getClient(this).create(ApiServices.class);
         Call<RespBase> call = apiServices.orderService(PrefUtils.getId(this),
-                PrefUtils.getApiKey(this) , 3l,
+                PrefUtils.getApiKey(this) ,
+                getIntent().getLongExtra("serviceId",1l),
                 convert(stepViewModel.getDateAvail().getValue()),
                 convert( stepViewModel.getTimeAvail().getValue()),
                 convert(stepViewModel.getPhone().getValue()),
                 convert(stepViewModel.getAddress().getValue()),
+                convert(stepViewModel.getAddressLatLng().getValue()),
                 convert(stepViewModel.getDescription().getValue()),listImg);
         call.enqueue(new Callback<RespBase>() {
             @Override
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {
-                Log.d("test1",response.body().getStatus() + "");
+                Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<RespBase> call, Throwable t) {
-                Log.d("test1", "false");
+                Toast.makeText(StepActivity.this, getString(R.string.please_check_the_internet), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -1,6 +1,7 @@
 package com.thesis.alome.config;
 
 import com.thesis.alome.model.Customer;
+import com.thesis.alome.model.Provider;
 import com.thesis.alome.model.ReqOrder;
 import com.thesis.alome.model.ReqSignUp;
 import com.thesis.alome.model.RespBase;
@@ -59,10 +60,13 @@ public interface ApiServices {
                                 @Part("date") RequestBody date,
                                 @Part("time") RequestBody time,
                                 @Part("phone") RequestBody phone,
-                                @Part("address") RequestBody address,
+                                @Part("address") RequestBody addressStr,
+                                @Part("latlng") RequestBody addressLatLng,
                                 @Part("description") RequestBody description,
                                 @Part List<MultipartBody.Part> images);
 
+//    @GET("")
+//    Call<RespBase<Provider>> getProviderNearMe();
 
 
 }

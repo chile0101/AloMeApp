@@ -1,7 +1,7 @@
 package com.thesis.alome.adapter;
 
 import android.content.Context;
-import android.media.Image;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
+import com.thesis.alome.activity.ProviderDetailsActivity;
 import com.thesis.alome.model.Provider;
 
 import java.util.List;
@@ -23,7 +24,8 @@ public class ProviderListRcvAdapter extends RecyclerView.Adapter<ProviderListRcv
     List<Provider> providersList;
     Context context;
 
-    public ProviderListRcvAdapter(List<Provider> providersList){
+    public ProviderListRcvAdapter(Context context, List<Provider> providersList){
+        this.context = context;
         this.providersList = providersList;
     }
 
@@ -40,10 +42,20 @@ public class ProviderListRcvAdapter extends RecyclerView.Adapter<ProviderListRcv
     @Override
     public void onBindViewHolder(@NonNull ProviderListRcvAdapter.ViewHolder viewHolder, int i) {
         Provider provider = providersList.get(i);
-        Picasso.get().load(provider.getImageUrl()).into(viewHolder.imgAvatar);
-        viewHolder.txtName.setText(provider.getNameProvider());
-        viewHolder.txtRating.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
-        viewHolder.ratingBar.setRating(provider.getNumOfStars());
+        Picasso.get().load(provider.getAvatar()).into(viewHolder.imgAvatar);
+        viewHolder.txtProviderName.setText(provider.getName());
+        viewHolder.txtServiceName.setText(provider.getServiceName());
+        viewHolder.txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
+        viewHolder.ratingBar.setRating(3.67f);
+        viewHolder.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProviderDetailsActivity.class);
+                intent.putExtra("providerId",provider.getProviderId());
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -53,15 +65,17 @@ public class ProviderListRcvAdapter extends RecyclerView.Adapter<ProviderListRcv
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgAvatar;
-        TextView txtName;
-        TextView txtRating;
+        TextView txtProviderName;
+        TextView txtServiceName;
+        TextView txtNumOfRatings;
         RatingBar ratingBar;
         CardView cv ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgAvatar = (ImageView) itemView.findViewById(R.id.imgAvatar);
-            txtName = (TextView) itemView.findViewById(R.id.txtName);
-            txtRating = (TextView) itemView.findViewById(R.id.txtRating);
+            txtProviderName = (TextView) itemView.findViewById(R.id.txtName);
+            txtServiceName = (TextView) itemView.findViewById(R.id.txtServiceName);
+            txtNumOfRatings = (TextView) itemView.findViewById(R.id.txtNumOfRatings);
             ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
             cv = (CardView) itemView.findViewById(R.id.cvProvider);
         }

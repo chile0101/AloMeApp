@@ -74,7 +74,6 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
     private void getLocationPermission() {
 
         if (EasyPermissions.hasPermissions(this, perms)) {
-            //Toast.makeText(this, "Has permission", Toast.LENGTH_SHORT).show();
             getDeviceLocation();
         } else {
             ActivityCompat.requestPermissions(this, perms, RC_LOCATION);
@@ -148,7 +147,6 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
                 @Override
                 public void onComplete(@NonNull Task<Location> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(MapsActivity.this, "MY LOCATION", Toast.LENGTH_SHORT).show();
                         // Set the map's camera position to the current location of the device.
                         mLastKnownLocation = task.getResult();
                         myLocation = new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
@@ -166,12 +164,9 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
                         btnSelect.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
-//                                Intent intent = new Intent(MapsActivity.this, StepActivity.class);
-//                                intent.putExtra("address",address);
-//                                startActivity(intent);
                                 Intent intent = new Intent();
-                                intent.putExtra("addressIntent",address);
+                                intent.putExtra("addressStr",address);
+                                intent.putExtra("addressLatLng",myLocation.latitude + ";" + myLocation.longitude);
                                 setResult(RESULT_OK,intent);
                                 finish();
                             }

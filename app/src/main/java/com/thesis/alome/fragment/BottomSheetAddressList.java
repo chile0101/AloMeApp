@@ -96,7 +96,8 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
-                stepViewModel.setAddress(data.getStringExtra("addressIntent"));
+                stepViewModel.setAddress(data.getStringExtra("addressStr"));
+                stepViewModel.setAddressLatLng(data.getStringExtra("addressLatLng"));
                 dismiss();
             }
         }
