@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.ProviderListActivity"
-            android:label="@string/title_activity_provider_list"></activity>
+          ></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

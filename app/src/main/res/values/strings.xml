@@ -99,7 +99,7 @@
     <string name="password_toggle_content_description">Show password</string>
 
     <string name="email">Email</string>
-    <string name="confirn_password">Confirm password</string>
+    <string name="confirn_password">Address</string>
     <string name="forgot_password">forgot password?</string>
 
     <string name="please_enter_your_email">* Please enter your email.</string>
@@ -166,5 +166,6 @@
     <string name="alo_now">AloNow</string>
     <string name="title_activity_provider_list">Providers near you</string>
     <string name="title_activity_provider_details">ProviderDetailsActivity</string>
+    <string name="addressEmpty">Please enter your address</string>
 
 </resources>

@@ -8,6 +8,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -78,5 +79,10 @@ dependencies {
     implementation 'andhradroid.dev:aFilechooser:1.0.1'
     implementation 'com.intellij:annotations:+@jar'
     implementation 'id.zelory:compressor:2.1.0'
+    implementation 'com.google.android.libraries.places:places:1.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
+
+
+
 
 }

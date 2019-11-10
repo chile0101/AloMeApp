@@ -36,7 +36,7 @@
     <string name="please_enter_your_password">* Vui lòng nhập mật khẩu của bạn</string>
     <string name="please_enter_your_email">* Vui lòng nhập email của bạn</string>
     <string name="forgot_password">Quên mật khẩu ?</string>
-    <string name="confirn_password">Xác nhận mật khẩu</string>
+    <string name="confirn_password">Địa chỉ</string>
     <string name="email">Email</string>
     <string name="password_toggle_content_description">Hiển thị mật khẩu</string>
     <string name="password_change_success">Thay đổi mật khẩu thành công</string>
@@ -81,4 +81,5 @@
     <string name="validate_address">Vui lòng chọn địa chỉ</string>
     <string name="alo_now">Liên hệ nhanh</string>
     <string name="title_activity_provider_list">Nhà cung cấp gần bạn</string>
+    <string name="addressEmpty">Vui lòng nhập địa chỉ của bạn</string>
 </resources>
