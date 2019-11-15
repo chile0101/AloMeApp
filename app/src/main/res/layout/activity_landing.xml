@@ -115,7 +115,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/or"
                 android:textColor="@color/gray_color"
-                android:textSize="@dimen/text_size_20" />
+                android:textSize="@dimen/text_size_16" />
 
             <View
                 android:layout_width="match_parent"

@@ -21,35 +21,51 @@ public class PrefUtils {
         return context.getSharedPreferences(PREFS_TAG, Context.MODE_PRIVATE);
     }
 
-    public static void storeProfile(Context context, long id, String shortName,String phone){
+    public static void storeProfile(Context context, long id, String shortName,String phone,String address, String latitude, String longitude){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
-        editor.putLong("ID", id);
-        editor.putString("SHORT_NAME", shortName);
-        editor.putString("PHONE", phone);
+        editor.putLong("id", id);
+        editor.putString("shortName", shortName);
+        editor.putString("phone", phone);
+        editor.putString("address", address);
+        editor.putString("latitude", latitude);
+        editor.putString("longitude", longitude);
         editor.commit();
     }
 
     public static void storeApiKey(Context context, String access_token) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
-        editor.putString("ACCESS_TOKEN", access_token);
+        editor.putString("accessToken", access_token);
         editor.commit();
     }
 
     public static String getApiKey(Context context) {
-        return getSharedPreferences(context).getString("ACCESS_TOKEN", null);
+        return getSharedPreferences(context).getString("accessToken", null);
     }
 
     public static long getId(Context context){
-        return getSharedPreferences(context).getLong("ID",-1);
+        return getSharedPreferences(context).getLong("id",-1);
     }
 
     public static String getShortName(Context context){
-        return getSharedPreferences(context).getString("SHORT_NAME","");
+        return getSharedPreferences(context).getString("shortName","");
     }
 
     public static String getPhoneNumber(Context context){
-        return getSharedPreferences(context).getString("PHONE","");
+        return getSharedPreferences(context).getString("phone","");
     }
+
+    public static String getAddress(Context context){
+        return getSharedPreferences(context).getString("address","");
+    }
+
+    public static String getLatitude(Context context){
+        return getSharedPreferences(context).getString("latitude","");
+    }
+
+    public static String getLongitude(Context context){
+        return getSharedPreferences(context).getString("longitude","");
+    }
+
 
 
 }

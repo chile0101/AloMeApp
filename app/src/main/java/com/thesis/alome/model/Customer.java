@@ -8,24 +8,38 @@ public class Customer {
     @SerializedName("id")
     @Expose
     private int id;
-    @SerializedName("address")
-    @Expose
-    private Object address;
+
     @SerializedName("fullName")
     @Expose
     private String fullName;
+
     @SerializedName("phone")
     @Expose
     private String phone;
+
     @SerializedName("email")
     @Expose
     private Object email;
+
     @SerializedName("username")
     @Expose
     private String username;
+
     @SerializedName("genderText")
     @Expose
     private String genderText;
+
+    @SerializedName("address")
+    @Expose
+    private String address;
+
+    @SerializedName("longitude")
+    @Expose
+    private String longitude;
+
+    @SerializedName("latitude")
+    @Expose
+    private String latitude;
 
     public int getId() {
         return id;
@@ -35,11 +49,11 @@ public class Customer {
         this.id = id;
     }
 
-    public Object getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Object address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -81,5 +95,21 @@ public class Customer {
 
     public void setGenderText(String genderText) {
         this.genderText = genderText;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 }

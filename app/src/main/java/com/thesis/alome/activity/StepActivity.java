@@ -19,6 +19,7 @@ import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.fragment.StepOneFragment;
 import com.thesis.alome.fragment.StepTwoFragment;
+import com.thesis.alome.fragment.ViewDialog;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.viewmodel.StepViewModel;
 
@@ -72,7 +73,7 @@ public class StepActivity extends BaseActivity {
                         viewPager.setCurrentItem(0);
                         return;
                     }else {
-                        Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
                         sendRequest();
                     }
 
@@ -104,7 +105,8 @@ public class StepActivity extends BaseActivity {
         call.enqueue(new Callback<RespBase>() {
             @Override
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {
-                Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                ViewDialog.showDialog(StepActivity.this,getString(R.string.text_request_success));
             }
 
             @Override

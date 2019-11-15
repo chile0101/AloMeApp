@@ -60,45 +60,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutTitle">
-        <!--<Button android:textColor="@color/orange_color"-->
-        <!--android:id="@+id/btnEditMap"-->
-        <!--android:text="@string/edit_map"-->
-        <!--style="@style/TransparentButtonMatchParentStyle"-->
-        <!--android:fontFamily="@font/roboto"/>-->
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/layoutHouseNo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/padding_16"
-            android:paddingRight="@dimen/padding_16">
+        <Button
+            android:visibility="gone"
+            android:textColor="@color/orange_color"
+            android:id="@+id/btnEditMap"
+            android:text="@string/edit_map"
+            style="@style/TransparentButtonMatchParentStyle"
+            android:fontFamily="@font/roboto"/>
 
-            <TextView
-                android:id="@+id/tvHouseNo"
-                style="@style/TextViewTitleFormStyle"
-                android:fontFamily="@font/roboto"
-                android:text="@string/house_no" />
 
-            <EditText
-                android:id="@+id/edtHouseNo"
-                style="@style/EditTextInPutTypeNumberFormStyle"
-                android:fontFamily="@font/roboto"
-                android:freezesText="true" />
-
-            <TextView
-                android:id="@+id/tvErrorHouseNo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:gravity="right"
-                android:textColor="@color/badge_color"
-                android:textSize="@dimen/text_size_12" />
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/layoutAlleyRoad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

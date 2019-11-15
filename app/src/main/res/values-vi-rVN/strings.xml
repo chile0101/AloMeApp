@@ -59,8 +59,7 @@
     <string name="available_time_page_title">Chọn thời gian đặt</string>
     <string name="please_book_7_days_in_advance">Vui lòng đặt trước 7 ngày</string>
     <string name="choose">Chọn</string>
-    <string name="alley_road">Hẻm/Đường</string>
-    <string name="house_no">Số nhà</string>
+    <string name="alley_road">Số nhà - Hẻm/Đường</string>
     <string name="district_area">Quận/Huyện</string>
     <string name="province">Tỉnh/Thành</string>
     <string name="add_address">+ Thêm địa chỉ</string>
@@ -82,4 +81,7 @@
     <string name="alo_now">Liên hệ nhanh</string>
     <string name="title_activity_provider_list">Nhà cung cấp gần bạn</string>
     <string name="addressEmpty">Vui lòng nhập địa chỉ của bạn</string>
+    <string name="save">Lưu lại</string>
+    <string name="or">hoặc</string>
+    <string name="text_request_success">Yêu cầu của bạn đã được xử lý. Thợ sửa chữa sẽ liên hệ với bạn sớm nhất có thể</string>
 </resources>

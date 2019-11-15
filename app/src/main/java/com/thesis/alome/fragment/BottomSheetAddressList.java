@@ -63,7 +63,7 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
             }
         });
 
-        btnMyLocation.setOnClickListener(new View.OnClickListener() {
+        btnAddAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MapsActivity.class);
@@ -71,13 +71,13 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
             }
         });
 
-        btnAddAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BottomSheetAddAddress bottomSheetAddAddress = new BottomSheetAddAddress();
-                bottomSheetAddAddress.show(getFragmentManager(),bottomSheetAddAddress.getTag());
-            }
-        });
+//        btnMyLocation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BottomSheetAddAddress bottomSheetAddAddress = new BottomSheetAddAddress();
+//                bottomSheetAddAddress.show(getFragmentManager(),bottomSheetAddAddress.getTag());
+//            }
+//        });
 
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +98,9 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
             if(resultCode == RESULT_OK) {
                 stepViewModel.setAddress(data.getStringExtra("addressStr"));
                 stepViewModel.setAddressLatLng(data.getStringExtra("addressLatLng"));
-                dismiss();
+                BottomSheetAddAddress bsAddAddress = new BottomSheetAddAddress();
+                bsAddAddress.show(getFragmentManager(),bsAddAddress.getTag());
+                //dismiss();
             }
         }
     }

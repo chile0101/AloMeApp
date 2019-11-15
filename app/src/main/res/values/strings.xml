@@ -20,7 +20,7 @@
 
     <string name="district_area">District/Area</string>
     <string name="edit_map">Edit map</string>
-    <string name="house_no">House No</string>
+    <string name="house_no_">House No </string>
     <string name="house">House</string>
     <string name="landmark">Landmark</string>
 
@@ -149,7 +149,7 @@
     <string name="flexible">Flexible</string>
     <string name="please_book_7_days_in_advance">Please book 7 day in advance</string>
     <string name="choose">Choose</string>
-    <string name="alley_road">Alley/Road</string>
+    <string name="alley_road">House No - Alley/Road</string>
     <string name="title_activity_maps">Map</string>
     <string name="you_not_allow_location">If you do not allow to use device\'s location, it will not work correctly. Do you allow to use the divices\'s location</string>
     <string name="ward">ward</string>
@@ -167,5 +167,6 @@
     <string name="title_activity_provider_list">Providers near you</string>
     <string name="title_activity_provider_details">ProviderDetailsActivity</string>
     <string name="addressEmpty">Please enter your address</string>
+    <string name="text_request_success">Success</string>
 
 </resources>

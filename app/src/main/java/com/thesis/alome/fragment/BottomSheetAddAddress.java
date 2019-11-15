@@ -2,6 +2,7 @@ package com.thesis.alome.fragment;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.thesis.alome.R;
+import com.thesis.alome.activity.MapsActivity;
 import com.thesis.alome.database.AppDatabase;
 import com.thesis.alome.model.Address;
 import com.thesis.alome.viewmodel.AddressViewModel;
@@ -29,13 +31,12 @@ import butterknife.ButterKnife;
 
 public class BottomSheetAddAddress extends BottomSheetDialogFragment {
 
+    @BindView(R.id.btnEditMap) Button btnEditMap;
     @BindView(R.id.btnSave) Button btnSave;
     @BindView(R.id.edtWard) EditText edtWard;
-    @BindView(R.id.edtHouseNo) EditText edtHouseNo;
     @BindView(R.id.edtAlleyRoad) EditText edtAlleyRoad;
     @BindView(R.id.edtDistricArea) EditText edtDistricArea;
     @BindView(R.id.edtProvince) EditText edtProvince;
-    @BindView(R.id.tvErrorHouseNo) TextView tvErrorHouseNo;
     @BindView(R.id.tvErrorAlleyRoad) TextView tvErrorAlleyRoad;
     @BindView(R.id.tvErrorWard) TextView tvErrorWard;
     @BindView(R.id.tvErrorDistricArea) TextView tvErrorDistricArea;
@@ -50,7 +51,7 @@ public class BottomSheetAddAddress extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.fragment_bottom_add_address,container,false);
         ButterKnife.bind(this,view);
         addressViewModel = ViewModelProviders.of(this).get(AddressViewModel.class);
-        stepViewModel = ViewModelProviders.of(this).get(StepViewModel.class);
+        stepViewModel = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
         return view;
     }
 
@@ -58,30 +59,38 @@ public class BottomSheetAddAddress extends BottomSheetDialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        String address = stepViewModel.getAddress().getValue();
+        String[] addressSlices = address.split(",",6);
+        int len = addressSlices.length;
 
-        stepViewModel.getAddress().observe(getActivity(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                edtProvince.setText(s);
-            }
-        });
+        if( addressSlices[len-2] != null){
+            edtProvince.setText(addressSlices[len-2]);
+        }
+        if(addressSlices[len-3] != null){
+            edtDistricArea.setText(addressSlices[len-3]);
+        }
+        if(addressSlices[len-4] != null){
+            edtWard.setText(addressSlices[len-4]);
+        }
+        if(addressSlices[len-5] != null){
+            edtAlleyRoad.setText(addressSlices[len-5]);
+        }
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String houseNo = edtHouseNo.getText().toString();
                 String alleyRoad = edtAlleyRoad.getText().toString();
                 String ward = edtWard.getText().toString();
                 String districArea = edtDistricArea.getText().toString();
                 String province = edtProvince.getText().toString();
 
-                if( !validateHouseNo(houseNo) | !validateAlleyRoad(alleyRoad)
+                if(  !validateAlleyRoad(alleyRoad)
                         | !validateDistricArea(districArea) | !validateProvince(province)){
                     return;
                 }else {
-                    String title = houseNo + " " + alleyRoad;
-                    String addressStr = houseNo + " " + alleyRoad + " " + districArea + " " + province;
+                    String title = alleyRoad;
+                    String addressStr =  alleyRoad + " " + ward + " " + districArea + " " + province;
                     Address address = new Address(title,addressStr);
                     AppDatabase appDb = AppDatabase.getInstance(getActivity());
                     addressViewModel.insert(address);
@@ -90,18 +99,15 @@ public class BottomSheetAddAddress extends BottomSheetDialogFragment {
             }
         });
 
-        edtHouseNo.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+//        btnEditMap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), MapsActivity.class);
+//                intent.putExtra("addressEdited","Hoang Hoa Tham");
+//                startActivityForResult(intent,2);
+//            }
+//        });
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                tvErrorHouseNo.setText("");
-            }
-        });
 
         edtAlleyRoad.addTextChangedListener(new TextWatcher() {
             @Override
@@ -143,13 +149,7 @@ public class BottomSheetAddAddress extends BottomSheetDialogFragment {
         });
     }
 
-    private boolean validateHouseNo(String houseNo){
-        if(houseNo.isEmpty()){
-            tvErrorHouseNo.setText(R.string.validate_house_no_text);
-            return false;
-        }
-        return true;
-    }
+
     private boolean validateAlleyRoad(String alleyRoad){
         if(alleyRoad.isEmpty()){
             tvErrorAlleyRoad.setText(R.string.validate_alley_road_text);

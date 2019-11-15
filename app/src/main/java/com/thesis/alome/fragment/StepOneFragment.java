@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.activity.StepActivity;
+import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.viewmodel.StepViewModel;
 
 import butterknife.BindView;
@@ -49,6 +50,9 @@ public class StepOneFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
 
         StepViewModel model = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
+        model.setAddress(PrefUtils.getAddress(getActivity()));
+        model.setAddressLatLng(PrefUtils.getLatitude(getActivity()) + ";" + PrefUtils.getLongitude(getActivity()));
+
         model.getDateAvail().observe(getActivity(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

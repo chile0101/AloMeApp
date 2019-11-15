@@ -100,12 +100,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
     </style>
     <style name="TextSlideStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
         <item name="android:textAlignment">center</item>
     </style>
     <!--=====================================================-->

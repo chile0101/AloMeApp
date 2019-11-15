@@ -44,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 long id = response.body().getData().getId();
                 String shortName = response.body().getData().getFullName();
                 String phone = response.body().getData().getPhone();
-                PrefUtils.storeProfile(getApplicationContext(), id,shortName,phone);
+                String address = response.body().getData().getAddress();
+                String longitude = response.body().getData().getLongitude();
+                String latitude = response.body().getData().getLatitude();
+                PrefUtils.storeProfile(getApplicationContext(), id, shortName, phone, address, latitude, longitude);
                 tvWelcome.setText(tvWelcome.getText()+ " " + shortName);
             }
             @Override

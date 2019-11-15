@@ -115,6 +115,7 @@ public class ServiceDetailActivity extends BaseActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ServiceDetailActivity.this,ProviderListActivity.class);
+                intent.putExtra("serviceId",getIntent().getLongExtra("serviceId",1));
                 startActivity(intent);
             }
         });

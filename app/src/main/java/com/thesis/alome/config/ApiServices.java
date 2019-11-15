@@ -65,8 +65,9 @@ public interface ApiServices {
                                 @Part("description") RequestBody description,
                                 @Part List<MultipartBody.Part> images);
 
-//    @GET("")
-//    Call<RespBase<Provider>> getProviderNearMe();
+    @GET("customers/provider/{id}")
+    Call<RespBase<List<Provider>>> getProviderNearMe(@Path("id") long serviceId,
+                                                     @Query("access_token") String accessToken);
 
 
 }
