@@ -1,20 +1,40 @@
 <LinearLayout
+    android:padding="0dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff">
+    android:background="@drawable/shape_alert_dialog">
 
-    <ImageView
+    <LinearLayout
+        android:paddingTop ="8dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:id="@+id/layoutTitle"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/a"
-        android:gravity="center"
-        android:background="@color/colorPrimary"
-        android:scaleType="fitCenter" />
-    <!--android:src="@drawable/ic_error"-->
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/black_color"
+            android:id="@+id/tvTitle"
+            android:padding="@dimen/padding_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Success"
+            android:fontFamily="@font/roboto"/>
+
+        <View
+            android:id="@+id/viewDivider"
+            android:background="@drawable/available_date_time_recycler_view_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height" />
+
+    </LinearLayout>
 
     <TextView
+        android:fontFamily="@font/roboto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lỗi"
@@ -32,17 +52,23 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:text="OK"
-        android:id="@+id/btn_dialog"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_below="@+id/text_dialog"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
+    <LinearLayout
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="ok"
+            android:fontFamily="@font/roboto"
+            android:id="@+id/btn_dialog"
+            android:textSize="20sp"
+            android:background="@drawable/shape_button_ok"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
 
 </LinearLayout>

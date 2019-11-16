@@ -147,6 +147,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/linearLayoutType"
         android:layout_below="@+id/linearLayoutAddress"
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -160,12 +161,12 @@
         android:layout_height="wrap_content">
         <TextView
             android:fontFamily="@font/roboto"
-            android:text="@string/address"
+            android:text="@string/type_services"
             android:id="@+id/tvType"
             style="@style/TextViewTitleFormStyle"/>
 
         <EditText
-            android:drawableRight="@drawable/ic_pin"
+            android:drawableRight="@drawable/ic_add_shopping_cart_24dp"
             android:layout_width="match_parent"
             android:focusable="false"
             android:fontFamily="@font/roboto"

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,19 +31,37 @@ import butterknife.ButterKnife;
 public class StepOneFragment extends Fragment {
 
     @BindView(R.id.edtDate) EditText edtDate;
-    @BindView(R.id.edtAddress) EditText edtAddress;
-    @BindView(R.id.edtPhone) EditText edtPhone;
     @BindView(R.id.edtTime) EditText edtTime;
+    @BindView(R.id.edtPhone) EditText edtPhone;
+    @BindView(R.id.edtAddress) EditText edtAddress;
+    @BindView(R.id.edtType) EditText edtType;
+    @BindView(R.id.linearLayoutType) LinearLayout linearLayoutType;
+
     @BindView(R.id.tvErrorDate) TextView tvErrorDate;
     @BindView(R.id.tvErrorTime) TextView tvErrorTime;
     @BindView(R.id.tvErrorPhone) TextView tvErrorPhone;
     @BindView(R.id.tvErrorAddress) TextView tvErrorAddress;
+    @BindView(R.id.tvErrorType) TextView tvErrorType;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_step_one,container,false);
         ButterKnife.bind(this,view);
+
+        Intent intent = getActivity().getIntent();
+        if(intent != null){
+            String fromActivity = intent.getExtras().getString("Uniqid");
+            if(fromActivity.equals("From_Activity_Main")){
+                linearLayoutType.setVisibility(View.VISIBLE);
+            }
+        }
+
         return view;
     }
 
@@ -75,6 +95,13 @@ public class StepOneFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 edtAddress.setText(s);
+            }
+        });
+
+        model.getTypeStr().observe(getActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String str) {
+                edtType.setText(str);
             }
         });
 
@@ -183,6 +210,13 @@ public class StepOneFragment extends Fragment {
            }
        });
 
+       edtType.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               BottomSheetTypeServicesListFragment bs = new BottomSheetTypeServicesListFragment();
+               bs.show(getFragmentManager(), bs.getTag());
+           }
+       });
 
     }
 }

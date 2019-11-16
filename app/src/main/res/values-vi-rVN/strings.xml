@@ -83,5 +83,8 @@
     <string name="addressEmpty">Vui lòng nhập địa chỉ của bạn</string>
     <string name="save">Lưu lại</string>
     <string name="or">hoặc</string>
-    <string name="text_request_success">Yêu cầu của bạn đã được xử lý. Thợ sửa chữa sẽ liên hệ với bạn sớm nhất có thể</string>
+    <string name="text_request_success">Yêu cầu của bạn đã được xử lý. Thợ sửa chữa sẻ liên hệ với bạn sớm nhất có thể</string>
+    <string name="type_services">Kiểu dịch vụ</string>
+    <string name="address">Địa chỉ</string>
+    <string name="choose_type_service">Chọn dịch vụ</string>
 </resources>

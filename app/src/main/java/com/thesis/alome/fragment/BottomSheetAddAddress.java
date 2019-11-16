@@ -91,7 +91,9 @@ public class BottomSheetAddAddress extends BottomSheetDialogFragment {
                 }else {
                     String title = alleyRoad;
                     String addressStr =  alleyRoad + " " + ward + " " + districArea + " " + province;
-                    Address address = new Address(title,addressStr);
+                    String addressLatLng = stepViewModel.getAddressLatLng().getValue();
+                    String[] slices = addressLatLng.split(";", 2);
+                    Address address = new Address(title,addressStr,Double.parseDouble(slices[0]),Double.parseDouble(slices[1]));
                     AppDatabase appDb = AppDatabase.getInstance(getActivity());
                     addressViewModel.insert(address);
                     getDialog().dismiss();

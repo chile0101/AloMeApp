@@ -18,6 +18,8 @@ public class StepViewModel extends ViewModel {
     private final MutableLiveData<String> phone = new MutableLiveData<>();
     private final MutableLiveData<String> address = new MutableLiveData<String>();
     private final MutableLiveData<String> addressLatLng = new MutableLiveData<String>();
+    private final MutableLiveData<Long> typeId = new MutableLiveData<Long>();
+    private final MutableLiveData<String> typeStr = new MutableLiveData<String>();
     private final MutableLiveData<List<Uri>> imgList = new MutableLiveData<List<Uri>>();
     private final MutableLiveData<String> description = new MutableLiveData<String>();
 
@@ -65,6 +67,22 @@ public class StepViewModel extends ViewModel {
 
     public void setAddressLatLng(String latLng){
         addressLatLng.setValue(latLng);
+    }
+
+    public LiveData<Long> getTypeId(){
+        return typeId;
+    }
+
+    public void setTypeId(Long typeId){
+        this.typeId.setValue(typeId);
+    }
+
+    public LiveData<String> getTypeStr(){
+        return typeStr;
+    }
+
+    public void setTypeStr(String typeStr){
+        this.typeStr.setValue(typeStr);
     }
 
     public void setImageList(List<Uri> imagesList){

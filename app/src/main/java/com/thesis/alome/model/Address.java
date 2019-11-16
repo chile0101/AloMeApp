@@ -8,14 +8,24 @@ import android.arch.persistence.room.PrimaryKey;
 public class Address {
     @PrimaryKey(autoGenerate = true)
     private int id;
+
     @ColumnInfo(name = "type_of_area")
     private String typeOfArea;
+
     @ColumnInfo(name = "address_str")
     private String addressStr;
 
-    public Address(String typeOfArea, String addressStr) {
+    @ColumnInfo(name = "lat")
+    private Double lat;
+
+    @ColumnInfo(name = "long")
+    private Double lng;
+
+    public Address(String typeOfArea, String addressStr, Double lat, Double lng) {
         this.typeOfArea = typeOfArea;
         this.addressStr = addressStr;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public int getId() {
@@ -42,5 +52,19 @@ public class Address {
         this.addressStr = addressStr;
     }
 
+    public Double getLat() {
+        return lat;
+    }
 
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
 }

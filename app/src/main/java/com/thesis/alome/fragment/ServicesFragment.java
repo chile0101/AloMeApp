@@ -76,6 +76,7 @@ public class ServicesFragment extends Fragment {
             public void onClick(View v) {
                 //Toast.makeText(getActivity(), "Chức năng này đang làm.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), StepActivity.class);
+                intent.putExtra("Uniqid","From_Activity_Main");
                 startActivity(intent);
             }
         });

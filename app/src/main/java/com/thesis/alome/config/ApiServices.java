@@ -57,6 +57,7 @@ public interface ApiServices {
     Call<RespBase> orderService(@Path("id") Long id,
                                 @Query("access_token") String accessToken,
                                 @Part("serviceId") Long serviceId,
+                                @Part("serviceTypeId") Long serviceTypeId,
                                 @Part("date") RequestBody date,
                                 @Part("time") RequestBody time,
                                 @Part("phone") RequestBody phone,

@@ -107,6 +107,7 @@ public class ServiceDetailActivity extends BaseActivity
             public void onClick(View v) {
                 Intent intent = new Intent(ServiceDetailActivity.this,StepActivity.class);
                 intent.putExtra("serviceId",getIntent().getLongExtra("serviceId",1));
+                intent.putExtra("Uniqid","From_Activity_ServiceDetail");
                 startActivity(intent);
             }
         });

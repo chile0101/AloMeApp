@@ -84,6 +84,7 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 if(adapter.addressSelected != null){
                     stepViewModel.setAddress(adapter.addressSelected.getAddressStr());
+                    stepViewModel.setAddressLatLng(adapter.addressSelected.getLat()+";"+adapter.addressSelected.getLng());
                     dismiss();
                 }else {
                     Toast.makeText(getActivity(), "Vui lòng chọn địa chỉ của bạn", Toast.LENGTH_SHORT).show();

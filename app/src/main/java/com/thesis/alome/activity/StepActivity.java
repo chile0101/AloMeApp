@@ -1,6 +1,7 @@
 package com.thesis.alome.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -52,6 +53,7 @@ public class StepActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step);
+
         ButterKnife.bind(this);
         initToolbar(R.id.toolbar,getString(R.string.title_booking_service));
         stepViewModel = ViewModelProviders.of(this).get(StepViewModel.class);
@@ -73,7 +75,6 @@ public class StepActivity extends BaseActivity {
                         viewPager.setCurrentItem(0);
                         return;
                     }else {
-                        //Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
                         sendRequest();
                     }
 
@@ -96,6 +97,7 @@ public class StepActivity extends BaseActivity {
         Call<RespBase> call = apiServices.orderService(PrefUtils.getId(this),
                 PrefUtils.getApiKey(this) ,
                 getIntent().getLongExtra("serviceId",1l),
+                stepViewModel.getTypeId().getValue(),
                 convert(stepViewModel.getDateAvail().getValue()),
                 convert( stepViewModel.getTimeAvail().getValue()),
                 convert(stepViewModel.getPhone().getValue()),
