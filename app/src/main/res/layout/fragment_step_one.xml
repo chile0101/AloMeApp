@@ -161,7 +161,7 @@
         <TextView
             android:fontFamily="@font/roboto"
             android:text="@string/address"
-            android:id="@+id/tvAddress"
+            android:id="@+id/tvType"
             style="@style/TextViewTitleFormStyle"/>
 
         <EditText
@@ -169,7 +169,7 @@
             android:layout_width="match_parent"
             android:focusable="false"
             android:fontFamily="@font/roboto"
-            android:id="@+id/edtAddress"
+            android:id="@+id/edtType"
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
@@ -180,7 +180,7 @@
             android:textSize="@dimen/text_size_12"
             android:textColor="@color/badge_color"
             android:gravity="right"
-            android:id="@+id/tvErrorAddress"
+            android:id="@+id/tvErrorType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
