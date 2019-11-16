@@ -57,8 +57,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         final Service service=data.get(position);
         if(service!=null){
             viewHolder.tvName.setText(service.getServiceName());
-            viewHolder.tvFullPrice.setText(service.getFullPrice()+"Đ");
-            viewHolder.tvSalePrice.setText(service.getSalePrice()+"Đ" +"  -" );
+            viewHolder.tvFullPrice.setText(service.getFullPrice() + " VND");
+            viewHolder.tvSalePrice.setText(service.getSalePrice() + " - " );
             if (service.getImageUrl()!=null && context!=null)
                  Glide.with(context).load(service.getImageUrl()).into(viewHolder.imgService);
             viewHolder.cv.setOnClickListener(new View.OnClickListener() {

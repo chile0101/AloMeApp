@@ -26,6 +26,7 @@
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             android:focusable="false"
+            android:drawableRight="@drawable/ic_date_range_black_24dp"
             android:fontFamily="@font/roboto"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
@@ -59,6 +60,7 @@
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             android:focusable="false"
+            android:drawableRight="@drawable/ic_access_time_black_24dp"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
             android:fontFamily="@font/roboto"
@@ -93,6 +95,7 @@
             android:layout_marginTop="@dimen/padding_4"
             android:freezesText="true"
             android:inputType="number"
+            android:drawableRight="@drawable/ic_contact_phone_black_24dp"
             style="@style/EditTextInPutTypeNumberFormStyle"/>
         <TextView
             android:fontFamily="@font/roboto"
@@ -107,6 +110,45 @@
     <LinearLayout
         android:id="@+id/linearLayoutAddress"
         android:layout_below="@+id/linearLayoutPhone"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="@font/roboto"
+            android:text="@string/address"
+            android:id="@+id/tvAddress"
+            style="@style/TextViewTitleFormStyle"/>
+
+        <EditText
+            android:drawableRight="@drawable/ic_pin"
+            android:layout_width="match_parent"
+            android:focusable="false"
+            android:fontFamily="@font/roboto"
+            android:id="@+id/edtAddress"
+            android:layout_marginTop="@dimen/padding_4"
+            android:freezesText="true"
+            style="@style/EditTextInPutTypeNumberFormStyle"/>
+
+
+        <TextView
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/badge_color"
+            android:gravity="right"
+            android:id="@+id/tvErrorAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutType"
+        android:layout_below="@+id/linearLayoutAddress"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:aapt="http://schemas.android.com/aapt"

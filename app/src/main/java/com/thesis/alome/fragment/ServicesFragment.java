@@ -1,5 +1,6 @@
 package com.thesis.alome.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
+import com.thesis.alome.activity.StepActivity;
 import com.thesis.alome.adapter.MainRecycleAdapter;
 import com.thesis.alome.adapter.SnapAdapter;
 import com.thesis.alome.config.ApiClient;
@@ -37,7 +39,7 @@ public class ServicesFragment extends Fragment {
     private boolean mHorizontal;
     private SnapAdapter snapAdapter;
     List<ServiceType> serviceTypes;
-    private FloatingActionButton fabRequest;
+    private FloatingActionButton fabRequestNow;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class ServicesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mRecyclerView = view.findViewById(R.id.recyclerView);
-        fabRequest = view.findViewById(R.id.fabRequest);
+        fabRequestNow = view.findViewById(R.id.fabRequestNow);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
 
@@ -69,10 +71,12 @@ public class ServicesFragment extends Fragment {
         }
 
         callApi();
-        fabRequest.setOnClickListener(new View.OnClickListener() {
+        fabRequestNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Chức năng này đang làm.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Chức năng này đang làm.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), StepActivity.class);
+                startActivity(intent);
             }
         });
     }

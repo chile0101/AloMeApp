@@ -73,12 +73,12 @@
     <string name="validate_district_area_text">Vui lòng nhập quận/huyện</string>
     <string name="validate_province_text">Vui lòng nhập tỉnh/thành</string>
     <string name="phone">Số điện thoại</string>
-    <string name="confirm">Xác nhận</string>
+    <string name="confirm">Đặt hẹn ngay</string>
     <string name="find_provider">Đặt dịch vụ</string>
     <string name="validate_date_avail">Vui lòng chọn ngày đặt</string>
     <string name = "validate_time_avail">Vui lòng chọn giờ hẹn</string>
     <string name="validate_address">Vui lòng chọn địa chỉ</string>
-    <string name="alo_now">Liên hệ nhanh</string>
+    <string name="alo_now">AloNow</string>
     <string name="title_activity_provider_list">Nhà cung cấp gần bạn</string>
     <string name="addressEmpty">Vui lòng nhập địa chỉ của bạn</string>
     <string name="save">Lưu lại</string>
