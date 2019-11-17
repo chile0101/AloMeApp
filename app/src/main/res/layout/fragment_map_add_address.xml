@@ -41,6 +41,7 @@
             android:layout_marginEnd="16dp"
             android:orientation="horizontal"
             android:padding="@dimen/padding_8"
+            app:layout_constraintBottom_toTopOf="@+id/btnSelect"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivHamburger">
@@ -59,10 +60,9 @@
                 android:layout_marginEnd="@dimen/padding_16"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
-                android:text="CHILE"
                 android:textColor="@color/black_color"
                 android:textColorHint="@color/gray_color"
-                android:textSize="@dimen/text_size_20" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -70,14 +70,20 @@
                 android:layout_marginEnd="@dimen/padding_8"
                 android:src="@drawable/ic_search_address" />
         </LinearLayout>
+
         <Button
             android:id="@+id/btnSelect"
+            style="@style/OrangeButtonMatchParentStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/padding_16"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:text="Tiếp Tục"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutAddAddress"
-            style="@style/OrangeButtonMatchParentStyle"/>
+            app:layout_constraintTop_toBottomOf="@+id/layoutAddAddress" />
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>

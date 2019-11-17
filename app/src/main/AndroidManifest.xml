@@ -17,8 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.ProviderDetailsActivity"
-            android:label="@string/title_activity_provider_details"></activity>
+            android:name=".activity.JobDetailsActivity"/>
+        <activity
+            android:name=".activity.ProviderDetailsActivity"/>
         <activity
             android:name=".activity.ProviderListActivity"
             android:label="@string/title_activity_provider_list" />

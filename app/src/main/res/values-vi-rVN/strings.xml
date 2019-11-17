@@ -87,4 +87,23 @@
     <string name="type_services">Kiểu dịch vụ</string>
     <string name="address">Địa chỉ</string>
     <string name="choose_type_service">Chọn dịch vụ</string>
+    <string name="in_progress">Đã sắp lịch</string>
+    <string name="complete_jobs">Đã hoàn thành</string>
+
+    <string name="activate">Hoạt động</string>
+    <string name="my_activate">Hoạt động của tôi</string>
+    <string name="services">Dịch vụ</string>
+    <string name="all">Tất cả</string>
+
+    <string name="appointment_date">Ngày hẹn: </string>
+
+    <string name="sent_request">Đã gửi yêu cầu</string>
+    <string name="wait_for_confirmation">Chờ bạn xác nhận</string>
+    <string name="contact_success">Liên hệ thành công</string>
+    <string name="expired">Hết hạn</string>
+    <string name="completed">Đã hoàn thành</string>
+
+    <string name="somthing_wrong">Something Wrong</string>
+    <string name="no_connection_title">Vui lòng kiểm tra kết nối internet của bạn</string>
+
 </resources>

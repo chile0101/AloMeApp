@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/toolbar" />
+    </LinearLayout>
+
+    <!--<com.smarteist.autoimageslider.SliderView-->
+        <!--android:id="@+id/imageSlider"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+
+        <!--app:sliderAnimationDuration="600"-->
+        <!--app:sliderAutoCycleDirection="back_and_forth"-->
+        <!--app:sliderAutoCycleEnabled="true"-->
+        <!--app:sliderCircularHandlerEnabled="true"-->
+        <!--app:sliderIndicatorAnimationDuration="600"-->
+        <!--app:sliderIndicatorGravity="center_horizontal|bottom"-->
+        <!--app:sliderIndicatorMargin="15dp"-->
+        <!--app:sliderIndicatorOrientation="horizontal"-->
+        <!--app:sliderIndicatorPadding="3dp"-->
+        <!--app:sliderIndicatorRadius="2dp"-->
+        <!--app:sliderIndicatorSelectedColor="#5A5A5A"-->
+        <!--app:sliderIndicatorUnselectedColor="#FFF"-->
+        <!--app:sliderScrollTimeInSec="1"-->
+        <!--app:sliderStartAutoCycle="true"-->
+        <!--tools:layout_editor_absoluteY="64dp" />-->
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Mã công việc: 86834"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Ngày đăng: 15/12/2019"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Dịch vụ sửa chửa điện nước "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hình thức thanh toán" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thanh toán khi thợ sửa chửa xong" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

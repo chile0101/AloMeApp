@@ -7,13 +7,13 @@
         android:icon="@drawable/ic_main_bottom_nav_bar_promotion"
         android:enabled="true"
         android:id="@+id/item1"
-        android:title="@string/service"
-        android:contentDescription="@string/service"/>
+        android:title="@string/services"
+        android:contentDescription="@string/services"/>
     <item
         android:icon="@drawable/ic_main_bottom_nav_bar_job_list"
         android:enabled="true" android:id="@+id/item2"
-        android:title="@string/service_list"
-        android:contentDescription="@string/service_list"/>
+        android:title="@string/activate"
+        android:contentDescription="@string/activate"/>
     <!--<item-->
         <!--android:icon="@drawable/ic_main_bottom_nav_bar_chat"-->
         <!--android:enabled="true"-->

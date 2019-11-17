@@ -43,9 +43,14 @@ public class StepOneFragment extends Fragment {
     @BindView(R.id.tvErrorAddress) TextView tvErrorAddress;
     @BindView(R.id.tvErrorType) TextView tvErrorType;
 
+    private StepViewModel model;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        model = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
+        model.setAddress(PrefUtils.getAddress(getActivity()));
+        model.setAddressLatLng(PrefUtils.getLatitude(getActivity()) + ";" + PrefUtils.getLongitude(getActivity()));
     }
 
     @Nullable
@@ -53,6 +58,8 @@ public class StepOneFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_step_one,container,false);
         ButterKnife.bind(this,view);
+
+
 
         Intent intent = getActivity().getIntent();
         if(intent != null){
@@ -68,10 +75,6 @@ public class StepOneFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
-
-        StepViewModel model = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
-        model.setAddress(PrefUtils.getAddress(getActivity()));
-        model.setAddressLatLng(PrefUtils.getLatitude(getActivity()) + ";" + PrefUtils.getLongitude(getActivity()));
 
         model.getDateAvail().observe(getActivity(), new Observer<String>() {
             @Override

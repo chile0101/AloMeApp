@@ -16,11 +16,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
+import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.activity.StepActivity;
 import com.thesis.alome.adapter.MainRecycleAdapter;
 import com.thesis.alome.adapter.SnapAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
+import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.model.ServiceType;
 
@@ -40,6 +42,13 @@ public class ServicesFragment extends Fragment {
     private SnapAdapter snapAdapter;
     List<ServiceType> serviceTypes;
     private FloatingActionButton fabRequestNow;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((MainActivity)getActivity()).setTitleToolBar(getString(R.string.welcome)+ " " + PrefUtils.getShortName(getActivity()));
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

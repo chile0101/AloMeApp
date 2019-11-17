@@ -1,6 +1,7 @@
 package com.thesis.alome.config;
 
 import com.thesis.alome.model.Customer;
+import com.thesis.alome.model.Job;
 import com.thesis.alome.model.Provider;
 import com.thesis.alome.model.ReqOrder;
 import com.thesis.alome.model.ReqSignUp;
@@ -69,6 +70,7 @@ public interface ApiServices {
     @GET("customers/provider/{id}")
     Call<RespBase<List<Provider>>> getProviderNearMe(@Path("id") long serviceId,
                                                      @Query("access_token") String accessToken);
-
+    @GET("customers/{id}/request")
+    Call<RespBase<List<Job>>> getJobsInProgress(@Path("id") long userId, @Query("access_token") String accessToken,@Query("status") int typeJob);
 
 }

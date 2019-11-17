@@ -5,7 +5,7 @@
             <solid android:color="@color/design_fab_stroke_end_inner_color"/>
 
             <corners
-                android:radius="20dp"/>
+                android:radius="30dp"/>
             <padding
                 android:right="10dp"
                 android:top="10dp"

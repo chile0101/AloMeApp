@@ -92,11 +92,11 @@ public class StepActivity extends BaseActivity {
         for (Uri uri : stepViewModel.getImageList().getValue()) {
             listImg.add(prepareFilePart("images",uri));
         }
-
+       Long serviceId = getIntent().getLongExtra("serviceId",-1);
         ApiServices apiServices = ApiClient.getClient(this).create(ApiServices.class);
         Call<RespBase> call = apiServices.orderService(PrefUtils.getId(this),
                 PrefUtils.getApiKey(this) ,
-                getIntent().getLongExtra("serviceId",1l),
+                serviceId == -1 ? null : serviceId,
                 stepViewModel.getTypeId().getValue(),
                 convert(stepViewModel.getDateAvail().getValue()),
                 convert( stepViewModel.getTimeAvail().getValue()),

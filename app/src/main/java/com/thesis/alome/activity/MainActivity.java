@@ -42,13 +42,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<RespBase<Customer>> call, Response<RespBase<Customer>> response) {
 
                 long id = response.body().getData().getId();
-                String shortName = response.body().getData().getFullName();
+                String shortName = response.body().getData().getFullName().split(" ",2)[0];
                 String phone = response.body().getData().getPhone();
                 String address = response.body().getData().getAddress();
                 String longitude = response.body().getData().getLongitude();
                 String latitude = response.body().getData().getLatitude();
                 PrefUtils.storeProfile(getApplicationContext(), id, shortName, phone, address, latitude, longitude);
-                tvWelcome.setText(tvWelcome.getText()+ " " + shortName);
             }
             @Override
             public void onFailure(Call<RespBase<Customer>> call, Throwable t) {
@@ -82,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    public void setTitleToolBar(String str){
+        tvWelcome.setText(str);
+    }
 
 
 }
