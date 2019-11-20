@@ -1,5 +1,6 @@
 package com.thesis.alome.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.thesis.alome.R;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
@@ -31,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("alome");
+
 
         tvWelcome = (TextView) findViewById(R.id.tvWelcome);
         bottomNav = (BottomNavigationView) findViewById(R.id.bottomNavView);
