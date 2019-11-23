@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "968534755648",
+    "firebase_url": "https://alome-27913.firebaseio.com",
+    "project_id": "alome-27913",
+    "storage_bucket": "alome-27913.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968534755648:android:3c05b2a28d77c533c392a5",
+        "android_client_info": {
+          "package_name": "com.thesis.alome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968534755648-fu7vj7s36c8aiskguerr5b7q0pn0jmtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeAoWvh_hDiioVpntlOMwPYOTREWPiaDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968534755648-fu7vj7s36c8aiskguerr5b7q0pn0jmtb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
