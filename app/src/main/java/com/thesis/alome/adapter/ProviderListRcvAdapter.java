@@ -52,6 +52,9 @@ public class ProviderListRcvAdapter extends RecyclerView.Adapter<ProviderListRcv
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProviderDetailsActivity.class);
                 intent.putExtra("providerId",provider.getProviderId());
+                intent.putExtra("providerName",provider.getName());
+                intent.putExtra("providerAvatar",provider.getAvatar());
+                intent.putExtra("providerStars",provider.getNumOfStars());
                 context.startActivity(intent);
 
             }

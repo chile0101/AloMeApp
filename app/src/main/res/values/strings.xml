@@ -186,6 +186,6 @@
 
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">It can not work Check your network connection,\n then press the button to try again.</string>
-
+    <string name="provider_information">Provider information</string>
 
 </resources>

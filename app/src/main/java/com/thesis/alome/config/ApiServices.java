@@ -3,6 +3,7 @@ package com.thesis.alome.config;
 import com.thesis.alome.model.Customer;
 import com.thesis.alome.model.Job;
 import com.thesis.alome.model.Provider;
+import com.thesis.alome.model.RatingForProvider;
 import com.thesis.alome.model.ReqOrder;
 import com.thesis.alome.model.ReqSignUp;
 import com.thesis.alome.model.RespBase;
@@ -73,4 +74,8 @@ public interface ApiServices {
     @GET("customers/{id}/request")
     Call<RespBase<List<Job>>> getJobsInProgress(@Path("id") long userId, @Query("access_token") String accessToken,@Query("status") int typeJob);
 
+    @GET("customers/{id}/rating/{providerId}")
+    Call<RespBase<List<RatingForProvider>>> getRatingsOfProvider(@Path("id") Long customerId,
+                                                                 @Path("providerId") Long providerId,
+                                                                 @Query("access_token") String accessToken);
 }

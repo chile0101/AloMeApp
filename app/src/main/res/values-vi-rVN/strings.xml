@@ -105,5 +105,6 @@
 
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">Vui lòng kiểm tra kết nối internet của bạn</string>
+    <string name="provider_information">Thông tin nhà cung cấp</string>
 
 </resources>
