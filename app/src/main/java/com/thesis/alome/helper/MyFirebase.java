@@ -11,12 +11,9 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.thesis.alome.R;
-import com.thesis.alome.activity.JobDetailsActivity;
-import com.thesis.alome.activity.MainActivity;
 
 import java.util.Map;
 import java.util.Random;
@@ -25,8 +22,7 @@ public class MyFirebase extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-
-        showNotifications(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody(), remoteMessage.getNotification().getClickAction());
+        showNotifications(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody(), remoteMessage.getNotification().getClickAction(), remoteMessage.getData());
     }
 
     @Override
@@ -34,14 +30,14 @@ public class MyFirebase extends FirebaseMessagingService {
         super.onNewToken(s);
     }
 
-    private void showNotifications(String title, String body, String click_action) {
+    private void showNotifications(String title, String body, String click_action, Map data) {
         Intent notificationIntent = new Intent(click_action);
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent intent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-//        String temp="test";
-//        Intent intent = new Intent(click_action);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        notificationIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+        notificationIntent.putExtra("customerRequestId", data.get("customerRequestId").toString());
+        notificationIntent.putExtra("providerId",data.get("providerId").toString());
+        Log.d("providerIdd", data.get("providerId").toString());
+        PendingIntent intent = PendingIntent.getActivity(this, 0, notificationIntent,  PendingIntent.FLAG_UPDATE_CURRENT);
+
         NotificationManager notificationManager= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         String NOTIFICATION_ID="com.thesis";
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
