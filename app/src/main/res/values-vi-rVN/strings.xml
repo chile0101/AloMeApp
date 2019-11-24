@@ -107,4 +107,12 @@
     <string name="no_connection_title">Vui lòng kiểm tra kết nối internet của bạn</string>
     <string name="provider_information">Thông tin nhà cung cấp</string>
 
+    <string name="provider_name">Tên</string>
+    <string name="gender">Giới tính</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="job">Nghề nghiệp</string>
+    <string name="certificate">Chứng chỉ hành nghề</string>
+    <string name="approved">Đã kiểm duyệt</string>
+    <string name="alo_now_in_fragment_provider_info">Gọi Ngay</string>
 </resources>

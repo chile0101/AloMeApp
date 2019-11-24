@@ -187,5 +187,15 @@
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">It can not work Check your network connection,\n then press the button to try again.</string>
     <string name="provider_information">Provider information</string>
+    
+    <string name="provider_name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="job">Job</string>
+    <string name="certificate">Certificate</string>
+    <string name="approved">Approved</string>
+    <string name="alo_now_in_fragment_provider_info">Alo Now</string>
+    
 
 </resources>

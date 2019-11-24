@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
 public class ProviderDetailsActivity extends BaseActivity {
 
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private String[] mTitles = {"Đánh giá","Thông tin"};
+    private String[] mTitles = {"Thông tin","Đánh giá"};
     private View mDecorView;
     private SegmentTabLayout mTabLayout;
     @BindView(R.id.imgAvatar) ImageView imgAvatar;
@@ -56,21 +56,13 @@ public class ProviderDetailsActivity extends BaseActivity {
         ratingBar.setRating(providerStars);
         Picasso.get().load(providerAvatar).into(imgAvatar);
 
-
-        mFragments.add(new ProviderRatingsFragment());
         mFragments.add(new ProviderInfoFragment());
-
+        mFragments.add(new ProviderRatingsFragment());
         mDecorView = getWindow().getDecorView();
 
         mTabLayout = ViewFindUtils.find(mDecorView, R.id.tl_3);
         tl_3();
-        mTabLayout.showDot(1);
-
-        mTabLayout.showDot(2);
-        MsgView rtv_3_2 = mTabLayout.getMsgView(2);
-        if (rtv_3_2 != null) {
-            rtv_3_2.setBackgroundColor(Color.parseColor("#6D8FB0"));
-        }
+        mTabLayout.showDot(0);
     }
 
     private void tl_3() {
