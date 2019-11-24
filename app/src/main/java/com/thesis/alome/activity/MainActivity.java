@@ -1,11 +1,13 @@
 package com.thesis.alome.activity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        FirebaseMessaging.getInstance().subscribeToTopic("alome");
-
+        FirebaseMessaging.getInstance().subscribeToTopic("customer"+ getSharedPreferences("alome", Context.MODE_PRIVATE).getString("TOPIC",""));
+        Log.d("customer", "customer"+ getSharedPreferences("alome", Context.MODE_PRIVATE).getString("TOPIC",""));
 
         tvWelcome = (TextView) findViewById(R.id.tvWelcome);
         bottomNav = (BottomNavigationView) findViewById(R.id.bottomNavView);
@@ -47,13 +49,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<RespBase<Customer>> call, Response<RespBase<Customer>> response) {
 
-                long id = response.body().getData().getId();
+                Long id = response.body().getData().getId().longValue();
                 String shortName = response.body().getData().getFullName().split(" ",2)[0];
                 String phone = response.body().getData().getPhone();
                 String address = response.body().getData().getAddress();
                 String longitude = response.body().getData().getLongitude();
                 String latitude = response.body().getData().getLatitude();
                 PrefUtils.storeProfile(getApplicationContext(), id, shortName, phone, address, latitude, longitude);
+
+                SharedPreferences myPrefs = getSharedPreferences("alome", MODE_PRIVATE);
+                SharedPreferences.Editor prefsEditor;
+                prefsEditor = myPrefs.edit();
+                prefsEditor.putString("TOPIC", id.toString());
+                prefsEditor.commit();
             }
             @Override
             public void onFailure(Call<RespBase<Customer>> call, Throwable t) {

@@ -41,7 +41,7 @@ public class Customer {
     @Expose
     private String latitude;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

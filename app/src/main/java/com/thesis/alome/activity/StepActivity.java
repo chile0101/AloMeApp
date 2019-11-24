@@ -108,7 +108,10 @@ public class StepActivity extends BaseActivity {
             @Override
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {
                 //Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
-                ViewDialog.showDialog(StepActivity.this,getString(R.string.text_request_success));
+                if (response.body() != null && response.body().getStatus()){
+                    ViewDialog.showDialog(StepActivity.this,getString(R.string.text_request_success));
+                }
+
             }
 
             @Override
