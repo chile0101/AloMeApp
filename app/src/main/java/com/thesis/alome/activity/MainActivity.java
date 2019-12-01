@@ -37,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        FirebaseMessaging.getInstance().subscribeToTopic("customer"+ getSharedPreferences("alome", Context.MODE_PRIVATE).getString("TOPIC",""));
-        Log.d("customer", "customer"+ getSharedPreferences("alome", Context.MODE_PRIVATE).getString("TOPIC",""));
+        FirebaseMessaging.getInstance().subscribeToTopic("customer"+  getSharedPreferences("alome", Context.MODE_PRIVATE).getString("TOPIC",""));
 
         tvWelcome = (TextView) findViewById(R.id.tvWelcome);
         bottomNav = (BottomNavigationView) findViewById(R.id.bottomNavView);
