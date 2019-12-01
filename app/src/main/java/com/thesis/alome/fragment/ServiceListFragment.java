@@ -70,12 +70,12 @@ public class ServiceListFragment extends Fragment implements OnTabSelectListener
 
     @Override
     public void onTabSelect(int position) {
-        Toast.makeText(mContext, "onTabSelect&position--->" + position, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, "onTabSelect&position--->" + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onTabReselect(int position) {
-        Toast.makeText(mContext, "onTabReselect&position--->" + position, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, "onTabReselect&position--->" + position, Toast.LENGTH_SHORT).show();
     }
 
     private class MyPagerAdapter extends FragmentPagerAdapter {

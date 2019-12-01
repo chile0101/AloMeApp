@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item-->
+        <!--android:id="@+id/menu1"-->
+        <!--android:icon="@android:drawable/ic_menu_gallery"-->
+        <!--android:title="Menu 1"-->
+        <!--app:showAsAction="ifRoom" />-->
+    <!--<item-->
+        <!--android:id="@+id/menu2"-->
+        <!--android:icon="@drawable/ic_address_list_delete_btn"-->
+        <!--android:title="Menu 2"-->
+        <!--app:showAsAction="always" />-->
+    <item
+        android:id="@+id/deleteJobItem"
+        android:icon="@drawable/ic_address_list_delete_btn"
+        android:title="Xóa"
+        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/menu"-->
+        <!--android:checkable="false"-->
+        <!--android:icon="@android:drawable/ic_lock_silent_mode"-->
+        <!--android:title="MenuItem"-->
+        <!--app:showAsAction="collapseActionView" />-->
+</menu>

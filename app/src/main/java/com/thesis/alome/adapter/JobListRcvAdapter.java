@@ -72,6 +72,7 @@ public class JobListRcvAdapter extends RecyclerView.Adapter<JobListRcvAdapter.Vi
             public void onClick(View v) {
                 Intent intent = new Intent(context, JobDetailsActivity.class);
                 intent.putExtra("jobId",job.getId());
+                intent.putExtra("serviceName",job.getServiceName());
                 context.startActivity(intent);
             }
         });

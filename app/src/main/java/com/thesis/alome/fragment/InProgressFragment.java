@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ethanhua.skeleton.Skeleton;
+import com.ethanhua.skeleton.SkeletonScreen;
 import com.thesis.alome.R;
 import com.thesis.alome.adapter.JobListRcvAdapter;
 import com.thesis.alome.config.ApiClient;
@@ -52,12 +54,29 @@ public class InProgressFragment extends Fragment {
         call.enqueue(new Callback<RespBase<List<Job>>>() {
             @Override
             public void onResponse(Call<RespBase<List<Job>>> call, Response<RespBase<List<Job>>> response) {
-                if(response.body().getStatus() == true){
+                if(response.body()!=null && response.body().getStatus()){
                     jobList = response.body().getData();
                     adapter = new JobListRcvAdapter(jobList,getActivity());
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.setAdapter(adapter);
+
+                    final SkeletonScreen skeletonScreen = Skeleton.bind(recyclerView)
+                            .adapter(adapter)
+                            .shimmer(true)
+                            .angle(20)
+                            .frozen(false)
+                            .duration(1200)
+                            .count(10)
+                            .load(R.layout.item_job_skeleton)
+                            .show();
+
+                    recyclerView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            skeletonScreen.hide();
+                        }
+                    }, 1000);
                 }else {
                     Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
                 }

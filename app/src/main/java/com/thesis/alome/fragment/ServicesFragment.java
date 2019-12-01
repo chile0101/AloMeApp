@@ -1,11 +1,14 @@
 package com.thesis.alome.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.ethanhua.skeleton.Skeleton;
+import com.ethanhua.skeleton.SkeletonScreen;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.activity.StepActivity;
@@ -26,6 +31,7 @@ import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.model.ServiceType;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +68,7 @@ public class ServicesFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
 
+
         if (savedInstanceState == null) {
             mHorizontal = true;
         } else {
@@ -70,6 +77,7 @@ public class ServicesFragment extends Fragment {
         if(serviceTypes == null) {
             setupAdapter();
             callApi();
+
 
         } else {
             //there is already data? screen must be rotating or tab switching
@@ -80,10 +88,27 @@ public class ServicesFragment extends Fragment {
         }
 
         callApi();
+
+        //skeleton
+        final SkeletonScreen skeletonScreen = Skeleton.bind(mRecyclerView)
+                .adapter(snapAdapter)
+                .shimmer(true)
+                .angle(20)
+                .duration(1000)
+                .color(R.color.shimmer_color)
+                .load(R.layout.item_service_type_skeleton)
+                .show();
+
+        mRecyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                skeletonScreen.hide();
+            }
+        }, 3000);
+
         fabRequestNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "Chức năng này đang làm.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), StepActivity.class);
                 intent.putExtra("Uniqid","From_Activity_Main");
                 startActivity(intent);
@@ -96,6 +121,8 @@ public class ServicesFragment extends Fragment {
         snapAdapter = new SnapAdapter(getActivity());
         mRecyclerView.setAdapter(snapAdapter);
     }
+
+
 
     private void callApi(){
         ApiClient.getClient(getActivity()).create(ApiServices.class).getMainData().enqueue(new Callback<RespBase<List<ServiceType>>>() {
@@ -116,4 +143,5 @@ public class ServicesFragment extends Fragment {
             }
         });
     }
+
 }

@@ -196,6 +196,7 @@
     <string name="certificate">Certificate</string>
     <string name="approved">Approved</string>
     <string name="alo_now_in_fragment_provider_info">Alo Now</string>
+    <string name="edit"><u>Edit</u></string>
     
 
 </resources>

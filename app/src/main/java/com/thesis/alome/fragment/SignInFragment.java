@@ -61,7 +61,7 @@ public class SignInFragment extends Fragment {
                             if(resp.code() == 400){
                                 Toast.makeText(getActivity(), getString(R.string.email_or_password_is_invalid), Toast.LENGTH_SHORT).show();
                             }else{
-                                Toast.makeText(getActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show();
                                 PrefUtils.storeApiKey(getContext(),resp.body().getAccessToken());
 
                                 Intent intent = new Intent(getActivity(), MainActivity.class);

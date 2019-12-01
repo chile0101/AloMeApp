@@ -13,7 +13,7 @@ import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.activity.StepActivity;
 
-public class ViewDialog {
+public class SuccessDialog {
     public static void showDialog(Context context, String msg){
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

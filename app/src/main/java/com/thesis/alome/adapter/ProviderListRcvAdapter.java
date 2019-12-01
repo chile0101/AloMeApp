@@ -46,7 +46,7 @@ public class ProviderListRcvAdapter extends RecyclerView.Adapter<ProviderListRcv
         viewHolder.txtProviderName.setText(provider.getName());
         viewHolder.txtServiceName.setText(provider.getServiceName());
         viewHolder.txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
-        viewHolder.ratingBar.setRating(3.67f);
+        viewHolder.ratingBar.setRating(provider.getNumOfStars());
         viewHolder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +55,7 @@ public class ProviderListRcvAdapter extends RecyclerView.Adapter<ProviderListRcv
                 intent.putExtra("providerName",provider.getName());
                 intent.putExtra("providerAvatar",provider.getAvatar());
                 intent.putExtra("providerStars",provider.getNumOfStars());
+                intent.putExtra("serviceName",provider.getServiceName());
                 context.startActivity(intent);
 
             }

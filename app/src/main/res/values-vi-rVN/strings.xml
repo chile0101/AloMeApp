@@ -115,4 +115,5 @@
     <string name="certificate">Chứng chỉ hành nghề</string>
     <string name="approved">Đã kiểm duyệt</string>
     <string name="alo_now_in_fragment_provider_info">Gọi Ngay</string>
+    <string name="edit"><u>Sửa</u></string>
 </resources>

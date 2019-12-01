@@ -236,7 +236,7 @@
     <style name="status_job_100">
         <item name="android:background">@drawable/shape_btn_job_status_normal</item>
         <item name="android:textColor">@color/orange_color</item>
-        <item name="android:text">@string/sent_request</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="RatingBarLargeStyle">

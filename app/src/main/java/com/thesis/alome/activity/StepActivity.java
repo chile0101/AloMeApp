@@ -1,15 +1,12 @@
 package com.thesis.alome.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ipaulpro.afilechooser.utils.FileUtils;
@@ -20,7 +17,7 @@ import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.fragment.StepOneFragment;
 import com.thesis.alome.fragment.StepTwoFragment;
-import com.thesis.alome.fragment.ViewDialog;
+import com.thesis.alome.fragment.SuccessDialog;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.viewmodel.StepViewModel;
 
@@ -109,7 +106,7 @@ public class StepActivity extends BaseActivity {
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {
                 //Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
                 if (response.body() != null && response.body().getStatus()){
-                    ViewDialog.showDialog(StepActivity.this,getString(R.string.text_request_success));
+                    SuccessDialog.showDialog(StepActivity.this,getString(R.string.text_request_success));
                 }
 
             }

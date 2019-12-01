@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
@@ -22,32 +22,29 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:padding="8dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_column="0"
-                android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:text="@string/provider_name"
-                android:textSize="@dimen/text_size_16"
-                android:textColor="@color/black_color"/>
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/text_size_16" />
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_margin="1dp"
                 android:layout_weight="3"
                 android:fontFamily="@font/roboto"
                 android:paddingLeft="8dp"
-                android:textColor="@color/black_color"
                 android:text=" Nguyễn Văn A"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/text_size_16" />
         </TableRow>
 
@@ -59,7 +56,6 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:padding="8dp">
 
             <TextView
@@ -67,7 +63,6 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
-                android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
@@ -80,12 +75,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_margin="1dp"
                 android:layout_weight="3"
                 android:fontFamily="@font/roboto"
                 android:paddingLeft="8dp"
-                android:textColor="@color/black_color"
                 android:text="@string/male"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/text_size_16" />
 
         </TableRow>
@@ -99,7 +93,6 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:padding="8dp">
 
             <TextView
@@ -107,7 +100,6 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
-                android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
@@ -120,12 +112,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_margin="1dp"
                 android:layout_weight="3"
                 android:fontFamily="@font/roboto"
                 android:paddingLeft="8dp"
-                android:textColor="@color/black_color"
                 android:text="adsfasdfasfasf Etown 2 Cộng hòa phường 13 Tân Bình TPHCM"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/text_size_16" />
 
         </TableRow>
@@ -138,7 +129,6 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:padding="8dp">
 
             <TextView
@@ -146,7 +136,6 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
-                android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
@@ -159,7 +148,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_margin="1dp"
                 android:layout_weight="3"
                 android:fontFamily="@font/roboto"
                 android:paddingLeft="8dp"
@@ -177,7 +165,6 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:padding="8dp">
 
             <TextView
@@ -185,7 +172,6 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
-                android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
@@ -198,12 +184,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_margin="1dp"
                 android:layout_weight="3"
                 android:fontFamily="@font/roboto"
                 android:paddingLeft="8dp"
-                android:textColor="@color/black_color"
                 android:text="Chuyên sửa chữa điện nước gia đình"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/text_size_16" />
 
         </TableRow>
@@ -216,7 +201,6 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:padding="8dp">
 
             <TextView
@@ -224,12 +208,11 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="center"
-                android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
-                android:textColor="@color/black_color"
                 android:text="@string/certificate"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/text_size_16" />
 
             <LinearLayout
@@ -262,15 +245,15 @@
     </TableLayout>
 
     <Button
-        android:textColor="@color/white"
-        android:background="@drawable/shape_btn_confirm"
-        android:id="@+id/button"
+        android:id="@+id/btnAloNow"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
+        android:background="@drawable/shape_btn_confirm"
         android:text="@string/alo_now_in_fragment_provider_info"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

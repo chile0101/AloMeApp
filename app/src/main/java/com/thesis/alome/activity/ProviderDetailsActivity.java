@@ -46,18 +46,32 @@ public class ProviderDetailsActivity extends BaseActivity {
         ButterKnife.bind(this);
         initToolbar(R.id.toolbar,getString(R.string.provider_information));
 
+        // Receives data from Provider List Activity
         Intent intent = getIntent();
         Long providerId = intent.getLongExtra("providerId",1);
         String providerName = intent.getStringExtra("providerName");
         String providerAvatar = intent.getStringExtra("providerAvatar");
+        String serviceName = intent.getStringExtra("serviceName");
         Float providerStars = intent.getFloatExtra("providerStars",5f);
 
         tvProviderName.setText(providerName);
         ratingBar.setRating(providerStars);
         Picasso.get().load(providerAvatar).into(imgAvatar);
 
-        mFragments.add(new ProviderInfoFragment());
-        mFragments.add(new ProviderRatingsFragment());
+        // Get instance of Fragments
+        ProviderInfoFragment infoFragment = new ProviderInfoFragment();
+        ProviderRatingsFragment ratingsFragment = new ProviderRatingsFragment();
+
+        // Pass data to fragments
+        Bundle bundle = new Bundle();
+        bundle.putLong("providerId", providerId);
+        bundle.putString("job",serviceName);
+
+        infoFragment.setArguments(bundle);
+        ratingsFragment.setArguments(bundle);
+
+        mFragments.add(infoFragment);
+        mFragments.add(ratingsFragment);
         mDecorView = getWindow().getDecorView();
 
         mTabLayout = ViewFindUtils.find(mDecorView, R.id.tl_3);

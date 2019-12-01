@@ -43,7 +43,6 @@ public class ProviderListActivity extends BaseActivity{
         wrapper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProviderListActivity.this, "OK", Toast.LENGTH_SHORT).show();
                 mViewReplacer.restore();
                 finish();
                 overridePendingTransition(0, 0);
@@ -76,7 +75,7 @@ public class ProviderListActivity extends BaseActivity{
                         public void run() {
                             skeletonScreen.hide();
                         }
-                    }, 1000);
+                    }, 3000);
                 }
             }
             @Override
