@@ -62,9 +62,9 @@ public class JobListRcvAdapter extends RecyclerView.Adapter<JobListRcvAdapter.Vi
                 btnStatus.setText(context.getString(R.string.contact_success));
                 break;
             case 400:
-                btnStatus.setText(context.getString(R.string.expired));
-                btnStatus.setTextColor(ContextCompat.getColor(context,R.color.dark_transparent));
-                btnStatus.setBackground(ContextCompat.getDrawable(context,R.drawable.shape_btn_job_status_expired));
+                btnStatus.setText(context.getString(R.string.completed));
+                //btnStatus.setTextColor(ContextCompat.getColor(context,R.color.dark_transparent));
+                //btnStatus.setBackground(ContextCompat.getDrawable(context,R.drawable.shape_btn_job_status_expired));
                 break;
             default:
                 btnStatus.setVisibility(View.GONE);
@@ -86,7 +86,7 @@ public class JobListRcvAdapter extends RecyclerView.Adapter<JobListRcvAdapter.Vi
                     case "inCompleted":
                         Intent compIntent = new Intent(context, JobDetailsCompletedActivity.class);
                         compIntent.putExtra("customerRequestId", String.valueOf(job.getId()));
-                        compIntent.putExtra("jobStatus", job.getStatus());
+                        compIntent.putExtra("status", job.getStatus().toString());
                         compIntent.putExtra("serviceName", job.getServiceName());
                         context.startActivity(compIntent);
 

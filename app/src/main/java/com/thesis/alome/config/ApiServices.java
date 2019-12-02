@@ -1,5 +1,6 @@
 package com.thesis.alome.config;
 
+import com.thesis.alome.model.Comment;
 import com.thesis.alome.model.Customer;
 import com.thesis.alome.model.Job;
 import com.thesis.alome.model.JobDetails;
@@ -96,5 +97,12 @@ public interface ApiServices {
                                             @Query("customerRequestId") Long jobId,
                                             @Query("status") int status,
                                             @Query("access_token") String accessToken);
+
+    @POST("customers/{id}/rating")
+    Call<RespBase> postComment(
+            @Path("id") Long userId,
+            @Body Comment rating,
+            @Query("access_token") String accessToken
+    );
 
 }

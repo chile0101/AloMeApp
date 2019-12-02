@@ -49,12 +49,13 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<RespBase<Customer>> call, Response<RespBase<Customer>> response) {
 
                 Long id = response.body().getData().getId().longValue();
-                String shortName = response.body().getData().getFullName().split(" ",2)[0];
+                String fullName = response.body().getData().getFullName();
+                String shortName = fullName.split(" ",2)[0];
                 String phone = response.body().getData().getPhone();
                 String address = response.body().getData().getAddress();
                 String longitude = response.body().getData().getLongitude();
                 String latitude = response.body().getData().getLatitude();
-                PrefUtils.storeProfile(getApplicationContext(), id, shortName, phone, address, latitude, longitude);
+                PrefUtils.storeProfile(getApplicationContext(), id, shortName,fullName, phone, address, latitude, longitude);
 
                 SharedPreferences myPrefs = getSharedPreferences("alome", MODE_PRIVATE);
                 SharedPreferences.Editor prefsEditor;

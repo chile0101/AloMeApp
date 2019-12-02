@@ -72,11 +72,6 @@ public class ProviderInfoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
-
-
-
         btnAloNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

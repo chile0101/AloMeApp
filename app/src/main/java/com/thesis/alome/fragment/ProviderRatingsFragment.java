@@ -1,5 +1,6 @@
 package com.thesis.alome.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,32 +24,29 @@ import com.thesis.alome.model.RespBase;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProviderRatingsFragment extends Fragment {
 
-    RecyclerView recyclerView;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
     List<RatingForProvider> ratingList;
     RatingsForProviderAdapter adapter;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_provider_ratings, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_provider_ratings, container, false);
+        ButterKnife.bind(this,view);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        Long providerId = getArguments().getLong("providerId");
         ratingList = new ArrayList<RatingForProvider>();
-
-
         ApiServices apiServices = ApiClient.getClient(getActivity()).create(ApiServices.class);
-        Call<RespBase<List<RatingForProvider>>> call = apiServices.getRatingsOfProvider(PrefUtils.getId(getActivity()),1l,PrefUtils.getApiKey(getActivity()));
+        Call<RespBase<List<RatingForProvider>>> call = apiServices.getRatingsOfProvider(PrefUtils.getId(getActivity()),providerId,PrefUtils.getApiKey(getActivity()));
         call.enqueue(new Callback<RespBase<List<RatingForProvider>>>() {
             @Override
             public void onResponse(Call<RespBase<List<RatingForProvider>>> call, Response<RespBase<List<RatingForProvider>>> response) {
@@ -67,7 +65,12 @@ public class ProviderRatingsFragment extends Fragment {
             }
         });
 
+        return view;
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
     }
 }

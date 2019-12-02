@@ -17,7 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.JobDetailsCompletedActivity"/>
+            android:name=".activity.JobDetailsCompletedActivity">
+            <intent-filter>
+                <action android:name="com.thesis.alome_COMPLETE_TARGET_NOTIFICATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.JobDetailsActivity">
             <intent-filter>

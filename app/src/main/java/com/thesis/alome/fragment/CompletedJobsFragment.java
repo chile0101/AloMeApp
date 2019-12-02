@@ -50,15 +50,12 @@ public class CompletedJobsFragment extends Fragment {
         jobList = new ArrayList<Job>();
 
         ApiServices apiServices = ApiClient.getClient(getActivity()).create(ApiServices.class);
-        Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()), PrefUtils.getApiKey(getActivity()), 0);
+        Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()), PrefUtils.getApiKey(getActivity()), 1);
         call.enqueue(new Callback<RespBase<List<Job>>>() {
             @Override
             public void onResponse(Call<RespBase<List<Job>>> call, Response<RespBase<List<Job>>> response) {
                 if (response.body()!= null && response.body().getStatus()) {
-                    jobList .add(new Job(100,"https://i.pinimg.com/736x/ef/1b/bb/ef1bbbf6dff0c90864d83b252ac689c0.jpg",
-                            "Dich vu sua chua dien nuoc","12/12/2020",300));
-                    jobList .add(new Job(100,"https://i.pinimg.com/736x/ef/1b/bb/ef1bbbf6dff0c90864d83b252ac689c0.jpg",
-                            "Dich vu sua chua dien nuoc","12/12/2020",300));
+                    jobList = response.body().getData();
                     adapter = new JobListRcvAdapter(jobList, getActivity(),TAG);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setItemAnimator(new DefaultItemAnimator());

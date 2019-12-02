@@ -143,7 +143,7 @@ public class JobDetailsActivity extends AppCompatActivity  {
                             Picasso.get().load(provider.getAvatar()).into(imgAvatar);
                             tvNameProvider.setText(provider.getName());
                             ratingBar.setRating(provider.getNumOfStars());
-                            tvServiceName.setText(provider.getServiceName());
+                            txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
 
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {

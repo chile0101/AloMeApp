@@ -1,7 +1,7 @@
 package com.thesis.alome.model;
 
 public class Provider {
-    private Integer providerId;
+    private Long providerId;
     private String name;
     private String serviceName;
     private Float numOfStars;
@@ -9,7 +9,7 @@ public class Provider {
     private String avatar;
     //private String price;
 
-    public Provider(Integer providerId, String name, String serviceName, Float numOfStars, Integer numOfRatings, String avatar) {
+    public Provider(Long providerId, String name, String serviceName, Float numOfStars, Integer numOfRatings, String avatar) {
         this.providerId = providerId;
         this.name = name;
         this.serviceName = serviceName;
@@ -18,11 +18,11 @@ public class Provider {
         this.avatar = avatar;
     }
 
-    public Integer getProviderId() {
+    public Long getProviderId() {
         return providerId;
     }
 
-    public void setProviderId(Integer providerId) {
+    public void setProviderId(Long providerId) {
         this.providerId = providerId;
     }
 

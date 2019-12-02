@@ -21,10 +21,11 @@ public class PrefUtils {
         return context.getSharedPreferences(PREFS_TAG, Context.MODE_PRIVATE);
     }
 
-    public static void storeProfile(Context context, long id, String shortName,String phone,String address, String latitude, String longitude){
+    public static void storeProfile(Context context, long id, String shortName, String fullName,String phone,String address, String latitude, String longitude){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.putLong("id", id);
         editor.putString("shortName", shortName);
+        editor.putString("fullName", fullName);
         editor.putString("phone", phone);
         editor.putString("address", address);
         editor.putString("latitude", latitude);
@@ -48,6 +49,10 @@ public class PrefUtils {
 
     public static String getShortName(Context context){
         return getSharedPreferences(context).getString("shortName","");
+    }
+
+    public static String getFullName(Context context){
+        return getSharedPreferences(context).getString("fullName","");
     }
 
     public static String getPhoneNumber(Context context){
