@@ -197,6 +197,10 @@
     <string name="approved">Approved</string>
     <string name="alo_now_in_fragment_provider_info">Alo Now</string>
     <string name="edit"><u>Edit</u></string>
-
-
+    <string name="createdAt">Date posted: </string>
+    <string name="your_request_has_been_accepted_by">Your request has been accepted by</string>
+    <string name="txt_great_job_done">Tuyệt vời !\n Lịch hẹn đã được thiết lập.</string>
+    <string name="txt_review_job_done">Công việc của bạn đã hoàn tất.\n Đừng quên đánh giá và để lại lời nhận xét.</string>
+    <string name="job_current_unaccepted">Yêu cầu của bạn hiện tại chưa có ai chấp nhận</string>
+    <string name="for_a_fee">For a fee</string>
 </resources>

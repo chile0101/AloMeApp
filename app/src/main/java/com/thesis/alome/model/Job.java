@@ -47,7 +47,7 @@ public class Job {
         this.date = date;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 

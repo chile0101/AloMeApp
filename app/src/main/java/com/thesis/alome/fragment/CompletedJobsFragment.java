@@ -31,7 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CompletedJobsFragment extends Fragment {
-
+    private static final String TAG = "inCompleted";
     RecyclerView recyclerView;
     List<Job> jobList;
     JobListRcvAdapter adapter;
@@ -55,8 +55,11 @@ public class CompletedJobsFragment extends Fragment {
             @Override
             public void onResponse(Call<RespBase<List<Job>>> call, Response<RespBase<List<Job>>> response) {
                 if (response.body()!= null && response.body().getStatus()) {
-                    jobList = response.body().getData();
-                    adapter = new JobListRcvAdapter(jobList, getActivity());
+                    jobList .add(new Job(100,"https://i.pinimg.com/736x/ef/1b/bb/ef1bbbf6dff0c90864d83b252ac689c0.jpg",
+                            "Dich vu sua chua dien nuoc","12/12/2020",300));
+                    jobList .add(new Job(100,"https://i.pinimg.com/736x/ef/1b/bb/ef1bbbf6dff0c90864d83b252ac689c0.jpg",
+                            "Dich vu sua chua dien nuoc","12/12/2020",300));
+                    adapter = new JobListRcvAdapter(jobList, getActivity(),TAG);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.setAdapter(adapter);

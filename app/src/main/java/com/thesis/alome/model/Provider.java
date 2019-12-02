@@ -7,6 +7,7 @@ public class Provider {
     private Float numOfStars;
     private Integer numOfRatings;
     private String avatar;
+    //private String price;
 
     public Provider(Integer providerId, String name, String serviceName, Float numOfStars, Integer numOfRatings, String avatar) {
         this.providerId = providerId;

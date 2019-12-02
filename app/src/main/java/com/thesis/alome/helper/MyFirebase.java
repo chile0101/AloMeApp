@@ -34,6 +34,7 @@ public class MyFirebase extends FirebaseMessagingService {
         Intent notificationIntent = new Intent(click_action);
         notificationIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
         notificationIntent.putExtra("customerRequestId", data.get("customerRequestId").toString());
+        notificationIntent.putExtra("status", data.get("status").toString());
         notificationIntent.putExtra("providerId",data.get("providerId").toString());
         Log.d("providerIdd", data.get("providerId").toString());
         PendingIntent intent = PendingIntent.getActivity(this, 0, notificationIntent,  PendingIntent.FLAG_UPDATE_CURRENT);

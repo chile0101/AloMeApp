@@ -3,25 +3,37 @@ package com.thesis.alome.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
+import com.thesis.alome.config.ApiClient;
+import com.thesis.alome.config.ApiServices;
+import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.fragment.WarningDialog;
-import com.thesis.alome.model.ProviderDetails;
-
+import com.thesis.alome.model.JobDetails;
+import com.thesis.alome.model.Provider;
+import com.thesis.alome.model.RespBase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class JobDetailsActivity extends AppCompatActivity {
+public class JobDetailsActivity extends AppCompatActivity  {
 
     @BindView(R.id.tvCreateAt) TextView tvCreateAt;
     @BindView(R.id.btnStatus) Button btnStatus;
@@ -38,15 +50,28 @@ public class JobDetailsActivity extends AppCompatActivity {
     @BindView(R.id.btnRefuse) Button btnRefuse;
     @BindView(R.id.layoutProvider) ConstraintLayout layoutProvider;
 
+    //Provider
+    @BindView(R.id.imgAvatar) ImageView imgAvatar;
+    @BindView(R.id.tvNameProvider) TextView tvNameProvider;
+    @BindView(R.id.txtServiceName) TextView txtServiceName;
+    @BindView(R.id.ratingBar) RatingBar ratingBar;
+    @BindView(R.id.txtNumOfRatings) TextView txtNumOfRatings;
+
+    //Wrapper
+    @BindView(R.id.wrapper100) LinearLayout wrapper100;
+    @BindView(R.id.wrapperProvider) LinearLayout wrapperProvider;
+    @BindView(R.id.wrapperPrice) LinearLayout wrapperPrice;
+    @BindView(R.id.wrapperBtn) LinearLayout wrapperBtn;
+    @BindView(R.id.wrapperSuccess) LinearLayout wrapperSuccess;
+    @BindView(R.id.wrapperReview) LinearLayout wrapperReview;
+//    private Integer providerId;
+    private Long customerRequestId;
+    private Integer jobStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_details);
-        Integer providerId = Integer.valueOf(getIntent().getStringExtra("providerId"));
-        Integer customerRequestId = Integer.valueOf(getIntent().getStringExtra("customerRequestId"));
-        Toast.makeText(this,"providerId= " + providerId.toString() + " customerRequestId=" + customerRequestId.toString(), Toast.LENGTH_SHORT).show();
-
         //Setup ToolBar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getIntent().getStringExtra("serviceName"));
@@ -59,19 +84,192 @@ public class JobDetailsActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-//        layoutProvider.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(JobDetailsActivity.this, ProviderDetails.class);
-//                intent.putExtra("providerId",provider.getProviderId());
-//                intent.putExtra("providerName",provider.getName());
-//                intent.putExtra("providerAvatar",provider.getAvatar());
-//                intent.putExtra("providerStars",provider.getNumOfStars());
-//                intent.putExtra("serviceName",provider.getServiceName());
-//                startActivity(intent);
-//            }
-//        });
+        Intent intent = getIntent();
+        if(intent != null){
+//            providerId = Integer.valueOf(getIntent().getStringExtra("providerId"));
+            customerRequestId = Long.valueOf(getIntent().getStringExtra("customerRequestId"));
+            jobStatus = Integer.valueOf(getIntent().getStringExtra("status")) ;
+            Toast.makeText(this, "customerRequestId=" + customerRequestId.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+        ApiServices apiServices = ApiClient.getClient(getApplicationContext()).create(ApiServices.class);
+        Call<RespBase<JobDetails>> call = apiServices.getJobDetails(customerRequestId, PrefUtils.getApiKey(this));
+        call.enqueue(new Callback<RespBase<JobDetails>>() {
+            @Override
+            public void onResponse(Call<RespBase<JobDetails>> call, Response<RespBase<JobDetails>> response) {
+                if(response.body()!= null && response.body().getStatus()){
+                    JobDetails jobDetails = response.body().getData();
+                    tvCreateAt.setText(getString(R.string.createdAt) + " " + jobDetails.getCreatedAt());
+                    tvHour.setText(jobDetails.getTime());
+                    tvDate.setText(jobDetails.getDate());
+                    tvAddress.setText(jobDetails.getAddress());
+                    tvDescription.setText(jobDetails.getDescription());
+                    jobStatus = jobDetails.getStatus();
+                    float width = getResources().getDimension(R.dimen.imageSize120dp);
+                    float height = getResources().getDimension(R.dimen.imageSize140dp);
+                    LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams((int)width,(int)height));
+                    for(String url : jobDetails.getImages()){
+                        ImageView img = new ImageView(getApplicationContext());
+                        img.setLayoutParams(imgParams);
+                        Picasso.get().load(url).into(img);
+                        selected_photos_container.addView(img);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RespBase<JobDetails>> call, Throwable t) {
+                Toast.makeText(JobDetailsActivity.this, getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        switch (jobStatus){
+            case 100:
+                btnStatus.setText(getString(R.string.sent_request));
+                wrapper100.setVisibility(View.VISIBLE);
+                break;
+            case 200 :
+                btnStatus.setText(getString(R.string.wait_for_confirmation));
+                wrapperProvider.setVisibility(View.VISIBLE);
+                wrapperPrice.setVisibility(View.VISIBLE);
+                wrapperBtn.setVisibility(View.VISIBLE);
+
+                Call<RespBase<Provider>> callProvider = apiServices.getProviderAcceptedJob(customerRequestId,PrefUtils.getApiKey(this));
+                callProvider.enqueue(new Callback<RespBase<Provider>>() {
+                    @Override
+                    public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> resp) {
+                        if(resp.body()!= null && resp.body().getStatus()){
+                            Provider provider = resp.body().getData();
+                            Picasso.get().load(provider.getAvatar()).into(imgAvatar);
+                            tvNameProvider.setText(provider.getName());
+                            ratingBar.setRating(provider.getNumOfStars());
+                            tvServiceName.setText(provider.getServiceName());
+                            txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
+
+                            wrapperProvider.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(getApplicationContext(), ProviderDetailsActivity.class);
+                                    intent.putExtra("providerId",provider.getProviderId());
+                                    intent.putExtra("providerName",provider.getName());
+                                    intent.putExtra("providerAvatar",provider.getAvatar());
+                                    intent.putExtra("providerStars",provider.getNumOfStars());
+                                    intent.putExtra("serviceName",provider.getServiceName());
+                                    startActivity(intent);
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<RespBase<Provider>> call, Throwable t) {
+                        Toast.makeText(JobDetailsActivity.this, getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+                btnAccess.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Call<RespBase<Provider>> acceptProvider = apiServices.acceptProvider(PrefUtils.getId(getApplicationContext()),
+                                                                                                        customerRequestId,300,
+                                                                                                PrefUtils.getApiKey(getApplicationContext()));
+                        acceptProvider.enqueue(new Callback<RespBase<Provider>>() {
+                            @Override
+                            public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> response) {
+                                if(response.body().getStatus()){
+                                    finish();
+                                    overridePendingTransition(0, 0);
+                                    startActivity(getIntent());
+                                    overridePendingTransition(0, 0);
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<RespBase<Provider>> call, Throwable t) {
+                                Toast.makeText(JobDetailsActivity.this, getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+                btnRefuse.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Call<RespBase<Provider>> refuseProvider = apiServices.acceptProvider(PrefUtils.getId(getApplicationContext()),
+                                customerRequestId,100,
+                                PrefUtils.getApiKey(getApplicationContext()));
+                        refuseProvider.enqueue(new Callback<RespBase<Provider>>() {
+                            @Override
+                            public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> response) {
+                                if(response.body().getStatus()){
+                                    finish();
+                                    overridePendingTransition(0, 0);
+                                    startActivity(getIntent());
+                                    overridePendingTransition(0, 0);
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<RespBase<Provider>> call, Throwable t) {
+                                Toast.makeText(JobDetailsActivity.this, getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+
+
+
+                break;
+            case 300:
+                Call<RespBase<Provider>> callProvider300 = apiServices.getProviderAcceptedJob(customerRequestId,PrefUtils.getApiKey(this));
+                btnStatus.setText(getString(R.string.contact_success));
+                wrapperSuccess.setVisibility(View.VISIBLE);
+                wrapperProvider.setVisibility(View.VISIBLE);
+                wrapperPrice.setVisibility(View.VISIBLE);
+                callProvider300.enqueue(new Callback<RespBase<Provider>>() {
+                    @Override
+                    public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> resp) {
+                        if(resp.body()!= null && resp.body().getStatus()){
+                            Provider provider = resp.body().getData();
+                            Picasso.get().load(provider.getAvatar()).into(imgAvatar);
+                            tvNameProvider.setText(provider.getName());
+                            ratingBar.setRating(provider.getNumOfStars());
+                            tvServiceName.setText(provider.getServiceName());
+                            txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
+
+                            wrapperProvider.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(getApplicationContext(), ProviderDetailsActivity.class);
+                                    intent.putExtra("providerId",provider.getProviderId());
+                                    intent.putExtra("providerName",provider.getName());
+                                    intent.putExtra("providerAvatar",provider.getAvatar());
+                                    intent.putExtra("providerStars",provider.getNumOfStars());
+                                    intent.putExtra("serviceName",provider.getServiceName());
+                                    startActivity(intent);
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<RespBase<Provider>> call, Throwable t) {
+                        Toast.makeText(JobDetailsActivity.this, getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case 400:
+                btnStatus.setText(getString(R.string.expired));
+                btnStatus.setTextColor(ContextCompat.getColor(this,R.color.dark_transparent));
+                btnStatus.setBackground(ContextCompat.getDrawable(this,R.drawable.shape_btn_job_status_expired));
+                break;
+            default:
+                btnStatus.setVisibility(View.GONE);
+        }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -2,6 +2,7 @@ package com.thesis.alome.config;
 
 import com.thesis.alome.model.Customer;
 import com.thesis.alome.model.Job;
+import com.thesis.alome.model.JobDetails;
 import com.thesis.alome.model.Provider;
 import com.thesis.alome.model.ProviderDetails;
 import com.thesis.alome.model.RatingForProvider;
@@ -83,4 +84,17 @@ public interface ApiServices {
     Call<RespBase<ProviderDetails>> getProviderInfo(@Path("id") Long customerId,
                                                     @Path("providerId") Long providerId,
                                                     @Query("access_token") String accessToken);
+
+    @GET("customers/job-detail/{customerRequestId}")
+    Call<RespBase<JobDetails>> getJobDetails(@Path("customerRequestId") Long jobId,
+                                             @Query("access_token") String accessToken);
+    @GET("customers/job-provider-accept/{customerRequestId}")
+    Call<RespBase<Provider>> getProviderAcceptedJob(@Path("customerRequestId") Long jobId,
+                                             @Query("access_token") String accessToken);
+    @GET("customers/{id}/notification")
+    Call<RespBase<Provider>> acceptProvider(@Path("id") Long customerId,
+                                            @Query("customerRequestId") Long jobId,
+                                            @Query("status") int status,
+                                            @Query("access_token") String accessToken);
+
 }

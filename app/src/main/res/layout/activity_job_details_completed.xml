@@ -37,6 +37,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
                 <Button
+                    android:text="@string/completed"
                     android:id="@+id/btnStatus"
                     android:layout_gravity="right"
                     android:gravity="center"
@@ -121,17 +122,6 @@
                             android:paddingLeft="8dp"
                             android:textColor="@color/black_color"
                             android:textSize="@dimen/text_size_16" />
-                        <TextView
-                            android:id="@+id/tvEditHour"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto"
-                            android:paddingLeft="8dp"
-                            android:text="@string/edit"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/text_size_16" />
                     </LinearLayout>
 
                 </TableRow>
@@ -169,17 +159,6 @@
                             android:fontFamily="@font/roboto"
                             android:paddingLeft="8dp"
                             android:textColor="@color/black_color"
-                            android:textSize="@dimen/text_size_16" />
-                        <TextView
-                            android:id="@+id/tvEditDate"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto"
-                            android:paddingLeft="8dp"
-                            android:text="@string/edit"
-                            android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/text_size_16" />
                     </LinearLayout>
                 </TableRow>
@@ -293,30 +272,9 @@
 
             </TableLayout>
 
-            <!-- Đã gửi yêu cầu-->
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/wrapper100"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:background="#00b14f"
-                android:padding="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_12"
-                    android:fontFamily="@font/roboto"
-                    android:layout_gravity="center"
-                    android:text="@string/job_current_unaccepted"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
             <!--Có provider chấp nhận-->
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/wrapperProvider"
                 android:orientation="vertical"
                 android:layout_marginTop="16dp"
@@ -418,7 +376,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/wrapperPrice"
                 android:orientation="vertical"
                 android:layout_marginTop="16dp"
@@ -453,66 +411,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/wrapperBtn"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:background="@color/white"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/btnAccess"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginRight="8dp"
-                    android:background="@drawable/shape_btn_access"
-                    android:layout_weight="1"
-                    android:text="Chấp nhận"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_12"
-                    android:fontFamily="@font/roboto"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-                <Button
-                    android:id="@+id/btnRefuse"
-                    android:layout_marginRight="36dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="@drawable/shape_btn_refuse"
-                    android:layout_weight="1"
-                    android:text="Từ chối"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_12"
-                    android:fontFamily="@font/roboto"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/wrapperSuccess"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:background="#00b14f"
-                android:padding="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:lineHeight="20dp"
-                    android:gravity="center"
-                    android:textSize="@dimen/text_size_12"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/roboto"
-                    android:maxLines="3"
-                    android:text="@string/txt_great_job_done"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:id="@+id/wrapperReview"
                 android:gravity="center"
                 android:orientation="vertical"

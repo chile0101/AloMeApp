@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.JobDetailsActivity;
+import com.thesis.alome.activity.JobDetailsCompletedActivity;
 import com.thesis.alome.model.Job;
 
 import java.util.List;
@@ -26,10 +27,12 @@ public class JobListRcvAdapter extends RecyclerView.Adapter<JobListRcvAdapter.Vi
 
     List<Job> jobList;
     Context context;
+    String TAG;
 
-    public JobListRcvAdapter(List<Job> jobList, Context context){
+    public JobListRcvAdapter(List<Job> jobList, Context context, String tag){
         this.jobList = jobList;
         this.context = context;
+        this.TAG = tag;
     }
 
     @NonNull
@@ -70,10 +73,24 @@ public class JobListRcvAdapter extends RecyclerView.Adapter<JobListRcvAdapter.Vi
         viewHolder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, JobDetailsActivity.class);
-                intent.putExtra("jobId",job.getId());
-                intent.putExtra("serviceName",job.getServiceName());
-                context.startActivity(intent);
+
+                switch (TAG) {
+                    case "inProgress":
+                        Intent progIntent = new Intent(context, JobDetailsActivity.class);
+                        progIntent.putExtra("customerRequestId", String.valueOf(job.getId()));
+                        progIntent.putExtra("status", job.getStatus().toString());
+                        //                intent.putExtra("providerId","1");
+                        progIntent.putExtra("serviceName", job.getServiceName());
+                        context.startActivity(progIntent);
+                        break;
+                    case "inCompleted":
+                        Intent compIntent = new Intent(context, JobDetailsCompletedActivity.class);
+                        compIntent.putExtra("customerRequestId", String.valueOf(job.getId()));
+                        compIntent.putExtra("jobStatus", job.getStatus());
+                        compIntent.putExtra("serviceName", job.getServiceName());
+                        context.startActivity(compIntent);
+
+                }
             }
         });
     }

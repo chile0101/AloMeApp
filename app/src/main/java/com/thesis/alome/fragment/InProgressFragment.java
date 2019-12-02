@@ -31,7 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class InProgressFragment extends Fragment {
-
+    private static final String TAG = "inProgress";
     RecyclerView recyclerView;
     List<Job> jobList;
     JobListRcvAdapter adapter;
@@ -56,7 +56,7 @@ public class InProgressFragment extends Fragment {
             public void onResponse(Call<RespBase<List<Job>>> call, Response<RespBase<List<Job>>> response) {
                 if(response.body()!=null && response.body().getStatus()){
                     jobList = response.body().getData();
-                    adapter = new JobListRcvAdapter(jobList,getActivity());
+                    adapter = new JobListRcvAdapter(jobList,getActivity(),TAG);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                     recyclerView.setAdapter(adapter);
