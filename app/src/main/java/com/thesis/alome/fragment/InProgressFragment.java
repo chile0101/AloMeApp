@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -33,6 +34,7 @@ import retrofit2.Response;
 public class InProgressFragment extends Fragment {
     private static final String TAG = "inProgress";
     RecyclerView recyclerView;
+    SwipeRefreshLayout swipeContainer;
     List<Job> jobList;
     JobListRcvAdapter adapter;
 
@@ -48,7 +50,22 @@ public class InProgressFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         jobList = new ArrayList<Job>();
+        swipeContainer=view.findViewById(R.id.swipeContainer);
 
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeContainer.setRefreshing(false);
+                callApi();
+            }
+        });
+
+        callApi();
+
+
+    }
+
+    private void callApi() {
         ApiServices apiServices = ApiClient.getClient(getActivity()).create(ApiServices.class);
         Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()),PrefUtils.getApiKey(getActivity()),0);
         call.enqueue(new Callback<RespBase<List<Job>>>() {
