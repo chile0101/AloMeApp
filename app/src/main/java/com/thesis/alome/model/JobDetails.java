@@ -10,15 +10,17 @@ public class JobDetails {
     private String serviceName;
     private String time;
     private String date;
+    private String phone;
     private String address;
     private List<String> images;
     private String description;
 
-    public JobDetails(int status, String createdAt, String time, String date, String address, List<String> imgUrls,String description) {
+    public JobDetails(int status, String createdAt, String time, String date, String phone, String address, List<String> imgUrls,String description) {
         this.status = status;
         this.createdAt = createdAt;
         this.time = time;
         this.date = date;
+        this.phone = phone;
         this.address = address;
         this.images = imgUrls;
         this.description = description;
@@ -70,6 +72,14 @@ public class JobDetails {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getAddress() {

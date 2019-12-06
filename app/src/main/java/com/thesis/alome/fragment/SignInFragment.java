@@ -65,8 +65,8 @@ public class SignInFragment extends Fragment {
                                 PrefUtils.storeApiKey(getContext(),resp.body().getAccessToken());
 
                                 Intent intent = new Intent(getActivity(), MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
-
                             }
                         }
                         @Override

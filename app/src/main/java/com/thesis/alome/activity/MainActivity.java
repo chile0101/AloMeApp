@@ -49,13 +49,15 @@ public class MainActivity extends BaseActivity {
             public void onResponse(Call<RespBase<Customer>> call, Response<RespBase<Customer>> response) {
 
                 Long id = response.body().getData().getId().longValue();
+                String userName = response.body().getData().getUsername();   // is email
+                String password = "123456";                                  // doing...
                 String fullName = response.body().getData().getFullName();
                 String shortName = fullName.split(" ",2)[0];
                 String phone = response.body().getData().getPhone();
                 String address = response.body().getData().getAddress();
                 String longitude = response.body().getData().getLongitude();
                 String latitude = response.body().getData().getLatitude();
-                PrefUtils.storeProfile(getApplicationContext(), id, shortName,fullName, phone, address, latitude, longitude);
+                PrefUtils.storeProfile(getApplicationContext(), id, userName, password, shortName,fullName, phone, address, latitude, longitude);
 
                 SharedPreferences myPrefs = getSharedPreferences("alome", MODE_PRIVATE);
                 SharedPreferences.Editor prefsEditor;

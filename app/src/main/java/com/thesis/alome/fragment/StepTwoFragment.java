@@ -25,7 +25,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.thesis.alome.R;
-import com.thesis.alome.activity.StepActivity;
+
+import com.thesis.alome.config.FragmentLifecycle;
 import com.thesis.alome.viewmodel.StepViewModel;
 
 import java.util.List;
@@ -41,7 +42,7 @@ import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
 
-public class StepTwoFragment extends Fragment implements EasyPermissions.PermissionCallbacks {
+public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyPermissions.PermissionCallbacks {
 
     String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     public static final int RC_EXTERNAL = 999;
@@ -162,5 +163,12 @@ public class StepTwoFragment extends Fragment implements EasyPermissions.Permiss
 
     }
 
+    @Override
+    public void onPauseFragment() {
+        Log.d("CHILE", "onPauseFragment(): 2");
+        Toast.makeText(getActivity(), "onPauseFragment(): 2", Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void onResumeFragment() { }
 }

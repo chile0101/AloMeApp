@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_landing_bg"
     tools:context=".activity.LandingActivity">
 
     <TextView
@@ -105,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_weight="1"
-                android:background="@drawable/available_date_time_recycler_view_divider" />
+                android:background="@drawable/divider_line_in_landing" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -114,14 +115,14 @@
                 android:layout_marginRight="@dimen/_8sdp"
                 android:fontFamily="@font/roboto"
                 android:text="@string/or"
-                android:textColor="@color/gray_color"
+                android:textColor="@color/sign_in_sign_up_btn_stroke_color"
                 android:textSize="@dimen/text_size_16" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_weight="1"
-                android:background="@drawable/available_date_time_recycler_view_divider" />
+                android:background="@drawable/divider_line_in_landing" />
         </LinearLayout>
 
         <Button

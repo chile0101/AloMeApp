@@ -226,5 +226,6 @@
     <string name="accept">Accept</string>
     <string name="refuse">Refuse</string>
     <string name="review_now">Review now</string>
+    <string name="title_activity_launch">LaunchActivity</string>
 
 </resources>

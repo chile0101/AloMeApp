@@ -22,13 +22,14 @@ import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.activity.StepActivity;
+import com.thesis.alome.config.FragmentLifecycle;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.viewmodel.StepViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StepOneFragment extends Fragment {
+public class StepOneFragment extends Fragment  implements FragmentLifecycle {
 
     @BindView(R.id.edtDate) EditText edtDate;
     @BindView(R.id.edtTime) EditText edtTime;
@@ -59,8 +60,6 @@ public class StepOneFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_step_one,container,false);
         ButterKnife.bind(this,view);
 
-
-
         Intent intent = getActivity().getIntent();
         if(intent != null){
             String fromActivity = intent.getExtras().getString("Uniqid");
@@ -71,7 +70,6 @@ public class StepOneFragment extends Fragment {
 
         return view;
     }
-
 
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
@@ -171,8 +169,10 @@ public class StepOneFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                model.setPhone(s.toString());
-                tvErrorPhone.setText("");
+                //model.setPhone(s.toString());
+                if(!s.toString().equals("")){
+                    tvErrorPhone.setText("");
+                }
             }
         });
 
@@ -222,4 +222,13 @@ public class StepOneFragment extends Fragment {
        });
 
     }
+
+    @Override
+    public void onPauseFragment() {
+        Toast.makeText(getActivity(), "onPauseFragment(): 1", Toast.LENGTH_SHORT).show();
+        model.setPhone(edtPhone.getText().toString());
+    }
+
+    @Override
+    public void onResumeFragment() { }
 }

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.thesis.alome.R;
 import com.thesis.alome.adapter.TabAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
+import com.thesis.alome.config.FragmentLifecycle;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.fragment.StepOneFragment;
 import com.thesis.alome.fragment.StepTwoFragment;
@@ -62,6 +64,22 @@ public class StepActivity extends BaseActivity {
 
         viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) { }
+
+            @Override
+            public void onPageSelected(int i) {
+                int fragmentBefore = i == 0 ? 1 : 0;
+                FragmentLifecycle fragment = (FragmentLifecycle) tabAdapter.instantiateItem(viewPager,fragmentBefore);
+                if (fragment != null) {
+                    fragment.onPauseFragment();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {}
+        });
 
 
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -133,14 +151,15 @@ public class StepActivity extends BaseActivity {
         return true;
     }
     public boolean validatePhone(){
-        if(stepViewModel.getPhone().getValue() == null){
+
+        if(stepViewModel.getPhone().getValue().equals("")){
             stepViewModel.setPhoneErr(getString(R.string.validate_phone_text));
             return false;
         }
         return true;
     }
     public boolean validateAddress(){
-        if(stepViewModel.getAddress().getValue() == null){
+        if(stepViewModel.getAddress().getValue().equals("")){
             stepViewModel.setAddressErr(getString(R.string.validate_address));
             return false;
         }

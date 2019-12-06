@@ -42,6 +42,7 @@ public class JobDetailsActivity extends BaseActivity  {
     @BindView(R.id.tvEditHour) TextView tvEditHour;
     @BindView(R.id.tvDate) TextView tvDate;
     @BindView(R.id.tvEditDate) TextView tvEditDate;
+    @BindView(R.id.tvPhone) TextView tvPhone;
     @BindView(R.id.tvAddress) TextView tvAddress;
     @BindView(R.id.tvDescription) TextView tvDescription;
     @BindView(R.id.selected_photos_container) LinearLayout selected_photos_container;
@@ -102,6 +103,7 @@ public class JobDetailsActivity extends BaseActivity  {
                     tvCreateAt.setText(getString(R.string.createdAt) + " " + jobDetails.getCreatedAt());
                     tvHour.setText(jobDetails.getTime());
                     tvDate.setText(jobDetails.getDate());
+                    tvPhone.setText(jobDetails.getPhone());
                     tvAddress.setText(jobDetails.getAddress());
                     tvDescription.setText(jobDetails.getDescription());
                     jobStatus = jobDetails.getStatus();

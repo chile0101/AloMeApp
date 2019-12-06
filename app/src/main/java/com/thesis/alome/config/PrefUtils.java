@@ -3,13 +3,6 @@ package com.thesis.alome.config;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-
 public class PrefUtils {
 
     private static final String PREFS_TAG = "SharedPrefs";
@@ -21,9 +14,11 @@ public class PrefUtils {
         return context.getSharedPreferences(PREFS_TAG, Context.MODE_PRIVATE);
     }
 
-    public static void storeProfile(Context context, long id, String shortName, String fullName,String phone,String address, String latitude, String longitude){
+    public static void storeProfile(Context context, long id,String userName,String password, String shortName, String fullName,String phone,String address, String latitude, String longitude){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.putLong("id", id);
+        editor.putString("userName", userName);  // is email
+        editor.putString("password",password);
         editor.putString("shortName", shortName);
         editor.putString("fullName", fullName);
         editor.putString("phone", phone);
@@ -45,6 +40,14 @@ public class PrefUtils {
 
     public static long getId(Context context){
         return getSharedPreferences(context).getLong("id",-1);
+    }
+
+    public static String getUserName(Context context){
+        return getSharedPreferences(context).getString("userName","");
+    }
+
+    public static String getPassword(Context context){
+        return getSharedPreferences(context).getString("password","");
     }
 
     public static String getShortName(Context context){
@@ -71,6 +74,8 @@ public class PrefUtils {
         return getSharedPreferences(context).getString("longitude","");
     }
 
-
+    public static boolean clearAll(Context context){
+        return getSharedPreferences(context).edit().clear().commit();
+    }
 
 }

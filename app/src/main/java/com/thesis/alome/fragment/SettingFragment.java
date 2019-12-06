@@ -1,5 +1,6 @@
 package com.thesis.alome.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.thesis.alome.R;
+import com.thesis.alome.activity.LandingActivity;
 import com.thesis.alome.activity.SettingActivity;
+import com.thesis.alome.config.PrefUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +23,7 @@ public class SettingFragment extends Fragment {
 
     @BindView(R.id.layoutLang) LinearLayout layoutLang;
     @BindView(R.id.layoutNoti) LinearLayout layoutNoti;
+    @BindView(R.id.layoutLogout) LinearLayout layoutLogout;
     private FragmentTransaction ft;
 
     @Override
@@ -59,6 +63,17 @@ public class SettingFragment extends Fragment {
                 ft.replace(R.id.contentContainer,notiFragment);
                 ft.addToBackStack(null);
                 ft.commit();
+            }
+        });
+
+        layoutLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(PrefUtils.clearAll(getActivity())){
+                    Intent intent = new Intent(getActivity(), LandingActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                }
             }
         });
     }
