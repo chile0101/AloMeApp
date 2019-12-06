@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
 public class ProviderDetailsActivity extends BaseActivity {
 
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private String[] mTitles = {"Thông tin","Đánh giá"};
+    private String[] mTitles;
     private View mDecorView;
     private SegmentTabLayout mTabLayout;
     @BindView(R.id.imgAvatar) ImageView imgAvatar;
@@ -43,6 +43,7 @@ public class ProviderDetailsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provider_details);
+        mTitles = new String[]{this.getString(R.string.infomation),this.getString(R.string.review)};
         ButterKnife.bind(this);
         initToolbar(R.id.toolbar,getString(R.string.provider_information));
 

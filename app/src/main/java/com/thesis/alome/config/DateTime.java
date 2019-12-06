@@ -16,19 +16,12 @@ public class DateTime {
 
     public static List<String> getNextHours(){
         List<String> hourList = new ArrayList<String>();
-        hourList.add("Linh hoạt");
 
         int h = calendar.get(Calendar.HOUR_OF_DAY) ;
         int m = calendar.get(Calendar.MINUTE);
 
         int i = 6;
 
-//        if(h >= i){
-//            if(m <= 30){
-//                hourList.add(h + ":30");
-//            }
-//            i = h + 1;
-//        }
 
         for (; i<=20;i++){
             hourList.add(i + ":00" );
@@ -41,8 +34,6 @@ public class DateTime {
 
     public static List<DatePojo> getNextDays(){
         List<DatePojo> dateList = new ArrayList<DatePojo>();
-        dateList.add(new DatePojo("Linh hoạt",""));
-
 
         int i ;
         if(calendar.getTime().getHours() > 21){

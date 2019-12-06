@@ -89,6 +89,9 @@
     <string name="choose_type_service">Chọn dịch vụ</string>
     <string name="in_progress">Đã sắp lịch</string>
     <string name="complete_jobs">Đã hoàn thành</string>
+    <string name="you_not_allow_location">Nếu bạn không cho phép sử dụng vị trí của thiết bị, nó sẽ không hoạt động chính xác. Bạn có muốn sử dụng vị trí thiết bị không ?</string>
+
+
 
     <string name="activate">Hoạt động</string>
     <string name="my_activate">Hoạt động của tôi</string>
@@ -122,4 +125,28 @@
     <string name="txt_review_job_done">Công việc của bạn đã hoàn tất.\n Đừng quên đánh giá và để lại lời nhận xét.</string>
     <string name="job_current_unaccepted">Yêu cầu của bạn hiện tại chưa có ai chấp nhận</string>
     <string name="for_a_fee">Với mức phí</string>
+
+    <string name="disappointed">Thất vọng</string>
+    <string name="not_good">Chưa tốt</string>
+    <string name="consent">Bằng lòng</string>
+    <string name="good">Tốt</string>
+    <string name="favorite">Yêu thích</string>
+    <string name="send_comment">Gửi đánh giá</string>
+    <string name="title_header_review_dialog">Chúng tôi luôn lắng nghe ý kiến của bạn</string>
+    <string name="title_sub_review_dialog">Cảm nhận của bạn về thợ sữa chửa ?</string>
+
+    <string name="setting">Cài đặt</string>
+
+    <string name="infomation">Thông tin</string>
+    <string name="review">Đánh giá</string>
+    <string name="continue_text">Tiếp tục</string>
+    <string name="time">Giờ hẹn</string>
+    <string name="date">Ngày hẹn</string>
+
+    <string name="description">Mô tả</string>
+    <string name="excluding_fee">( Chưa bao gồm phí thay thế lắp đặt )</string>
+    <string name="accept">Chấp nhận</string>
+    <string name="refuse">Từ chối</string>
+    <string name="review_now">Đánh giá ngay</string>
+
 </resources>

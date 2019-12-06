@@ -11,7 +11,8 @@
         android:contentDescription="@string/services"/>
     <item
         android:icon="@drawable/ic_main_bottom_nav_bar_job_list"
-        android:enabled="true" android:id="@+id/item2"
+        android:enabled="true"
+        android:id="@+id/item2"
         android:title="@string/activate"
         android:contentDescription="@string/activate"/>
     <!--<item-->

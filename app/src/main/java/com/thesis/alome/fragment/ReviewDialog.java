@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,14 +35,51 @@ public class ReviewDialog {
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.abc_alert_dialog_review);
 
+        //set background
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
         //set background
         //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         RatingBar ratingBar = (RatingBar) dialog.findViewById(R.id.ratingBar);
+        TextView noteDescriptionText = (TextView) dialog.findViewById(R.id.noteDescriptionText);
+        ImageView imgSmile = (ImageView) dialog.findViewById(R.id.imgSmile);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                switch (Math.round(ratingBar.getRating())){
+                    case 1:
+                        noteDescriptionText.setText(context.getString(R.string.disappointed));
+                        imgSmile.setImageResource(R.drawable.ic_smile_rating_1);
+                        break;
+                    case 2:
+                        noteDescriptionText.setText(context.getString(R.string.not_good));
+                        imgSmile.setImageResource(R.drawable.ic_smile_rating_2);
+                        break;
+                    case 3:
+                        noteDescriptionText.setText(context.getString(R.string.consent));
+                        imgSmile.setImageResource(R.drawable.ic_smile_rating_3);
+                        break;
+                    case 4:
+                        noteDescriptionText.setText(context.getString(R.string.good));
+                        imgSmile.setImageResource(R.drawable.ic_smile_rating_4);
+                        break;
+
+                    case 5:
+                        noteDescriptionText.setText(context.getString(R.string.favorite));
+                        imgSmile.setImageResource(R.drawable.ic_smile_rating_5);
+                        break;
+                    default:
+                        noteDescriptionText.setText(context.getString(R.string.disappointed));
+                        imgSmile.setImageResource(R.drawable.ic_smile_rating_1);
+                }
+
+            }
+        });
+
         EditText edtComment = (EditText) dialog.findViewById(R.id.edtComment);
         Button btnSend = (Button) dialog.findViewById(R.id.btnSend);
         btnSend.setOnClickListener(new View.OnClickListener() {

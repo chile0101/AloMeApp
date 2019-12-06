@@ -72,7 +72,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
-                        android:text="Dịch vụ"
+                        android:text="@string/service"
                         android:textColor="@color/black_color"
                         android:textSize="@dimen/text_size_16" />
 
@@ -106,7 +106,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
-                        android:text="Giờ hẹn"
+                        android:text="@string/time"
                         android:textColor="@color/black_color"
                         android:textSize="@dimen/text_size_16" />
                     <LinearLayout
@@ -143,7 +143,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
-                        android:text="Ngày hẹn"
+                        android:text="@string/date"
                         android:textColor="@color/black_color"
                         android:textSize="@dimen/text_size_16" />
 
@@ -180,7 +180,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
-                        android:text="Địa chỉ"
+                        android:text="@string/address"
                         android:textColor="@color/black_color"
                         android:textSize="@dimen/text_size_16" />
 
@@ -218,7 +218,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto"
                         android:gravity="center"
-                        android:text="Mô tả"
+                        android:text="@string/description"
                         android:textColor="@color/black_color"
                         android:textSize="@dimen/text_size_16" />
 
@@ -405,7 +405,7 @@
                     android:textSize="@dimen/text_size_12"
                     android:fontFamily="@font/roboto"
                     android:layout_gravity="center"
-                    android:text="( Chưa bao gồm phí thay thế lắp đặt )"
+                    android:text="@string/excluding_fee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -437,7 +437,7 @@
                     android:id="@+id/btnReview"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/shape_btn_review"
-                    android:text="Đánh giá ngay"
+                    android:text="@string/review_now"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_12"
                     android:fontFamily="@font/roboto"
@@ -445,11 +445,7 @@
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
-
-
         </LinearLayout>
-
-
 
     </ScrollView>
 </RelativeLayout>

@@ -33,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class JobDetailsActivity extends AppCompatActivity  {
+public class JobDetailsActivity extends BaseActivity  {
 
     @BindView(R.id.tvCreateAt) TextView tvCreateAt;
     @BindView(R.id.btnStatus) Button btnStatus;
@@ -182,6 +182,9 @@ public class JobDetailsActivity extends AppCompatActivity  {
                                     overridePendingTransition(0, 0);
                                     startActivity(getIntent());
                                     overridePendingTransition(0, 0);
+//                                    Intent refresh = new Intent(getApplicationContext(), JobDetails.class);
+//                                    startActivity(refresh);
+//                                    finish();
                                 }
                             }
 
@@ -197,8 +200,8 @@ public class JobDetailsActivity extends AppCompatActivity  {
                     public void onClick(View v) {
 
                         Call<RespBase<Provider>> refuseProvider = apiServices.acceptProvider(PrefUtils.getId(getApplicationContext()),
-                                customerRequestId,100,
-                                PrefUtils.getApiKey(getApplicationContext()));
+                                                                                        customerRequestId,100,
+                                                                                        PrefUtils.getApiKey(getApplicationContext()));
                         refuseProvider.enqueue(new Callback<RespBase<Provider>>() {
                             @Override
                             public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> response) {
@@ -217,9 +220,6 @@ public class JobDetailsActivity extends AppCompatActivity  {
                         });
                     }
                 });
-
-
-
                 break;
             case 300:
                 Call<RespBase<Provider>> callProvider300 = apiServices.getProviderAcceptedJob(customerRequestId,PrefUtils.getApiKey(this));
@@ -235,7 +235,7 @@ public class JobDetailsActivity extends AppCompatActivity  {
                             Picasso.get().load(provider.getAvatar()).into(imgAvatar);
                             tvNameProvider.setText(provider.getName());
                             ratingBar.setRating(provider.getNumOfStars());
-                            tvServiceName.setText(provider.getServiceName());
+                            txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
 
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {

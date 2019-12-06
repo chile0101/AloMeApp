@@ -50,7 +50,6 @@
         android:fontFamily="@font/roboto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lỗi"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:id="@+id/text_dialog"
@@ -82,6 +81,4 @@
             android:background="@drawable/shape_btn_ok"
             android:textColor="@color/white" />
     </LinearLayout>
-
-
 </LinearLayout>

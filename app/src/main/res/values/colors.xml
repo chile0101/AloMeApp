@@ -180,5 +180,6 @@
     <color name="descriptionTextColor">#A6FFFFFF</color>
     <color name="commentTextColor">#FFFFFF</color>
     <color name="hintTextColor">#55000000</color>
+    <color name="star_yellow">#fffc00</color>
 
 </resources>

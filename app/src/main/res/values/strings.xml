@@ -71,8 +71,6 @@
     <string name="share">Share</string>
     <string name="_or_">- OR -</string>
     <string name="detail">Details</string>
-
-    <string name="review">Review</string>
     <string name="close">Close</string>
     <string name="confirm">Confirm</string>
     <string name="find_provider">Find provider</string>
@@ -149,9 +147,8 @@
     <string name="please_book_7_days_in_advance">Please book 7 day in advance</string>
     <string name="choose">Choose</string>
     <string name="alley_road">House No - Alley/Road</string>
-    <string name="title_activity_maps">Map</string>
     <string name="you_not_allow_location">If you do not allow to use device\'s location, it will not work correctly. Do you allow to use the divices\'s location</string>
-    <string name="ward">ward</string>
+    <string name="ward">Ward</string>
     <string name="my_location">My Location</string>
     <string name="validate_house_no_text">Please enter house no</string>
     <string name="validate_alley_road_text">Please enter alley/road</string>
@@ -165,7 +162,7 @@
     <string name="alo_now">AloNow</string>
     <string name="title_activity_provider_list">Providers near you</string>
     <string name="addressEmpty">Please enter your address</string>
-    <string name="text_request_success">Success</string>
+    <string name="text_request_success">Your request has been processed. The repair technician will contact you as soon as possible</string>
     <string name="type_services">Type Services</string>
     <string name="choose_type_service">Choose type service</string>
     <string name="in_progress">Fixing In Progress</string>
@@ -187,7 +184,7 @@
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">It can not work Check your network connection,\n then press the button to try again.</string>
     <string name="provider_information">Provider information</string>
-    
+
     <string name="provider_name">Name</string>
     <string name="gender">Gender</string>
     <string name="male">Male</string>
@@ -199,8 +196,35 @@
     <string name="edit"><u>Edit</u></string>
     <string name="createdAt">Date posted: </string>
     <string name="your_request_has_been_accepted_by">Your request has been accepted by</string>
-    <string name="txt_great_job_done">Tuyệt vời !\n Lịch hẹn đã được thiết lập.</string>
-    <string name="txt_review_job_done">Công việc của bạn đã hoàn tất.\n Đừng quên đánh giá và để lại lời nhận xét.</string>
-    <string name="job_current_unaccepted">Yêu cầu của bạn hiện tại chưa có ai chấp nhận</string>
+    <string name="txt_great_job_done">Great! \n The appointment has been set.</string>
+    <string name="txt_review_job_done">Your work is done. \n Don\'t forget to rate and leave a comment.</string>
+    <string name="job_current_unaccepted">Your request is currently not accepted</string>
     <string name="for_a_fee">For a fee</string>
+
+    <string name="disappointed">Disappointed</string>
+    <string name="not_good">Not good</string>
+    <string name="consent">Consent</string>
+    <string name="good">Good</string>
+    <string name="favorite">Favorite</string>
+    <string name="send_comment">Send Comment</string>
+    <string name="title_header_review_dialog">We are always happy to hear from you</string>
+    <string name="title_sub_review_dialog">Your comments about the provider</string>
+
+    <string name="setting">Setting</string>
+
+    <string name="text_english" translatable="false">English</string>
+    <string name="text_vietnamese" translatable="false">Tiếng Việt</string>
+
+    <string name="infomation">Infomation</string>
+    <string name="review">Review</string>
+    <string name="continue_text">Continue</string>
+    <string name="service">Service</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="excluding_fee">( Excluding installation replacement fee )</string>
+    <string name="accept">Accept</string>
+    <string name="refuse">Refuse</string>
+    <string name="review_now">Review now</string>
+
 </resources>

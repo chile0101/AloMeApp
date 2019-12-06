@@ -17,6 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.SettingActivity"/>
+        <activity
             android:name=".activity.JobDetailsCompletedActivity">
             <intent-filter>
                 <action android:name="com.thesis.alome_COMPLETE_TARGET_NOTIFICATION" />
@@ -42,8 +44,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activity.MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:name=".activity.MapsActivity" />
         <activity android:name=".activity.StepActivity" />
         <activity android:name=".activity.ProfileActivity" />
         <activity

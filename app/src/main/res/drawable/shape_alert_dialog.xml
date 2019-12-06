@@ -10,18 +10,3 @@
         android:right="10dp"
         android:bottom="10dp" />
 </shape>
-<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
-    <!--<item>-->
-        <!--<shape>-->
-            <!--<solid android:color="@color/design_fab_stroke_end_inner_color"/>-->
-
-            <!--<corners-->
-                <!--android:radius="48dp"/>-->
-            <!--<padding-->
-                <!--android:right="10dp"-->
-                <!--android:top="10dp"-->
-                <!--android:bottom="10dp"-->
-                <!--android:left="10dp"/>-->
-        <!--</shape>-->
-    <!--</item>-->
-<!--</selector>-->
