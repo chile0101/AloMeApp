@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.ipaulpro.afilechooser.utils.FileUtils;
@@ -45,6 +45,7 @@ public class StepActivity extends BaseActivity {
     @BindView(R.id.view_pager_step) ViewPager viewPager;
     @BindView(R.id.tabStepLayout) TabLayout tabLayout;
     @BindView(R.id.btnNext) Button btnNext;
+    @BindView(R.id.loadingContainer) FrameLayout loadingContainer;
     TabAdapter tabAdapter;
     StepViewModel stepViewModel;
 
@@ -81,7 +82,6 @@ public class StepActivity extends BaseActivity {
             public void onPageScrollStateChanged(int i) {}
         });
 
-
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,31 +90,30 @@ public class StepActivity extends BaseActivity {
                         viewPager.setCurrentItem(0);
                         return;
                     }else {
+                        btnNext.setClickable(false);
+                        loadingContainer.setVisibility(View.VISIBLE);
                         sendRequest();
                     }
-
                 }else{
                     viewPager.setCurrentItem(1);
                 }
             }
         });
-
     }
 
     private void sendRequest(){
-
         List<MultipartBody.Part> listImg = new ArrayList<>();
         for (Uri uri : stepViewModel.getImageList().getValue()) {
             listImg.add(prepareFilePart("images",uri));
         }
-       Long serviceId = getIntent().getLongExtra("serviceId",-1);
+        Long serviceId = getIntent().getLongExtra("serviceId",-1);
         ApiServices apiServices = ApiClient.getClient(this).create(ApiServices.class);
         Call<RespBase> call = apiServices.orderService(PrefUtils.getId(this),
                 PrefUtils.getApiKey(this) ,
                 serviceId == -1 ? null : serviceId,
                 stepViewModel.getTypeId().getValue(),
                 convert(stepViewModel.getDateAvail().getValue()),
-                convert( stepViewModel.getTimeAvail().getValue()),
+                convert(stepViewModel.getTimeAvail().getValue()),
                 convert(stepViewModel.getPhone().getValue()),
                 convert(stepViewModel.getAddress().getValue()),
                 convert(stepViewModel.getAddressLatLng().getValue()),
@@ -124,9 +123,10 @@ public class StepActivity extends BaseActivity {
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {
                 //Toast.makeText(StepActivity.this, "OK", Toast.LENGTH_SHORT).show();
                 if (response.body() != null && response.body().getStatus()){
+                    //viewPager.setVisibility(View.VISIBLE);
+                    loadingContainer.setVisibility(View.GONE);
                     SuccessDialog.showDialog(StepActivity.this,getString(R.string.text_request_success));
                 }
-
             }
 
             @Override

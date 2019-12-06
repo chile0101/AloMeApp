@@ -43,7 +43,7 @@ public class MyFirebase extends FirebaseMessagingService {
         String NOTIFICATION_ID="com.thesis";
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
             NotificationChannel notificationChannel=new NotificationChannel(NOTIFICATION_ID,"notifications",NotificationManager.IMPORTANCE_DEFAULT);
-            notificationChannel.setDescription("test");
+            notificationChannel.setDescription("layout_loading_for_step_activity");
             Log.d("notification","hihi");
             notificationChannel.enableLights(true);
             notificationChannel.setLightColor(Color.BLUE);
@@ -52,7 +52,7 @@ public class MyFirebase extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
         NotificationCompat.Builder notificationBuilder=new NotificationCompat.Builder(this,NOTIFICATION_ID);
-        Log.d("notification","test");
+        Log.d("notification","layout_loading_for_step_activity");
         notificationBuilder.setAutoCancel(true);
         notificationBuilder.setDefaults(Notification.DEFAULT_ALL);
         notificationBuilder.setWhen(System.currentTimeMillis());
