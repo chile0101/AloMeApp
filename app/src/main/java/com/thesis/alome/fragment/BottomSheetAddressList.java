@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ import static android.app.Activity.RESULT_OK;
 public class BottomSheetAddressList extends BottomSheetDialogFragment {
 
     @BindView(R.id.btnAddAddress) Button btnAddAddress;
+    @BindView(R.id.ivClose) ImageView ivClose;
     @BindView(R.id.btnMyLocation) Button btnMyLocation;
     @BindView(R.id.addressListRcv) RecyclerView addressListRcv;
     @BindView(R.id.btnSelect) Button btnSelect;
@@ -51,6 +53,13 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
         addressViewModel = ViewModelProviders.of(this).get(AddressViewModel.class);
         stepViewModel = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
         final AddressListRcvAdapter adapter = new AddressListRcvAdapter(getActivity(),addressViewModel);
@@ -70,14 +79,6 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
                 startActivityForResult(intent,1);
             }
         });
-
-//        btnMyLocation.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BottomSheetAddAddress bottomSheetAddAddress = new BottomSheetAddAddress();
-//                bottomSheetAddAddress.show(getFragmentManager(),bottomSheetAddAddress.getTag());
-//            }
-//        });
 
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override

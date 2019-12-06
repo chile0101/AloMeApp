@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
@@ -28,6 +29,7 @@ import retrofit2.Response;
 
 public class BottomSheetTypeServicesListFragment extends BottomSheetDialogFragment {
     RecyclerView recyclerView;
+    ImageView ivClose;
     TypeListRcvAdapter adapter;
     List<ServiceType> typesList;
 
@@ -46,6 +48,13 @@ public class BottomSheetTypeServicesListFragment extends BottomSheetDialogFragme
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        ivClose = (ImageView) view.findViewById(R.id.ivClose);
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         recyclerView = (RecyclerView) view.findViewById(R.id.rvTypeList);
 

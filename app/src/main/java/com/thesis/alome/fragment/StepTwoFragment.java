@@ -10,12 +10,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -25,7 +23,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.thesis.alome.R;
-
 import com.thesis.alome.config.FragmentLifecycle;
 import com.thesis.alome.viewmodel.StepViewModel;
 
@@ -35,9 +32,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import gun0912.tedbottompicker.TedBottomPicker;
 import gun0912.tedbottompicker.TedBottomSheetDialogFragment;
-import io.reactivex.disposables.Disposable;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -156,19 +150,13 @@ public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyP
                     .into(thumbnail);
 
             mSelectedImagesContainer.addView(imageHolder);
-
             thumbnail.setLayoutParams(new FrameLayout.LayoutParams(widthPixel, heightPixel));
-
         }
-
     }
 
     @Override
-    public void onPauseFragment() {
-        Log.d("CHILE", "onPauseFragment(): 2");
-        Toast.makeText(getActivity(), "onPauseFragment(): 2", Toast.LENGTH_SHORT).show();
-    }
+    public void onPauseFragment() {}
 
     @Override
-    public void onResumeFragment() { }
+    public void onResumeFragment() {}
 }

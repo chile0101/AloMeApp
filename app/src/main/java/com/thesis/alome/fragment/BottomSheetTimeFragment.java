@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
@@ -20,15 +21,13 @@ import com.thesis.alome.viewmodel.StepViewModel;
 public class BottomSheetTimeFragment extends BottomSheetDialogFragment {
 
     GridView gridView;
+    ImageView ivClose;
 
     public BottomSheetTimeFragment(){}
 
     @Override
     public void onStart() {
         super.onStart();
-//        if (getDialog() != null) {
-//            getDialog().getWindow().setWindowAnimations(R.style.BottomSheetSlideRightStyle);
-//        }
     }
 
     @Override
@@ -39,13 +38,20 @@ public class BottomSheetTimeFragment extends BottomSheetDialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_bottom_sheet_time,container,false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ivClose = (ImageView) view.findViewById(R.id.ivClose);
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
         final StepViewModel model = ViewModelProviders.of(getActivity()).get(StepViewModel.class);
 
         gridView = (GridView) view.findViewById(R.id.gridview);

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.thesis.alome.R;
 import com.thesis.alome.adapter.DateListRcvAdapter;
@@ -18,6 +19,7 @@ import com.thesis.alome.config.DateTime;
 public class BottomSheetDateFragment extends BottomSheetDialogFragment {
 
     RecyclerView rvDateList;
+    ImageView ivClose;
     DateListRcvAdapter dateListRcvAdapter;
 
     public BottomSheetDateFragment(){}
@@ -35,9 +37,14 @@ public class BottomSheetDateFragment extends BottomSheetDialogFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
+        ivClose = (ImageView) view.findViewById(R.id.ivClose);
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
         rvDateList = (RecyclerView) view.findViewById(R.id.rvDateList);
-
         dateListRcvAdapter = new DateListRcvAdapter(DateTime.getNextDays(),getActivity(),getDialog());
         rvDateList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvDateList.setItemAnimator(new DefaultItemAnimator());

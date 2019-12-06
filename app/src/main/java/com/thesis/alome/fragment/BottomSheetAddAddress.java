@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thesis.alome.R;
@@ -32,6 +33,7 @@ import butterknife.ButterKnife;
 public class BottomSheetAddAddress extends BottomSheetDialogFragment {
 
     @BindView(R.id.btnEditMap) Button btnEditMap;
+    @BindView(R.id.ivClose) ImageView ivClose;
     @BindView(R.id.btnSave) Button btnSave;
     @BindView(R.id.edtWard) EditText edtWard;
     @BindView(R.id.edtAlleyRoad) EditText edtAlleyRoad;
@@ -58,6 +60,12 @@ public class BottomSheetAddAddress extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         String address = stepViewModel.getAddress().getValue();
         String[] addressSlices = address.split(",",6);

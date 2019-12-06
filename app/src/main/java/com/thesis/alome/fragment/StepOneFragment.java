@@ -225,7 +225,6 @@ public class StepOneFragment extends Fragment  implements FragmentLifecycle {
 
     @Override
     public void onPauseFragment() {
-        Toast.makeText(getActivity(), "onPauseFragment(): 1", Toast.LENGTH_SHORT).show();
         model.setPhone(edtPhone.getText().toString());
     }
 
