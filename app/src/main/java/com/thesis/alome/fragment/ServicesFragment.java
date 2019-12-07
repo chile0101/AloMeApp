@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,10 +45,12 @@ import static android.provider.MediaStore.Images.ImageColumns.ORIENTATION;
 public class ServicesFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private FloatingActionButton fabRequestNow;
+
     private boolean mHorizontal;
     private SnapAdapter snapAdapter;
     List<ServiceType> serviceTypes;
-    private FloatingActionButton fabRequestNow;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,8 +68,17 @@ public class ServicesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         fabRequestNow = view.findViewById(R.id.fabRequestNow);
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                callApi();
+            }
+        });
 
 
         if (savedInstanceState == null) {
@@ -77,8 +89,6 @@ public class ServicesFragment extends Fragment {
         if(serviceTypes == null) {
             setupAdapter();
             callApi();
-
-
         } else {
             //there is already data? screen must be rotating or tab switching
             for (ServiceType serviceType:serviceTypes){
@@ -86,8 +96,6 @@ public class ServicesFragment extends Fragment {
                 mRecyclerView.setAdapter(snapAdapter);
             }
         }
-
-        callApi();
 
         //skeleton
         final SkeletonScreen skeletonScreen = Skeleton.bind(mRecyclerView)
@@ -121,8 +129,6 @@ public class ServicesFragment extends Fragment {
         snapAdapter = new SnapAdapter(getActivity());
         mRecyclerView.setAdapter(snapAdapter);
     }
-
-
 
     private void callApi(){
         ApiClient.getClient(getActivity()).create(ApiServices.class).getMainData().enqueue(new Callback<RespBase<List<ServiceType>>>() {

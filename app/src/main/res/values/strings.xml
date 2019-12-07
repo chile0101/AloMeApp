@@ -159,6 +159,9 @@
     <string name="validate_date_avail">Please enter date available</string>
     <string name="validate_time_avail">Please enter time available</string>
     <string name="validate_address">Please enter address</string>
+    <string name="validate_desc">Please enter some description</string>
+    <string name="validate_images">Please enter some images</string>
+
     <string name="alo_now">AloNow</string>
     <string name="title_activity_provider_list">Providers near you</string>
     <string name="addressEmpty">Please enter your address</string>
@@ -227,5 +230,7 @@
     <string name="refuse">Refuse</string>
     <string name="review_now">Review now</string>
     <string name="title_activity_launch">LaunchActivity</string>
+    <string name="txt_job_completed">This work has been completed !</string>
+    <string name="hour">/hour</string>
 
 </resources>

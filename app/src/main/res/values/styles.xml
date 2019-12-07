@@ -230,6 +230,10 @@
         <item name="colorControlNormal">@color/colorAccent</item>
         <item name="colorControlActivated">@color/star_yellow</item>
     </style>
+    <style name="RatingBarColorPrimary" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
 
     <style name="InProgessCompleteJobsTabLayout">
         <item name="tabTextAppearance">@style/InProgessCompleteJobsTabTextAppearance</item>

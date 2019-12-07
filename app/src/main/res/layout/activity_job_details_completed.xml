@@ -258,7 +258,7 @@
                         <LinearLayout
                             android:id="@+id/selected_photos_container"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/imageSize140dp"
                             android:layout_gravity="left"
                             android:animateLayoutChanges="true"
                             android:gravity="left"
@@ -392,13 +392,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/tvPrice"
+                    android:id="@+id/txtPrice"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/roboto_bold"
                     android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:text="200.000/giờ"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
@@ -411,7 +410,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/wrapperReview"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -444,6 +443,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/wrapperTextCompleted"
+                android:visibility="visible"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:background="#00b14f"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:lineHeight="20dp"
+                    android:textSize="@dimen/text_size_16"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/txt_job_completed"
+                    android:textColor="@color/white"
+                    android:maxLines="5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
 

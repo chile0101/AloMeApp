@@ -42,7 +42,6 @@ public class JobDetailsCompletedActivity extends BaseActivity {
     @BindView(R.id.tvAddress) TextView tvAddress;
     @BindView(R.id.tvDescription) TextView tvDescription;
     @BindView(R.id.selected_photos_container) LinearLayout selected_photos_container;
-    @BindView(R.id.tvPrice) TextView tvPrice;
     @BindView(R.id.btnReview) Button btnReview;
 
     @BindView(R.id.layoutProvider) ConstraintLayout layoutProvider;
@@ -54,6 +53,10 @@ public class JobDetailsCompletedActivity extends BaseActivity {
     @BindView(R.id.txtServiceName) TextView txtServiceName;
     @BindView(R.id.ratingBar) RatingBar ratingBar;
     @BindView(R.id.txtNumOfRatings) TextView txtNumOfRatings;
+    @BindView(R.id.txtPrice) TextView txtPrice;
+
+    @BindView(R.id.wrapperTextCompleted) LinearLayout wrapperTextCompleted;
+    @BindView(R.id.wrapperReview) LinearLayout wrapperReview;
 
     private Long customerRequestId;
     private Integer jobStatus;
@@ -78,7 +81,6 @@ public class JobDetailsCompletedActivity extends BaseActivity {
         Intent intent = getIntent();
         if(intent != null){
             customerRequestId = Long.valueOf(getIntent().getStringExtra("customerRequestId"));
-            jobStatus = Integer.valueOf(getIntent().getStringExtra("status")) ;
             Toast.makeText(this, "customerRequestId=" + customerRequestId.toString(), Toast.LENGTH_SHORT).show();
         }
 
@@ -94,7 +96,6 @@ public class JobDetailsCompletedActivity extends BaseActivity {
                     tvDate.setText(jobDetails.getDate());
                     tvAddress.setText(jobDetails.getAddress());
                     tvDescription.setText(jobDetails.getDescription());
-                    jobStatus = jobDetails.getStatus();
                     float width = getResources().getDimension(R.dimen.imageSize120dp);
                     float height = getResources().getDimension(R.dimen.imageSize140dp);
                     LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams((int)width,(int)height));
@@ -120,11 +121,16 @@ public class JobDetailsCompletedActivity extends BaseActivity {
             public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> resp) {
                 if(resp.body()!= null && resp.body().getStatus()){
                     Provider provider = resp.body().getData();
+                    if(!provider.getRated()){
+                        wrapperTextCompleted.setVisibility(View.GONE);
+                        wrapperReview.setVisibility(View.VISIBLE);
+                    }
                     Picasso.get().load(provider.getAvatar()).into(imgAvatar);
                     tvNameProvider.setText(provider.getName());
                     ratingBar.setRating(provider.getNumOfStars());
                     txtServiceName.setText(provider.getServiceName());
                     txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
+                    txtPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
 
                     wrapperProvider.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -143,7 +149,7 @@ public class JobDetailsCompletedActivity extends BaseActivity {
                     btnReview.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            ReviewDialog.showDialog(JobDetailsCompletedActivity.this,provider.getProviderId().longValue());
+                            ReviewDialog.showDialog(JobDetailsCompletedActivity.this,provider.getProviderId().longValue(),customerRequestId);
                         }
                     });
                 }

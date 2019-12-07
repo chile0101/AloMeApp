@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -50,6 +51,7 @@ public class ProviderDetailsActivity extends BaseActivity {
         // Receives data from Provider List Activity
         Intent intent = getIntent();
         Long providerId = intent.getLongExtra("providerId",1);
+        Toast.makeText(this, ""+ providerId, Toast.LENGTH_SHORT).show();
         String providerName = intent.getStringExtra("providerName");
         String providerAvatar = intent.getStringExtra("providerAvatar");
         String serviceName = intent.getStringExtra("serviceName");

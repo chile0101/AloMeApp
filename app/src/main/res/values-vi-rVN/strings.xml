@@ -78,6 +78,9 @@
     <string name="validate_date_avail">Vui lòng chọn ngày đặt</string>
     <string name = "validate_time_avail">Vui lòng chọn giờ hẹn</string>
     <string name="validate_address">Vui lòng chọn địa chỉ</string>
+    <string name="validate_desc">Cho chúng tôi thêm một ít thông tin nào</string>
+    <string name="validate_images">Một vài ảnh mô tả để chúng tôi dễ nhận biết vấn đề của bạn</string>
+
     <string name="alo_now">AloNow</string>
     <string name="title_activity_provider_list">Nhà cung cấp gần bạn</string>
     <string name="addressEmpty">Vui lòng nhập địa chỉ của bạn</string>
@@ -148,5 +151,8 @@
     <string name="accept">Chấp nhận</string>
     <string name="refuse">Từ chối</string>
     <string name="review_now">Đánh giá ngay</string>
+
+    <string name="txt_job_completed">Công việc này đã hoàn thành !</string>
+    <string name="hour">/giờ</string>
 
 </resources>

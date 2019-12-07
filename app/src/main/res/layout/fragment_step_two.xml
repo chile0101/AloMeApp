@@ -44,7 +44,6 @@
         style="@style/EditTextInPutTypeDescriptionFormStyle"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-
         android:fontFamily="@font/roboto"
         android:gravity="top|left"
         android:inputType="textMultiLine"
@@ -53,6 +52,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
+    <TextView
+        android:id="@+id/tvErrorDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtDesc" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -90,6 +101,18 @@
         </LinearLayout>
 
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/tvErrorImages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:gravity="right"
+        android:textColor="@color/badge_color"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hori_scroll_view" />
 
     <ImageView
         android:id="@+id/btnUpload"

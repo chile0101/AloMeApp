@@ -1,6 +1,7 @@
 package com.thesis.alome.fragment;
 
 import android.Manifest;
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -46,7 +48,10 @@ public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyP
 
     @BindView(R.id.edtDesc) EditText edtDesc;
     @BindView(R.id.selected_photos_container) ViewGroup mSelectedImagesContainer;
+    @BindView(R.id.tvErrorDesc) TextView tvErrorDesc;
+    @BindView(R.id.tvErrorImages) TextView tvErrorImages;
     @BindView(R.id.btnUpload) ImageView btnUpload;
+
 
 
     @Override
@@ -67,6 +72,20 @@ public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyP
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        stepViewModel.getDescErr().observe(getActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                tvErrorDesc.setText(s);
+            }
+        });
+
+        stepViewModel.getImagesErr().observe(getActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                tvErrorImages.setText(s);
+            }
+        });
+
         requestManager = Glide.with(this);
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +102,13 @@ public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyP
 
             @Override
             public void afterTextChanged(Editable s) {
+                if(!s.toString().equals("")){
+                    stepViewModel.setDescErr("");
+                }
                 stepViewModel.setDescription(s.toString());
             }
         });
+
     }
 
     @Override
@@ -125,6 +148,9 @@ public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyP
                     public void onImagesSelected(List<Uri> uriList) {
                         selectedUriList = uriList;
                         stepViewModel.setImageList(uriList);
+                        if(!uriList.isEmpty()){
+                            stepViewModel.setImagesErr("");
+                        }
                         showUriList(uriList);
                     }
                 });

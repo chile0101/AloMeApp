@@ -86,8 +86,11 @@ public class StepActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if(viewPager.getCurrentItem() == 1){
-                    if(!validateDateAvail() | !validateTimeAvail() | !validatePhone() | !validateAddress()){
+                    if(!validateDateAvail() | !validateTimeAvail() | !validatePhone() | !validateAddress() ){
                         viewPager.setCurrentItem(0);
+                        return;
+                    }else if(!validateDesc() | !validateImages()){
+                        viewPager.setCurrentItem(1);
                         return;
                     }else {
                         btnNext.setClickable(false);
@@ -117,7 +120,8 @@ public class StepActivity extends BaseActivity {
                 convert(stepViewModel.getPhone().getValue()),
                 convert(stepViewModel.getAddress().getValue()),
                 convert(stepViewModel.getAddressLatLng().getValue()),
-                convert(stepViewModel.getDescription().getValue()),listImg);
+                convert(stepViewModel.getDescription().getValue()),
+                listImg);
         call.enqueue(new Callback<RespBase>() {
             @Override
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {
@@ -161,6 +165,22 @@ public class StepActivity extends BaseActivity {
     public boolean validateAddress(){
         if(stepViewModel.getAddress().getValue().equals("")){
             stepViewModel.setAddressErr(getString(R.string.validate_address));
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validateDesc(){
+        if( stepViewModel.getDescription().getValue() == null || stepViewModel.getDescription().getValue().equals("")){
+            stepViewModel.setDescErr(getString(R.string.validate_desc));
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validateImages(){
+        if(stepViewModel.getImageList().getValue() == null || stepViewModel.getImageList().getValue().isEmpty()){
+            stepViewModel.setImagesErr(getString(R.string.validate_images));
             return false;
         }
         return true;

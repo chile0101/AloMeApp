@@ -75,7 +75,7 @@ public class ProviderListActivity extends BaseActivity{
                         public void run() {
                             skeletonScreen.hide();
                         }
-                    }, 3000);
+                    }, 1000);
                 }
             }
             @Override

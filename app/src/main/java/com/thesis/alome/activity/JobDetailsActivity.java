@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +26,7 @@ import com.thesis.alome.fragment.WarningDialog;
 import com.thesis.alome.model.JobDetails;
 import com.thesis.alome.model.Provider;
 import com.thesis.alome.model.RespBase;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -46,8 +46,7 @@ public class JobDetailsActivity extends BaseActivity  {
     @BindView(R.id.tvAddress) TextView tvAddress;
     @BindView(R.id.tvDescription) TextView tvDescription;
     @BindView(R.id.selected_photos_container) LinearLayout selected_photos_container;
-    @BindView(R.id.tvPrice) TextView tvPrice;
-    @BindView(R.id.btnAccess) Button btnAccess;
+    @BindView(R.id.btnAccept) Button btnAccept;
     @BindView(R.id.btnRefuse) Button btnRefuse;
     @BindView(R.id.layoutProvider) ConstraintLayout layoutProvider;
 
@@ -57,6 +56,7 @@ public class JobDetailsActivity extends BaseActivity  {
     @BindView(R.id.txtServiceName) TextView txtServiceName;
     @BindView(R.id.ratingBar) RatingBar ratingBar;
     @BindView(R.id.txtNumOfRatings) TextView txtNumOfRatings;
+    @BindView(R.id.tvPrice) TextView tvPrice;
 
     //Wrapper
     @BindView(R.id.wrapper100) LinearLayout wrapper100;
@@ -101,6 +101,7 @@ public class JobDetailsActivity extends BaseActivity  {
                 if(response.body()!= null && response.body().getStatus()){
                     JobDetails jobDetails = response.body().getData();
                     tvCreateAt.setText(getString(R.string.createdAt) + " " + jobDetails.getCreatedAt());
+                    tvServiceName.setText(jobDetails.getServiceName());
                     tvHour.setText(jobDetails.getTime());
                     tvDate.setText(jobDetails.getDate());
                     tvPhone.setText(jobDetails.getPhone());
@@ -147,7 +148,7 @@ public class JobDetailsActivity extends BaseActivity  {
                             ratingBar.setRating(provider.getNumOfStars());
                             txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
-
+                            tvPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -170,7 +171,7 @@ public class JobDetailsActivity extends BaseActivity  {
                 });
 
 
-                btnAccess.setOnClickListener(new View.OnClickListener() {
+                btnAccept.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Call<RespBase<Provider>> acceptProvider = apiServices.acceptProvider(PrefUtils.getId(getApplicationContext()),
@@ -180,13 +181,11 @@ public class JobDetailsActivity extends BaseActivity  {
                             @Override
                             public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> response) {
                                 if(response.body().getStatus()){
-                                    finish();
-                                    overridePendingTransition(0, 0);
-                                    startActivity(getIntent());
-                                    overridePendingTransition(0, 0);
-//                                    Intent refresh = new Intent(getApplicationContext(), JobDetails.class);
-//                                    startActivity(refresh);
-//                                    finish();
+                                    Intent intent = new Intent(JobDetailsActivity.this,JobDetailsActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.putExtra("customerRequestId",customerRequestId.toString());
+                                    intent.putExtra("status",300+"");
+                                    startActivity(intent);
                                 }
                             }
 
@@ -208,10 +207,11 @@ public class JobDetailsActivity extends BaseActivity  {
                             @Override
                             public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> response) {
                                 if(response.body().getStatus()){
-                                    finish();
-                                    overridePendingTransition(0, 0);
-                                    startActivity(getIntent());
-                                    overridePendingTransition(0, 0);
+                                    Intent intent = new Intent(JobDetailsActivity.this,JobDetailsActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.putExtra("customerRequestId",customerRequestId.toString());
+                                    intent.putExtra("status",100+"");
+                                    startActivity(intent);
                                 }
                             }
 
@@ -239,7 +239,7 @@ public class JobDetailsActivity extends BaseActivity  {
                             ratingBar.setRating(provider.getNumOfStars());
                             txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
-
+                            tvPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -270,8 +270,6 @@ public class JobDetailsActivity extends BaseActivity  {
                 btnStatus.setVisibility(View.GONE);
         }
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

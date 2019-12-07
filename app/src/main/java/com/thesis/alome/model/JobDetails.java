@@ -6,7 +6,6 @@ public class JobDetails {
     private Long id;
     private int status;
     private String createdAt;
-
     private String serviceName;
     private String time;
     private String date;
@@ -15,9 +14,10 @@ public class JobDetails {
     private List<String> images;
     private String description;
 
-    public JobDetails(int status, String createdAt, String time, String date, String phone, String address, List<String> imgUrls,String description) {
+    public JobDetails(int status, String createdAt,String serviceName, String time, String date, String phone, String address, List<String> imgUrls,String description) {
         this.status = status;
         this.createdAt = createdAt;
+        this.serviceName = serviceName;
         this.time = time;
         this.date = date;
         this.phone = phone;

@@ -27,6 +27,9 @@ public class StepViewModel extends ViewModel {
     private final MutableLiveData<String> timeErr = new MutableLiveData<>();
     private final MutableLiveData<String> phoneErr = new MutableLiveData<>();
     private final MutableLiveData<String> addressErr = new MutableLiveData<>();
+    private final MutableLiveData<String> descErr = new MutableLiveData<>();
+    private final MutableLiveData<String> imagesErr = new MutableLiveData<>();
+
 
 
     public void setDateAvail(String dateStr){
@@ -131,6 +134,22 @@ public class StepViewModel extends ViewModel {
 
     public void setAddressErr(String err){
         addressErr.setValue(err);
+    }
+
+    public LiveData<String> getImagesErr() {
+        return imagesErr;
+    }
+
+    public void setImagesErr(String err){
+        imagesErr.setValue(err);
+    }
+
+    public LiveData<String> getDescErr() {
+        return descErr;
+    }
+
+    public void setDescErr(String err){
+        descErr.setValue(err);
     }
 
 }

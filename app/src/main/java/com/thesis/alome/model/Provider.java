@@ -7,16 +7,8 @@ public class Provider {
     private Float numOfStars;
     private Integer numOfRatings;
     private String avatar;
-    //private String price;
-
-    public Provider(Long providerId, String name, String serviceName, Float numOfStars, Integer numOfRatings, String avatar) {
-        this.providerId = providerId;
-        this.name = name;
-        this.serviceName = serviceName;
-        this.numOfStars = numOfStars;
-        this.numOfRatings = numOfRatings;
-        this.avatar = avatar;
-    }
+    private Float price;
+    private Boolean rated;
 
     public Long getProviderId() {
         return providerId;
@@ -65,4 +57,22 @@ public class Provider {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public Boolean getRated() {
+        return rated;
+    }
+
+    public void setRated(Boolean rated) {
+        this.rated = rated;
+    }
+
+
 }

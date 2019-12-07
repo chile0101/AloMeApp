@@ -328,7 +328,7 @@
                         <LinearLayout
                             android:id="@+id/selected_photos_container"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/imageSize140dp"
                             android:layout_gravity="left"
                             android:animateLayoutChanges="true"
                             android:gravity="left"
@@ -489,7 +489,6 @@
                     android:fontFamily="@font/roboto_bold"
                     android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:text="200.000/giờ"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
@@ -512,7 +511,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
-                    android:id="@+id/btnAccess"
+                    android:id="@+id/btnAccept"
                     android:layout_marginLeft="36dp"
                     android:layout_marginRight="8dp"
                     android:background="@drawable/shape_btn_access"

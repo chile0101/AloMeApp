@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ethanhua.skeleton.Skeleton;
+import com.ethanhua.skeleton.SkeletonScreen;
 import com.thesis.alome.R;
 import com.thesis.alome.adapter.RatingsForProviderAdapter;
 import com.thesis.alome.config.ApiClient;
@@ -52,10 +54,26 @@ public class ProviderRatingsFragment extends Fragment {
             public void onResponse(Call<RespBase<List<RatingForProvider>>> call, Response<RespBase<List<RatingForProvider>>> response) {
                 if(response.body() != null && response.body().getStatus() == true){
                     ratingList = response.body().getData();
+//                    if(ratingList.isEmpty()){
+//                        //replace frame empty
+//                    }
                     adapter = new RatingsForProviderAdapter(ratingList,getActivity());
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    recyclerView.setItemAnimator(new DefaultItemAnimator());
-                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+                    final SkeletonScreen skeletonScreen = Skeleton.bind(recyclerView)
+                            .adapter(adapter)
+                            .shimmer(true)
+                            .angle(20)
+                            .frozen(false)
+                            .duration(1200)
+                            .count(10)
+                            .load(R.layout.item_comment_type_skeleton)
+                            .show();
+                    recyclerView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            skeletonScreen.hide();
+                        }
+                    }, 1000);
                 }
             }
 

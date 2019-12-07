@@ -63,7 +63,7 @@ public class SignInFragment extends Fragment {
                             }else{
                                 //Toast.makeText(getActivity(), getString(R.string.login_success), Toast.LENGTH_SHORT).show();
                                 PrefUtils.storeApiKey(getContext(),resp.body().getAccessToken());
-
+                                PrefUtils.storePassword(getContext(),password);
                                 Intent intent = new Intent(getActivity(), MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);

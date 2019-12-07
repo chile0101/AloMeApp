@@ -14,11 +14,10 @@ public class PrefUtils {
         return context.getSharedPreferences(PREFS_TAG, Context.MODE_PRIVATE);
     }
 
-    public static void storeProfile(Context context, long id,String userName,String password, String shortName, String fullName,String phone,String address, String latitude, String longitude){
+    public static void storeProfile(Context context, long id,String userName,String shortName, String fullName,String phone,String address, String latitude, String longitude){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.putLong("id", id);
         editor.putString("userName", userName);  // is email
-        editor.putString("password",password);
         editor.putString("shortName", shortName);
         editor.putString("fullName", fullName);
         editor.putString("phone", phone);
@@ -31,6 +30,12 @@ public class PrefUtils {
     public static void storeApiKey(Context context, String access_token) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.putString("accessToken", access_token);
+        editor.commit();
+    }
+
+    public static void storePassword(Context context, String pass) {
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.putString("password", pass);
         editor.commit();
     }
 
