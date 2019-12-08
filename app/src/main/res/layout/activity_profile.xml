@@ -1,21 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:orientation="vertical" android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <android.support.v7.widget.Toolbar
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:id="@+id/toolbar"
-        android:background="@android:color/white"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/toolbarWrapper"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:titleTextAppearance="@style/Toolbar.TitleText"
-        app:titleTextColor="@color/colorPrimary"/>
-    <FrameLayout
-        android:id="@+id/contentContainer"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar" />
+    </LinearLayout>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@id/toolbarWrapper"
+        android:layout_above="@+id/btnSave">
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="@dimen/padding_16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:id="@+id/uploadImg"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/ivProfile"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/img_avatar_default"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FF000000"/>
+                <ImageView
+                    android:id="@+id/imgPlus"
+                    android:layout_gravity="bottom|right|center_vertical|center_horizontal|center"
+                    android:background="@drawable/orange_oval_border_only"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_4"
+                    android:src="@drawable/ic_amount_plus"/>
+            </FrameLayout>
+
+            <!--full name-->
+            <TextView
+                style="@style/TextViewTitleFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_16"
+                android:text="@string/profile_page_name_text"
+                android:fontFamily="@font/roboto"/>
+            <EditText
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@color/orange_color"
+                android:id="@+id/edtValueFullname"
+                android:background="@drawable/edittext_bg"
+                android:padding="@dimen/padding_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:lines="1"
+                android:singleLine="true"
+                android:inputType="text"
+                android:fontFamily="@font/roboto"/>
+            <TextView
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/text_size_12"
+                android:textColor="@color/badge_color"
+                android:gravity="right"
+                android:id="@+id/tvErrorFullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--date of birthdate-->
+            <TextView
+                style="@style/TextViewTitleFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:text="@string/profile_page_birthdate_text"
+                android:fontFamily="@font/roboto"/>
+            <EditText
+                android:ems="10"
+                android:inputType="date"
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@color/orange_color"
+                android:id="@+id/tvValueBirthDate"
+                android:background="@drawable/edittext_bg"
+                android:padding="@dimen/padding_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:fontFamily="@font/roboto"/>
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:textColor="@color/badge_color"
+                android:gravity="right"
+                android:id="@+id/tvErrorBirthDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"/>
+
+            <!--gender-->
+            <TextView
+                style="@style/TextViewTitleFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:text="@string/gender"
+                android:fontFamily="@font/roboto"/>
+            <Spinner
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@color/orange_color"
+                android:id="@+id/spinnerGender"
+
+                android:paddingTop="@dimen/padding_8"
+                android:paddingBottom="@dimen/padding_8"
+                android:paddingRight="@dimen/padding_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:fontFamily="@font/roboto"/>
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:textColor="@color/badge_color"
+                android:gravity="right"
+                android:id="@+id/tvErrorGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"/>
+
+            <!-- phone -->
+            <TextView
+                style="@style/TextViewTitleFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:text="@string/phone"
+                android:fontFamily="@font/roboto"/>
+            <EditText
+                android:inputType="phone"
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@color/orange_color"
+                android:id="@+id/tvValuePhone"
+                android:background="@drawable/edittext_bg"
+                android:padding="@dimen/padding_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:fontFamily="@font/roboto"/>
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:textColor="@color/badge_color"
+                android:gravity="right"
+                android:id="@+id/tvPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"/>
+
+            <!--email-->
+            <TextView
+                style="@style/TextViewTitleFormStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:text="@string/email"
+                android:fontFamily="@font/roboto"/>
+            <EditText
+                android:textSize="@dimen/text_size_20"
+                android:textColor="@color/orange_color"
+                android:id="@+id/tvValueEmail"
+                android:background="@drawable/edittext_bg"
+                android:padding="@dimen/padding_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:fontFamily="@font/roboto"/>
+
+           </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/btnSave"
+        android:visibility="visible"
+        android:padding="@dimen/padding_12"
+        android:layout_margin="@dimen/padding_16"
+        android:text="@string/save"
+        android:layout_alignParentBottom="true"
+        style="@style/OrangeButtonMatchParentStyle"/>
+    <!--<include -->
+        <!--android:id="@+id/loadingContainer" -->
+        <!--android:visibility="gone" -->
+        <!--android:layout_width="match_parent" -->
+        <!--android:layout_height="match_parent" -->
+        <!--layout="@layout/layout_loading"/>-->
+</RelativeLayout>

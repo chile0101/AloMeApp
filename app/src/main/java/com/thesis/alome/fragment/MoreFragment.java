@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.thesis.alome.ProfileActivity;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.activity.SettingActivity;
@@ -20,6 +21,7 @@ import butterknife.ButterKnife;
 
 public class MoreFragment extends Fragment {
 
+    @BindView(R.id.editProfileWrapper) LinearLayout editProfileWrapper;
     @BindView(R.id.layoutSetting) LinearLayout layoutSetting;
     @BindView(R.id.layoutAboutus) LinearLayout layoutAboutus;
 
@@ -39,6 +41,14 @@ public class MoreFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        editProfileWrapper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         layoutSetting.setOnClickListener(new View.OnClickListener() {
             @Override

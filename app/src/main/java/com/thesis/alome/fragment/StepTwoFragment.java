@@ -142,6 +142,8 @@ public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyP
                 .showTitle(false)
                 .setCompleteButtonText("Done")
                 .setEmptySelectionText("No Select")
+                .setSelectMaxCount(5)
+                .setSelectMaxCountErrorText(R.string.not_select_more_than_5)
                 .setSelectedUriList(selectedUriList)
                 .showMultiImage(new TedBottomSheetDialogFragment.OnMultiImageSelectedListener() {
                     @Override

@@ -57,6 +57,7 @@ public class JobDetailsActivity extends BaseActivity  {
     @BindView(R.id.ratingBar) RatingBar ratingBar;
     @BindView(R.id.txtNumOfRatings) TextView txtNumOfRatings;
     @BindView(R.id.tvPrice) TextView tvPrice;
+    @BindView(R.id.promiseOfProvider) TextView promiseOfProvider;
 
     //Wrapper
     @BindView(R.id.wrapper100) LinearLayout wrapper100;
@@ -149,6 +150,7 @@ public class JobDetailsActivity extends BaseActivity  {
                             txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
                             tvPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
+                            promiseOfProvider.setText(getString(R.string.estimated_time) + provider.getPromiseOfProvider() + getString(R.string.hour));
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -240,6 +242,8 @@ public class JobDetailsActivity extends BaseActivity  {
                             txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
                             tvPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
+                            promiseOfProvider.setText(getString(R.string.estimated_time) + provider.getPromiseOfProvider() + getString(R.string.hour));
+
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -281,9 +285,8 @@ public class JobDetailsActivity extends BaseActivity  {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.deleteJobItem:
-                WarningDialog.showDialog(JobDetailsActivity.this,"Bạn chắc chắn muốn xóa yêu cầu này ?");
+                WarningDialog.showDialog(JobDetailsActivity.this,getString(R.string.are_you_sure_delete_job),customerRequestId);
                 break;
-
         }
         return super.onOptionsItemSelected(item);
     }
@@ -293,4 +296,5 @@ public class JobDetailsActivity extends BaseActivity  {
         onBackPressed();
         return true;
     }
+
 }

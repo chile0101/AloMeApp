@@ -51,13 +51,13 @@
     <string name="term_of_service">Chúng tôi cam kết</string>
     <string name="service_details">Mô tả dịch vụ</string>
     <string name="service_detail">Chi tiết dịch vụ</string>
-    <string name="available_date">Ngày đặt</string>
-    <string name="available_time">Giờ đặt</string>
+    <string name="available_date">Ngày hẹn</string>
+    <string name="available_time">Giờ hẹn</string>
     <string name="contact_number">Điện thoại liên hệ</string>
     <string name="flexible">Linh hoạt</string>
-    <string name="available_date_page_title">Chọn ngày đặt</string>
-    <string name="available_time_page_title">Chọn thời gian đặt</string>
-    <string name="please_book_7_days_in_advance">Vui lòng đặt trước 7 ngày</string>
+    <string name="available_date_page_title">Chọn ngày hẹn</string>
+    <string name="available_time_page_title">Chọn thời gian</string>
+    <string name="please_book_7_days_in_advance">Vui lòng hẹn trước 7 ngày</string>
     <string name="choose">Chọn</string>
     <string name="alley_road">Số nhà - Hẻm/Đường</string>
     <string name="district_area">Quận/Huyện</string>
@@ -75,7 +75,7 @@
     <string name="phone">Số điện thoại</string>
     <string name="confirm">Đặt hẹn ngay</string>
     <string name="find_provider">Đặt dịch vụ</string>
-    <string name="validate_date_avail">Vui lòng chọn ngày đặt</string>
+    <string name="validate_date_avail">Vui lòng chọn ngày hẹn</string>
     <string name = "validate_time_avail">Vui lòng chọn giờ hẹn</string>
     <string name="validate_address">Vui lòng chọn địa chỉ</string>
     <string name="validate_desc">Cho chúng tôi thêm một ít thông tin nào</string>
@@ -154,5 +154,9 @@
 
     <string name="txt_job_completed">Công việc này đã hoàn thành !</string>
     <string name="hour">/giờ</string>
+    <string name="review_list_empty">Chưa có đánh giá nào cho người thợ này</string>
+    <string name="job_list_empty">Chưa có công việc nào</string>
+    <string name="are_you_sure_delete_job">Bạn chắc chắn muốn xóa yêu cầu này ?</string>
+    <string name="estimated_time">Thời gian ước lượng: </string>
 
 </resources>

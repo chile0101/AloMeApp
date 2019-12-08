@@ -232,5 +232,22 @@
     <string name="title_activity_launch">LaunchActivity</string>
     <string name="txt_job_completed">This work has been completed !</string>
     <string name="hour">/hour</string>
+    <string name="review_list_empty">There are no reviews for this worker yet</string>
+    <string name="job_list_empty">No work yet</string>
+    <string name="are_you_sure_delete_job">Are you sure you want to delete this request?</string>
+    <string name="estimated_time">Estimated time: </string>
+    <string name="title_activity_profile">ProfileActivity</string>
+
+    <string name="profile_page_name_text">First - Last Name</string>
+    <string name="profile_error_fullname">Please enter your full name.</string>
+    <string name="profile_page_birthdate_text">Date of Birth</string>
+    <string name="profile_error_birthdate">Please enter your birthdate</string>
+    <string name="profile">Profile</string>
+    <string-array name="genders_arrays">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="not_select_more_than_1">You may not select more than 1 photo</string>
+    <string name="not_select_more_than_5">You may not select more than 5 photo</string>
 
 </resources>

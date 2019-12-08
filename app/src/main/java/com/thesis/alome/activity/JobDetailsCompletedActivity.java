@@ -54,6 +54,7 @@ public class JobDetailsCompletedActivity extends BaseActivity {
     @BindView(R.id.ratingBar) RatingBar ratingBar;
     @BindView(R.id.txtNumOfRatings) TextView txtNumOfRatings;
     @BindView(R.id.txtPrice) TextView txtPrice;
+    @BindView(R.id.promiseOfProvider) TextView promiseOfProvider;
 
     @BindView(R.id.wrapperTextCompleted) LinearLayout wrapperTextCompleted;
     @BindView(R.id.wrapperReview) LinearLayout wrapperReview;
@@ -131,6 +132,7 @@ public class JobDetailsCompletedActivity extends BaseActivity {
                     txtServiceName.setText(provider.getServiceName());
                     txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
                     txtPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
+                    promiseOfProvider.setText(getString(R.string.estimated_time) + provider.getPromiseOfProvider() + getString(R.string.hour));
 
                     wrapperProvider.setOnClickListener(new View.OnClickListener() {
                         @Override

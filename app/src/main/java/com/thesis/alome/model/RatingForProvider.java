@@ -17,15 +17,15 @@ public class RatingForProvider {
     @Expose
     private String textComment;
 
-    @SerializedName("createAt")
+    @SerializedName("createdAt")
     @Expose
-    private String createAt;
+    private String createdAt;
 
-    public RatingForProvider(String nameAssessor, Float numOfStars, String textComment, String createAt) {
+    public RatingForProvider(String nameAssessor, Float numOfStars, String textComment, String createdAt) {
         this.nameAssessor = nameAssessor;
         this.numOfStars = numOfStars;
         this.textComment = textComment;
-        this.createAt = createAt;
+        this.createdAt = createdAt;
     }
 
     public String getNameAssessor() {
@@ -52,11 +52,11 @@ public class RatingForProvider {
         this.textComment = textComment;
     }
 
-    public String getCreateAt() {
-        return createAt;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(String createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }

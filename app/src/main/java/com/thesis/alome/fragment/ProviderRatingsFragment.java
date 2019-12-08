@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ethanhua.skeleton.Skeleton;
 import com.ethanhua.skeleton.SkeletonScreen;
@@ -35,6 +37,8 @@ import retrofit2.Response;
 public class ProviderRatingsFragment extends Fragment {
 
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
+    @BindView(R.id.viewEmptyWrapper) RelativeLayout viewEmptyWrapper;
+    @BindView(R.id.txtEmpty) TextView txtEmpty;
     List<RatingForProvider> ratingList;
     RatingsForProviderAdapter adapter;
 
@@ -54,9 +58,11 @@ public class ProviderRatingsFragment extends Fragment {
             public void onResponse(Call<RespBase<List<RatingForProvider>>> call, Response<RespBase<List<RatingForProvider>>> response) {
                 if(response.body() != null && response.body().getStatus() == true){
                     ratingList = response.body().getData();
-//                    if(ratingList.isEmpty()){
-//                        //replace frame empty
-//                    }
+                    if(ratingList.isEmpty()){
+                        recyclerView.setVisibility(View.GONE);
+                        viewEmptyWrapper.setVisibility(View.VISIBLE);
+                        txtEmpty.setText(getString(R.string.review_list_empty));
+                    }
                     adapter = new RatingsForProviderAdapter(ratingList,getActivity());
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
                     final SkeletonScreen skeletonScreen = Skeleton.bind(recyclerView)

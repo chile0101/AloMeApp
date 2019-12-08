@@ -40,7 +40,7 @@ public class RatingsForProviderAdapter extends RecyclerView.Adapter<RatingsForPr
         viewHolder.tvName.setText(rating.getNameAssessor());
         viewHolder.tvComment.setText(rating.getTextComment());
         viewHolder.ratingBar.setRating(rating.getNumOfStars());
-        viewHolder.tvCreateAt.setText(rating.getCreateAt());
+        viewHolder.tvCreateAt.setText(rating.getCreatedAt());
 
     }
 

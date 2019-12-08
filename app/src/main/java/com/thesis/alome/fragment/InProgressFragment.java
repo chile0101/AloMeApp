@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,30 +28,32 @@ import com.thesis.alome.model.RespBase;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class InProgressFragment extends Fragment {
     private static final String TAG = "inProgress";
-    RecyclerView recyclerView;
-    SwipeRefreshLayout swipeContainer;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
+    @BindView(R.id.viewEmptyWrapper) RelativeLayout viewEmptyWrapper;
+    @BindView(R.id.txtEmpty) TextView txtEmpty;
+    @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
     List<Job> jobList;
     JobListRcvAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_in_progress, container, false);
+        View view = inflater.inflate(R.layout.fragment_in_progress, container, false);
+        ButterKnife.bind(this,view);
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        jobList = new ArrayList<Job>();
-        swipeContainer = view.findViewById(R.id.swipeContainer);
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -59,10 +62,13 @@ public class InProgressFragment extends Fragment {
                 callApi();
             }
         });
-
         callApi();
+    }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        callApi();
     }
 
     private void callApi() {
@@ -73,6 +79,11 @@ public class InProgressFragment extends Fragment {
             public void onResponse(Call<RespBase<List<Job>>> call, Response<RespBase<List<Job>>> response) {
                 if(response.body()!=null && response.body().getStatus()){
                     jobList = response.body().getData();
+                    if(jobList.isEmpty()){
+                        recyclerView.setVisibility(View.GONE);
+                        viewEmptyWrapper.setVisibility(View.VISIBLE);
+                        txtEmpty.setText(getString(R.string.job_list_empty));
+                    }
                     adapter = new JobListRcvAdapter(jobList,getActivity(),TAG);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -93,7 +104,7 @@ public class InProgressFragment extends Fragment {
                         public void run() {
                             skeletonScreen.hide();
                         }
-                    }, 1000);
+                    }, 500);
                 }else {
                     Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
                 }

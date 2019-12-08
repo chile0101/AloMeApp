@@ -1,5 +1,8 @@
 package com.thesis.alome.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Provider {
     private Long providerId;
     private String name;
@@ -9,6 +12,10 @@ public class Provider {
     private String avatar;
     private Float price;
     private Boolean rated;
+
+    @SerializedName("completedTime")
+    @Expose
+    private String promiseOfProvider;
 
     public Long getProviderId() {
         return providerId;
@@ -74,5 +81,11 @@ public class Provider {
         this.rated = rated;
     }
 
+    public String getPromiseOfProvider() {
+        return promiseOfProvider;
+    }
 
+    public void setPromiseOfProvider(String promiseOfProvider) {
+        this.promiseOfProvider = promiseOfProvider;
+    }
 }
