@@ -56,7 +56,10 @@ public class MainActivity extends BaseActivity {
                 String address = response.body().getData().getAddress();
                 String longitude = response.body().getData().getLongitude();
                 String latitude = response.body().getData().getLatitude();
-                PrefUtils.storeProfile(getApplicationContext(), id, userName, shortName,fullName, phone, address, latitude, longitude);
+                String gender = response.body().getData().getGenderText();
+                String dateOfBirth = response.body().getData().getDateOfBirth();
+                String avatar = response.body().getData().getAvatar();
+                PrefUtils.storeProfile(getApplicationContext(), id, userName, shortName,fullName, phone, address, latitude, longitude,gender,dateOfBirth,avatar);
 
                 SharedPreferences myPrefs = getSharedPreferences("alome", MODE_PRIVATE);
                 SharedPreferences.Editor prefsEditor;

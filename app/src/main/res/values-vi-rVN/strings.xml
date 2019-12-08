@@ -159,4 +159,13 @@
     <string name="are_you_sure_delete_job">Bạn chắc chắn muốn xóa yêu cầu này ?</string>
     <string name="estimated_time">Thời gian ước lượng: </string>
 
+    <string name="profile_page_name_text">Tên - Họ</string>
+    <string name="profile_error_fullname">Vui lòng nhập họ tên.</string>
+    <string name="profile_page_birthdate_text">Ngày sinh</string>
+    <string name="profile_error_birthdate">Vui lòng nhập ngày sinh.</string>
+    <string name="profile">Thông tin cá nhân</string>
+    <string name="not_select_more_than_1">Bạn không thể chọn nhiều hơn 1 ảnh</string>
+    <string name="not_select_more_than_5">Bạn không thể chọn nhiều hơn 5 ảnh</string>
+    <string name="edit_profile">Chỉnh sửa tài khoản</string>
+
 </resources>

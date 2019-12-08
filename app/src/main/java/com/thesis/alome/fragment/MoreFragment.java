@@ -8,9 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.thesis.alome.ProfileActivity;
+import com.squareup.picasso.Picasso;
+import com.thesis.alome.activity.ProfileActivity;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.activity.SettingActivity;
@@ -21,6 +24,8 @@ import butterknife.ButterKnife;
 
 public class MoreFragment extends Fragment {
 
+    @BindView(R.id.imgAvatar) ImageView imgAvatar;
+    @BindView(R.id.tvName) TextView tvName;
     @BindView(R.id.editProfileWrapper) LinearLayout editProfileWrapper;
     @BindView(R.id.layoutSetting) LinearLayout layoutSetting;
     @BindView(R.id.layoutAboutus) LinearLayout layoutAboutus;
@@ -35,6 +40,8 @@ public class MoreFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more,container,false);
         ButterKnife.bind(this,view);
+        Picasso.get().load(PrefUtils.getAvatar(getActivity())).into(imgAvatar);
+        tvName.setText(PrefUtils.getFullName(getActivity()));
         return view;
     }
 

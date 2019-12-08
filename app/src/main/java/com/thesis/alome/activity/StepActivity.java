@@ -112,16 +112,16 @@ public class StepActivity extends BaseActivity {
         Long serviceId = getIntent().getLongExtra("serviceId",-1);
         ApiServices apiServices = ApiClient.getClient(this).create(ApiServices.class);
         Call<RespBase> call = apiServices.orderService(PrefUtils.getId(this),
-                PrefUtils.getApiKey(this) ,
-                serviceId == -1 ? null : serviceId,
-                stepViewModel.getTypeId().getValue(),
-                convert(stepViewModel.getDateAvail().getValue()),
-                convert(stepViewModel.getTimeAvail().getValue()),
-                convert(stepViewModel.getPhone().getValue()),
-                convert(stepViewModel.getAddress().getValue()),
-                convert(stepViewModel.getAddressLatLng().getValue()),
-                convert(stepViewModel.getDescription().getValue()),
-                listImg);
+                                                        PrefUtils.getApiKey(this) ,
+                                                        serviceId == -1 ? null : serviceId,
+                                                        stepViewModel.getTypeId().getValue(),
+                                                        convert(stepViewModel.getDateAvail().getValue()),
+                                                        convert(stepViewModel.getTimeAvail().getValue()),
+                                                        convert(stepViewModel.getPhone().getValue()),
+                                                        convert(stepViewModel.getAddress().getValue()),
+                                                        convert(stepViewModel.getAddressLatLng().getValue()),
+                                                        convert(stepViewModel.getDescription().getValue()),
+                                                        listImg);
         call.enqueue(new Callback<RespBase>() {
             @Override
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {

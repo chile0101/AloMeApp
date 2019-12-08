@@ -41,6 +41,14 @@ public class Customer {
     @Expose
     private String latitude;
 
+    @SerializedName("dateOfBirth")
+    @Expose
+    private String dateOfBirth;
+
+    @SerializedName("avatar")
+    @Expose
+    private String avatar;
+
     public Integer getId() {
         return id;
     }
@@ -111,5 +119,21 @@ public class Customer {
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

@@ -4,6 +4,7 @@ import com.thesis.alome.model.Comment;
 import com.thesis.alome.model.Customer;
 import com.thesis.alome.model.Job;
 import com.thesis.alome.model.JobDetails;
+import com.thesis.alome.model.Profile;
 import com.thesis.alome.model.Provider;
 import com.thesis.alome.model.ProviderDetails;
 import com.thesis.alome.model.RatingForProvider;
@@ -110,6 +111,21 @@ public interface ApiServices {
     Call<RespBase> deleteJob(
             @Path("customerRequestId") Long jobId,
             @Query("access_token") String accessToken
+    );
+
+    @POST("customers/{id}/update-info")
+    Call<RespBase> updateProfile(
+            @Path("id") Long userId,
+            @Body Profile profile,
+            @Query("access_token") String accessToken
+    );
+
+    @POST("customers/{id}/avatar")
+    @Multipart
+    Call<RespBase> uploadAvatar(
+            @Path("id") Long userId,
+            @Query("access_token") String accessToken,
+            @Part MultipartBody.Part avatar
     );
 
 }
