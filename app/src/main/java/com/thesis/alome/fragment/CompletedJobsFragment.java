@@ -35,9 +35,8 @@ import retrofit2.Response;
 
 public class CompletedJobsFragment extends Fragment {
     private static final String TAG = "inCompleted";
-    @BindView(R.id.recyclerView) RecyclerView recyclerView;
+    @BindView(R.id.rcvCompletedJob) RecyclerView recyclerView;
     @BindView(R.id.viewEmptyWrapper) RelativeLayout viewEmptyWrapper;
-    @BindView(R.id.txtEmpty) TextView txtEmpty;
     List<Job> jobList;
     JobListRcvAdapter adapter;
 
@@ -62,7 +61,6 @@ public class CompletedJobsFragment extends Fragment {
                     if(jobList.isEmpty()){
                         recyclerView.setVisibility(View.GONE);
                         viewEmptyWrapper.setVisibility(View.VISIBLE);
-                        txtEmpty.setText(getString(R.string.job_list_empty));
                     }
                     adapter = new JobListRcvAdapter(jobList, getActivity(),TAG);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

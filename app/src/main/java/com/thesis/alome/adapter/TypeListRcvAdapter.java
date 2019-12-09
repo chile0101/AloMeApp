@@ -36,7 +36,7 @@ public class TypeListRcvAdapter extends RecyclerView.Adapter<TypeListRcvAdapter.
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.test,viewGroup,false);
+                .inflate(R.layout.item_type_list_service,viewGroup,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

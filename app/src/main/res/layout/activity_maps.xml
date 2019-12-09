@@ -1,20 +1,15 @@
-<android.support.constraint.ConstraintLayout
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-
+    android:layout_height="match_parent">
     <fragment
-        android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_height="match_parent" />
     <android.support.design.widget.FloatingActionButton
         app:maxImageSize="32dp"
         android:scaleType="center"
@@ -26,44 +21,31 @@
         android:id="@+id/fabBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/ic_back" />
 
     <android.support.design.widget.FloatingActionButton
+        android:layout_margin="16dp"
+        android:layout_gravity="right"
         app:maxImageSize="32dp"
         android:scaleType="center"
         android:backgroundTint="@android:color/transparent"
         android:id="@+id/fabCurrentLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:src="@drawable/ic_current_location"
         app:borderWidth="0dp"
         app:elevation="2dp"
-        app:fabSize="mini"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:fabSize="mini" />
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/ivPin"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <!--<include layout="@layout/fragment_map_search_address" />-->
-
-        <include
-            android:id="@+id/fragment_map_add_address"
-            layout="@layout/fragment_map_add_address" />
+        android:src="@drawable/ic_pin_map"/>
+    <android.support.design.widget.CoordinatorLayout android:id="@+id/coordinatorLayout" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include layout="@layout/fragment_map_search_address"/>
+        <include layout="@layout/fragment_map_add_address"/>
     </android.support.design.widget.CoordinatorLayout>
-
-
-</android.support.constraint.ConstraintLayout>
-
+    <!--<include android:id="@+id/loadingContainer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/layout_loading"/>-->
+</FrameLayout>

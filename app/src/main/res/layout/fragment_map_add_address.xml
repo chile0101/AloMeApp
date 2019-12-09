@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/layoutAddAddress"
+            android:id="@+id/layoutAddAddressWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -53,7 +53,7 @@
                 android:src="@drawable/ic_pin" />
 
             <TextView
-                android:id="@+id/tvAddress"
+                android:id="@+id/txtFullAddress"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/padding_16"
@@ -72,7 +72,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnSelect"
+            android:id="@+id/btnContinue"
             style="@style/OrangeButtonMatchParentStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,6 +84,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutAddAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/layoutAddAddressWrapper" />
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>

@@ -27,18 +27,18 @@
     <string name="province">Province</string>
     <string name="save">Save</string>
     <string name="add_address">Add Address</string>
-    <string name="please_enter_nearby_point">* Please enter nearby point.</string>
-    <string name="please_enter_alley_road">* Please enter alley/road.</string>
-    <string name="please_enter_distric_area">* Please enter district/area.</string>
-    <string name="please_enter_house_no">* Please enter house no.</string>
+    <string name="please_enter_nearby_point">Please enter nearby point.</string>
+    <string name="please_enter_alley_road">Please enter alley/road.</string>
+    <string name="please_enter_distric_area">Please enter district/area.</string>
+    <string name="please_enter_house_no">Please enter house no.</string>
 
-    <string name="please_enter_province">* Please enter province.</string>
+    <string name="please_enter_province">Please enter province.</string>
     <string name="village_building">Village/Building</string>
     <string name="add">Add</string>
     <string name="verification_code">Verification code</string>
     <string name="add_account">Add account</string>
-    <string name="please_enter_verification_code">* Please enter verification code.</string>
-    <string name="your_verification_code_is_invalidt">* Your verification code is invalid.</string>
+    <string name="please_enter_verification_code">Please enter verification code.</string>
+    <string name="your_verification_code_is_invalidt">Your verification code is invalid.</string>
     <string name="_add_address">+ Add Address</string>
     <string name="address">Address</string>
     <string name="condominium">Condominium</string>
@@ -59,9 +59,9 @@
     <string name="current_password">Current Password</string>
     <string name="new_password">New Password</string>
     <string name="change_password">Change Password</string>
-    <string name="password_do_not_match">* Password do not match</string>
-    <string name="password_is_incorrect">* Password is incorrect</string>
-    <string name="password_must_be_at_least_6_characters">* Password must be at least 6 characters</string>
+    <string name="password_do_not_match">Password do not match</string>
+    <string name="password_is_incorrect">Password is incorrect</string>
+    <string name="password_must_be_at_least_6_characters">Password must be at least 6 characters</string>
 
 
     <string name="loading...">Loading…</string>
@@ -100,22 +100,22 @@
     <string name="confirn_password">Address</string>
     <string name="forgot_password">forgot password?</string>
 
-    <string name="please_enter_your_email">* Please enter your email.</string>
-    <string name="please_enter_your_password">* Please enter your password.</string>
+    <string name="please_enter_your_email">Please enter your email.</string>
+    <string name="please_enter_your_password">Please enter your password.</string>
     <string name="log_in">Log in</string>
     <string name="register">Register</string>
     <string name="reenter_password">Re-enter Password</string>
     <string name="first_name_last_name">First Name - Last Name</string>
     <string name="password">Password</string>
-    <string name="validate_confirm_password_text">* Passwords do not match.</string>
-    <string name="validate_email_text">* Please enter your email.</string>
-    <string name="validate_phone_text">* Please enter your phone.</string>
-    <string name="validate_empty_confirm_password_text">* Please confirm your password.</string>
+    <string name="validate_confirm_password_text">Passwords do not match.</string>
+    <string name="validate_email_text">Please enter your email.</string>
+    <string name="validate_phone_text">Please enter your phone.</string>
+    <string name="validate_empty_confirm_password_text">Please confirm your password.</string>
     <string name="validate_empty_password_text">Please enter your password.</string>
-    <string name="validate_fullname_text">* Please enter your first name - last name.</string>
-    <string name="validate_password_text">* Password must be at least 6 characters.</string>
-    <string name="validate_pattern_email_text">* Your email is invalid.</string>
-    <string name="validate_pattern_phone_text">* Your phone number is invalid.</string>
+    <string name="validate_fullname_text">Please enter your first name - last name.</string>
+    <string name="validate_password_text">Password must be at least 6 characters.</string>
+    <string name="validate_pattern_email_text">Your email is invalid.</string>
+    <string name="validate_pattern_phone_text">Your phone number is invalid.</string>
 
     <string name="slide_1_title">Clean Services</string>
     <string name="slide_2_title">Electronic Services</string>

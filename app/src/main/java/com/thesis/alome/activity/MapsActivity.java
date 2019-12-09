@@ -5,16 +5,17 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,9 +25,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,14 +36,24 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import pub.devrel.easypermissions.AfterPermissionGranted;
-import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
-import pub.devrel.easypermissions.PermissionRequest;
 
 
 public class MapsActivity extends FragmentActivity implements EasyPermissions.PermissionCallbacks, OnMapReadyCallback {
 
+    @BindView(R.id.fabCurrentLocation) FloatingActionButton fabCurrentLocation;
+    @BindView(R.id.fabBack) FloatingActionButton fabBack;
+    @BindView(R.id.txtFullAddress) TextView tvAddress;
+    @BindView(R.id.btnContinue) Button btnContiue;
+    @BindView(R.id.edtSearch) EditText edtSearch;
+    @BindView(R.id.layoutAddAddressWrapper) LinearLayout layoutAddAddress;
+    @BindView(R.id.bottomSheetAddAddress) LinearLayout bottomSheetAddAddress;
+    @BindView(R.id.bottomSheetSearchAddress) LinearLayout bottomSheetSearchAddress;
+
+    private int numOfPressBack;
     private static final int DEFAULT_ZOOM = 18;
     private static final String KEY_LOCATION = "location";
     public final static int RC_LOCATION = 999;
@@ -57,12 +65,52 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
     private Location mLastKnownLocation;
     private LatLng myLocation;
     private Geocoder geocoder;
-    
-    FloatingActionButton fabCurrentLocation,fabBack;
-    View fragment_map_add_address;
-    TextView tvAddress;
-    Button btnSelect;
 
+    private BottomSheetBehavior sheetBehaviorAdd;
+    private BottomSheetBehavior sheetBehaviorSearch;
+
+    @Override
+    public void onBackPressed() {
+        if(sheetBehaviorSearch.getState() == BottomSheetBehavior.STATE_EXPANDED){
+            sheetBehaviorSearch.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            return;
+        }
+        if(numOfPressBack == 0){
+            super.onBackPressed();
+        }else if(numOfPressBack == 1){
+            sheetBehaviorAdd.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            sheetBehaviorAdd.setHideable(false);
+        }
+        numOfPressBack -= 1;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+        ButterKnife.bind(this);
+
+        sheetBehaviorAdd = BottomSheetBehavior.from(bottomSheetAddAddress);
+        sheetBehaviorSearch = BottomSheetBehavior.from(bottomSheetSearchAddress);
+
+        myLocation = new LatLng(10.7733, 106.6594); // Default BKHCM
+
+        // Retrieve location and camera position from saved instance state.
+        if (savedInstanceState != null) {
+            mLastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
+        }
+
+        // Construct a FusedLocationProviderClient.
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        getLocationPermission();
+
+        // Build the map.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        bottomSheet();
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -87,36 +135,7 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
 
     @Override
     public void onPermissionsDenied(int requestCode, @NonNull List<String> permss) {
-            EasyPermissions.requestPermissions(this,getString(R.string.you_not_allow_location),RC_LOCATION,perms);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        myLocation = new LatLng(10.7733, 106.6594); // Default BKHCM
-
-        // Retrieve location and camera position from saved instance state.
-        if (savedInstanceState != null) {
-            mLastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-        }
-
-        setContentView(R.layout.activity_maps);
-
-        fabCurrentLocation = (FloatingActionButton) findViewById(R.id.fabCurrentLocation);
-        fabBack = (FloatingActionButton) findViewById(R.id.fabBack);
-        fragment_map_add_address =  findViewById(R.id.fragment_map_add_address);
-        tvAddress = (TextView) fragment_map_add_address.findViewById(R.id.tvAddress);
-        btnSelect = (Button) fragment_map_add_address.findViewById(R.id.btnSelect);
-
-        // Construct a FusedLocationProviderClient.
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
-        getLocationPermission();
-
-        // Build the map.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        EasyPermissions.requestPermissions(this,getString(R.string.you_not_allow_location),RC_LOCATION,perms);
     }
 
     @Override
@@ -161,7 +180,7 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
                         addresses = geocoder.getFromLocation(myLocation.latitude, myLocation.longitude, 1);
                         final String address = addresses.get(0).getAddressLine(0);
                         tvAddress.setText(address);
-                        btnSelect.setOnClickListener(new View.OnClickListener() {
+                        btnContiue.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent();
@@ -181,5 +200,46 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage());
         }
+    }
+
+    private void bottomSheet(){
+        sheetBehaviorAdd.setHideable(false);
+        sheetBehaviorSearch.setHideable(false);
+        layoutAddAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sheetBehaviorAdd.setHideable(true);
+                sheetBehaviorAdd.setState(BottomSheetBehavior.STATE_HIDDEN);
+                numOfPressBack += 1;
+            }
+        });
+
+        edtSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                sheetBehaviorSearch.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
+        sheetBehaviorSearch.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int i) {
+                switch (i) {
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        fabBack.hide();
+                        fabCurrentLocation.hide();
+                        break;
+                    case BottomSheetBehavior.STATE_COLLAPSED:
+                        fabBack.show();
+                        fabCurrentLocation.show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+
+            }
+        });
     }
 }

@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/rcvCompletedJob"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp" />
@@ -19,14 +19,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-            android:gravity="center"
-            android:textSize="@dimen/text_size_14"
-            android:fontFamily="@font/roboto"
-            android:layout_marginTop="36dp"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/txtEmpty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                android:text="@string/job_list_empty"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_14"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="36dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/tvEmptyLstJobCompleted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </RelativeLayout>
 
     </FrameLayout>

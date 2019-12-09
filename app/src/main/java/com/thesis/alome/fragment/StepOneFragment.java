@@ -90,6 +90,7 @@ public class StepOneFragment extends Fragment  implements FragmentLifecycle {
             @Override
             public void onChanged(@Nullable String s) {
                 edtPhone.setText(s);
+                edtPhone.setSelection(edtPhone.getText().length());
             }
         });
         model.getAddress().observe(getActivity(), new Observer<String>() {

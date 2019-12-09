@@ -21,8 +21,6 @@ public class DateTime {
         int m = calendar.get(Calendar.MINUTE);
 
         int i = 6;
-
-
         for (; i<=20;i++){
             hourList.add(i + ":00" );
             hourList.add(i + ":30");
