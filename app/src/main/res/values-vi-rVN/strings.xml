@@ -108,6 +108,8 @@
     <string name="contact_success">Liên hệ thành công</string>
     <string name="expired">Hết hạn</string>
     <string name="completed">Đã hoàn thành</string>
+    <string name="confirmation_completed">Xác nhận hoàn thành</string>
+
 
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">Vui lòng kiểm tra kết nối internet của bạn</string>
@@ -167,5 +169,10 @@
     <string name="not_select_more_than_1">Bạn không thể chọn nhiều hơn 1 ảnh</string>
     <string name="not_select_more_than_5">Bạn không thể chọn nhiều hơn 5 ảnh</string>
     <string name="edit_profile">Chỉnh sửa tài khoản</string>
+    <string name="select_type_of_job">Chọn loại công việc</string>
+    <string name="unfinished">Chưa xong</string>
+    <string name="txt_confirmation_job">Thợ sửa đã xác nhận hoàn thành công việc. Kết quả công việc có thực sự như bạn mong muốn ?</string>
+
+
 
 </resources>

@@ -1,46 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/filterWrapper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp" />
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_bg"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="@string/all"
+                    android:id="@+id/filterJobs"
+                    android:textSize="@dimen/text_size_14"
+                    android:textColor="@color/orange_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"/>
+                <ImageView
+                    android:src="@drawable/ic_arrow_drop_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
-        <RelativeLayout
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/shape_empty_list_view"
-            android:visibility="gone"
-            android:orientation="vertical"
-            android:id="@+id/viewEmptyWrapper"
+        </LinearLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:gravity="center"
-                android:textSize="@dimen/text_size_14"
-                android:fontFamily="@font/roboto"
-                android:layout_marginTop="36dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/txtEmpty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp" />
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:id="@+id/viewEmptyWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_14"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginTop="36dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/txtEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-    </FrameLayout>
+            </RelativeLayout>
+
+        </FrameLayout>
+    </LinearLayout>
 
 
 </android.support.v4.widget.SwipeRefreshLayout>

@@ -560,40 +560,58 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/wrapperReview"
-                android:gravity="center"
+                android:id="@+id/wrapperCompletedConfirm"
+                android:background="#00b14f"
                 android:orientation="vertical"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/shape_wrapper_review"
-                android:padding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <TextView
+                    android:layout_marginTop="@dimen/padding_8"
+                    android:textColor="@color/white"
                     android:lineHeight="20dp"
                     android:textSize="@dimen/text_size_16"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-                    android:text="@string/txt_review_job_done"
-                    android:textColor="@color/white"
                     android:maxLines="5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <Button
-                    android:layout_gravity="center"
-                    android:minHeight="0dp"
-                    android:id="@+id/btnReview"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/shape_btn_review"
-                    android:text="@string/review_now"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_12"
-                    android:fontFamily="@font/roboto"
-                    android:layout_width="wrap_content"
+                    android:text="@string/txt_confirmation_job"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <LinearLayout
+                    android:visibility="visible"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnCompleted"
+                        android:layout_marginLeft="36dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/shape_btn_access"
+                        android:layout_weight="1"
+                        android:text="@string/completed"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12"
+                        android:fontFamily="@font/roboto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:id="@+id/btnNotDone"
+                        android:layout_marginRight="36dp"
+                        android:layout_marginLeft="8dp"
+                        android:background="@drawable/shape_btn_refuse"
+                        android:layout_weight="1"
+                        android:text="@string/unfinished"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12"
+                        android:fontFamily="@font/roboto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
 
 

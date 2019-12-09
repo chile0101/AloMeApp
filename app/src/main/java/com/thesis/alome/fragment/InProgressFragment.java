@@ -1,5 +1,7 @@
 package com.thesis.alome.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 import com.ethanhua.skeleton.Skeleton;
 import com.ethanhua.skeleton.SkeletonScreen;
 import com.thesis.alome.R;
+import com.thesis.alome.activity.FilterJobsActivity;
 import com.thesis.alome.adapter.JobListRcvAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
@@ -25,7 +29,6 @@ import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.Job;
 import com.thesis.alome.model.RespBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -40,6 +43,11 @@ public class InProgressFragment extends Fragment {
     @BindView(R.id.viewEmptyWrapper) RelativeLayout viewEmptyWrapper;
     @BindView(R.id.txtEmpty) TextView txtEmpty;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
+    @BindView(R.id.filterJobs) TextView filterJobs;
+    @BindView(R.id.filterWrapper) LinearLayout filterWrapper;
+    private Integer typeJobValue = 0;
+    private String typeJobName;
+
     List<Job> jobList;
     JobListRcvAdapter adapter;
 
@@ -55,6 +63,15 @@ public class InProgressFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // spinner filter jobs
+        filterJobs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FilterJobsActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });
+
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -69,6 +86,20 @@ public class InProgressFragment extends Fragment {
     public void onResume() {
         super.onResume();
         callApi();
+        Toast.makeText(getActivity(), "" + typeJobValue, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                typeJobValue = data.getIntExtra("typeJobValue",0);
+                typeJobName = data.getStringExtra("typeJobName");
+                filterJobs.setText(typeJobName);
+            }
+        }
     }
 
     private void callApi() {
@@ -80,6 +111,7 @@ public class InProgressFragment extends Fragment {
                 if(response.body()!=null && response.body().getStatus()){
                     jobList = response.body().getData();
                     if(jobList.isEmpty()){
+                        filterWrapper.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
                         viewEmptyWrapper.setVisibility(View.VISIBLE);
                         txtEmpty.setText(getString(R.string.job_list_empty));

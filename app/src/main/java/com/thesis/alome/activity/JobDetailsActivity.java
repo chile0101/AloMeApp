@@ -49,6 +49,8 @@ public class JobDetailsActivity extends BaseActivity  {
     @BindView(R.id.btnAccept) Button btnAccept;
     @BindView(R.id.btnRefuse) Button btnRefuse;
     @BindView(R.id.layoutProvider) ConstraintLayout layoutProvider;
+    @BindView(R.id.btnCompleted ) Button btnCompleted;
+    @BindView(R.id.btnNotDone) Button btnNotDone;
 
     //Provider
     @BindView(R.id.imgAvatar) ImageView imgAvatar;
@@ -65,7 +67,7 @@ public class JobDetailsActivity extends BaseActivity  {
     @BindView(R.id.wrapperPrice) LinearLayout wrapperPrice;
     @BindView(R.id.wrapperBtn) LinearLayout wrapperBtn;
     @BindView(R.id.wrapperSuccess) LinearLayout wrapperSuccess;
-    @BindView(R.id.wrapperReview) LinearLayout wrapperReview;
+    @BindView(R.id.wrapperCompletedConfirm) LinearLayout wrapperCompletedConfirm;
 //    private Integer providerId;
     private Long customerRequestId;
     private Integer jobStatus;
@@ -265,10 +267,29 @@ public class JobDetailsActivity extends BaseActivity  {
                     }
                 });
                 break;
-            case 400:
-                btnStatus.setText(getString(R.string.expired));
+            case 401:
+                btnStatus.setText(getString(R.string.confirmation_completed));
                 btnStatus.setTextColor(ContextCompat.getColor(this,R.color.dark_transparent));
                 btnStatus.setBackground(ContextCompat.getDrawable(this,R.drawable.shape_btn_job_status_expired));
+
+                wrapperCompletedConfirm.setVisibility(View.VISIBLE);
+                btnCompleted.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                            Intent intent = new Intent(JobDetailsActivity.this,JobDetailsCompletedActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.putExtra("customerRequestId",customerRequestId.toString());
+                            intent.putExtra("status",400+"");
+                            startActivity(intent);
+                    }
+                });
+                btnNotDone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
                 break;
             default:
                 btnStatus.setVisibility(View.GONE);

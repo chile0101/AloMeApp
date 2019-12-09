@@ -2,8 +2,10 @@ package com.thesis.alome.adapter;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,21 +29,21 @@ public class AddressListRcvAdapter extends RecyclerView.Adapter<AddressListRcvAd
 
 
     private List<Address> addressList;
-    private final LayoutInflater mInflater;
+    private Context context;
     private AddressViewModel addressViewModel;
     private RadioButton lastCheckedRB = null;
     public Address addressSelected = null;
 
 
     public AddressListRcvAdapter(Context context, AddressViewModel addressViewModel) {
-        mInflater = LayoutInflater.from(context);
+        this.context = context;
         this.addressViewModel = addressViewModel;
-
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        LayoutInflater  mInflater = LayoutInflater.from(context);
         View itemView = mInflater.inflate(R.layout.item_address_list_type_address,viewGroup,false);
         return new ViewHolder(itemView);
     }

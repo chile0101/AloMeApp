@@ -18,12 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.ProfileActivity"/>
+            android:name=".activity.FilterJobsActivity"
+            android:label="@string/title_activity_filter_jobs"></activity>
+        <activity android:name=".activity.ProfileActivity" />
         <activity
             android:name=".activity.LaunchActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -56,7 +59,7 @@
         <activity
             android:name=".activity.LandingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/FullScreen"></activity>
+            android:theme="@style/FullScreen" />
         <activity android:name=".activity.SignInSignUpActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.LoadMoreServices" />

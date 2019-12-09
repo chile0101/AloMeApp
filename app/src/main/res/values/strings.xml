@@ -174,8 +174,7 @@
     <string name="activate">Service list</string>
     <string name="my_activate">Service list</string>
     <string name="services">Services</string>
-    <string name="all">More</string>
-
+    
     <string name="appointment_date">Appointment Date</string>
 
     <string name="sent_request">Sent Request</string>
@@ -183,6 +182,8 @@
     <string name="contact_success">Contact success</string>
     <string name="expired">Expired</string>
     <string name="completed">Completed</string>
+    <string name="all">All</string>
+    <string name="confirmation_completed">Confirmation completed</string>
 
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">It can not work Check your network connection,\n then press the button to try again.</string>
@@ -243,5 +244,9 @@
     <string name="not_select_more_than_1">You may not select more than 1 photo</string>
     <string name="not_select_more_than_5">You may not select more than 5 photo</string>
     <string name="edit_profile">Edit profile</string>
+    <string name="title_activity_filter_jobs">FilterJobsActivity</string>
+    <string name="select_type_of_job">Select type of job</string>
+    <string name="unfinished">Unfinished</string>
+    <string name="txt_confirmation_job">The repairman has confirmed the work has been completed. Are the results really as expected?</string>
 
 </resources>
