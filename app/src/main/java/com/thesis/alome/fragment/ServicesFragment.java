@@ -1,19 +1,14 @@
 package com.thesis.alome.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +19,6 @@ import com.ethanhua.skeleton.SkeletonScreen;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
 import com.thesis.alome.activity.StepActivity;
-import com.thesis.alome.adapter.MainRecycleAdapter;
 import com.thesis.alome.adapter.SnapAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
@@ -32,7 +26,6 @@ import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.model.ServiceType;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,14 +73,12 @@ public class ServicesFragment extends Fragment {
             }
         });
 
-
         if (savedInstanceState == null) {
             mHorizontal = true;
         } else {
             mHorizontal = savedInstanceState.getBoolean(ORIENTATION);
         }
         if(serviceTypes == null) {
-            setupAdapter();
             callApi();
         } else {
             //there is already data? screen must be rotating or tab switching
@@ -96,6 +87,21 @@ public class ServicesFragment extends Fragment {
                 mRecyclerView.setAdapter(snapAdapter);
             }
         }
+
+        fabRequestNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), StepActivity.class);
+                intent.putExtra("Uniqid","From_Activity_Main");
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void callApi(){
+        serviceTypes = new ArrayList<>();
+        snapAdapter = new SnapAdapter(getActivity());
+        mRecyclerView.setAdapter(snapAdapter);
 
         //skeleton
         final SkeletonScreen skeletonScreen = Skeleton.bind(mRecyclerView)
@@ -114,23 +120,6 @@ public class ServicesFragment extends Fragment {
             }
         }, 3000);
 
-        fabRequestNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), StepActivity.class);
-                intent.putExtra("Uniqid","From_Activity_Main");
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void setupAdapter() {
-        serviceTypes =new ArrayList<>();
-        snapAdapter = new SnapAdapter(getActivity());
-        mRecyclerView.setAdapter(snapAdapter);
-    }
-
-    private void callApi(){
         ApiClient.getClient(getActivity()).create(ApiServices.class).getMainData().enqueue(new Callback<RespBase<List<ServiceType>>>() {
             @Override
             public void onResponse(Call<RespBase<List<ServiceType>>> call, Response<RespBase<List<ServiceType>>> response) {
@@ -140,12 +129,14 @@ public class ServicesFragment extends Fragment {
                         snapAdapter.addSnap(serviceType);
                         mRecyclerView.setAdapter(snapAdapter);
                     }
+                }else {
+                    Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<RespBase<List<ServiceType>>> call, Throwable t) {
-
+                Toast.makeText(getActivity(), getString(R.string.please_check_the_internet), Toast.LENGTH_SHORT).show();
             }
         });
     }
