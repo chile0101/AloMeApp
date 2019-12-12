@@ -272,23 +272,32 @@ public class JobDetailsActivity extends BaseActivity  {
                 btnStatus.setTextColor(ContextCompat.getColor(this,R.color.dark_transparent));
                 btnStatus.setBackground(ContextCompat.getDrawable(this,R.drawable.shape_btn_job_status_expired));
 
+
                 wrapperCompletedConfirm.setVisibility(View.VISIBLE);
                 btnCompleted.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                            Intent intent = new Intent(JobDetailsActivity.this,JobDetailsCompletedActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                            intent.putExtra("customerRequestId",customerRequestId.toString());
-                            intent.putExtra("status",400+"");
-                            startActivity(intent);
-                    }
-                });
-                btnNotDone.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                        Call<RespBase<Provider>> confirmCompleted = apiServices.acceptProvider(PrefUtils.getId(getApplicationContext()),
+                                customerRequestId,400,
+                                PrefUtils.getApiKey(getApplicationContext()));
+                        confirmCompleted.enqueue(new Callback<RespBase<Provider>>() {
+                            @Override
+                            public void onResponse(Call<RespBase<Provider>> call, Response<RespBase<Provider>> response) {
+                                Intent intent = new Intent(JobDetailsActivity.this,JobDetailsCompletedActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.putExtra("customerRequestId",customerRequestId.toString());
+                                intent.putExtra("status",400+"");
+                                startActivity(intent);
+                            }
 
+                            @Override
+                            public void onFailure(Call<RespBase<Provider>> call, Throwable t) {
+
+                            }
+                        });
                     }
                 });
+
 
                 break;
             default:

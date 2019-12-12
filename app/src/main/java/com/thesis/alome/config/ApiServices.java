@@ -77,7 +77,9 @@ public interface ApiServices {
     Call<RespBase<List<Provider>>> getProviderNearMe(@Path("id") long serviceId,
                                                      @Query("access_token") String accessToken);
     @GET("customers/{id}/request")
-    Call<RespBase<List<Job>>> getJobsInProgress(@Path("id") long userId, @Query("access_token") String accessToken,@Query("status") int typeJob);
+    Call<RespBase<List<Job>>> getJobsInProgress(@Path("id") long userId,
+                                                @Query("access_token") String accessToken,
+                                                @Query("status") Integer typeJob);
 
     @GET("customers/{id}/rating/{providerId}")
     Call<RespBase<List<RatingForProvider>>> getRatingsOfProvider(@Path("id") Long customerId,

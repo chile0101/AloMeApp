@@ -70,19 +70,29 @@ public class BottomSheetAddAddress extends BottomSheetDialogFragment {
         String address = stepViewModel.getAddress().getValue();
         String[] addressSlices = address.split(",",6);
         int len = addressSlices.length;
-
-        if( addressSlices[len-2] != null){
+        if(len == 5){
             edtProvince.setText(addressSlices[len-2]);
-        }
-        if(addressSlices[len-3] != null){
             edtDistricArea.setText(addressSlices[len-3]);
-        }
-        if(addressSlices[len-4] != null){
             edtWard.setText(addressSlices[len-4]);
-        }
-        if(addressSlices[len-5] != null){
             edtAlleyRoad.setText(addressSlices[len-5]);
+
+        }else if(len == 6){
+            edtProvince.setText(addressSlices[len-1]);
+            edtDistricArea.setText(addressSlices[len-2]);
+            edtWard.setText(addressSlices[len-3]);
+            edtAlleyRoad.setText(addressSlices[len-4]);
+        }else if(len == 4){
+            edtProvince.setText(addressSlices[len-1]);
+            edtDistricArea.setText(addressSlices[len-2]);
+            edtWard.setText(addressSlices[len-3]);
+            edtAlleyRoad.setText(addressSlices[len-4]);
+        }else if(len == 3){
+            edtProvince.setText(addressSlices[len-1]);
+            edtDistricArea.setText(addressSlices[len-2]);
+            edtWard.setText(addressSlices[len-3]);
         }
+
+
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override

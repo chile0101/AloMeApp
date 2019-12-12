@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8"
-            android:text="บ้านลูกค้าอยู่ที่ไหน"
+            android:text="@string/search"
             android:fontFamily="@font/roboto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivHamburger"/>
@@ -59,7 +59,6 @@
                 android:background="@null"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="ค้นหาที่อยู่ลูกค้า"
                 android:layout_weight="1"
                 android:inputType="text"
                 android:fontFamily="@font/roboto"
@@ -67,7 +66,7 @@
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rcvSearchLocation"
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

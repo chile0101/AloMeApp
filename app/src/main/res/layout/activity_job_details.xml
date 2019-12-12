@@ -560,6 +560,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/wrapperCompletedConfirm"
                 android:background="#00b14f"
                 android:orientation="vertical"
@@ -598,6 +599,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" />
                     <Button
+                        android:visibility="gone"
                         android:id="@+id/btnNotDone"
                         android:layout_marginRight="36dp"
                         android:layout_marginLeft="8dp"

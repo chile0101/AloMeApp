@@ -62,7 +62,7 @@ public class SignUpFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!Places.isInitialized()) {
-                    Places.initialize(getContext().getApplicationContext(), "AIzaSyBZvQYrEyGrCAIhE5D3M1BZFuBHkZ5IowI");
+                    Places.initialize(getContext().getApplicationContext(), getString(R.string.google_maps_key_active));
                 }
 
                 // Set the fields to specify which types of place data to return.

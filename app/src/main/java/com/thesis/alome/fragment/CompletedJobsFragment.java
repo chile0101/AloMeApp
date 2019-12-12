@@ -34,6 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CompletedJobsFragment extends Fragment {
+    private static final Integer TYPE_JOB_COMPLETED_TAG = 400;
     private static final String TAG = "inCompleted";
     @BindView(R.id.rcvCompletedJob) RecyclerView recyclerView;
     @BindView(R.id.viewEmptyWrapper) RelativeLayout viewEmptyWrapper;
@@ -52,7 +53,7 @@ public class CompletedJobsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ApiServices apiServices = ApiClient.getClient(getActivity()).create(ApiServices.class);
-        Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()), PrefUtils.getApiKey(getActivity()), 1);
+        Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()), PrefUtils.getApiKey(getActivity()), TYPE_JOB_COMPLETED_TAG);
         call.enqueue(new Callback<RespBase<List<Job>>>() {
             @Override
             public void onResponse(Call<RespBase<List<Job>>> call, Response<RespBase<List<Job>>> response) {

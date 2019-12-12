@@ -45,7 +45,7 @@ public class InProgressFragment extends Fragment {
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
     @BindView(R.id.filterJobs) TextView filterJobs;
     @BindView(R.id.filterWrapper) LinearLayout filterWrapper;
-    private Integer typeJobValue = 0;
+    private Integer typeJobValue ;
     private String typeJobName;
 
     List<Job> jobList;
@@ -96,6 +96,9 @@ public class InProgressFragment extends Fragment {
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
                 typeJobValue = data.getIntExtra("typeJobValue",0);
+                if(typeJobValue == 0){
+                    typeJobValue = null;
+                }
                 typeJobName = data.getStringExtra("typeJobName");
                 filterJobs.setText(typeJobName);
             }
@@ -104,39 +107,44 @@ public class InProgressFragment extends Fragment {
 
     private void callApi() {
         ApiServices apiServices = ApiClient.getClient(getActivity()).create(ApiServices.class);
-        Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()),PrefUtils.getApiKey(getActivity()),0);
+        Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()),
+                                                                PrefUtils.getApiKey(getActivity()),
+                                                                typeJobValue);
         call.enqueue(new Callback<RespBase<List<Job>>>() {
             @Override
             public void onResponse(Call<RespBase<List<Job>>> call, Response<RespBase<List<Job>>> response) {
                 if(response.body()!=null && response.body().getStatus()){
                     jobList = response.body().getData();
                     if(jobList.isEmpty()){
-                        filterWrapper.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
                         viewEmptyWrapper.setVisibility(View.VISIBLE);
                         txtEmpty.setText(getString(R.string.job_list_empty));
+                    }else{
+                        recyclerView.setVisibility(View.VISIBLE);
+                        viewEmptyWrapper.setVisibility(View.GONE);
+
+                        adapter = new JobListRcvAdapter(jobList,getActivity(),TAG);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        recyclerView.setItemAnimator(new DefaultItemAnimator());
+                        recyclerView.setAdapter(adapter);
+
+                        final SkeletonScreen skeletonScreen = Skeleton.bind(recyclerView)
+                                .adapter(adapter)
+                                .shimmer(true)
+                                .angle(20)
+                                .frozen(false)
+                                .duration(1200)
+                                .count(10)
+                                .load(R.layout.item_job_skeleton)
+                                .show();
+
+                        recyclerView.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                skeletonScreen.hide();
+                            }
+                        }, 500);
                     }
-                    adapter = new JobListRcvAdapter(jobList,getActivity(),TAG);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    recyclerView.setItemAnimator(new DefaultItemAnimator());
-                    recyclerView.setAdapter(adapter);
-
-                    final SkeletonScreen skeletonScreen = Skeleton.bind(recyclerView)
-                            .adapter(adapter)
-                            .shimmer(true)
-                            .angle(20)
-                            .frozen(false)
-                            .duration(1200)
-                            .count(10)
-                            .load(R.layout.item_job_skeleton)
-                            .show();
-
-                    recyclerView.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            skeletonScreen.hide();
-                        }
-                    }, 500);
                 }else {
                     Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
                 }
