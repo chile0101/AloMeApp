@@ -31,11 +31,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
         android:fontFamily="@font/roboto_medium"
-        android:paddingLeft="@dimen/_12sdp"
-        android:paddingTop="@dimen/_12sdp"
-        android:paddingRight="@dimen/_12sdp"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
         android:textColor="@color/black_color"
-        android:textSize="@dimen/_16ssp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/wrapperPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -59,10 +59,10 @@
             android:id="@+id/tvFullPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginEnd="6dp"
             android:fontFamily="@font/roboto"
             android:textColor="@color/dark_gray_color"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/tvSalePrice"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/_16ssp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <android.support.constraint.Guideline
@@ -107,8 +107,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.4dp"
-                android:layout_marginLeft="@dimen/_12sdp"
-                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:background="#CCC" />
 
             <include

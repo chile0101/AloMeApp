@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/browser_actions_bg_grey"
+        android:backgroundTint="@color/white"
         android:clickable="true"
         android:padding="0dp"
         android:scaleType="center"

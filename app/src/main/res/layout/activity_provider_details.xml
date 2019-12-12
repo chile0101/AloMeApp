@@ -73,7 +73,7 @@
         <View
             android:id="@+id/view"
             android:layout_width="585dp"
-            android:layout_height="@dimen/_1sdp"
+            android:layout_height="2dp"
             android:layout_weight="1"
             android:background="@drawable/available_date_time_recycler_view_divider" />
 
@@ -91,7 +91,7 @@
         <View
             android:id="@+id/view1"
             android:layout_width="585dp"
-            android:layout_height="@dimen/_1sdp"
+            android:layout_height="2dp"
             android:layout_weight="1"
             android:background="@drawable/available_date_time_recycler_view_divider" />
 

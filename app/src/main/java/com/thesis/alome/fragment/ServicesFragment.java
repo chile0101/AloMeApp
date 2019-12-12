@@ -61,6 +61,7 @@ public class ServicesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         fabRequestNow = view.findViewById(R.id.fabRequestNow);
+        fabRequestNow.bringToFront();
         swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);

@@ -18,7 +18,7 @@
         android:fontFamily="@font/roboto"
         android:text="AloMe"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/_30ssp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -104,15 +104,15 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/divider_line_in_landing" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_8sdp"
-                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
                 android:fontFamily="@font/roboto"
                 android:text="@string/or"
                 android:textColor="@color/sign_in_sign_up_btn_stroke_color"
@@ -120,7 +120,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
+                android:layout_height="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/divider_line_in_landing" />
         </LinearLayout>

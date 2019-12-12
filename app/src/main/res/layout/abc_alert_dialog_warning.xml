@@ -64,7 +64,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="36dp"
-        android:padding="@dimen/_8sdp"
+        android:padding="12dp"
         android:textSize="@dimen/text_size_16"
         android:textColor="#ff000000"
         android:layout_centerHorizontal="true"

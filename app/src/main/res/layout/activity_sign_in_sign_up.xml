@@ -9,8 +9,8 @@
 
 
     <ImageView
-        android:layout_width="@dimen/_112sdp"
-        android:layout_height="@dimen/_112sdp"
+        android:layout_width="148dp"
+        android:layout_height="148dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_launcher_full"
         app:layout_constraintBottom_toTopOf="@+id/tabLayout"

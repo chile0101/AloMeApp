@@ -65,21 +65,21 @@
             android:id="@+id/btnMyLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:background="@drawable/transparent_btn_selector"
             android:fontFamily="@font/roboto"
             android:gravity="center"
             android:text="@string/my_location"
             android:textColor="@color/black_color"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="8sp" />
 
         <Button
             android:id="@+id/btnAddAddress"
             android:text="@string/add_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_marginLeft="8dp"
             android:layout_weight="1"
             android:background="@drawable/transparent_btn_selector"
             android:fontFamily="@font/roboto"
@@ -87,7 +87,7 @@
 
 
             android:textColor="@color/orange_color"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="8sp" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layoutAddAddress" />
 
     <Button
-        android:padding="@dimen/_8ssp"
+        android:padding="6sp"
         android:id="@+id/btnSelect"
         style="@style/OrangeButtonMatchParentStyle"
         android:layout_below="@+id/addressListRcv"

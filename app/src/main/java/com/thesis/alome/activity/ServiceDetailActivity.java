@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
@@ -66,26 +67,36 @@ public class ServiceDetailActivity extends BaseActivity
         call.enqueue(new Callback<RespBase<Service>>() {
             @Override
             public void onResponse(Call<RespBase<Service>> call, Response<RespBase<Service>> response) {
-                url_maps = new HashMap<String, String>();
-                url_maps.put("img1", response.body().getData().getImgUrls().getImgUrl1());
-                url_maps.put("img2", response.body().getData().getImgUrls().getImgUrl2());
-                url_maps.put("img3", response.body().getData().getImgUrls().getImgUrl3());
-                for(String name: url_maps.keySet()) {
-                    DefaultSliderView textSliderView = new DefaultSliderView(getApplicationContext());
-                    textSliderView
-                            .image(url_maps.get(name))
-                            .setScaleType(BaseSliderView.ScaleType.Fit)
-                            .setPicasso(Picasso.get());
-                    sliderLayout.addSlider(textSliderView);
-                }
-                tvTitle.setText(response.body().getData().getServiceName());
-                tvFullPrice.setText("$" + response.body().getData().getFullPrice());
-                tvFullPrice.setPaintFlags(tvFullPrice.getPaintFlags()
-                        | Paint.STRIKE_THRU_TEXT_FLAG);
-                tvSalePrice.setText("$" + response.body().getData().getSalePrice());
-                tvContentDetail.setText(response.body().getData().getDescription());
-                tvContentTerm.setText(response.body().getData().getTerm());
+                if(response.body() != null && response.body().getStatus()){
+                    url_maps = new HashMap<String, String>();
+                    url_maps.put("img1", response.body().getData().getImgUrls().getImgUrl1());
+                    url_maps.put("img2", response.body().getData().getImgUrls().getImgUrl2());
+                    url_maps.put("img3", response.body().getData().getImgUrls().getImgUrl3());
 
+
+
+                    for(String name: url_maps.keySet()) {
+                        DefaultSliderView textSliderView = new DefaultSliderView(getApplicationContext());
+                        textSliderView
+                                .description(name)
+                                .image(url_maps.get(name))
+                                .setScaleType(BaseSliderView.ScaleType.Fit)
+                                .setPicasso(Picasso.get());
+                        sliderLayout.addSlider(textSliderView);
+                    }
+                    sliderLayout.setPresetTransformer(SliderLayout.Transformer.Accordion);
+                    sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+                    sliderLayout.setCustomAnimation(new DescriptionAnimation());
+                    sliderLayout.setDuration(4000);
+
+                    tvTitle.setText(response.body().getData().getServiceName());
+                    tvFullPrice.setText("$" + response.body().getData().getFullPrice());
+                    tvFullPrice.setPaintFlags(tvFullPrice.getPaintFlags()
+                            | Paint.STRIKE_THRU_TEXT_FLAG);
+                    tvSalePrice.setText("$" + response.body().getData().getSalePrice());
+                    tvContentDetail.setText(response.body().getData().getDescription());
+                    tvContentTerm.setText(response.body().getData().getTerm());
+                }
             }
 
             @Override
@@ -136,13 +147,17 @@ public class ServiceDetailActivity extends BaseActivity
 
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-    @Override
-    public void onPageSelected(int position) {
-        Log.d("Slider Demo", "Page Changed: " + position);
     }
 
     @Override
-    public void onPageScrollStateChanged(int state) {}
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
 }

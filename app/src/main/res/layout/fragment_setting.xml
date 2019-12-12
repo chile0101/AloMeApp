@@ -45,7 +45,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
+        android:layout_height="2dp"
         android:background="@drawable/available_date_time_recycler_view_divider" />
 
 
@@ -84,7 +84,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
+        android:layout_height="2dp"
         android:background="@drawable/available_date_time_recycler_view_divider" />
 
     <LinearLayout
@@ -123,7 +123,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
+        android:layout_height="2dp"
         android:background="@drawable/available_date_time_recycler_view_divider" />
 
 

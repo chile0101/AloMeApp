@@ -58,7 +58,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="20dp"
-        android:padding="@dimen/_8sdp"
+        android:padding="12dp"
         android:textSize="14sp"
         android:textColor="#ff000000"
         android:layout_centerHorizontal="true"
@@ -77,7 +77,7 @@
             android:text="ok"
             android:fontFamily="@font/roboto"
             android:id="@+id/btn_dialog"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:background="@drawable/shape_btn_ok"
             android:textColor="@color/white" />
     </LinearLayout>
