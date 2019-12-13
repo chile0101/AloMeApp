@@ -118,7 +118,6 @@ public class InProgressFragment extends Fragment {
                     if(jobList.isEmpty()){
                         recyclerView.setVisibility(View.GONE);
                         viewEmptyWrapper.setVisibility(View.VISIBLE);
-                        txtEmpty.setText(getString(R.string.job_list_empty));
                     }else{
                         recyclerView.setVisibility(View.VISIBLE);
                         viewEmptyWrapper.setVisibility(View.GONE);
