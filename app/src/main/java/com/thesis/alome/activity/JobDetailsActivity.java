@@ -152,23 +152,9 @@ public class JobDetailsActivity extends BaseActivity  {
                             txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
 
-                            Double priceD = provider.getPrice().doubleValue();
-                            Long priceL = Math.round(priceD);
-                            String priceStr = priceL.toString();
-                            StringBuilder result = new StringBuilder();
-                            int len = priceStr.length();
-                            for(int i = len-1 ; i >= 0 ;i--) {
-
-                                if(i!= len-1 && (len-1-i)%3 == 0) {
-                                    result.append('.');
-                                }
-                                result.append(priceStr.charAt(i));
-
-                            }
-                            result = result.reverse();
-                            tvPrice.setText(result + " " + getString(R.string.vnd) + "/" + getString(R.string.hour));
-
+                            tvPrice.setText(separeteByDot(provider.getPrice()) + " " + getString(R.string.vnd) + "/" + getString(R.string.hour));
                             promiseOfProvider.setText(getString(R.string.estimated_time)+ " " + provider.getPromiseOfProvider() + " " + getString(R.string.hour));
+
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -259,8 +245,9 @@ public class JobDetailsActivity extends BaseActivity  {
                             ratingBar.setRating(provider.getNumOfStars());
                             txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
-                            tvPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
-                            promiseOfProvider.setText(getString(R.string.estimated_time) + provider.getPromiseOfProvider() + getString(R.string.hour));
+
+                            tvPrice.setText(separeteByDot(provider.getPrice()) + " " + getString(R.string.vnd) + "/" + getString(R.string.hour));
+                            promiseOfProvider.setText(getString(R.string.estimated_time)+ " " + provider.getPromiseOfProvider() + " " + getString(R.string.hour));
 
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -287,9 +274,9 @@ public class JobDetailsActivity extends BaseActivity  {
                 btnStatus.setText(getString(R.string.confirmation_completed));
                 btnStatus.setTextColor(ContextCompat.getColor(this,R.color.dark_transparent));
                 btnStatus.setBackground(ContextCompat.getDrawable(this,R.drawable.shape_btn_job_status_expired));
-
-
                 wrapperCompletedConfirm.setVisibility(View.VISIBLE);
+
+
                 btnCompleted.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -341,6 +328,22 @@ public class JobDetailsActivity extends BaseActivity  {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    private StringBuilder separeteByDot(Double priceD){
+        Long priceL = Math.round(priceD);
+        String priceStr = priceL.toString();
+        StringBuilder result = new StringBuilder();
+        int len = priceStr.length();
+        for(int i = len-1 ; i >= 0 ;i--) {
+
+            if(i!= len-1 && (len-1-i)%3 == 0) {
+                result.append('.');
+            }
+            result.append(priceStr.charAt(i));
+
+        }
+        return result.reverse();
     }
 
 }

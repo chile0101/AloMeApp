@@ -80,7 +80,6 @@
     <string name="validate_address">Vui lòng chọn địa chỉ</string>
     <string name="validate_desc">Cho chúng tôi thêm một ít thông tin nào</string>
     <string name="validate_images">Một vài ảnh mô tả để chúng tôi dễ nhận biết vấn đề của bạn</string>
-
     <string name="alo_now">AloNow</string>
     <string name="title_activity_provider_list">Nhà cung cấp gần bạn</string>
     <string name="addressEmpty">Vui lòng nhập địa chỉ của bạn</string>
@@ -93,28 +92,20 @@
     <string name="in_progress">Đã sắp lịch</string>
     <string name="complete_jobs">Đã hoàn thành</string>
     <string name="you_not_allow_location">Nếu bạn không cho phép sử dụng vị trí của thiết bị, nó sẽ không hoạt động chính xác. Bạn có muốn sử dụng vị trí thiết bị không ?</string>
-
-
-
     <string name="activate">Hoạt động</string>
     <string name="my_activate">Hoạt động của tôi</string>
     <string name="services">Dịch vụ</string>
     <string name="all">Tất cả</string>
-
     <string name="appointment_date">Ngày hẹn: </string>
-
     <string name="sent_request">Đã gửi yêu cầu</string>
     <string name="wait_for_confirmation">Chờ bạn xác nhận</string>
     <string name="contact_success">Liên hệ thành công</string>
     <string name="expired">Hết hạn</string>
     <string name="completed">Đã hoàn thành</string>
     <string name="confirmation_completed">Xác nhận hoàn thành</string>
-
-
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">Vui lòng kiểm tra kết nối internet của bạn</string>
     <string name="provider_information">Thông tin nhà cung cấp</string>
-
     <string name="provider_name">Tên</string>
     <string name="gender">Giới tính</string>
     <string name="male">Nam</string>
@@ -130,7 +121,6 @@
     <string name="txt_review_job_done">Công việc của bạn đã hoàn tất.\n Đừng quên đánh giá và để lại lời nhận xét.</string>
     <string name="job_current_unaccepted">Yêu cầu của bạn hiện tại chưa có ai chấp nhận</string>
     <string name="for_a_fee">Với mức phí</string>
-
     <string name="disappointed">Thất vọng</string>
     <string name="not_good">Chưa tốt</string>
     <string name="consent">Bằng lòng</string>
@@ -139,28 +129,23 @@
     <string name="send_comment">Gửi đánh giá</string>
     <string name="title_header_review_dialog">Chúng tôi luôn lắng nghe ý kiến của bạn</string>
     <string name="title_sub_review_dialog">Cảm nhận của bạn về thợ sữa chửa ?</string>
-
     <string name="setting">Cài đặt</string>
-
     <string name="infomation">Thông tin</string>
     <string name="review">Đánh giá</string>
     <string name="continue_text">Tiếp tục</string>
     <string name="time">Giờ hẹn</string>
     <string name="date">Ngày hẹn</string>
-
     <string name="description">Mô tả</string>
     <string name="excluding_fee">( Chưa bao gồm phí thay thế lắp đặt )</string>
     <string name="accept">Chấp nhận</string>
     <string name="refuse">Từ chối</string>
     <string name="review_now">Đánh giá ngay</string>
-
     <string name="txt_job_completed">Công việc này đã hoàn thành !</string>
     <string name="hour">giờ</string>
     <string name="review_list_empty">Chưa có đánh giá nào cho người thợ này</string>
     <string name="job_list_empty">Chưa có công việc nào</string>
     <string name="are_you_sure_delete_job">Bạn chắc chắn muốn xóa yêu cầu này ?</string>
     <string name="estimated_time">Thời gian ước lượng: </string>
-
     <string name="profile_page_name_text">Tên - Họ</string>
     <string name="profile_error_fullname">Vui lòng nhập họ tên.</string>
     <string name="profile_page_birthdate_text">Ngày sinh</string>
@@ -175,4 +160,44 @@
     <string name="search">Tìm kiếm</string>
     <string name="maximum_5_address">Chỉ được thêm tối đa 5 địa chỉ</string>
     <string name="vnd">đ</string>
+    <string name="about_us">Về chúng tôi</string>
+    <string name="help">Trợ giúp</string>
+    <string name="try_again">Thử lại</string>
+    <string name="no_image">Không có ảnh nào</string>
+    <string name="delete">Xóa</string>
+    <string name="policy">Chính sách</string>
+    <string name="terms">Kỳ hạn</string>
+    <string name="cancel">Xóa</string>
+    <string name="log_out">Đăng xuất</string>
+    <string name="send">Gửi</string>
+    <string name="share">Chia sẻ</string>
+    <string name="_or_">- hoặc -</string>
+    <string name="detail">Chi tiết</string>
+    <string name="close">Đóng</string>
+    <string name="confirm_new_password">Xác nhận mật khẩu mới</string>
+    <string name="current_password">Mật khẩu hiện tại</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="change_password">Thay đổi mật khẩu</string>
+    <string name="password_do_not_match">Mật khẩu không khớp</string>
+    <string name="password_is_incorrect">Mật khẩu chính xác</string>
+    <string name="password_must_be_at_least_6_characters">Mật khẩu ít nhất 6 ký tự</string>
+    <string name="please_enter_verification_code">Vui lòng nhập mã xác nhận.</string>
+    <string name="your_verification_code_is_invalidt">Mã xác nhận không hợp lệ.</string>
+    <string name="_add_address">+ Thêm địa chỉ</string>
+    <string name="add">Thêm</string>
+    <string name="verification_code">Mã xác nhận</string>
+    <string name="edit_map">Chỉnh sửa map</string>
+    <string name="house_no">Số nhà </string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="support_alome_net">support@alome.net</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="alome_net">Alome.net</string>
+    <string name="notifications">Notifications</string>
+    <string name="can_not_open_email">Không thể mở.</string>
+    <string name="contact_alome">Contact Alome</string>
+    <string name="about_us_page_copyright_text">Alome version %1$s\\10© 2019 Alome co.,Ltd Rights Reserved</string>
+    <string name="alome_app">AloMe App</string>
+    <string name="title_home">Home</string>
+
 </resources>

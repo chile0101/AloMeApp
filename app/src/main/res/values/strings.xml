@@ -1,60 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">AloMe</string>
     <string name="title_home">Home</string>
     <string name="title_booking_service">Add infomation</string>
-
     <string name="can_not_open_email">Can not open email.</string>
     <string name="contact_alome">Contact Alome</string>
     <string name="about_us_page_copyright_text">Alome version %1$s\\10© 2019 Alome co.,Ltd Rights Reserved</string>
     <string name="alome_app">AloMe App</string>
-
     <string name="terms_of_use">Terms of Use</string>
     <string name="rate_this_app">Rate this app</string>
     <string name="support_alome_net">support@alome.net</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="about">About</string>
     <string name="alome_net">Alome.net</string>
     <string name="notifications">Notifications</string>
-
     <string name="district_area">District/Area</string>
     <string name="edit_map">Edit map</string>
-    <string name="house_no_">House No </string>
-    <string name="house">House</string>
-    <string name="landmark">Landmark</string>
-
+    <string name="house_no">House No </string>
     <string name="province">Province</string>
     <string name="save">Save</string>
     <string name="add_address">Add Address</string>
-    <string name="please_enter_nearby_point">Please enter nearby point.</string>
-    <string name="please_enter_alley_road">Please enter alley/road.</string>
-    <string name="please_enter_distric_area">Please enter district/area.</string>
-    <string name="please_enter_house_no">Please enter house no.</string>
-
-    <string name="please_enter_province">Please enter province.</string>
-    <string name="village_building">Village/Building</string>
     <string name="add">Add</string>
     <string name="verification_code">Verification code</string>
-    <string name="add_account">Add account</string>
     <string name="please_enter_verification_code">Please enter verification code.</string>
     <string name="your_verification_code_is_invalidt">Your verification code is invalid.</string>
     <string name="_add_address">+ Add Address</string>
     <string name="address">Address</string>
-    <string name="condominium">Condominium</string>
-    <string name="office">Office</string>
-    <string name="etc">Etc.</string>
     <string name="select">Select</string>
     <string name="select_address">Select Address</string>
-    <string name="please_select_area_type">Please select area type</string>
-    <string name="authentication_failed">Authentication Failed.</string>
-
     <string name="available_date_page_title">Choose a Available Date</string>
     <string name="available_time_page_title">Choose a Available Time</string>
-    <string name="bank_page_select_btn">Select</string>
-    <string name="details">Details</string>
-    <string name="view_detail">View Detail</string>
-
     <string name="confirm_new_password">Comfirm New Password</string>
     <string name="current_password">Current Password</string>
     <string name="new_password">New Password</string>
@@ -62,9 +36,6 @@
     <string name="password_do_not_match">Password do not match</string>
     <string name="password_is_incorrect">Password is incorrect</string>
     <string name="password_must_be_at_least_6_characters">Password must be at least 6 characters</string>
-
-
-    <string name="loading...">Loading…</string>
     <string name="cancel">Cancel</string>
     <string name="log_out">Log out</string>
     <string name="send">Send</string>
@@ -80,26 +51,18 @@
     <string name="or">or</string>
     <string name="policy">Policy</string>
     <string name="terms">Terms</string>
-
     <string name="english">English</string>
     <string name="language">Language</string>
     <string name="login_failed">Login failed.</string>
-
     <string name="try_again">Try again</string>
     <string name="no_image">No Image</string>
     <string name="delete">Delete</string>
-
-
-    <string name="password_change_failed">Password change failed.</string>
-    <string name="password_change_no_verification_failed">Cannot reset password without registered/verified email or phone number</string>
     <string name="password_change_success">Password change succeeded.</string>
     <string name="password_length_validation_failed">Password should have 6 or more characters.</string>
     <string name="password_toggle_content_description">Show password</string>
-
     <string name="email">Email</string>
     <string name="confirn_password">Address</string>
     <string name="forgot_password">forgot password?</string>
-
     <string name="please_enter_your_email">Please enter your email.</string>
     <string name="please_enter_your_password">Please enter your password.</string>
     <string name="log_in">Log in</string>
@@ -116,15 +79,12 @@
     <string name="validate_password_text">Password must be at least 6 characters.</string>
     <string name="validate_pattern_email_text">Your email is invalid.</string>
     <string name="validate_pattern_phone_text">Your phone number is invalid.</string>
-
     <string name="slide_1_title">Clean Services</string>
     <string name="slide_2_title">Electronic Services</string>
     <string name="slide_3_title">Plumbing services</string>
     <string name="slide_1_desciption">It\'s easy, convenient and fast! You don\'t have to leave your house and don\'t need to ask anyone Just use AloMe</string>
-
     <string name="select_service">Select Service</string>
     <string name="service_list">Service list</string>
-
     <string name="more">More</string>
     <string name="service_detail">Service Details</string>
     <string name="addition_detail">Addition Detail</string>
@@ -136,7 +96,6 @@
     <string name="email_is_already_registered">Email is already registered</string>
     <string name="please_check_the_internet">Please check the internet</string>
     <string name="email_or_password_is_invalid">Email or password is invalid</string>
-
     <string name="welcome">Welcome, </string>
     <string name="term_of_service">Term of service</string>
     <string name="service_details">Service details</string>
@@ -161,7 +120,6 @@
     <string name="validate_address">Please enter address</string>
     <string name="validate_desc">Please enter some description</string>
     <string name="validate_images">Please enter some images</string>
-
     <string name="alo_now">AloNow</string>
     <string name="title_activity_provider_list">Providers near you</string>
     <string name="addressEmpty">Please enter your address</string>
@@ -170,13 +128,10 @@
     <string name="choose_type_service">Choose type service</string>
     <string name="in_progress">Fixing In Progress</string>
     <string name="complete_jobs">Complete Jobs</string>
-
     <string name="activate">Service list</string>
     <string name="my_activate">Service list</string>
     <string name="services">Services</string>
-    
     <string name="appointment_date">Appointment Date: </string>
-
     <string name="sent_request">Sent Request</string>
     <string name="wait_for_confirmation">Wait for confirmation</string>
     <string name="contact_success">Contact success</string>
@@ -184,11 +139,9 @@
     <string name="completed">Completed</string>
     <string name="all">All</string>
     <string name="confirmation_completed">Confirmation completed</string>
-
     <string name="somthing_wrong">Something Wrong</string>
     <string name="no_connection_title">It can not work Check your network connection,\n then press the button to try again.</string>
     <string name="provider_information">Provider information</string>
-
     <string name="provider_name">Name</string>
     <string name="gender">Gender</string>
     <string name="male">Male</string>
@@ -204,7 +157,6 @@
     <string name="txt_review_job_done">Your work is done. \n Don\'t forget to rate and leave a comment.</string>
     <string name="job_current_unaccepted">Your request is currently not accepted</string>
     <string name="for_a_fee">For a fee</string>
-
     <string name="disappointed">Disappointed</string>
     <string name="not_good">Not good</string>
     <string name="consent">Consent</string>
@@ -213,12 +165,9 @@
     <string name="send_comment">Send Comment</string>
     <string name="title_header_review_dialog">We are always happy to hear from you</string>
     <string name="title_sub_review_dialog">Your comments about the provider</string>
-
     <string name="setting">Setting</string>
-
     <string name="text_english" translatable="false">English</string>
     <string name="text_vietnamese" translatable="false">Tiếng Việt</string>
-
     <string name="infomation">Infomation</string>
     <string name="review">Review</string>
     <string name="continue_text">Continue</string>
@@ -244,12 +193,12 @@
     <string name="not_select_more_than_1">You may not select more than 1 photo</string>
     <string name="not_select_more_than_5">You may not select more than 5 photo</string>
     <string name="edit_profile">Edit profile</string>
-    <string name="title_activity_filter_jobs">FilterJobsActivity</string>
     <string name="select_type_of_job">Select type of job</string>
     <string name="unfinished">Unfinished</string>
     <string name="txt_confirmation_job">The repairman has confirmed the work has been completed. Are the results really as expected?</string>
     <string name="search">Search</string>
     <string name="maximum_5_address">Only a maximum of 5 addresses can be added</string>
     <string name="vnd">đ</string>
-
+    <string name="about_us">About us</string>
+    <string name="help">Help</string>
 </resources>

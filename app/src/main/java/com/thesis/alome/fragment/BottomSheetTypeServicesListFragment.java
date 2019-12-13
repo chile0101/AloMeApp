@@ -62,11 +62,13 @@ public class BottomSheetTypeServicesListFragment extends BottomSheetDialogFragme
         call.enqueue(new Callback<RespBase<List<ServiceType>>>() {
             @Override
             public void onResponse(Call<RespBase<List<ServiceType>>> call, Response<RespBase<List<ServiceType>>> response) {
-                typesList = response.body().getData();
-                adapter = new TypeListRcvAdapter(typesList, getActivity(), getDialog());
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(adapter);
+                if(response.body() != null && response.body().getStatus()){
+                    typesList = response.body().getData();
+                    adapter = new TypeListRcvAdapter(typesList, getActivity(), getDialog());
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override

@@ -18,8 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.FilterJobsActivity"
-            android:label="@string/title_activity_filter_jobs"></activity>
+            android:name=".activity.FilterJobsActivity" />
         <activity android:name=".activity.ProfileActivity" />
         <activity
             android:name=".activity.LaunchActivity"
