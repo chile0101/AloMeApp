@@ -8,11 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.thesis.alome.R;
@@ -57,7 +54,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         final Service service=data.get(position);
         if(service!=null){
             viewHolder.tvName.setText(service.getServiceName());
-            viewHolder.tvFullPrice.setText(service.getFullPrice() + " VND");
+            viewHolder.tvFullPrice.setText(service.getFullPrice() + " " + context.getString(R.string.vnd));
             viewHolder.tvSalePrice.setText(service.getSalePrice() + " - " );
             if (service.getImageUrl()!=null && context!=null)
                  Glide.with(context).load(service.getImageUrl()).into(viewHolder.imgService);

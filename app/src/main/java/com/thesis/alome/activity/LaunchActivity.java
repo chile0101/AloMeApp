@@ -2,7 +2,6 @@ package com.thesis.alome.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -25,8 +24,6 @@ public class LaunchActivity extends AppCompatActivity {
     private LinearLayout logoWrapper;
     private ViewReplacer mViewReplacer;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +44,8 @@ public class LaunchActivity extends AppCompatActivity {
             }
         });
 
-
         String userName = PrefUtils.getUserName(this); // is email
         String password = PrefUtils.getPassword(this);
-
 
         if(("").equals(userName) || ("").equals(password) ){
             Intent intent = new Intent(this,LandingActivity.class);
@@ -81,8 +76,6 @@ public class LaunchActivity extends AppCompatActivity {
                 }
             });
         }
-
-
     }
 
 }

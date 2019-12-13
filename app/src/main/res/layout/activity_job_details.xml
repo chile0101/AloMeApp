@@ -122,6 +122,7 @@
                             android:textColor="@color/black_color"
                             android:textSize="@dimen/text_size_16" />
                         <TextView
+                            android:visibility="gone"
                             android:id="@+id/tvEditHour"
                             android:layout_weight="1"
                             android:gravity="right"
@@ -171,6 +172,7 @@
                             android:textColor="@color/black_color"
                             android:textSize="@dimen/text_size_16" />
                         <TextView
+                            android:visibility="gone"
                             android:id="@+id/tvEditDate"
                             android:layout_weight="1"
                             android:gravity="right"

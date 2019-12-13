@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.activity.MainActivity;
+import com.thesis.alome.config.FragmentLifecycle;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.RespSignIn;
 import com.thesis.alome.config.ApiClient;
@@ -28,7 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class SignInFragment extends Fragment {
+public class SignInFragment extends Fragment implements FragmentLifecycle {
 
     Button btnSignIn;
     EditText edtEmail,edtPassword;
@@ -44,6 +45,7 @@ public class SignInFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         mapping(view);
+        PrefUtils.storeEmailSignUp(getContext(),"");
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,4 +136,23 @@ public class SignInFragment extends Fragment {
         tvPasswordError = (TextView) view.findViewById(R.id.tvPasswordError);
     }
 
+    @Override
+    public void onPauseFragment() {
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    public void onResumeFragment() {
+        String emailSignup = PrefUtils.getEmailSignUp(getContext());
+        if(!emailSignup.equals("")){
+            edtEmail.setText(emailSignup);
+            edtEmail.setSelection(edtEmail.getText().length());
+        }
+
+    }
 }

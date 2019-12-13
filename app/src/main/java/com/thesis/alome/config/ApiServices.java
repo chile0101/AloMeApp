@@ -8,7 +8,6 @@ import com.thesis.alome.model.Profile;
 import com.thesis.alome.model.Provider;
 import com.thesis.alome.model.ProviderDetails;
 import com.thesis.alome.model.RatingForProvider;
-import com.thesis.alome.model.ReqOrder;
 import com.thesis.alome.model.ReqSignUp;
 import com.thesis.alome.model.RespBase;
 import com.thesis.alome.model.RespSignIn;

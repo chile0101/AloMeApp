@@ -27,6 +27,8 @@ import com.thesis.alome.R;
 import com.thesis.alome.activity.SignInSignUpActivity;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.ApiClient;
+import com.thesis.alome.config.FragmentLifecycle;
+import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.ReqSignUp;
 import com.thesis.alome.model.RespBase;
 
@@ -40,7 +42,7 @@ import retrofit2.Response;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
-public class SignUpFragment extends Fragment {
+public class SignUpFragment extends Fragment implements FragmentLifecycle {
 
     Button btnSignUp;
     EditText edtFullName,edtEmail,edtPassword, edtPhone;
@@ -98,6 +100,7 @@ public class SignUpFragment extends Fragment {
                         public void onResponse(Call<RespBase> call, Response<RespBase> response) {
 
                             if(response.body().getStatus() == true && response.body().getMessage() == null){
+                                PrefUtils.storeEmailSignUp(getContext(),email);
                                 Toast.makeText(getActivity(), getString(R.string.register_success), Toast.LENGTH_SHORT).show();
                                 ((SignInSignUpActivity) getActivity()).switchSignInFragment();
                             }else {
@@ -272,6 +275,16 @@ public class SignUpFragment extends Fragment {
                 // The user canceled the operation.
             }
         }
+
+    }
+
+    @Override
+    public void onPauseFragment() {
+
+    }
+
+    @Override
+    public void onResumeFragment() {
 
     }
 }

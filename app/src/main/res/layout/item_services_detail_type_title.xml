@@ -15,7 +15,7 @@
         android:paddingBottom="8dp"
         android:background="#EEE"
 
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/sampleHeader"
         app:expansion_headerIndicatorRotationExpanded="0"
@@ -24,7 +24,7 @@
         app:expansion_toggleOnClick="true">
 
         <RelativeLayout
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_width="match_parent">
 
             <TextView
@@ -33,7 +33,7 @@
                 android:paddingLeft="8dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_size_16"
                 android:textColor="@color/black_color"
                 android:layout_centerVertical="true"/>
 
@@ -41,7 +41,7 @@
                 android:id="@+id/headerIndicator"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_height="24dp"
+                android:layout_height="@dimen/padding_24"
                 android:layout_marginLeft="16dp"
                 android:layout_width="@dimen/padding_24"
                 android:src="@drawable/ic_promotion_list_select_service_area" />
@@ -53,22 +53,21 @@
     <com.github.florent37.expansionpanel.ExpansionLayout
         android:id="@+id/expansionLayout"
         app:expansion_expanded="false"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_width="match_parent">
 
         <LinearLayout
             android:id="@+id/container"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:orientation="vertical">
 
             <TextView
-                android:textSize="8sp"
+                android:textSize="@dimen/text_size_16"
                 android:fontFamily="@font/roboto"
                 android:textColor="@color/black_color"
                 android:id="@+id/tvContent"
-                android:paddingLeft="8dp"
-                android:paddingTop="8dp"
+                android:padding="@dimen/padding_8"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent" />
 

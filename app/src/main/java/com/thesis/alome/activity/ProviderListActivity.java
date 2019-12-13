@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.ethanhua.skeleton.Skeleton;
 import com.ethanhua.skeleton.SkeletonScreen;
@@ -18,7 +16,9 @@ import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.Provider;
 import com.thesis.alome.model.RespBase;
+
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

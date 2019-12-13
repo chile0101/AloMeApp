@@ -1,6 +1,5 @@
 package com.thesis.alome.adapter;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,13 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.LoadMoreServices;
-import com.thesis.alome.activity.ServiceDetailActivity;
 import com.thesis.alome.model.ServiceType;
-
 import java.util.ArrayList;
 
 public class SnapAdapter extends RecyclerView.Adapter<SnapAdapter.ViewHolder> implements GravitySnapHelper.SnapListener {

@@ -2,20 +2,16 @@ package com.thesis.alome.fragment;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.activity.JobDetailsActivity;
-import com.thesis.alome.activity.MainActivity;
-import com.thesis.alome.activity.StepActivity;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.PrefUtils;

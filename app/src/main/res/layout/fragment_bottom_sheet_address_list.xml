@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,10 +14,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/padding_8"
-        android:paddingRight="@dimen/padding_8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingRight="@dimen/padding_8">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -42,23 +40,17 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider_height"
         android:layout_below="@+id/layoutTitle"
-        android:background="@color/orange_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTitle" />
+        android:background="@color/orange_color" />
 
     <LinearLayout
         android:id="@+id/layoutAddAddress"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/viewDivider"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTitle">
+        android:orientation="horizontal">
 
         <Button
             android:visibility="invisible"
@@ -72,7 +64,7 @@
             android:gravity="center"
             android:text="@string/my_location"
             android:textColor="@color/black_color"
-            android:textSize="8sp" />
+            android:textSize="@dimen/text_size_12" />
 
         <Button
             android:id="@+id/btnAddAddress"
@@ -84,37 +76,30 @@
             android:background="@drawable/transparent_btn_selector"
             android:fontFamily="@font/roboto"
             android:gravity="center"
-
-
             android:textColor="@color/orange_color"
-            android:textSize="8sp" />
+            android:textSize="@dimen/text_size_12" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:layout_above="@id/btnSelect"
         android:id="@+id/addressListRcv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layoutAddAddress"
-        android:layout_marginTop="16dp"
-        android:clipToPadding="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutAddAddress" />
+        android:layout_marginTop="@dimen/padding_16"
+        android:layout_marginBottom="@dimen/padding_8"
+        android:clipToPadding="false" />
 
     <Button
-        android:padding="6sp"
+        android:layout_alignParentBottom="true"
         android:id="@+id/btnSelect"
         style="@style/OrangeButtonMatchParentStyle"
-        android:layout_below="@+id/addressListRcv"
-        android:layout_margin="@dimen/padding_16"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/select"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/viewDivider"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toEndOf="@+id/viewDivider"
-        app:layout_constraintTop_toBottomOf="@+id/addressListRcv" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_8"
+        android:layout_marginLeft="@dimen/padding_16"
+        android:layout_marginRight="@dimen/padding_16"
+        android:layout_marginBottom="@dimen/padding_16"
+        android:padding="@dimen/padding_8"
+        android:text="@string/select" />
 
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

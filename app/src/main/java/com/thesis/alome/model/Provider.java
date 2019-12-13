@@ -10,7 +10,7 @@ public class Provider {
     private Float numOfStars;
     private Integer numOfRatings;
     private String avatar;
-    private Float price;
+    private Double price;
     private Boolean rated;
 
     @SerializedName("completedTime")
@@ -65,11 +65,11 @@ public class Provider {
         this.avatar = avatar;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

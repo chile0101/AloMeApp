@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -16,11 +14,11 @@ import com.thesis.alome.R;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.PrefUtils;
-import com.thesis.alome.model.Customer;
-import com.thesis.alome.model.RespBase;
 import com.thesis.alome.fragment.MoreFragment;
 import com.thesis.alome.fragment.ServiceListFragment;
 import com.thesis.alome.fragment.ServicesFragment;
+import com.thesis.alome.model.Customer;
+import com.thesis.alome.model.RespBase;
 
 import retrofit2.Call;
 import retrofit2.Callback;

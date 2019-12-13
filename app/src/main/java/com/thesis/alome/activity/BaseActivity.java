@@ -4,14 +4,11 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.thesis.alome.R;
 import com.thesis.alome.config.LocaleManager;
-
-import butterknife.BindView;
 
 import static android.content.pm.PackageManager.GET_META_DATA;
 

@@ -9,13 +9,11 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
@@ -75,6 +73,10 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
         btnAddAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(adapter.getItemCount() == 5){
+                    Toast.makeText(getActivity(), getString(R.string.maximum_5_address), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent = new Intent(getActivity(), MapsActivity.class);
                 startActivityForResult(intent,1);
             }
@@ -102,7 +104,6 @@ public class BottomSheetAddressList extends BottomSheetDialogFragment {
                 stepViewModel.setAddressLatLng(data.getStringExtra("addressLatLng"));
                 BottomSheetAddAddress bsAddAddress = new BottomSheetAddAddress();
                 bsAddAddress.show(getFragmentManager(),bsAddAddress.getTag());
-                //dismiss();
             }
         }
     }

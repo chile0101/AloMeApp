@@ -18,7 +18,7 @@
         android:fontFamily="@font/roboto"
         android:text="AloMe"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size_26"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +104,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_weight="1"
                 android:background="@drawable/divider_line_in_landing" />
 
@@ -120,7 +120,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="1dp"
                 android:layout_weight="1"
                 android:background="@drawable/divider_line_in_landing" />
         </LinearLayout>

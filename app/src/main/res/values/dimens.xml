@@ -253,6 +253,7 @@
     <dimen name="subtitle_shadow_radius">2dp</dimen>
     <dimen name="tedbottompicker_grid_layout_margin">1dp</dimen>
     <dimen name="tedbottompicker_selected_image_height">90dp</dimen>
+    <dimen name="text_size_8">8sp</dimen>
     <dimen name="text_size_10">10sp</dimen>
     <dimen name="text_size_12">12sp</dimen>
     <dimen name="text_size_13">13sp</dimen>

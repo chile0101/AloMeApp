@@ -1,7 +1,6 @@
 package com.thesis.alome.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,13 +14,10 @@ import android.widget.Toast;
 
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.flyco.tablayout.widget.MsgView;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 import com.thesis.alome.R;
 import com.thesis.alome.fragment.ProviderInfoFragment;
 import com.thesis.alome.fragment.ProviderRatingsFragment;
-import com.thesis.alome.model.Provider;
 import com.thesis.alome.utils.ViewFindUtils;
 
 import java.util.ArrayList;
@@ -38,7 +34,6 @@ public class ProviderDetailsActivity extends BaseActivity {
     @BindView(R.id.imgAvatar) ImageView imgAvatar;
     @BindView(R.id.tvProviderName) TextView tvProviderName;
     @BindView(R.id.ratingBar) RatingBar ratingBar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,9 +95,7 @@ public class ProviderDetailsActivity extends BaseActivity {
 
         vp_3.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
             @Override
             public void onPageSelected(int position) {
@@ -110,9 +103,7 @@ public class ProviderDetailsActivity extends BaseActivity {
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
+            public void onPageScrollStateChanged(int state) {}
         });
         vp_3.setCurrentItem(1);
     }

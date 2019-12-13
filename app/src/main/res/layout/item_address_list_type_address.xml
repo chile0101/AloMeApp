@@ -28,20 +28,24 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="8sp"
+        android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toEndOf="@+id/rbPropertyType"
         app:layout_constraintTop_toTopOf="@+id/rbPropertyType" />
 
     <TextView
         android:id="@+id/tvFullAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/roboto"
+        android:lineHeight="@dimen/padding_16"
+        android:maxLines="2"
         android:textColor="@color/dark_gray_color"
-        android:textSize="6sp"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rbPropertyType"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -62,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="24dp"
         android:padding="@dimen/padding_4"
         android:src="@drawable/ic_address_list_delete_btn"
         app:layout_constraintEnd_toEndOf="parent"

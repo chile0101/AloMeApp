@@ -151,8 +151,24 @@ public class JobDetailsActivity extends BaseActivity  {
                             ratingBar.setRating(provider.getNumOfStars());
                             txtServiceName.setText(provider.getServiceName());
                             txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
-                            tvPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
-                            promiseOfProvider.setText(getString(R.string.estimated_time) + provider.getPromiseOfProvider() + getString(R.string.hour));
+
+                            Double priceD = provider.getPrice().doubleValue();
+                            Long priceL = Math.round(priceD);
+                            String priceStr = priceL.toString();
+                            StringBuilder result = new StringBuilder();
+                            int len = priceStr.length();
+                            for(int i = len-1 ; i >= 0 ;i--) {
+
+                                if(i!= len-1 && (len-1-i)%3 == 0) {
+                                    result.append('.');
+                                }
+                                result.append(priceStr.charAt(i));
+
+                            }
+                            result = result.reverse();
+                            tvPrice.setText(result + " " + getString(R.string.vnd) + "/" + getString(R.string.hour));
+
+                            promiseOfProvider.setText(getString(R.string.estimated_time)+ " " + provider.getPromiseOfProvider() + " " + getString(R.string.hour));
                             wrapperProvider.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

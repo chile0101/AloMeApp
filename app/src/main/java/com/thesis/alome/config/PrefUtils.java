@@ -54,6 +54,16 @@ public class PrefUtils {
         editor.commit();
     }
 
+    public static void storeEmailSignUp(Context context, String email) {
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
+        editor.putString("emailSignUp", email);
+        editor.commit();
+    }
+
+    public static String getEmailSignUp(Context context) {
+        return getSharedPreferences(context).getString("emailSignUp", "");
+    }
+
     public static String getApiKey(Context context) {
         return getSharedPreferences(context).getString("accessToken", null);
     }

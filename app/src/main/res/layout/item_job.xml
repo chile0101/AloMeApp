@@ -49,9 +49,7 @@
             android:id="@+id/tvDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="8dp"
-
             android:layout_marginTop="4dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Ngày hẹn: 15/12/2019"

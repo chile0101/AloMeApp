@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,13 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
-import com.thesis.alome.activity.JobDetailsActivity;
 import com.thesis.alome.activity.JobDetailsCompletedActivity;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.Comment;
-import com.thesis.alome.model.ReqSignUp;
 import com.thesis.alome.model.RespBase;
 
 import retrofit2.Call;

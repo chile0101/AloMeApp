@@ -155,7 +155,7 @@
     <string name="review_now">Đánh giá ngay</string>
 
     <string name="txt_job_completed">Công việc này đã hoàn thành !</string>
-    <string name="hour">/giờ</string>
+    <string name="hour">giờ</string>
     <string name="review_list_empty">Chưa có đánh giá nào cho người thợ này</string>
     <string name="job_list_empty">Chưa có công việc nào</string>
     <string name="are_you_sure_delete_job">Bạn chắc chắn muốn xóa yêu cầu này ?</string>
@@ -173,6 +173,6 @@
     <string name="unfinished">Chưa xong</string>
     <string name="txt_confirmation_job">Thợ sửa đã xác nhận hoàn thành công việc. Kết quả công việc có thực sự như bạn mong muốn ?</string>
     <string name="search">Tìm kiếm</string>
-
-
+    <string name="maximum_5_address">Chỉ được thêm tối đa 5 địa chỉ</string>
+    <string name="vnd">đ</string>
 </resources>

@@ -164,8 +164,8 @@ public class StepTwoFragment extends Fragment implements FragmentLifecycle,EasyP
         mSelectedImagesContainer.removeAllViews();
         mSelectedImagesContainer.setVisibility(View.VISIBLE);
 
-        int widthPixel = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
-        int heightPixel = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+        int widthPixel = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120, getResources().getDisplayMetrics());
+        int heightPixel = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120, getResources().getDisplayMetrics());
 
         for (Uri uri : uriList) {
 

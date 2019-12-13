@@ -40,7 +40,10 @@ public class MoreFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more,container,false);
         ButterKnife.bind(this,view);
-        Picasso.get().load(PrefUtils.getAvatar(getActivity())).into(imgAvatar);
+        String imgUrl = PrefUtils.getAvatar(getActivity());
+        if(!imgUrl.equals("")){
+            Picasso.get().load(imgUrl).into(imgAvatar);
+        }
         tvName.setText(PrefUtils.getFullName(getActivity()));
         return view;
     }

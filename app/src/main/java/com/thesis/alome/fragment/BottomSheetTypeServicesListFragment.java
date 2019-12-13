@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.thesis.alome.R;
-import com.thesis.alome.adapter.DateListRcvAdapter;
 import com.thesis.alome.adapter.TypeListRcvAdapter;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;

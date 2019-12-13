@@ -1,24 +1,14 @@
 package com.thesis.alome.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.adapter.TypeJobRcvAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class FilterJobsActivity extends BaseActivity {
 

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -131,8 +129,23 @@ public class JobDetailsCompletedActivity extends BaseActivity {
                     ratingBar.setRating(provider.getNumOfStars());
                     txtServiceName.setText(provider.getServiceName());
                     txtNumOfRatings.setText("( " + provider.getNumOfRatings() + " đánh giá " + ")");
-                    txtPrice.setText(Math.round(provider.getPrice().floatValue()) + getString(R.string.hour));
-                    promiseOfProvider.setText(getString(R.string.estimated_time) + provider.getPromiseOfProvider() + getString(R.string.hour));
+
+                    Double priceD = provider.getPrice().doubleValue();
+                    Long priceL = Math.round(priceD);
+                    String priceStr = priceL.toString();
+                    StringBuilder result = new StringBuilder();
+                    int len = priceStr.length();
+                    for(int i = len-1 ; i >= 0 ;i--) {
+
+                        if(i!= len-1 && (len-1-i)%3 == 0) {
+                            result.append('.');
+                        }
+                        result.append(priceStr.charAt(i));
+                    }
+                    result = result.reverse();
+                    txtPrice.setText(result + " " + getString(R.string.vnd) + "/" + getString(R.string.hour));
+
+                    promiseOfProvider.setText(getString(R.string.estimated_time)+ " " + provider.getPromiseOfProvider() + " " + getString(R.string.hour));
 
                     wrapperProvider.setOnClickListener(new View.OnClickListener() {
                         @Override

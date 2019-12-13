@@ -1,7 +1,5 @@
 package com.thesis.alome.model;
 
-import android.text.Editable;
-
 public class Comment {
     private String comment;
     private String name;

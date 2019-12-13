@@ -1,9 +1,7 @@
 package com.thesis.alome.activity;
 
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -73,8 +71,6 @@ public class ServiceDetailActivity extends BaseActivity
                     url_maps.put("img2", response.body().getData().getImgUrls().getImgUrl2());
                     url_maps.put("img3", response.body().getData().getImgUrls().getImgUrl3());
 
-
-
                     for(String name: url_maps.keySet()) {
                         DefaultSliderView textSliderView = new DefaultSliderView(getApplicationContext());
                         textSliderView
@@ -89,11 +85,10 @@ public class ServiceDetailActivity extends BaseActivity
                     sliderLayout.setCustomAnimation(new DescriptionAnimation());
                     sliderLayout.setDuration(4000);
 
-                    tvTitle.setText(response.body().getData().getServiceName());
-                    tvFullPrice.setText("$" + response.body().getData().getFullPrice());
-                    tvFullPrice.setPaintFlags(tvFullPrice.getPaintFlags()
-                            | Paint.STRIKE_THRU_TEXT_FLAG);
-                    tvSalePrice.setText("$" + response.body().getData().getSalePrice());
+                    tvTitle.setText(response.body().getData().getServiceName() );
+                    tvFullPrice.setText(response.body().getData().getFullPrice() + " " + getString(R.string.vnd));
+
+                    tvSalePrice.setText(response.body().getData().getSalePrice() + " - ");
                     tvContentDetail.setText(response.body().getData().getDescription());
                     tvContentTerm.setText(response.body().getData().getTerm());
                 }

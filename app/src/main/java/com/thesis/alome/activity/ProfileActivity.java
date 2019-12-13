@@ -78,8 +78,13 @@ public class ProfileActivity extends BaseActivity implements EasyPermissions.Per
         spinnerGender.setAdapter(genderAdapter);
 
         // load data
-        Picasso.get().load(PrefUtils.getAvatar(this)).into(ivProfile);
+        String avatarUrl = PrefUtils.getAvatar(this);
+        if(!avatarUrl.equals("")){
+            Picasso.get().load(avatarUrl).into(ivProfile);
+        }
+
         edtValueFullname.setText(PrefUtils.getFullName(this));
+        edtValueFullname.setSelection(edtValueFullname.getText().length());
         tvValueBirthDate.setText(PrefUtils.getDateOfBirth(this));
         String gender = PrefUtils.getGender(this);
         if(!gender.equals("")){

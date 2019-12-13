@@ -63,6 +63,9 @@ public class JobListRcvAdapter extends RecyclerView.Adapter<JobListRcvAdapter.Vi
                 break;
             case 400:
                 btnStatus.setText(context.getString(R.string.completed));
+                break;
+            case 401:
+                btnStatus.setText(context.getString(R.string.confirmation_completed));
                 //btnStatus.setTextColor(ContextCompat.getColor(context,R.color.dark_transparent));
                 //btnStatus.setBackground(ContextCompat.getDrawable(context,R.drawable.shape_btn_job_status_expired));
                 break;

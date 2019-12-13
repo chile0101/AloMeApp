@@ -4,12 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <LinearLayout
         android:id="@+id/linearLayoutDate"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:aapt="http://schemas.android.com/aapt"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:paddingLeft="@dimen/padding_16"

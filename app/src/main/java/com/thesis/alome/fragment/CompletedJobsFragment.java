@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ethanhua.skeleton.Skeleton;
@@ -24,7 +23,6 @@ import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.Job;
 import com.thesis.alome.model.RespBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

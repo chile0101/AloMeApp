@@ -1,9 +1,7 @@
 package com.thesis.alome.fragment;
 
-import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,17 +9,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.thesis.alome.R;
-import com.thesis.alome.activity.StepActivity;
 import com.thesis.alome.config.FragmentLifecycle;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.viewmodel.StepViewModel;

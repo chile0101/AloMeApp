@@ -1,98 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <LinearLayout android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <TextView
-            android:id="@+id/tvDesc"
-            style="@style/TextViewTitleFormStyle"
-            android:fontFamily="@font/roboto"
-            android:text="@string/addition_detail" />
-
-        <EditText
-            android:id="@+id/edtDesc"
-            style="@style/EditTextInPutTypeDescriptionFormStyle"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="top|left"
-            android:inputType="textMultiLine"
-            android:lines="5" />
-        <TextView
-            android:id="@+id/tvErrorDesc"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:gravity="right"
-            android:textColor="@color/badge_color"
-            android:textSize="@dimen/text_size_12" />
-    </LinearLayout>
+            android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/TextViewTitleFormStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="@string/addition_images" />
+            <TextView
+                android:id="@+id/tvDesc"
+                style="@style/TextViewTitleFormStyle"
+                android:fontFamily="@font/roboto"
+                android:text="@string/addition_detail" />
 
-        <HorizontalScrollView
-            android:id="@+id/hori_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:fillViewport="false"
-            android:foregroundGravity="left">
-
-            <LinearLayout
-                android:id="@+id/selected_photos_container"
+            <EditText
+                android:id="@+id/edtDesc"
+                style="@style/EditTextInPutTypeDescriptionFormStyle"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:lines="5" />
+            <TextView
+                android:id="@+id/tvErrorDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:animateLayoutChanges="true"
-                android:gravity="left"
-                android:orientation="horizontal"
-                android:visibility="visible">
+                android:fontFamily="@font/roboto"
+                android:gravity="right"
+                android:textColor="@color/badge_color"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
 
-                <!-- images will be added dynamicall to this layout -->
-            </LinearLayout>
-
-        </HorizontalScrollView>
-
-        <TextView
-            android:id="@+id/tvErrorImages"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:gravity="right"
-            android:textColor="@color/badge_color"
-            android:textSize="@dimen/text_size_12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hori_scroll_view" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextViewTitleFormStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/addition_images" />
 
-        <ImageView
-            android:layout_gravity="center"
-            android:id="@+id/btnUpload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:src="@drawable/ic_upload_image" />
+            <HorizontalScrollView
+                android:id="@+id/hori_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fillViewport="false"
+                android:foregroundGravity="left">
+
+                <LinearLayout
+                    android:id="@+id/selected_photos_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:animateLayoutChanges="true"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <!-- images will be added dynamicall to this layout -->
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tvErrorImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="right"
+                android:textColor="@color/badge_color"
+                android:textSize="@dimen/text_size_12" />
+
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/btnUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_upload_image" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+
+</ScrollView>
+
 
 

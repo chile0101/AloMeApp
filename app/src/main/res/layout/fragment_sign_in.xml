@@ -26,7 +26,6 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:text="chilechile@gmail.com"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +38,7 @@
         android:fontFamily="@font/roboto"
         android:gravity="right"
         android:textColor="@color/badge_color"
-        android:textSize="6sp"
+        android:textSize="@dimen/text_size_10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
@@ -50,7 +49,6 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:text="123456"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +63,7 @@
         android:fontFamily="@font/roboto"
         android:gravity="right"
         android:textColor="@color/badge_color"
-        android:textSize="6sp"
+        android:textSize="@dimen/text_size_10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
@@ -81,7 +79,7 @@
         android:gravity="center_vertical"
         android:hint="@string/forgot_password"
         android:textColor="@color/gray_color"
-        android:textSize="6sp"
+        android:textSize="@dimen/text_size_10"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />

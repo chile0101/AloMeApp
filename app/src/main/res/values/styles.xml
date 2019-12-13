@@ -23,7 +23,7 @@
     </style>
 
     <style name="FacebookButtonStyle">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/facebook_sign_in_btn_selector</item>
         <item name="android:padding">8dp</item>
@@ -35,7 +35,7 @@
         <item name="android:textAllCaps">false</item>
     </style>
     <style name="GoogleButtonStyle">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/google_sign_in_btn_selector</item>
         <item name="android:padding">8dp</item>
@@ -48,7 +48,7 @@
     </style>
 
     <style name="SignInSignUpButtonStyle">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/dark_gray_color</item>
         <item name="android:background">@drawable/sign_in_sign_up_btn_selector</item>
         <item name="android:padding">8dp</item>
@@ -85,9 +85,8 @@
         <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
-
     <style name="OrangeButtonWrapContentStyle">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/orange_btn_selector</item>
         <item name="android:paddingTop">8dp</item>
@@ -107,18 +106,18 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
     </style>
     <style name="TextSlideStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textAlignment">center</item>
     </style>
     <!--=====================================================-->
 
     <style name="EditTextUnderLineStyle">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/dark_gray_color</item>
         <item name="android:textColorHint">@color/gray_color</item>
         <item name="android:background">@drawable/edittext_bg</item>
@@ -138,12 +137,12 @@
     </style>
 
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
     <style name="TextViewTitleFormStyle">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/dark_gray_color</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -180,7 +179,7 @@
     </style>
     <style name="OrangeButtonMatchParentStyle">
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/orange_btn_selector</item>
         <item name="android:padding">@dimen/padding_8</item>
@@ -190,7 +189,7 @@
         <item name="android:textAllCaps">false</item>
     </style>
     <style name="EditTextInPutTypeNumberFormStyle">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/orange_color</item>
         <item name="android:background">@drawable/edittext_bg</item>
         <item name="android:padding">@dimen/padding_8</item>
@@ -201,7 +200,7 @@
 
     </style>
     <style name="EditTextInPutTypeDescriptionFormStyle">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/orange_color</item>
         <item name="android:background">@drawable/edittext_description_bg</item>
         <item name="android:padding">@dimen/padding_8</item>

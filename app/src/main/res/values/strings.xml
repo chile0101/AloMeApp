@@ -175,7 +175,7 @@
     <string name="my_activate">Service list</string>
     <string name="services">Services</string>
     
-    <string name="appointment_date">Appointment Date</string>
+    <string name="appointment_date">Appointment Date: </string>
 
     <string name="sent_request">Sent Request</string>
     <string name="wait_for_confirmation">Wait for confirmation</string>
@@ -231,7 +231,7 @@
     <string name="refuse">Refuse</string>
     <string name="review_now">Review now</string>
     <string name="txt_job_completed">This work has been completed !</string>
-    <string name="hour">/hour</string>
+    <string name="hour">hour</string>
     <string name="review_list_empty">There are no reviews for this worker yet</string>
     <string name="job_list_empty">No work yet</string>
     <string name="are_you_sure_delete_job">Are you sure you want to delete this request?</string>
@@ -249,5 +249,7 @@
     <string name="unfinished">Unfinished</string>
     <string name="txt_confirmation_job">The repairman has confirmed the work has been completed. Are the results really as expected?</string>
     <string name="search">Search</string>
+    <string name="maximum_5_address">Only a maximum of 5 addresses can be added</string>
+    <string name="vnd">đ</string>
 
 </resources>
