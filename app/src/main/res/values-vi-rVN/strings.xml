@@ -47,7 +47,7 @@
     <string name="log_in_with_facebook">Đăng nhập bằng Facebook</string>
     <string name="log_in_with_google">Đăng nhập bằng Google</string>
     <string name="login_register">Đăng nhập / Đăng ký</string>
-    <string name="welcome">Xin chào, </string>
+    <string name="welcome">Xin chào </string>
     <string name="term_of_service">Chúng tôi cam kết</string>
     <string name="service_details">Mô tả dịch vụ</string>
     <string name="service_detail">Chi tiết dịch vụ</string>

@@ -96,7 +96,7 @@
     <string name="email_is_already_registered">Email is already registered</string>
     <string name="please_check_the_internet">Please check the internet</string>
     <string name="email_or_password_is_invalid">Email or password is invalid</string>
-    <string name="welcome">Welcome, </string>
+    <string name="welcome">Welcome </string>
     <string name="term_of_service">Term of service</string>
     <string name="service_details">Service details</string>
     <string name="available_date">Available Date</string>

@@ -41,7 +41,7 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
 
     Button btnSignUp;
     EditText edtFullName,edtEmail,edtPassword, edtPhone;
-    TextView tvFullNameError,tvEmailError,tvPasswordError,tvConfirmPasswordError, tvPhoneError, tvAddress;
+    TextView tvFullNameError,tvEmailError,tvPasswordError,tvAddressError, tvPhoneError, tvAddress;
     private String latitude, longitude;
 
     @Nullable
@@ -169,7 +169,7 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
     private boolean validateAddress(String address){
 
         if(address.isEmpty()){
-            tvConfirmPasswordError.setText(getString(R.string.addressEmpty));
+            tvAddressError.setText(getString(R.string.addressEmpty));
             return false;
         }
         return true;
@@ -203,18 +203,6 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
         return true;
     }
 
-    private boolean validatePassConfirm(String passConfirm, String pass){
-
-        if(passConfirm.isEmpty()){
-            tvConfirmPasswordError.setText(R.string.validate_empty_confirm_password_text);
-            return false;
-        }
-        if(!passConfirm.equals(pass)){
-            tvConfirmPasswordError.setText(R.string.validate_confirm_password_text);
-            return false;
-        }
-        return true;
-    }
 
     public boolean validatePhone(String number)
     {
@@ -240,7 +228,7 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
         tvFullNameError= (TextView) view.findViewById(R.id.tvFullNameError);
         tvEmailError = (TextView) view.findViewById(R.id.tvEmailError);
         tvPasswordError = (TextView) view.findViewById(R.id.tvPasswordError);
-        tvConfirmPasswordError = (TextView) view.findViewById(R.id.tvConfirmPasswordError);
+        tvAddressError = (TextView) view.findViewById(R.id.tvAddressError);
         tvPhoneError = (TextView) view.findViewById(R.id.tvPhoneError);
 
     }
@@ -251,7 +239,12 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
             if (resultCode == RESULT_OK) {
                 longitude = String.valueOf(data.getExtras().get("lng"));
                 latitude = String.valueOf(data.getExtras().get("lat"));
-                tvAddress.setText(String.valueOf(data.getExtras().get("address"))    );
+                String address = String.valueOf(data.getExtras().get("address"));
+                tvAddress.setText(address);
+                if(!address.equals("")){
+                    tvAddressError.setText("");
+                }
+
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 //Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
             } else if (resultCode == RESULT_CANCELED) {

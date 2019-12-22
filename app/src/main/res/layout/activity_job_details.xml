@@ -407,6 +407,7 @@
                         android:shape="ring"
                         android:thicknessRatio="1.9">
                         <ImageView
+
                             android:id="@+id/imgAvatar"
                             android:scaleType="fitCenter"
                             android:layout_width="wrap_content"
