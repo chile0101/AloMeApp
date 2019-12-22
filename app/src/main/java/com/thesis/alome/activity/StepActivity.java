@@ -1,8 +1,10 @@
 package com.thesis.alome.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -195,13 +197,20 @@ public class StepActivity extends BaseActivity {
         File file = FileUtils.getFile(StepActivity.this,uri);
         File compressedImageFile = null ;
         try {
-            compressedImageFile = new Compressor(this).compressToFile(file);
+            compressedImageFile = new Compressor(this)
+                    .setMaxWidth(640)
+                    .setMaxHeight(480)
+                    .setQuality(75)
+                    .setCompressFormat(Bitmap.CompressFormat.WEBP)
+                    .setDestinationDirectoryPath(Environment.getExternalStoragePublicDirectory(
+                            Environment.DIRECTORY_PICTURES).getAbsolutePath())
+                    .compressToFile(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
         RequestBody requestBody = RequestBody.create( MediaType.parse("multipart/form-dataImg"), compressedImageFile);
 
-        return MultipartBody.Part.createFormData(partName, file.getName(), requestBody);
+        return MultipartBody.Part.createFormData(partName,  compressedImageFile.getName(), requestBody);
 
     }
 

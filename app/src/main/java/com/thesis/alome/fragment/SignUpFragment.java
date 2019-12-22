@@ -273,9 +273,9 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
                 latitude = String.valueOf(data.getExtras().get("lat"));
                 tvAddress.setText(String.valueOf(data.getExtras().get("address"))    );
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
-                Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
             } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
             }
         }
 
