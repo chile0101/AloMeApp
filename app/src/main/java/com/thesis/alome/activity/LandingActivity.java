@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.thesis.alome.R;
 import com.thesis.alome.adapter.MpagerAdapter;
@@ -23,6 +24,8 @@ public class LandingActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private ImageView[] dots;
     private Button btnSigninup;
+    private Button btnFacebookSignIn;
+    private Button btnGoogleSignIn;
 
 
     @Override
@@ -60,12 +63,28 @@ public class LandingActivity extends AppCompatActivity {
 
             }
         });
+
+        btnFacebookSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LandingActivity.this, "Chưa hiện thực", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnGoogleSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LandingActivity.this, "Chưa hiện thực", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void mapping(){
         mPager = (ViewPager) findViewById(R.id.viewPager);
         dotsLayout = (LinearLayout) findViewById(R.id.dotsLayout);
         btnSigninup = (Button) findViewById(R.id.btnSignInSignUp);
+        btnFacebookSignIn = (Button) findViewById(R.id.btnFacebookSignIn);
+        btnGoogleSignIn = (Button) findViewById(R.id.btnGoogleSignIn);
     }
 
     private void createDots(int current_position){

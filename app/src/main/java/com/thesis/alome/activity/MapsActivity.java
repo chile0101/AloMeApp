@@ -267,7 +267,6 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
             }
         });
 
-
         edtSearch.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -306,7 +305,6 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
         rcvSearchLocation.setAdapter(mAutoCompleteAdapter);
         mAutoCompleteAdapter.notifyDataSetChanged();
     }
-
 
     private TextWatcher filterTextWatcher = new TextWatcher() {
         public void afterTextChanged(Editable s) {

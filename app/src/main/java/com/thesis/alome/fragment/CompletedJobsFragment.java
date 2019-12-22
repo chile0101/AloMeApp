@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,6 +37,8 @@ public class CompletedJobsFragment extends Fragment {
     private static final String TAG = "inCompleted";
     @BindView(R.id.rcvCompletedJob) RecyclerView recyclerView;
     @BindView(R.id.viewEmptyWrapper) RelativeLayout viewEmptyWrapper;
+    @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
+
     List<Job> jobList;
     JobListRcvAdapter adapter;
 
@@ -50,6 +53,23 @@ public class CompletedJobsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeContainer.setRefreshing(false);
+                callApi();
+            }
+        });
+        callApi();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        callApi();
+    }
+
+    private void callApi(){
         ApiServices apiServices = ApiClient.getClient(getActivity()).create(ApiServices.class);
         Call<RespBase<List<Job>>> call = apiServices.getJobsInProgress(PrefUtils.getId(getActivity()), PrefUtils.getApiKey(getActivity()), TYPE_JOB_COMPLETED_TAG);
         call.enqueue(new Callback<RespBase<List<Job>>>() {

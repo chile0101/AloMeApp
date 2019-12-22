@@ -93,7 +93,7 @@ public class JobDetailsActivity extends BaseActivity  {
 //            providerId = Integer.valueOf(getIntent().getStringExtra("providerId"));
             customerRequestId = Long.valueOf(getIntent().getStringExtra("customerRequestId"));
             jobStatus = Integer.valueOf(getIntent().getStringExtra("status")) ;
-            Toast.makeText(this, "customerRequestId=" + customerRequestId.toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "customerRequestId=" + customerRequestId.toString(), Toast.LENGTH_SHORT).show();
         }
 
         ApiServices apiServices = ApiClient.getClient(getApplicationContext()).create(ApiServices.class);
@@ -272,8 +272,6 @@ public class JobDetailsActivity extends BaseActivity  {
                 break;
             case 401:
                 btnStatus.setText(getString(R.string.confirmation_completed));
-                btnStatus.setTextColor(ContextCompat.getColor(this,R.color.dark_transparent));
-                btnStatus.setBackground(ContextCompat.getDrawable(this,R.drawable.shape_btn_job_status_expired));
                 wrapperCompletedConfirm.setVisibility(View.VISIBLE);
 
 
@@ -290,6 +288,7 @@ public class JobDetailsActivity extends BaseActivity  {
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.putExtra("customerRequestId",customerRequestId.toString());
                                 intent.putExtra("status",400+"");
+                                intent.putExtra("Uniqid","From_Activity_Job_Detail");
                                 startActivity(intent);
                             }
 

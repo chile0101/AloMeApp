@@ -3,6 +3,7 @@ package com.thesis.alome.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -60,6 +61,7 @@ public class JobDetailsCompletedActivity extends BaseActivity {
     private Long customerRequestId;
     private Integer jobStatus;
     private Long providerId;
+    private int WHERE_FLAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +82,11 @@ public class JobDetailsCompletedActivity extends BaseActivity {
         Intent intent = getIntent();
         if(intent != null){
             customerRequestId = Long.valueOf(getIntent().getStringExtra("customerRequestId"));
-            Toast.makeText(this, "customerRequestId=" + customerRequestId.toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "customerRequestId=" + customerRequestId.toString(), Toast.LENGTH_SHORT).show();
+            String fromActivity = intent.getExtras().getString("Uniqid");
+            if(fromActivity != null && fromActivity.equals("From_Activity_Job_Detail")){
+                WHERE_FLAG = 1;
+            }
         }
 
         ApiServices apiServices = ApiClient.getClient(getApplicationContext()).create(ApiServices.class);
@@ -182,5 +188,15 @@ public class JobDetailsCompletedActivity extends BaseActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(WHERE_FLAG == 1){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }else {
+            super.onBackPressed();
+        }
     }
 }

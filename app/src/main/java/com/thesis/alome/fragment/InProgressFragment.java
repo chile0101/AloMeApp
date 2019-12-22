@@ -86,8 +86,7 @@ public class InProgressFragment extends Fragment {
     public void onResume() {
         super.onResume();
         callApi();
-        Toast.makeText(getActivity(), "" + typeJobValue, Toast.LENGTH_SHORT).show();
-
+       // Toast.makeText(getActivity(), "" + typeJobValue, Toast.LENGTH_SHORT).show();
     }
 
     @Override

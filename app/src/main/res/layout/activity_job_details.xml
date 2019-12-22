@@ -592,7 +592,7 @@
                         android:id="@+id/btnCompleted"
                         android:layout_marginLeft="36dp"
                         android:layout_marginRight="8dp"
-                        android:background="@drawable/shape_btn_access"
+                        android:background="@drawable/shape_btn_confirm_completed_job"
                         android:layout_weight="1"
                         android:text="@string/completed"
                         android:textColor="@color/white"

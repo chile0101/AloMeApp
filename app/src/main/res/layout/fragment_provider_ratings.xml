@@ -18,6 +18,7 @@
             android:layout_height="match_parent" />
 
         <RelativeLayout
+            android:layout_marginTop="@dimen/padding_8"
             android:layout_marginLeft = "16dp"
             android:layout_marginRight = "16dp"
             android:background="@drawable/shape_empty_list_view"
