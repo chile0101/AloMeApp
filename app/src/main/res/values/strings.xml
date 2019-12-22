@@ -203,5 +203,5 @@
     <string name="help">Help</string>
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBZvQYrEyGrCAIhE5D3M1BZFuBHkZ5IowI</string>
-    <string name="title_activity_search_address">SearchAddressActivity</string>
+    <string name="you_have_rated_for_this_job">You have already rated for this job</string>
 </resources>

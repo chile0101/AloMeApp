@@ -7,12 +7,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,8 @@ public class SignInFragment extends Fragment implements FragmentLifecycle {
     Button btnSignIn;
     EditText edtEmail,edtPassword;
     TextView tvEmailError,tvPasswordError;
+    ImageView ivShowPass;
+    private boolean clickedShowPass = false;
 
     @Nullable
     @Override
@@ -46,6 +51,21 @@ public class SignInFragment extends Fragment implements FragmentLifecycle {
 
         mapping(view);
         PrefUtils.storeEmailSignUp(getContext(),"");
+
+        ivShowPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!clickedShowPass){
+                    edtPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    clickedShowPass = true;
+                    edtPassword.setSelection(edtPassword.getText().length());
+                }else {
+                    edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    clickedShowPass = false;
+                    edtPassword.setSelection(edtPassword.getText().length());
+                }
+            }
+        });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,6 +154,7 @@ public class SignInFragment extends Fragment implements FragmentLifecycle {
         edtPassword = (EditText) view.findViewById(R.id.edtPassword);
         tvEmailError = (TextView) view.findViewById(R.id.tvEmailError);
         tvPasswordError = (TextView) view.findViewById(R.id.tvPasswordError);
+        ivShowPass = (ImageView) view.findViewById(R.id.ivShowPass);
     }
 
     @Override

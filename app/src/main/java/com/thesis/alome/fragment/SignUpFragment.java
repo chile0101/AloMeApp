@@ -7,34 +7,26 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
-import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.thesis.alome.R;
 import com.thesis.alome.activity.SearchAddressActivity;
 import com.thesis.alome.activity.SignInSignUpActivity;
-import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.ApiClient;
+import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.FragmentLifecycle;
 import com.thesis.alome.config.PrefUtils;
 import com.thesis.alome.model.ReqSignUp;
 import com.thesis.alome.model.RespBase;
-
-import java.util.Arrays;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,6 +50,7 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
         return inflater.inflate(R.layout.fragment_sign_up,container,false);
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
@@ -66,24 +59,10 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
         tvAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (!Places.isInitialized()) {
-//                    Places.initialize(getContext().getApplicationContext(), getString(R.string.google_maps_key));
-//                }
-//
-//                // Set the fields to specify which types of place data to return.
-//                List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
-
-                // Start the autocomplete intent.
-//                Intent intent = new Autocomplete.IntentBuilder(
-//                        AutocompleteActivityMode.FULLSCREEN, fields)
-//                        .build(getActivity());
-//                startActivityForResult(intent, 1);
-
                 Intent intent = new Intent(getActivity(), SearchAddressActivity.class);
                 startActivityForResult(intent,PICK_ADDRESS);
             }
         });
-
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -263,6 +242,7 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
         tvPasswordError = (TextView) view.findViewById(R.id.tvPasswordError);
         tvConfirmPasswordError = (TextView) view.findViewById(R.id.tvConfirmPasswordError);
         tvPhoneError = (TextView) view.findViewById(R.id.tvPhoneError);
+
     }
 
     @Override

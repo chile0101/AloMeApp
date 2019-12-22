@@ -90,7 +90,7 @@ public class ReviewDialog {
                     @Override
                     public void onResponse(Call<RespBase> call, Response<RespBase> response) {
                         if(response.body()!= null && response.body().getStatus()){
-                            Toast.makeText(context, "Bạn đã đánh giá cho công việc này", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, context.getString(R.string.you_have_rated_for_this_job), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(context,JobDetailsCompletedActivity.class);
 
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

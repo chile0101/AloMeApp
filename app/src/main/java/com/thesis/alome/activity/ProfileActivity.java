@@ -197,7 +197,7 @@ public class ProfileActivity extends BaseActivity implements EasyPermissions.Per
             @Override
             public void onResponse(Call<RespBase> call, Response<RespBase> response) {
                 if(response.body() != null && response.body().getStatus()){
-                    Toast.makeText(ProfileActivity.this, "image uploaded", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ProfileActivity.this, "image uploaded", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(ProfileActivity.this, getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
                 }

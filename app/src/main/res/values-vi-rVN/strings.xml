@@ -199,5 +199,5 @@
     <string name="about_us_page_copyright_text">Alome version %1$s\\10© 2019 Alome co.,Ltd Rights Reserved</string>
     <string name="alome_app">AloMe App</string>
     <string name="title_home">Home</string>
-
+    <string name="you_have_rated_for_this_job">Bạn đã đánh giá cho công việc này</string>
 </resources>
