@@ -41,7 +41,7 @@
             android:layout_marginEnd="16dp"
             android:orientation="horizontal"
             android:padding="@dimen/padding_8"
-            app:layout_constraintBottom_toTopOf="@+id/btnSelect"
+            app:layout_constraintBottom_toTopOf="@+id/btnContinue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivHamburger">

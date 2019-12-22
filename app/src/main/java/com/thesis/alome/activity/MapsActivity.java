@@ -298,7 +298,7 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
             public void onSlide(@NonNull View view, float v) { }
         });
 
-        Places.initialize(this, getResources().getString(R.string.google_maps_key_active));
+        Places.initialize(this, getResources().getString(R.string.google_maps_key));
         edtSearch.addTextChangedListener(filterTextWatcher);
         mAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this);
         rcvSearchLocation.setLayoutManager(new LinearLayoutManager(this));
@@ -323,7 +323,7 @@ public class MapsActivity extends FragmentActivity implements EasyPermissions.Pe
 
     @Override
     public void click(Place place) {
-        Toast.makeText(this, place.getAddress()+", "+place.getLatLng().latitude+place.getLatLng().longitude, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, place.getAddress()+", "+place.getLatLng().latitude+place.getLatLng().longitude, Toast.LENGTH_SHORT).show();
         myLocation = new LatLng(place.getLatLng().latitude,place.getLatLng().longitude);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, DEFAULT_ZOOM));

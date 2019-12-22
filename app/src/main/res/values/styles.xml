@@ -34,6 +34,7 @@
         <item name="android:drawablePadding">-20dp</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
     <style name="GoogleButtonStyle">
         <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@android:color/white</item>
@@ -66,11 +67,13 @@
         <item name="tabTextColor">@color/dark_gray_color</item>
         <item name="tabTextAppearance">@style/SignInSignUpTabTextAppearance</item>
     </style>
+
     <style name="SignInSignUpTabTextAppearance">
         <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">18dp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
     <style name="StepTabLayout">
         <item name="tabIndicatorHeight">4dp</item>
         <item name="tabBackground">@android:color/transparent</item>
@@ -79,6 +82,7 @@
         <item name="tabTextColor">@color/dark_gray_color</item>
         <item name="tabTextAppearance">@style/StepTabTextAppearance</item>
     </style>
+
     <style name="StepTabTextAppearance">
         <item name="android:textSize">16dp</item>
         <item name="android:textAllCaps">true</item>
@@ -108,6 +112,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_20</item>
     </style>
+
     <style name="TextSlideStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -132,6 +137,7 @@
     <style name="BottomNavigationView">
         <item name="android:textSize">@dimen/text_size_12</item>
     </style>
+
     <style name="BottomNavigationView.Active">
         <item name="android:textSize">@dimen/text_size_14</item>
     </style>
@@ -147,6 +153,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
     <style name="EditTextInPutTypeTextFormStyle">
         <item name="android:textSize">8sp</item>
         <item name="android:textColor">@color/orange_color</item>
@@ -169,6 +176,7 @@
         <item name="android:minHeight">@dimen/btn_height</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
     <style name="TextViewDescriptionFormStyle">
         <item name="android:textSize">8sp</item>
         <item name="android:textColor">@color/orange_color</item>
@@ -177,6 +185,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
     <style name="OrangeButtonMatchParentStyle">
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">@dimen/text_size_16</item>
@@ -188,6 +197,7 @@
         <item name="android:minHeight">@dimen/btn_height</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
     <style name="EditTextInPutTypeNumberFormStyle">
         <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/orange_color</item>
@@ -199,6 +209,7 @@
         <item name="android:singleLine">true</item>
 
     </style>
+
     <style name="EditTextInPutTypeDescriptionFormStyle">
         <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/orange_color</item>
@@ -225,10 +236,12 @@
         <item name="android:minHeight">18dp</item>
         <item name="android:maxHeight">18dp</item>
     </style>
+
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/colorAccent</item>
         <item name="colorControlActivated">@color/star_yellow</item>
     </style>
+
     <style name="RatingBarColorPrimary" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/colorAccent</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
@@ -237,6 +250,7 @@
     <style name="InProgessCompleteJobsTabLayout">
         <item name="tabTextAppearance">@style/InProgessCompleteJobsTabTextAppearance</item>
     </style>
+
     <style name="InProgessCompleteJobsTabTextAppearance">
         <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textAllCaps">true</item>
@@ -255,18 +269,21 @@
         <item name="android:progressDrawable">@drawable/rating_star_large_style</item>
         <item name="android:minHeight">36dp</item>
     </style>
+
     <style name="RatingBarNormalStyle">
         <item name="android:layout_gravity">clip_horizontal</item>
         <item name="android:maxHeight">16dp</item>
         <item name="android:progressDrawable">@drawable/rating_star_normal_style</item>
         <item name="android:minHeight">17dp</item>
     </style>
+
     <style name="RatingBarSmallStyle">
         <item name="android:layout_gravity">clip_horizontal</item>
         <item name="android:maxHeight">10dp</item>
         <item name="android:progressDrawable">@drawable/rating_star_small_style</item>
         <item name="android:minHeight">10dp</item>
     </style>
+
     <style name="RewardTabLayout">
         <item name="android:textColor">@color/dark_gray_color</item>
         <item name="tabBackground">@android:color/white</item>
@@ -274,6 +291,7 @@
         <item name="tabSelectedTextColor">@color/orange_color</item>
         <item name="tabTextAppearance">@style/RewardTextAppearance</item>
     </style>
+
     <style name="RewardTextAppearance">
         <item name="android:textSize">@dimen/text_size_20</item>
         <item name="android:textAllCaps">false</item>
@@ -286,7 +304,7 @@
     <!-- Text Appearance -->
     <style name="TextAppearance" parent="TextAppearance.AppCompat" />
 
-    <style name="TextAppearance.AppRatingDialog"/>
+    <style name="TextAppearance.AppRatingDialog" />
 
     <style name="TextAppearance.AppRatingDialog.Title">
         <item name="android:fontFamily">@font/roboto_medium</item>
@@ -304,4 +322,13 @@
         <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
-    </resources>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

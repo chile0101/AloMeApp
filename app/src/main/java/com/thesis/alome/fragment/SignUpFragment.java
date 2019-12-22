@@ -24,6 +24,7 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.thesis.alome.R;
+import com.thesis.alome.activity.SearchAddressActivity;
 import com.thesis.alome.activity.SignInSignUpActivity;
 import com.thesis.alome.config.ApiServices;
 import com.thesis.alome.config.ApiClient;
@@ -44,6 +45,8 @@ import static android.app.Activity.RESULT_OK;
 
 public class SignUpFragment extends Fragment implements FragmentLifecycle {
 
+    static final int PICK_ADDRESS = 1;
+
     Button btnSignUp;
     EditText edtFullName,edtEmail,edtPassword, edtPhone;
     TextView tvFullNameError,tvEmailError,tvPasswordError,tvConfirmPasswordError, tvPhoneError, tvAddress;
@@ -63,18 +66,21 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
         tvAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!Places.isInitialized()) {
-                    Places.initialize(getContext().getApplicationContext(), getString(R.string.google_maps_key_active));
-                }
-
-                // Set the fields to specify which types of place data to return.
-                List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
+//                if (!Places.isInitialized()) {
+//                    Places.initialize(getContext().getApplicationContext(), getString(R.string.google_maps_key));
+//                }
+//
+//                // Set the fields to specify which types of place data to return.
+//                List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
 
                 // Start the autocomplete intent.
-                Intent intent = new Autocomplete.IntentBuilder(
-                        AutocompleteActivityMode.FULLSCREEN, fields)
-                        .build(getActivity());
-                startActivityForResult(intent, 1);
+//                Intent intent = new Autocomplete.IntentBuilder(
+//                        AutocompleteActivityMode.FULLSCREEN, fields)
+//                        .build(getActivity());
+//                startActivityForResult(intent, 1);
+
+                Intent intent = new Intent(getActivity(), SearchAddressActivity.class);
+                startActivityForResult(intent,PICK_ADDRESS);
             }
         });
 
@@ -261,18 +267,15 @@ public class SignUpFragment extends Fragment implements FragmentLifecycle {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
+        if (requestCode == PICK_ADDRESS) {
             if (resultCode == RESULT_OK) {
-                Place place = Autocomplete.getPlaceFromIntent(data);
-                Toast.makeText(getActivity(), place.getAddress() , Toast.LENGTH_SHORT).show();
-                longitude = String.valueOf(place.getLatLng().longitude);
-                latitude = String.valueOf(place.getLatLng().latitude);
-                tvAddress.setText(place.getAddress());
+                longitude = String.valueOf(data.getExtras().get("lng"));
+                latitude = String.valueOf(data.getExtras().get("lat"));
+                tvAddress.setText(String.valueOf(data.getExtras().get("address"))    );
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
-                Status status = Autocomplete.getStatusFromIntent(data);
-                Log.i("jjj", status.getStatusMessage());
+                Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
             } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
+                Toast.makeText(getActivity(), getString(R.string.somthing_wrong), Toast.LENGTH_SHORT).show();
             }
         }
 
