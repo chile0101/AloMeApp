@@ -198,13 +198,10 @@ public class StepActivity extends BaseActivity {
         File compressedImageFile = null ;
         try {
             compressedImageFile = new Compressor(this)
-                    .setMaxWidth(640)
-                    .setMaxHeight(480)
-                    .setQuality(75)
-                    .setCompressFormat(Bitmap.CompressFormat.WEBP)
-                    .setDestinationDirectoryPath(Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_PICTURES).getAbsolutePath())
-                    .compressToFile(file);
+//                    .setDestinationDirectoryPath(Environment.getExternalStoragePublicDirectory(
+//                            Environment.DIRECTORY_PICTURES).getAbsolutePath())
+                    .compressToFile(file,file.getName()+"@");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
