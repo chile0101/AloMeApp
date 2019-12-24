@@ -200,4 +200,6 @@
     <string name="alome_app">AloMe App</string>
     <string name="title_home">Home</string>
     <string name="you_have_rated_for_this_job">Bạn đã đánh giá cho công việc này</string>
+    <string name="vnd_per_hour">đ/giờ</string>
+
 </resources>

@@ -201,7 +201,10 @@
     <string name="vnd">đ</string>
     <string name="about_us">About us</string>
     <string name="help">Help</string>
+    <string name="vnd_per_hour">vnđ/hour</string>
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBZvQYrEyGrCAIhE5D3M1BZFuBHkZ5IowI</string>
     <string name="you_have_rated_for_this_job">You have already rated for this job</string>
+
+
 </resources>

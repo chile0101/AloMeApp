@@ -86,9 +86,10 @@ public class ServiceDetailActivity extends BaseActivity
                     sliderLayout.setDuration(4000);
 
                     tvTitle.setText(response.body().getData().getServiceName() );
-                    tvFullPrice.setText(response.body().getData().getFullPrice() + " " + getString(R.string.vnd));
-
-                    tvSalePrice.setText(response.body().getData().getSalePrice() + " - ");
+                    Long fullPrice = Math.round(response.body().getData().getFullPrice())/1000;
+                    Long salePrice = Math.round(response.body().getData().getSalePrice())/1000;
+                    tvFullPrice.setText(fullPrice + ".000" + " " + getString(R.string.vnd_per_hour));
+                    tvSalePrice.setText(salePrice + ".000" + " - " );
                     tvContentDetail.setText(response.body().getData().getDescription());
                     tvContentTerm.setText(response.body().getData().getTerm());
                 }
