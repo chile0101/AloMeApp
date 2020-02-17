@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.thesis.alome.R;
 import com.thesis.alome.config.ApiClient;
 import com.thesis.alome.config.ApiServices;
@@ -33,6 +36,7 @@ public class ProviderInfoFragment extends Fragment {
     @BindView(R.id.tvPhone) TextView tvPhone;
     @BindView(R.id.tvJob) TextView tvJob;
     @BindView(R.id.btnAloNow) Button btnAloNow;
+    @BindView(R.id.selected_photos_container) LinearLayout selected_photos_container;
     ProviderDetails provider;
 
 
@@ -52,6 +56,20 @@ public class ProviderInfoFragment extends Fragment {
             public void onResponse(Call<RespBase<ProviderDetails>> call, Response<RespBase<ProviderDetails>> response) {
                 if(response.body() != null && response.body().getStatus() == true){
                     provider = response.body().getData();
+                    String imagesStr = provider.getImages();
+                    String arr [] = imagesStr.split(";");
+
+                    float width = getResources().getDimension(R.dimen.imageSize120dp);
+                    float height = getResources().getDimension(R.dimen.imageSize140dp);
+                    LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams((int)width,(int)height));
+                    for(String url : arr){
+                        ImageView img = new ImageView(getActivity());
+                        img.setLayoutParams(imgParams);
+                        Picasso.get().load(url).into(img);
+                        selected_photos_container.addView(img);
+                    }
+
+
                     tvName.setText(provider.getFullName());
                     tvAddress.setText(provider.getAddress());
                     tvPhone.setText(provider.getPhone());

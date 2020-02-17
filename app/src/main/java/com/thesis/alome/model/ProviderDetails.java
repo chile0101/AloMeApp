@@ -3,6 +3,8 @@ package com.thesis.alome.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ProviderDetails {
 
     @SerializedName("fullName")
@@ -16,6 +18,10 @@ public class ProviderDetails {
     @SerializedName("address")
     @Expose
     private String address;
+
+    @SerializedName("certification")
+    @Expose
+    private String images;
 
     public ProviderDetails(String fullName, String phone, String address) {
         this.fullName = fullName;
@@ -45,5 +51,13 @@ public class ProviderDetails {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
     }
 }
